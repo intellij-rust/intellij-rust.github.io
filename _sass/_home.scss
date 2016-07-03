@@ -1,0 +1,80 @@
+/**
+ * Home page jumbotron
+ */
+.jumbo {
+    background: #fff url('beam.svg') center center no-repeat;
+    background-size: cover;
+    margin-top: -$header-height;
+    padding-top: $spacing-unit * 4 + $header-height;
+    padding-bottom: $spacing-unit * 4;
+
+    font-size: 1.75em;
+    text-align: center;
+    color: transparentize(#000, 0.08);
+
+    h1 {
+        font-family: $title-font-family;
+        font-weight: $title-font-weight;
+        text-transform: none;
+        font-size: 2.5em;
+        line-height: 0.5;
+
+    }
+
+    @include media-query($on-palm) {
+        font-size: 1.25em;
+        padding-top: $spacing-unit * 2 + $header-height;
+        padding-bottom: $spacing-unit * 2;
+    }
+}
+
+#download {
+    margin-top: $spacing-unit * 1.5;
+
+    font-size: 11pt;
+    text-transform: uppercase;
+
+    .download-stable, .download-gh, .download-nightly {
+        transition: all 0.2s;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .download-stable {
+        display: inline-block;
+        margin-bottom: $spacing-unit / 3;
+
+        font-weight: $header-font-weight;
+        color: transparentize($background-color, 0.1);
+        background: transparentize(#000, 0.5);
+        padding: $spacing-unit/2 $spacing-unit;
+        border-radius: $spacing-unit/2 + 14pt;
+
+        &:hover {
+            background-color: transparentize($grey-color-dark, 0.5);
+        }
+    }
+
+    .download-gh, .download-nightly {
+        font-size: 0.9em;
+        color: transparentize(#000, 0.3);
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    .sep {
+        color: transparentize(#000, 0.65);
+    }
+}
+
+/**
+ * Features section
+ */
+.features {
+    background: $grey-color-dark;
+    color: $background-color;
+}
