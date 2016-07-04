@@ -1,10 +1,13 @@
+body.home {
+    padding-top: 0;
+}
+
 /**
  * Home page jumbotron
  */
 .jumbo {
     background: #fff url('beam.svg') center center no-repeat;
     background-size: cover;
-    margin-top: -$header-height;
     padding-top: $spacing-unit * 4 + $header-height;
     padding-bottom: $spacing-unit * 4;
 

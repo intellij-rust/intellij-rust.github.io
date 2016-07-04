@@ -3,17 +3,15 @@ layout: page
 title: This Week in IntelliJ-Rust
 linktitle: What's New
 permalink: /thisweek/
+class: thisweek-listing
 order: 0
 ---
 
-<ul class="post-list">
+<table class="post-list">
   {% for post in site.posts %}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-      <h2>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h2>
-    </li>
+    <tr>
+      <td><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></td>
+      <td><h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2></td>
+    </tr>
   {% endfor %}
-</ul>
+</table>

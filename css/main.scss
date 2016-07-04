@@ -33,6 +33,7 @@ $header-height: 56px;
 
 // Width of the content area
 $content-width:    1024px;
+$thin-content-width: 800px;
 
 $on-palm:          600px;
 $on-laptop:        1024px;
@@ -69,5 +70,6 @@ $icon-rss: "\ea9b";
         "base",
         "layout",
         "home",
+        "thisweek",
         "syntax-highlighting"
 ;
