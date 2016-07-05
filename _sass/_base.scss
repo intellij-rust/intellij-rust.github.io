@@ -202,18 +202,11 @@ pre {
 
 
 /**
- * Icons
+ * Misc
  */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
+.wip {
+    color: $brand-color;
+    vertical-align: super;
+    font-size: 0.4em;
+    font-weight: 400;
 }

@@ -35,7 +35,7 @@ $header-height: 56px;
 $content-width:    1024px;
 $thin-content-width: 800px;
 
-$on-palm:          600px;
+$on-palm:          800px;
 $on-laptop:        1024px;
 
 // Icon font
@@ -58,6 +58,12 @@ $icon-rss: "\ea9b";
 // }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+@mixin media-query-min($device) {
+    @media screen and (min-width: $device+1) {
         @content;
     }
 }

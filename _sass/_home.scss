@@ -80,3 +80,42 @@ body.home {
 .features {
     @extend .grey-pane;
 }
+
+.big-feature {
+    color: $grey-color-dark;
+
+    @include media-query-min($on-palm) {
+        max-width: 30%;
+        margin-top: $spacing-unit * 2.75;
+    }
+}
+
+@include media-query-min($on-palm) {
+    .showcase-pic {
+        position: absolute;
+        height: auto;
+        overflow: hidden;
+
+        img {
+            max-width: none;
+        }
+    }
+
+    .ir-completion {
+        // wrapper padding + h1 bottom margin + h1 size + some nice margin
+        margin-top: -($spacing-unit + $spacing-unit/2 + 32px*$base-line-height + 27px);
+        left: calc(50% - #{$content-width * 0.1});
+        width: calc(50% + #{$content-width * 0.1});
+    }
+
+    .ir-goto-symbol {
+        margin-top: 55px;
+        left: 50%;
+    }
+}
+
+@include media-query($on-palm) {
+    .showcase-pic {
+        text-align: center;
+    }
+}
