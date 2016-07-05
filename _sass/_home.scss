@@ -78,6 +78,5 @@ body.home {
  * Features section
  */
 .features {
-    background: $grey-color-dark;
-    color: $background-color;
+    @extend .grey-pane;
 }

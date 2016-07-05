@@ -99,7 +99,7 @@ a {
         color: darken($brand-color, 15%);
     }
 
-    &:hover {
+    &:hover, &:focus {
         color: $text-color;
         text-decoration: underline;
     }
