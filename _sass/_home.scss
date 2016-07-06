@@ -79,18 +79,37 @@ body.home {
  */
 .features {
     @extend .grey-pane;
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+    }
 }
 
-.big-feature {
+.feature {
     color: $grey-color-dark;
+}
+
+.major-features {
+    @include media-query-min($on-palm) {
+        min-height: 740px;
+    }
+}
+
+.major-feature {
+    @extend .feature;
 
     @include media-query-min($on-palm) {
         max-width: 30%;
-        margin-top: $spacing-unit * 2.75;
+        margin-top: $spacing-unit * 2;
     }
 }
 
 @include media-query-min($on-palm) {
+    .major-features {
+        margin-bottom: $spacing-unit;
+    }
+
     .showcase-pic {
         position: absolute;
         height: auto;
@@ -109,7 +128,7 @@ body.home {
     }
 
     .ir-goto-symbol {
-        margin-top: 55px;
+        margin-top: 70px;
         left: 50%;
     }
 }
@@ -117,5 +136,32 @@ body.home {
 @include media-query($on-palm) {
     .showcase-pic {
         text-align: center;
+        margin-bottom: $spacing-unit/2;
     }
+
+    .major-feature {
+        margin-bottom: $spacing-unit*2/3;
+    }
+}
+
+.minor-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -$spacing-unit/3;
+}
+
+.minor-feature {
+    @extend .feature;
+    flex: 1 0 $thin-content-width*0.3;
+    padding: $spacing-unit/3;
+}
+
+.minor-feature-1-3 {
+    @extend .minor-feature;
+}
+
+.minor-feature-2-3 {
+    @extend .minor-feature;
+    flex-grow: 6;
 }

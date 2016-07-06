@@ -132,15 +132,24 @@ blockquote {
 /**
  * Code formatting
  */
-pre,
-code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
+pre, code, kbd {
+    font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Courier New", monospace;
     border-radius: 3px;
+}
+
+pre, code {
+    border: 1px solid $grey-color-light;
     background-color: #eef;
 }
 
-code {
+kbd {
+    font-size: 0.8em;
+    color: $background-color;
+    border: 1px solid darken($grey-color-dark, 10%);
+    background-color: $grey-color-dark;
+}
+
+code, kbd {
     padding: 1px 5px;
 }
 
@@ -207,6 +216,6 @@ pre {
 .wip {
     color: $brand-color;
     vertical-align: super;
-    font-size: 0.4em;
+    font-size: 0.5em;
     font-weight: 400;
 }
