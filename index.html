@@ -108,11 +108,9 @@ class: home
     <h1>This Week in intellij-rust</h1>
     {% assign post = site.posts.first %}
     <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-
+    <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
     <article>{{ post.content }}</article>
+    <div class="center"><a class="previous-editions-link" href="{{ site.github.url }}/thisweek/">Previous editions</a>
+    </div>
   </div>
 </div>

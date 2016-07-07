@@ -50,10 +50,13 @@ body.home {
         margin-bottom: $spacing-unit / 3;
 
         font-weight: $header-font-weight;
-        color: transparentize($background-color, 0.1);
         background: transparentize(#000, 0.5);
         padding: $spacing-unit/2 $spacing-unit;
         border-radius: $spacing-unit/2 + 14pt;
+
+        &, &:visited {
+            color: transparentize($background-color, 0.1);
+        }
 
         &:hover {
             background-color: transparentize($grey-color-dark, 0.5);
@@ -62,7 +65,10 @@ body.home {
 
     .download-gh, .download-nightly {
         font-size: 0.9em;
-        color: transparentize(#000, 0.3);
+
+        &, &:visited {
+            color: transparentize(#000, 0.3);
+        }
 
         &:hover {
             color: #000;
@@ -175,5 +181,21 @@ body.home {
     @include media-query-min($on-palm) {
         flex: 66.667%;
         max-width: 66.667%;
+    }
+}
+
+/**
+ * This Week section
+ */
+.previous-editions-link {
+    font-size: 11pt;
+    text-transform: uppercase;
+    font-weight: $header-font-weight;
+    transition: border-bottom-color 0.1s;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+        text-decoration: none;
+        border-color: $brand-color;
     }
 }
