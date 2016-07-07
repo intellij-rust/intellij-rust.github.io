@@ -153,15 +153,27 @@ body.home {
 
 .minor-feature {
     @extend .feature;
-    flex: 1 0 $thin-content-width*0.3;
+
+    box-sizing: border-box;
+    flex: 100%;
+    max-width: 100%;
     padding: $spacing-unit/3;
+
+    &.stack > .minor-feature {
+        padding: 0;
+    }
 }
 
-.minor-feature-1-3 {
-    @extend .minor-feature;
+.minor-feature.col-1-3 {
+    @include media-query-min($on-palm) {
+        flex: 33.333%;
+        max-width: 33.333%;
+    }
 }
 
-.minor-feature-2-3 {
-    @extend .minor-feature;
-    flex-grow: 6;
+.minor-feature.col-2-3 {
+    @include media-query-min($on-palm) {
+        flex: 66.667%;
+        max-width: 66.667%;
+    }
 }

@@ -28,7 +28,7 @@ class: home
         <h2>Native Code Completion <abbr title="Work In Progress" class="wip">WIP</abbr></h2>
         <p>intellij-rust utilizes IntelliJ's built-in completion engine, completely independent from <code>racer</code>
           or any other 3rd-party utilities. A decent amount of completion intelligence is already implemented, but
-          it's still at early stages of development.</p>
+          it's still at early stages of development</p>
       </div>
       <div class="ir-goto-symbol showcase-pic">
         <img src="{{ site.github.url }}/img/ir-goto-symbol.png"/>
@@ -45,22 +45,31 @@ class: home
     </div>
 
     <div class="minor-features">
-      <div class="minor-feature-1-3">
-        <h2>Code Formatter</h2>
-        <p><kbd>Ctrl+Alt+l</kbd> reformats current file using our custom, fully functional
-          formatter based on IntelliJ's formatting engine though <code>rustfmt</code> support
-          is <abbr title="Work In Progress" class="wip">WIP</abbr></p>
+      <div class="minor-feature col-1-3 stack">
+        <div class="minor-feature">
+          <h2>Code Formatter</h2>
+          <p><kbd>Ctrl+Alt+l</kbd> reformats current file using our custom, fully functional
+            formatter based on IntelliJ's formatting engine, though <code>rustfmt</code> support
+            is <abbr title="Work In Progress" class="wip">WIP</abbr></p>
+        </div>
+        <div class="minor-feature">
+          <h2>File Structure</h2>
+          <p><kbd>Ctrl+F12</kbd> brings up an overview of the current file. It is usefull for navigation.
+            <kbd>Alt+7</kbd> presents the same information in the "project structure" style</p>
+        </div>
       </div>
-      <div class="minor-feature-1-3">
-        <h2>File Structure</h2>
-        <p><kbd>Ctrl+F12</kbd> brings up an overview of the current file. It is usefull for navigation.
-          <kbd>Alt+7</kbd> presents the same information in the "project structure" style</p>
+      <div class="minor-feature col-1-3">
+        <h2>Run Configurations</h2>
+        <p>Built-in <code>Cargo Command</code> run configuration, automatically created with
+          <kbd>Ctrl+Shift+F10</kbd> in following contexts:</p>
+        <ul>
+          <li><p>In the file with <code>main</code> function to execute the corresponding binary target
+            with <code>cargo run</code></p></li>
+          <li><p>Inside a <code>#[test]</code> function to execute single test</p></li>
+          <li><p>Inside a <code>#[test]</code> module to run all tests</p></li>
+        </ul>
       </div>
-      <div class="minor-feature-1-3">
-        <h2>Quick Documentation</h2>
-        <p><kbd>Ctrl+q</kbd> shows docs for the thing at caret</p>
-      </div>
-      <div class="minor-feature-1-3">
+      <div class="minor-feature col-1-3">
         <h2>Live Templates</h2>
         <ul>
           <li><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>print!</code> value</li>
@@ -72,7 +81,7 @@ class: home
           <li><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> surround templates</li>
         </ul>
       </div>
-      <div class="minor-feature-2-3">
+      <div class="minor-feature col-2-3">
         <h2>Intentions</h2>
         <ul>
           <li><b>Expand module</b>: invoke this action inside <code>foo.rs</code> file to get <code>foo/mod.rs</code>.
@@ -85,6 +94,10 @@ class: home
           <li><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums
           </li>
         </ul>
+      </div>
+      <div class="minor-feature col-1-3">
+        <h2>Quick Documentation</h2>
+        <p><kbd>Ctrl+q</kbd> shows docs for the thing at caret</p>
       </div>
     </div>
   </div>
