@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #1"
+date:   2016-06-19 14:34:00 +0200
+---
+## New features
+
+* GoTo symbol (<kbd>Ctrl+Alt+Shift+N</kbd>) works for methods.
+* Completion works for prelude symbols.
+* More formatter options with new code samples in settings (contributed by @jajakobyly).
+* It is possible to run all tests inside a single module.
+* Functions and statics inside `extern "C" { ... }` blocks are properly resolved.
+
+
+## Fixes
+
+* Proper lexing of `&&` as one or two tokens
+* A ton of fixes for funny bugs in resolve and types:
+  - proper scoping for "downwards" resolve: generic parameters are not resolved
+    outside the item,
+  - `RustPathElement` is not a `NamedElement`,
+  - `RustRegPat` is really a RustRefPat (reference pattern) and it is actually
+    extends Pattern,
+* Couple of NPEs and `IllegalStateExpcetions` during type inference,
+
+* A bunch of tests for type resolving and expression typing.
+
+
+## Refactorings
+
+* Refreshing RRE: new scopes API, old Resolver class is killed,
+enumerateScopesFor is moved inside RRE.
+
+* `RustItemElement` is now an interface.
+`RustFnElement` is now a suppertype for a bunch of function-like PSI nodes
+
+* Stubs improvements:
+  - methods now have stubs
+  - `isPublic` is stored in stubs
+
+* `getIcon` still depends on some AST information, so goto symbol unfortunately
+parses the world at the moment.

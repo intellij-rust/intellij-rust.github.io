@@ -12,3 +12,6 @@ description: Rust plugin for IntelliJ IDEA
 
 # Build settings
 markdown: kramdown
+
+gems:
+  - jemoji

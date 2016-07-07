@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #2"
+date:   2016-06-27 14:34:00 +0200
+---
+## New Features
+
+* :tada: First alpha is published. :tada:
+* Completion contributor for `#[derive()]` caluse (contributed by @bgourlie).
+* Stubs and _Goto Symbol_ for fields.
+* Resolve and completion for static methods.
+* Better notifications about Cargo version in use.
+* Type inference for enums, primitives, references and type aliases.
+* Formatter option to set a minimum number of blanks between items.
+
+
+## Fixes
+
+* Language ID is changed from `RUST` to `Rust`.
+* Literals are properly highlighted inside attributes (contributed by @jajakobyly)
+* Better parser recovery in if, while and match.
+* More tests and fixes for type inference.
+
+
+## Refactorings
+* `RustModuleIndex` is now based on stubs.
+* Tests to make sure that certain operations work on stubs and don't access the
+  AST (`getIcon`, `itemPresentation` and `getReference` are checked ).
+* Resolve caching.
+* `RustComputingVisitor` is used in type inference.
+* Overhaul of pattern matching code.

@@ -1,6 +1,0 @@
----
-layout: post
-title:  "Hello World!"
-date:   2016-07-01 16:06:30 +0200
----
-***Hello World!***

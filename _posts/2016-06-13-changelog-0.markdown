@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #0"
+date:   2016-06-13 14:34:00 +0200
+---
+## New features
+
+* Context aware run configurations
+* Working formatter (contributed by @jajakobyly)
+* Basic completion for fields and methods
+
+
+## Fixes
+
+* Better parser recovery (contributed by @himikof)
+* Cyclic package dependencies in cargo metadata supported
+* Module index supports `#[path]` attribute
+
+
+## Refactorings
+
+* Fleshing out type inference infra
+* Moving cargo related Module extensions to methods of `CargoProjectDescription`
+* Moving `Module.cargoProject` extension to `Project.cargoProject`
+* Moving all scoping related functions to `RustResolveScope` (PR in flight)
+* Changing `RustItem` into an interface (in flight, depends on the previous point)
+
+
+## Misc:
+
+* Better handling of "attaching stdlib sources" workflow (error reporting and
+  ability to change stdlib via project configurable)
