@@ -6,23 +6,6 @@ body {
     background: $grey-color-light;
 }
 
-.dark-pane {
-    background: $grey-color-dark;
-    color: $background-color;
-
-    a {
-        color: lighten($brand-color, 20%);
-
-        &:visited {
-            color: lighten($brand-color, 15%);
-        }
-
-        &:hover, &:focus {
-            color: invert($text-color);
-        }
-    }
-}
-
 /**
  * Site header
  */
@@ -126,7 +109,7 @@ body {
  * Site footer
  */
 .site-footer {
-    @extend .dark-pane;
+    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
 
