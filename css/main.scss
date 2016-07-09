@@ -68,6 +68,12 @@ $icon-rss: "\ea9b";
     }
 }
 
+@mixin media-query-between($device-min, $device-max) {
+    @media screen and (min-width: $device-min+1) and (max-width: $device-max) {
+        @content;
+    }
+}
+
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
@@ -77,5 +83,6 @@ $icon-rss: "\ea9b";
         "layout",
         "home",
         "thisweek",
+        "docs",
         "syntax-highlighting"
 ;

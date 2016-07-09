@@ -1,0 +1,117 @@
+/**
+ * Documentation
+ */
+
+$doc-nav-min-width: 150px;
+
+.doc {
+    color: $grey-color-dark;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $text-color;
+    }
+
+    h2, h3, h4, h5, h6 {
+        text-transform: none;
+        font-weight: 400;
+    }
+
+    @include media-query-between($on-palm, $content-width + $doc-nav-min-width*2) {
+        padding-right: $spacing-unit + $doc-nav-min-width;
+    }
+}
+
+.doc-header {
+    margin-bottom: $spacing-unit;
+}
+
+.doc-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.doc-content {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+        padding-top: $header-height;
+        font-size: 32px;
+
+        border-bottom: 1px solid $grey-color-light;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+}
+
+.doc-nav {
+    width: calc((100% - #{$content-width}) / 2);
+    min-width: $doc-nav-min-width;
+    max-width: $doc-nav-min-width*2;
+    font-size: 0.9em;
+
+    ul {
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            padding: 6px 0;
+            border-bottom: 1px solid $grey-color-light;
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+    @include media-query($on-palm) {
+        margin-bottom: $spacing-unit;
+        width: 100%;
+        max-width: none;
+    }
+
+    @include media-query-between($on-palm, $content-width + $doc-nav-min-width*2) {
+        float: right;
+    }
+
+    @include media-query-min($content-width + $doc-nav-min-width*2) {
+        position: fixed;
+        z-index: 100;
+        left: calc(50% + #{$content-width / 2} - #{$spacing-unit / 2});
+        background: $background-color;
+    }
+}
+
+.doc-tip {
+    border: 1px solid change_color($grey-color-light, $hue: 190deg, $saturation: 40);
+    border-bottom-width: 2px;
+    color: change_color($grey-color-dark, $hue: 190deg, $saturation: 40);
+    padding: $spacing-unit / 2;
+    margin-bottom: $spacing-unit;
+}

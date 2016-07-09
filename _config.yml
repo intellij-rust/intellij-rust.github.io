@@ -10,6 +10,17 @@ title: intellij-rust
 email: ""
 description: Rust plugin for IntelliJ IDEA
 
+collections:
+  docs:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: doc
+
 # Build settings
 markdown: kramdown
 

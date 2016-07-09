@@ -1,0 +1,27 @@
+---
+layout: base
+---
+<div class="page-content">
+  <div class="wrapper">
+    <nav class="doc-nav">
+      <ul>
+        {% assign sorted_pages = (site.docs | sort: 'order', 'last') %}
+        {% for page in sorted_pages %}
+          <li>
+            <a href="{{ page.url | site.baseurl }}">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <article class="doc">
+      <header class="doc-header">
+        <h1 class="doc-title">{{ page.title }}</h1>
+      </header>
+
+      <div class="doc-content">
+          {{ content }}
+      </div>
+    </article>
+  </div>
+</div>

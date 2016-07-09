@@ -8,12 +8,8 @@
       <a href="#" class="menu-icon icon-three-bars"></a>
 
       <div class="trigger">
-        {% assign sorted_pages = (site.pages | sort: 'order') %}
-        {% for my_page in sorted_pages %}
-          {% if my_page.title %}
-          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{% if my_page.linktitle %}{{ my_page.linktitle }}{% else %}{{ my_page.title }}{% endif %}</a>
-          {% endif %}
-        {% endfor %}
+          <a class="page-link" href="{{ site.baseurl }}/thisweek/">What's New</a>
+          <a class="page-link" href="{{ site.baseurl }}/docs/">Docs</a>
       </div>
     </nav>
 
