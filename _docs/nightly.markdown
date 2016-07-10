@@ -15,4 +15,4 @@ of adding additional plugin repository and paste the URL for the one you need:
 
 As this is a preview release, something might go wrong. So, be brave to face some nasty bugs.
 If you find one, we would very appreciate if you file an [issue](https://github.com/intellij-rust/intellij-rust/issues)
-on our bugtracker, or ping us on our [chat](https://gitter.im/intellij-rust/intellij-rust).
+on our bugtracker or ping us on our [chat](https://gitter.im/intellij-rust/intellij-rust).

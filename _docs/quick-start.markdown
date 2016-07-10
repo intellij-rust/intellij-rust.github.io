@@ -62,7 +62,7 @@ Fill in the name of a command and additional arguments.
 
 ![edit-run-configuration](https://cloud.githubusercontent.com/assets/1711539/14211918/33ce8e56-f839-11e5-92c2-8c96bf365699.png)
 
-You should be able to compile and **Run** (<kbd>Shift+f10</kbd>) your application from the IDE now:
+You should be able to compile and **Run** (<kbd>Shift+F10</kbd>) your application from the IDE now:
 
 ![running](https://cloud.githubusercontent.com/assets/1711539/14211917/33cb0c54-f839-11e5-8026-d4fd7a7b44fd.png)
 
