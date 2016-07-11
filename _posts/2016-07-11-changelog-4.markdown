@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #4"
+date:   2016-07-11 12:27:29 +0300
+---
+## New Features
+
+* We have a [website] :tada: (thanks to @jajakobyly).
+* Path to `Cargo.toml` is shown in the project settings.
+* Find usages is enabled for all symbols.
+
+
+## Fixes
+
+* Method calls and field references are properly highlighted.
+* `RUSTC` environmental variable is passed to `cargo`, so it now works even
+  without `rustc` in `PATH` (by @madisp)
+
+
+## Refactorings
+
+* JFlex was upgraded to the patched version from intellij community repository.
+  It is now asymptotically faster in some cases (most notably, for markdown doc
+  comments).
+* A TeamCity configuration is added to track [performance metrics].
+
+[website]: https://intellij-rust.github.io/
+[performance metrics]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=IntellijIdeaPlugins_Rust_PerfrormanceTestsRust

@@ -26,7 +26,7 @@ date:   2016-06-13 14:34:00 +0200
 * Changing `RustItem` into an interface (in flight, depends on the previous point)
 
 
-## Misc:
+## Misc
 
 * Better handling of "attaching stdlib sources" workflow (error reporting and
   ability to change stdlib via project configurable)
