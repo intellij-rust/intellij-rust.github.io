@@ -25,4 +25,4 @@ date:   2016-07-11 12:27:29 +0300
 * A TeamCity configuration is added to track [performance metrics].
 
 [website]: https://intellij-rust.github.io/
-[performance metrics]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=IntellijIdeaPlugins_Rust_PerfrormanceTestsRust
+[performance metrics]: https://teamcity.jetbrains.com/viewType.html?buildTypeId=IntellijIdeaPlugins_Rust_PerfrormanceTestsRust&tab=buildTypeStatistics&branch_IntellijIdeaPlugins_Rust=__all_branches__
