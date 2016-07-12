@@ -38,8 +38,8 @@ identifiers already present in the file, but works surprisingly well.
 There are multiple reasons for this decision.
 
 First of all, `racer`'s interface is incomplete and designed to work with
-physical files, while IntelliJ Platform heavily uses in-memory buffers and
-virtual file systems. For example, we fetch standard library sources for
+physical files, while IntelliJ Platform makes heavy use of in-memory buffers
+and virtual file systems. For example, we fetch standard library sources for
 analysis from a zip of the `rustc` sources.
 
 Also, `racer` provides only code completion and basic navigation, while for
