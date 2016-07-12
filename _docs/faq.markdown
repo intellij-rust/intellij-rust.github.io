@@ -30,7 +30,7 @@ fn main() {
 ```
 
 Remember, if the smart completion does not work for your particular case,
-you can always invoke "dumb completion" via `Alt+/`. It merely suggests
+you can always invoke "dumb completion" via <kbd>Alt+/</kbd>. It merely suggests
 identifiers already present in the file, but works surprisingly well.
 
 ## Why do you not use `racer` for completion?
