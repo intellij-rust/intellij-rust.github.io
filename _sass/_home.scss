@@ -21,7 +21,15 @@ body.home {
         text-transform: none;
         font-size: 2.5em;
         line-height: 0.5;
+    }
 
+    .desc {
+        margin: 0;
+    }
+
+    .preview-note {
+        font-size: 0.45em;
+        color: transparentize(#000, 0.25);
     }
 
     @include media-query($on-palm) {
