@@ -33,19 +33,14 @@ Remember, if the smart completion does not work for your particular case,
 you can always invoke "dumb completion" via <kbd>Alt+/</kbd>. It merely suggests
 identifiers already present in the file, but works surprisingly well.
 
-## Why do you not use `racer` for completion?
+## Are you going to use `racer` or `RLS`?
 
-There are multiple reasons for this decision.
+No, we plan to implement most of the language analysis from scratch. This is
+a lot of work, but the benefits are substantial. We would be able to leverage
+IntelliJ Platform infrastructure for incremental analysis and indexing. With
+our own analysis we can provide more flexible quick fixes, intentions and typing
+assistance.
 
-First of all, `racer`'s interface is incomplete and designed to work with
-physical files, while IntelliJ Platform makes heavy use of in-memory buffers
-and virtual file systems. For example, we fetch standard library sources for
-analysis from a zip of the `rustc` sources.
-
-Also, `racer` provides only code completion and basic navigation, while for
-other features, like intentions, quick fixes, quick doc etc., we have anyway
-to implement custom code analysis.
-
-The same applies to the formatter (that is also hand written, but we plan to
-support running `rustfmt` as an action), which is necessary for proper working
+The same applies to the formatter (that is also from scratch, but we plan to
+support running `rustfmt` as an action). It is necessary for proper working
 of almost any feature which is modifying source code.
