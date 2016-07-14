@@ -55,60 +55,9 @@ class: home
     </div>
 
     <div class="minor-features">
-      <div class="minor-feature col-1-3 stack">
-        <div class="minor-feature">
-          <h2>Code Formatter</h2>
-          <p><kbd>Ctrl+Alt+L</kbd> reformats current file using our custom, fully functional
-            formatter based on IntelliJ's formatting engine, though <code>rustfmt</code> support
-            is <abbr title="Work In Progress" class="wip">WIP</abbr></p>
-        </div>
-        <div class="minor-feature">
-          <h2>File Structure</h2>
-          <p><kbd>Ctrl+F12</kbd> brings up an overview of the current file, useful for navigation.
-            <kbd>Alt+7</kbd> presents the same information in the "project structure" style</p>
-        </div>
-      </div>
-      <div class="minor-feature col-1-3">
-        <h2>Run Configurations</h2>
-        <p>Built-in <code>Cargo Command</code> run configuration, automatically created with
-          <kbd>Ctrl+Shift+F10</kbd> in following contexts:</p>
-        <ul>
-          <li><p>In the file with <code>main</code> function to execute the corresponding binary target
-            with <code>cargo run</code></p></li>
-          <li><p>Inside a <code>#[test]</code> function to execute single test</p></li>
-          <li><p>Inside a <code>#[test]</code> module to run all tests</p></li>
-        </ul>
-      </div>
-      <div class="minor-feature col-1-3">
-        <h2>Live Templates</h2>
-        <ul>
-          <li><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>print!</code> value</li>
-          <li><kbd>a</kbd>, <kbd>ae</kbd> - <code>assert!</code> / <code>assert_eq!</code></li>
-          <li><kbd>tfn</kbd> - test function boilerplate</li>
-          <li><kbd>tmod</kbd> - test module boilerplate</li>
-          <li><kbd>f</kbd> - field name and type</li>
-          <li><kbd>pf</kbd> - <code>pub</code> field</li>
-          <li><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> surround templates</li>
-        </ul>
-      </div>
-      <div class="minor-feature col-2-3">
-        <h2>Intentions</h2>
-        <ul>
-          <li><b>Expand module</b>: invoke this action inside <code>foo.rs</code> file to get <code>foo/mod.rs</code>.
-          </li>
-          <li><b>Contract module</b>: the opposite of <i>expand module</i></li>
-          <li><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file</li>
-          <li><b>Create module file</b>: if you have unresolved <code>mod foo;</code> this intention will create
-            <code>foo.rs</code>
-          </li>
-          <li><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums
-          </li>
-        </ul>
-      </div>
-      <div class="minor-feature col-1-3">
-        <h2>Quick Documentation</h2>
-        <p><kbd>Ctrl+Q</kbd> shows docs for the thing at caret</p>
-      </div>
+      <p>For the in-depth guide of available features, please refer to the
+        <a href="{{ site.github.utl }}/docs/features.html">documentation</a>.
+      </p>
     </div>
   </div>
 </div>
