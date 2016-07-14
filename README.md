@@ -2,7 +2,7 @@
 
 ## Local development
 
-Install [Ruby](https://www.ruby-lang.org) and (Bundler)[http://bundler.io/]
+Install [Ruby](https://www.ruby-lang.org) and [Bundler](http://bundler.io/)
 
 ```
 $ bundle install
