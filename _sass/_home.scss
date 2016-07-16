@@ -131,7 +131,7 @@ body.home {
         }
     }
 
-    .highlight {
+    pre, code {
         border-color: lighten($grey-color-dark, 7.5%);
 
         &, & code {
