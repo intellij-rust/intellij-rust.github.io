@@ -173,6 +173,25 @@ body.home {
     }
 }
 
+#install-pane-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+
+    font-size: 1.3em;
+    font-weight: 700;
+    line-height: 1;
+
+    &, &:visited {
+        color: $text-color !important;
+    }
+
+    &:hover {
+        color: $grey-color-light !important;
+        text-decoration: none;
+    }
+}
+
 /**
  * Features section
  */

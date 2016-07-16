@@ -16,7 +16,10 @@ class: home
     <p class="preview-note"><sup>*</sup>work-in-progress, expect bugs and missing features</p>
     <div id="download">
       <a id="download-stable" href="{{ site.base.url }}/install.html">Install</a>
-      <div id="install-pane">{{ install-content[2] | markdownify }}</div>
+      <div id="install-pane">
+        {{ install-content[2] | markdownify }}
+        <a id="install-pane-close" href="#">&times;</a>
+      </div>
       <br>
       <a id="download-gh" href="https://github.com/intellij-rust/intellij-rust"><i class="icon-github"></i> Source</a>
     </div>
