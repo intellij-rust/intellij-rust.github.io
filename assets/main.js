@@ -25,8 +25,7 @@
         installBtn.addEventListener("click", function (e) {
             installPane.classList.toggle("visible");
             e.target.blur();
-            e.preventDefault()
-            ;
+            e.preventDefault();
         });
 
         installPaneCloseBtn.addEventListener("click", function (e) {
