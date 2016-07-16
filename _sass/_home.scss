@@ -86,7 +86,6 @@ body.home {
     position: absolute;
     left: 0;
     right: 0;
-    margin-top: (16px / 1.41421356237);
     z-index: 50;
 
     color: $grey-color-light;
@@ -98,10 +97,15 @@ body.home {
 
     box-shadow: 0 2px 6px transparentize(#000, 0.4);
 
-    display: none;
+    transition: all .2s ease-out;
+
+    visibility: hidden;
+    opacity: 0;
 
     &.visible {
-        display: block;
+        visibility: visible;
+        opacity: 1;
+        margin-top: (16px / 1.41421356237);
     }
 
     h2 {
