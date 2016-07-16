@@ -3,17 +3,22 @@ layout: base
 class: home
 ---
 
+
+{% capture install-include %}
+    {% include_relative install.markdown %}
+{% endcapture %}
+{% assign install-content = (install-include | split: '---') %}
+
 <div class="page-content jumbo">
   <div class="wrapper">
     <h1>{{ site.title }}</h1>
     <p class="desc">{{ site.description }}<sup>*</sup></p>
     <p class="preview-note"><sup>*</sup>work-in-progress, expect bugs and missing features</p>
     <div id="download">
-      <a href="https://plugins.jetbrains.com/plugin/8182" class="download-stable">Install</a>
+      <a id="download-stable" href="{{ site.base.url }}/install.html">Install</a>
+      <div id="install-pane">{{ install-content[2] | markdownify }}</div>
       <br>
-      <a href="https://github.com/intellij-rust/intellij-rust" class="download-gh"><i class="icon-github"></i> Source</a>
-      <span class="sep">/</span>
-      <a href="{{ site.github.url }}/docs/nightly.html" class="download-nightly"><i class="icon-nightly"></i> Nightly</a>
+      <a id="download-gh" href="https://github.com/intellij-rust/intellij-rust"><i class="icon-github"></i> Source</a>
     </div>
   </div>
 </div>
