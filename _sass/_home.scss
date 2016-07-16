@@ -98,6 +98,12 @@ body.home {
 
     box-shadow: 0 2px 6px transparentize(#000, 0.4);
 
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+
     h2 {
         display: block;
         background: lighten($grey-color-dark, 7.5%);
