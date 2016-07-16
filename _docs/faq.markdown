@@ -3,7 +3,7 @@ title: FAQ
 order: 999999
 ---
 
-## What's the progress on code completion?
+{% include h title="What's the progress on code completion?" tag="completion-progress" %}
 
 A decent amount of completion intelligence is
 already implemented, but there is definitely a lot more to do. Here are some
@@ -33,7 +33,7 @@ Remember, if the smart completion does not work for your particular case,
 you can always invoke "dumb completion" via <kbd>Alt+/</kbd>. It merely suggests
 identifiers already present in the file, but works surprisingly well.
 
-## Are you going to use `racer` or `RLS`?
+{% include h title="Are you going to use racer or RLS?" tag="racer" %}
 
 No, we plan to implement most of the language analysis from scratch. This is
 a lot of work, but the benefits are substantial. We would be able to leverage

@@ -5,12 +5,12 @@ order: 10
 
 {% include doc-shortcut-tip.html %}
 
-## Creating new project
+{% include h title="Creating new project" tag="create-project" %}
 
 Creating new project from within IDE is not supported yet, so you have to invoke
 `cargo new my_project` from the command line and then open `my_project` directory.
 
-## Opening existing project in IntelliJ IDEA
+{% include h title="Opening existing project in IntelliJ IDEA" tag="open-idea" %}
 
 After you have installed the plugin into IntelliJ IDEA you can **import** a project from source
 (if you use other IDE, see [these instructions](#opening-project-all-ides)). You can import a
@@ -30,7 +30,7 @@ Click through the wizard steps and select a Rust toolchain:
 
 ![import-toolchain-step](https://cloud.githubusercontent.com/assets/1711539/14824500/ef917078-0bde-11e6-9d8f-802e6065fad5.png)
 
-## Opening project (all IDEs)
+{% include h title="Opening project (all IDEs)" tag="open-other-ide" %}
 
 Instead of importing, you can also simply **open** a project.
 
@@ -40,7 +40,7 @@ Select the directory with the project. Open any Rust file and configure toolchai
 
 ![toolchain-notification](https://cloud.githubusercontent.com/assets/1711539/14825248/c6d42ed4-0be1-11e6-96f7-01c76e4cdf10.png)
 
-## After your project is ready...
+{% include h title="After your project is ready..." tag="project-ready" %}
 
 
 Wait until Cargo downloads all project dependencies. To check that everything is

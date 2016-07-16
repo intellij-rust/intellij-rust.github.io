@@ -4,7 +4,7 @@ title: Migrating from other editors
 
 {% include doc-shortcut-tip.html %}
 
-## Emacs
+{% include h title="Emacs" %}
 
 To bring some of Emacs keybindings to intellij-rust, enable `Emacs` keymap in
 the settings. This will also enable Emacs tab and Emacs selection.
@@ -15,7 +15,7 @@ Emacs editing commands and a more uniform handling of UI panels (<kbd>C-g</kbd>,
 <kbd>C-x 0</kbd>) consider [this plugin](https://plugins.jetbrains.com/plugin/7906), but
 be warned that it is still in beta.
 
-## Vim
+{% include h title="Vim" %}
 
 To bring your favorite modal editing to _intellij-rust_, please use
 [IdeaVim plugin](https://github.com/JetBrains/ideavim).

@@ -39,8 +39,8 @@ $doc-nav-min-width: 150px;
     margin-bottom: $spacing-unit;
 
     h2 {
-        padding-top: $header-height;
         font-size: 32px;
+        padding-top: $spacing-unit;
 
         border-bottom: 1px solid $grey-color-light;
 
@@ -67,6 +67,11 @@ $doc-nav-min-width: 150px;
         @include media-query($on-laptop) {
             font-size: 18px;
         }
+    }
+
+    .doc-anchor {
+        position: absolute;
+        margin-top: -$header-height;
     }
 }
 
