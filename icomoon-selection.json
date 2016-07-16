@@ -4,36 +4,6 @@
 		{
 			"icon": {
 				"paths": [
-					"M788.256 709.888c-262.016 0-474.24-212.384-474.24-474.24 0-86.24 24.736-166.016 64.992-235.616-218.368 62.976-379.008 261.984-379.008 500.608 0 288.992 234.24 523.36 523.264 523.36 238.624 0 437.76-160.736 500.736-379.008-69.76 40.128-149.504 64.896-235.744 64.896z"
-				],
-				"attrs": [
-					{}
-				],
-				"isMulticolor": false,
-				"isMulticolor2": false,
-				"tags": [
-					"moon-fill",
-					"night"
-				],
-				"grid": 16
-			},
-			"attrs": [
-				{}
-			],
-			"properties": {
-				"order": 1,
-				"id": 0,
-				"prevSize": 32,
-				"code": 59651,
-				"name": "nightly"
-			},
-			"setIdx": 0,
-			"setId": 3,
-			"iconIdx": 0
-		},
-		{
-			"icon": {
-				"paths": [
 					"M0 192v128h768v-128h-768zM0 576h768v-128h-768v128zM0 832h768v-128h-768v128z"
 				],
 				"attrs": [
@@ -57,8 +27,8 @@
 				"code": 59650,
 				"name": "three-bars"
 			},
-			"setIdx": 1,
-			"setId": 2,
+			"setIdx": 0,
+			"setId": 1,
 			"iconIdx": 0
 		},
 		{
@@ -86,8 +56,8 @@
 				"code": 59648,
 				"name": "github"
 			},
-			"setIdx": 1,
-			"setId": 2,
+			"setIdx": 0,
+			"setId": 1,
 			"iconIdx": 1
 		},
 		{
@@ -116,8 +86,8 @@
 				"code": 59649,
 				"name": "fork"
 			},
-			"setIdx": 1,
-			"setId": 2,
+			"setIdx": 0,
+			"setId": 1,
 			"iconIdx": 2
 		},
 		{
@@ -143,9 +113,9 @@
 				"prevSize": 32,
 				"code": 60059
 			},
-			"setIdx": 2,
+			"setIdx": 0,
 			"setId": 1,
-			"iconIdx": 411
+			"iconIdx": 3
 		}
 	],
 	"height": 1024,

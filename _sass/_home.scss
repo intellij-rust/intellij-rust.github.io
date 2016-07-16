@@ -41,50 +41,158 @@ body.home {
 
 #download {
     margin-top: $spacing-unit * 1.5;
+}
+
+#download-stable, #download-gh {
+    text-transform: uppercase;
+    transition: all 0.2s;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+#download-stable {
+    display: inline-block;
 
     font-size: 11pt;
-    text-transform: uppercase;
+    font-weight: $header-font-weight;
+    background: transparentize(#000, 0.5);
+    padding: $spacing-unit/2 $spacing-unit;
+    border-radius: $spacing-unit/2 + 14pt;
 
-    .download-stable, .download-gh, .download-nightly {
-        transition: all 0.2s;
-
-        &:hover {
-            text-decoration: none;
-        }
+    &, &:visited {
+        color: transparentize($background-color, 0.1);
     }
 
-    .download-stable {
-        display: inline-block;
-        margin-bottom: $spacing-unit / 3;
+    &:hover {
+        background-color: transparentize($grey-color-dark, 0.5);
+    }
+}
 
-        font-weight: $header-font-weight;
-        background: transparentize(#000, 0.5);
+#download-gh {
+    font-size: 9pt;
+
+    &, &:visited {
+        color: transparentize(#000, 0.3);
+    }
+
+    &:hover {
+        color: #000;
+    }
+}
+
+#install-pane {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 50;
+
+    color: $grey-color-light;
+    background: $grey-color-dark;
+    border: 1px solid $text-color;
+
+    font-size: 0.9rem;
+    text-align: left;
+
+    box-shadow: 0 2px 6px transparentize(#000, 0.4);
+
+    transition: all .2s ease-out;
+
+    visibility: hidden;
+    opacity: 0;
+
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+        margin-top: (16px / 1.41421356237);
+    }
+
+    h2 {
+        display: block;
+        background: lighten($grey-color-dark, 7.5%);
         padding: $spacing-unit/2 $spacing-unit;
-        border-radius: $spacing-unit/2 + 14pt;
+    }
 
-        &, &:visited {
-            color: transparentize($background-color, 0.1);
+    p, pre {
+        margin-left: $spacing-unit;
+        margin-right: $spacing-unit;
+    }
+
+    a {
+        color: lighten($brand-color, 10%);
+
+        &:visited {
+            color: $brand-color;
         }
 
         &:hover {
-            background-color: transparentize($grey-color-dark, 0.5);
+            color: $grey-color-light;
         }
     }
 
-    .download-gh, .download-nightly {
-        font-size: 0.9em;
+    pre, code {
+        border-color: lighten($grey-color-dark, 7.5%);
 
-        &, &:visited {
-            color: transparentize(#000, 0.3);
+        &, & code {
+            background-color: #3f3f3f;
         }
 
-        &:hover {
-            color: #000;
+        .s {
+            color: #cc9393;
         }
     }
 
-    .sep {
-        color: transparentize(#000, 0.65);
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -(16px / 2) - 1px;
+        left: calc(50% - #{16px / 2});
+        width: 16px;
+        height: 16px;
+        background: lighten($grey-color-dark, 7.5%);
+        border-top: 1px solid $text-color;
+        border-right: 1px solid $text-color;
+        transform: rotate(-45deg);
+    }
+
+    @include media-query($on-laptop) {
+        border-left: none;
+        border-right: none;
+    }
+
+    @include media-query-min($on-laptop) {
+        left: calc(50% - #{$content-width/2});
+        right: auto;
+        width: $content-width;
+        border-radius: 3px;
+
+        h2 {
+            &:first-of-type {
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+        }
+    }
+}
+
+#install-pane-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+
+    font-size: 1.3em;
+    font-weight: 700;
+    line-height: 1;
+
+    &, &:visited {
+        color: $text-color !important;
+    }
+
+    &:hover {
+        color: $grey-color-light !important;
+        text-decoration: none;
     }
 }
 
