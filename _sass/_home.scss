@@ -2,6 +2,34 @@ body.home {
     padding-top: 0;
 }
 
+h1.square {
+    $size: 120px;
+
+    margin: -($size / 2 + $spacing-unit*3) 0 $spacing-unit;
+
+    display: flex;
+    align-items: flex-end;
+    width: $size;
+    height: $size;
+    padding: 12px;
+    box-sizing: border-box;
+
+    font-size: 12px;
+    background: $text-color;
+    color: $background-color;
+
+    @include media-query($on-palm) {
+        $mobile-size: 96px;
+
+        margin: -($mobile-size / 2 + $spacing-unit*3) 0 $spacing-unit;
+        width: $mobile-size;
+        height: $mobile-size;
+        padding: 8px;
+
+        font-size: 10px;
+    }
+}
+
 /**
  * Home page jumbotron
  */
@@ -202,6 +230,8 @@ body.home {
 .features {
     @extend .grey-pane;
 
+    padding: $spacing-unit*3 0;
+
     ul {
         list-style: none;
         margin-left: 0;
@@ -303,6 +333,10 @@ body.home {
 /**
  * This Week section
  */
+.whatsnew {
+    padding: $spacing-unit*3 0 $spacing-unit;
+}
+
 .previous-editions-link {
     font-size: 11pt;
     text-transform: uppercase;
