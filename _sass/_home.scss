@@ -3,14 +3,12 @@ body.home {
 }
 
 h1.square {
-    $size: 120px;
-
-    margin: -($size / 2 + $spacing-unit*3) 0 $spacing-unit;
+    margin: -($square-size / 2 + $spacing-unit*3) 0 $spacing-unit;
 
     display: flex;
     align-items: flex-end;
-    width: $size;
-    height: $size;
+    width: $square-size;
+    height: $square-size;
     padding: 12px;
     box-sizing: border-box;
 
@@ -19,11 +17,9 @@ h1.square {
     color: $background-color;
 
     @include media-query($on-palm) {
-        $mobile-size: 96px;
-
-        margin: -($mobile-size / 2 + $spacing-unit*3) 0 $spacing-unit;
-        width: $mobile-size;
-        height: $mobile-size;
+        margin-top: -($square-size-mobile / 2 + $spacing-unit*3);
+        width: $square-size-mobile;
+        height: $square-size-mobile;
         padding: 8px;
 
         font-size: 10px;
@@ -242,12 +238,20 @@ h1.square {
 }
 
 /**
- * Features section
+ * What is... section
  */
-.features {
+.showcase {
     @extend .grey-pane;
 
     padding: $spacing-unit*3 0;
+
+    section {
+        margin-bottom: $spacing-unit;
+
+        @include media-query-min($on-palm) {
+            max-width: $content-width/4;
+        }
+    }
 
     ul.fancy-link-row {
         list-style: none;
@@ -266,84 +270,41 @@ h1.square {
     }
 }
 
-.feature {
-    color: $grey-color-dark;
-}
+.showcase-pic {
+    @include media-query($on-palm) {
+        text-align: center;
+        margin-bottom: $spacing-unit/2;
 
-.major-feature {
-    @extend .feature;
+        img {
+            margin-bottom: $spacing-unit/2;
+        }
+    }
 
     @include media-query-min($on-palm) {
-        max-width: 30%;
-        margin-top: $spacing-unit * 2;
-    }
-}
-
-@include media-query-min($on-palm) {
-    .major-features {
-        margin-bottom: $spacing-unit;
-    }
-
-    .showcase-pic {
         position: absolute;
         height: auto;
         overflow: hidden;
 
-        img {
-            max-width: none;
-        }
-    }
-
-    .ir-completion {
-        // wrapper padding + h1 bottom margin + h1 size + some nice margin
-        margin-top: -($spacing-unit + $spacing-unit/2 + 32px*$base-line-height + 27px);
+        // h1 margin + half h1 size + shadow + nice margin
+        margin-top: -($spacing-unit + $square-size/2 + 13px + 27px);
         left: calc(50% - #{$content-width * 0.1});
         width: calc(50% + #{$content-width * 0.1});
-    }
-}
 
-@include media-query($on-palm) {
-    .showcase-pic {
-        text-align: center;
-        margin-bottom: $spacing-unit/2;
-    }
+        box-sizing: border-box;
+        padding: 13px 0 0 13px;
 
-    .major-feature {
-        margin-bottom: $spacing-unit*2/3;
-    }
-}
+        img {
+            position: relative;
+            display: block;
+            max-width: none;
+            margin-bottom: $spacing-unit;
 
-.minor-features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: -$spacing-unit/3;
-}
+            box-shadow: 0 2px 12px transparentize($text-color, 0.4);
+        }
 
-.minor-feature {
-    @extend .feature;
-
-    box-sizing: border-box;
-    flex: 100%;
-    max-width: 100%;
-    padding: $spacing-unit/3;
-
-    &.stack > .minor-feature {
-        padding: 0;
-    }
-}
-
-.minor-feature.col-1-3 {
-    @include media-query-min($on-palm) {
-        flex: 33.333%;
-        max-width: 33.333%;
-    }
-}
-
-.minor-feature.col-2-3 {
-    @include media-query-min($on-palm) {
-        flex: 66.667%;
-        max-width: 66.667%;
+        .intention {
+            left: 128px;
+        }
     }
 }
 

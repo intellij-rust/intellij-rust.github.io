@@ -26,21 +26,24 @@ class: home
   </div>
 </div>
 
-<div class="page-content features">
+<div class="page-content showcase">
   <div class="wrapper">
-    <div class="major-features">
-      <h1 class="square">What is intellij-rust</h1>
-      <div class="ir-completion showcase-pic">
-        <img src="/assets/ir-completion.png"/>
-      </div>
-      <div class="major-feature">
-        <h2>Native Code Completion <abbr title="Work In Progress" class="wip">WIP</abbr></h2>
-        <p>intellij-rust features built from scratch code completion, leveraging IntelliJ Platform capabilities.
-          <kbd>Ctrl+Space</kbd> invokes completion. A decent amount of completion intelligence is already
-          implemented, but it's still still at <a href="/docs/faq.html#completion-progress">early stages</a>
-          of development. <a href="/docs/faq.html#racer">We do not plan to use <code>racer</code></a></p>
-      </div>
+    <h1 class="square">What is intellij-rust</h1>
+    <div class="showcase-pic">
+      <img src="/assets/ir-completion.png" class="completion"/>
+      <img src="/assets/ir-intention.png" class="intention">
     </div>
+    <section>
+      <h2>Intelligent Rust</h2>
+      <p>We aim to build JetBrains-quality language support for IntelliJ IDEA and related IDEs.
+        Right now, you get native code completion<abbr class="wip" title="Work In Progress">WIP</abbr>,
+        broad navigation, intentions, formatting and much more...</p>
+    </section>
+    <section>
+      <h2>Corroded IDEA</h2>
+      <p>...while this is still your ol' good IDE. Enjoy highly productive developer experience, VCS integration
+        and other languages support.</p>
+    </section>
 
     <ul class="fancy-link-row">
       <li><a href="/docs/features.html" class="fancy-link">All Features</a></li>
