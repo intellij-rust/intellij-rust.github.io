@@ -270,12 +270,6 @@ h1.square {
     color: $grey-color-dark;
 }
 
-.major-features {
-    @include media-query-min($on-palm) {
-        min-height: 740px;
-    }
-}
-
 .major-feature {
     @extend .feature;
 
@@ -305,11 +299,6 @@ h1.square {
         margin-top: -($spacing-unit + $spacing-unit/2 + 32px*$base-line-height + 27px);
         left: calc(50% - #{$content-width * 0.1});
         width: calc(50% + #{$content-width * 0.1});
-    }
-
-    .ir-goto-symbol {
-        margin-top: 70px;
-        left: 50%;
     }
 }
 
