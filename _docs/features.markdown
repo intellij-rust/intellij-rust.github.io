@@ -1,10 +1,11 @@
 ---
 title: Features
+order: 15
 ---
 
 {% include doc-shortcut-tip.html %}
 
-## Navigation
+{% include h title="Navigation" %}
 
 There are a number of actions for efficient navigation across your project and dependencies.
 
@@ -23,7 +24,7 @@ There are a number of actions for efficient navigation across your project and d
 * **Goto Super** <kbd>Ctru+U</kbd> navigates to the parent module.
 
 
-## Code Formatter
+{% include h title="Code Formatter" %}
 
 **Reformat Code** <kbd>Ctrl+Alt+l</kbd> reformats current file or selection using our custom,
 fully functional formatter based on IntelliJ's formatting engine, though rustfmt
@@ -31,7 +32,7 @@ support is a work in progress. You can use a `Run Configuration` to invoke
 `rustfmt`.
 
 
-## Run Configurations
+{% include h title="Run Configurations" %}
 
 Built-in `Cargo Command` run configuration, automatically created with
 <kbd>Ctrl+Shift+F10</kbd> in following contexts:
@@ -44,7 +45,7 @@ Built-in `Cargo Command` run configuration, automatically created with
   * Inside a module to run all containing tests.
 
 
-## Live templates
+{% include h title="Live templates" %}
 
 There is a number of built in live templates and you can define your own.
 Different live templates are available in different contexts. Use
@@ -67,7 +68,7 @@ Different live templates are available in different contexts. Use
     Live Template** action.
 
 
-## Intentions
+{% include h title="Intentions" %}
 
 Intentions and quick fixes are micro refactorings automatically available
 depending on context. If some intentions are available, a light bulb icon
