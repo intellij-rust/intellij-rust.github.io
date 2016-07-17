@@ -123,8 +123,8 @@ appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a quick fix.
   * **Remove/Add curly braces**: toggles between `use foo::{bar}` and `use foo::bar`.
 
   * **Add missing fields**: a handy way to fill out the struct literal template.
-    If there is `struct S { foo: i32, bar: String}` in scope, then typing `S {}`
-    and hitting <kbd>Alt+Enter</kbd> will expand to `S { foo: (), bar: ()}`.
+    If there is `struct S { foo: i32, bar: String }` in scope, then typing `S {}`
+    and hitting <kbd>Alt+Enter</kbd> will expand to `S { foo: (), bar: () }`.
 
 **Expand module** and **Contract module** are preferred ways to create a new
 Rust file. For example if I am in `foo.rs` and I want to create a new child
