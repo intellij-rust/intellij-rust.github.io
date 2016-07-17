@@ -54,11 +54,10 @@ class: home
       </div>
     </div>
 
-    <div class="minor-features">
-      <p>For the in-depth guide of available features, please refer to the
-        <a href="{{ site.github.utl }}/docs/features.html">documentation</a>.
-      </p>
-    </div>
+    <ul class="fancy-link-row">
+      <li><a href="/docs/features.html" class="fancy-link">All Features</a></li>
+      <li><a href="/docs/quick-start.html" class="fancy-link">Quick Start</a></li>
+    </ul>
   </div>
 </div>
 
@@ -69,7 +68,7 @@ class: home
     <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
     <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
     <article>{{ post.content }}</article>
-    <div class="center"><a class="previous-editions-link" href="{{ site.github.url }}/thisweek/">Previous editions</a>
+    <div class="center"><a href="/thisweek/" class="fancy-link">Previous editions</a>
     </div>
   </div>
 </div>

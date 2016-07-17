@@ -30,6 +30,19 @@ h1.square {
     }
 }
 
+.fancy-link {
+    font-size: 11pt;
+    text-transform: uppercase;
+    font-weight: $header-font-weight;
+    transition: border-bottom-color 0.1s;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+        text-decoration: none;
+        border-color: $brand-color;
+    }
+}
+
 /**
  * Home page jumbotron
  */
@@ -232,9 +245,20 @@ h1.square {
 
     padding: $spacing-unit*3 0;
 
-    ul {
+    ul.fancy-link-row {
         list-style: none;
         margin-left: 0;
+
+        @include media-query-min($on-palm) {
+            li {
+                display: inline-block;
+                margin-right: $spacing-unit;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 }
 
@@ -335,17 +359,4 @@ h1.square {
  */
 .whatsnew {
     padding: $spacing-unit*3 0 $spacing-unit;
-}
-
-.previous-editions-link {
-    font-size: 11pt;
-    text-transform: uppercase;
-    font-weight: $header-font-weight;
-    transition: border-bottom-color 0.1s;
-    border-bottom: 3px solid transparent;
-
-    &:hover {
-        text-decoration: none;
-        border-color: $brand-color;
-    }
 }
