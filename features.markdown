@@ -1,6 +1,8 @@
 ---
+layout: page
 title: Features
-order: 15
+permalink: /features/
+class: features-page
 ---
 
 {% include doc-shortcut-tip.html %}
