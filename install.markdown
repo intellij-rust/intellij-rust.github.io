@@ -7,7 +7,7 @@ title: Install IntelliJ-Rust
 
 IntelliJ-Rust is currently in the _alpha_ stage of development. When we reach some acceptable level of stability,
 we publish alpha builds to the IntelliJ's main plugin [repository](https://plugins.jetbrains.com/plugin/8182).
-You can download and install these builds directly from `Plugins > Browse repositories` screen in you IDE.
+You can download and install these builds directly from `Plugins > Browse repositories` screen in your IDE.
 
 As this is a preview release, something might go wrong. So, be brave to face some nasty bugs.
 If you find one, we would very appreciate if you file an [issue](https://github.com/intellij-rust/intellij-rust/issues)
