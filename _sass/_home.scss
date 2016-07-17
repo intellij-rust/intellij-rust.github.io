@@ -94,13 +94,17 @@ h1.square {
 }
 
 #download-stable {
+    $height: 48px;
+
     display: inline-block;
+    line-height: $height;
+    height: $height;
 
     font-size: 11pt;
     font-weight: $header-font-weight;
     background: transparentize(#000, 0.5);
-    padding: $spacing-unit/2 $spacing-unit;
-    border-radius: $spacing-unit/2 + 14pt;
+    padding: 0 $spacing-unit;
+    border-radius: $height/2;
 
     &, &:visited {
         color: transparentize($background-color, 0.1);
