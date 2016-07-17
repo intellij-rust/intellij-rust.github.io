@@ -26,101 +26,40 @@ class: home
   </div>
 </div>
 
-<div class="page-content features">
+<div class="page-content showcase">
   <div class="wrapper">
-    <div class="major-features">
-      <h1>Features</h1>
-      <div class="ir-completion showcase-pic">
-        <img src="/assets/ir-completion.png"/>
-      </div>
-      <div class="major-feature">
-        <h2>Native Code Completion <abbr title="Work In Progress" class="wip">WIP</abbr></h2>
-        <p>intellij-rust features built from scratch code completion, leveraging IntelliJ Platform capabilities.
-          <kbd>Ctrl+Space</kbd> invokes completion. A decent amount of completion intelligence is already
-          implemented, but it's still still at <a href="/docs/faq.html#completion-progress">early stages</a>
-          of development. <a href="/docs/faq.html#racer">We do not plan to use <code>racer</code></a></p>
-      </div>
-      <div class="ir-goto-symbol showcase-pic">
-        <img src="/assets/ir-goto-symbol.png"/>
-      </div>
-      <div class="major-feature">
-        <h2>Navigate Everywhere</h2>
-        <ul>
-          <li>Press <kbd>Ctrl+B</kbd> to jump to definition</li>
-          <li><kbd>Ctrl+N</kbd> finds any struct or enum by name</li>
-          <li><kbd>Ctrl+Alt+Shift+N</kbd> finds any symbol (functions, traits, modules, methods, fields) by name</li>
-          <li><kbd>Ctrl+U</kbd> brings you to the parent of the current module</li>
-        </ul>
-      </div>
+    <h1 class="square">What is intellij-rust</h1>
+    <div class="showcase-pic">
+      <img src="/assets/ir-completion.png" class="completion"/>
+      <img src="/assets/ir-intention.png" class="intention">
     </div>
+    <section>
+      <h2>Intelligent Rust</h2>
+      <p>We aim to build JetBrains-quality language support for IntelliJ IDEA and related IDEs.
+        Right now, you get native code completion<abbr class="wip" title="Work In Progress">WIP</abbr>,
+        broad navigation, intentions, formatting and much more...</p>
+    </section>
+    <section>
+      <h2>Corroded IDEA</h2>
+      <p>...while this is still your ol' good IDE. Enjoy highly productive developer experience, VCS integration
+        and other languages support.</p>
+    </section>
 
-    <div class="minor-features">
-      <div class="minor-feature col-1-3 stack">
-        <div class="minor-feature">
-          <h2>Code Formatter</h2>
-          <p><kbd>Ctrl+Alt+L</kbd> reformats current file using our custom, fully functional
-            formatter based on IntelliJ's formatting engine, though <code>rustfmt</code> support
-            is <abbr title="Work In Progress" class="wip">WIP</abbr></p>
-        </div>
-        <div class="minor-feature">
-          <h2>File Structure</h2>
-          <p><kbd>Ctrl+F12</kbd> brings up an overview of the current file, useful for navigation.
-            <kbd>Alt+7</kbd> presents the same information in the "project structure" style</p>
-        </div>
-      </div>
-      <div class="minor-feature col-1-3">
-        <h2>Run Configurations</h2>
-        <p>Built-in <code>Cargo Command</code> run configuration, automatically created with
-          <kbd>Ctrl+Shift+F10</kbd> in following contexts:</p>
-        <ul>
-          <li><p>In the file with <code>main</code> function to execute the corresponding binary target
-            with <code>cargo run</code></p></li>
-          <li><p>Inside a <code>#[test]</code> function to execute single test</p></li>
-          <li><p>Inside a <code>#[test]</code> module to run all tests</p></li>
-        </ul>
-      </div>
-      <div class="minor-feature col-1-3">
-        <h2>Live Templates</h2>
-        <ul>
-          <li><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>print!</code> value</li>
-          <li><kbd>a</kbd>, <kbd>ae</kbd> - <code>assert!</code> / <code>assert_eq!</code></li>
-          <li><kbd>tfn</kbd> - test function boilerplate</li>
-          <li><kbd>tmod</kbd> - test module boilerplate</li>
-          <li><kbd>f</kbd> - field name and type</li>
-          <li><kbd>pf</kbd> - <code>pub</code> field</li>
-          <li><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> surround templates</li>
-        </ul>
-      </div>
-      <div class="minor-feature col-2-3">
-        <h2>Intentions</h2>
-        <ul>
-          <li><b>Expand module</b>: invoke this action inside <code>foo.rs</code> file to get <code>foo/mod.rs</code>.
-          </li>
-          <li><b>Contract module</b>: the opposite of <i>expand module</i></li>
-          <li><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file</li>
-          <li><b>Create module file</b>: if you have unresolved <code>mod foo;</code> this intention will create
-            <code>foo.rs</code>
-          </li>
-          <li><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums
-          </li>
-        </ul>
-      </div>
-      <div class="minor-feature col-1-3">
-        <h2>Quick Documentation</h2>
-        <p><kbd>Ctrl+Q</kbd> shows docs for the thing at caret</p>
-      </div>
-    </div>
+    <ul class="fancy-link-row">
+      <li><a href="/features/" class="fancy-link">All Features</a></li>
+      <li><a href="/docs/quick-start.html" class="fancy-link">Quick Start</a></li>
+    </ul>
   </div>
 </div>
 
 <div class="page-content whatsnew">
   <div class="wrapper">
-    <h1>This Week in intellij-rust</h1>
+    <h1 class="square">What's new</h1>
     {% assign post = site.posts.first %}
     <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
     <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
     <article>{{ post.content }}</article>
-    <div class="center"><a class="previous-editions-link" href="{{ site.github.url }}/thisweek/">Previous editions</a>
+    <div class="center"><a href="/thisweek/" class="fancy-link">Previous editions</a>
     </div>
   </div>
 </div>
