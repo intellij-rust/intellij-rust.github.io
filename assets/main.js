@@ -29,8 +29,7 @@
         });
 
         installPaneCloseBtn.addEventListener("click", function (e) {
-            installPane.classList.remove("visible"
-            );
+            installPane.classList.remove("visible");
             e.preventDefault();
         });
     }
