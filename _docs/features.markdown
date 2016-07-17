@@ -5,6 +5,38 @@ order: 15
 
 {% include doc-shortcut-tip.html %}
 
+{% include h title="Code Completion<abbr class=\"wip\" title=\"Work In Progress\">WIP</abbr>" %}
+
+intellij-rust features built from scratch code completion, leveraging IntelliJ
+Platform capabilities. <kbd>Ctrl+Space</kbd> invokes completion. We [do not](http://localhost:4000/docs/faq.html#racer)
+plan to use `racer`. A decent amount of completion intelligence is already implemented,
+but there is definitely a lot more to do. Here are some examples of what works and
+what does not work (as of **June 20**).
+
+```rust
+use std::collections::HashMap;
+                        //^ completes to HashMap or HashSet
+
+struct S {
+    mapping: HashMap<i32, i32>
+            //^ knows that HashMap is in scope, so completes
+}
+
+fn main() {
+    let mut thing = S { mapping: HashMap::default() };
+                                          //^ no completion here yet :(
+
+    //v completes `thing`
+    thing.mapping.insert(92, 92);
+          //^ completes `mapping`
+                  //^ but does not know about `insert` yet :(
+}
+```
+
+Remember, if the smart completion does not work for your particular case,
+you can always invoke "dumb completion" via <kbd>Alt+/</kbd>. It merely suggests
+identifiers already present in the file, but works surprisingly well.
+
 {% include h title="Navigation" %}
 
 There are a number of actions for efficient navigation across your project and dependencies.
@@ -26,9 +58,9 @@ There are a number of actions for efficient navigation across your project and d
 
 {% include h title="Code Formatter" %}
 
-**Reformat Code** <kbd>Ctrl+Alt+l</kbd> reformats current file or selection using our custom,
+**Reformat Code** <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom,
 fully functional formatter based on IntelliJ's formatting engine, though rustfmt
-support is a work in progress. You can use a `Run Configuration` to invoke
+support is <abbr class="wip" title="Work In Progress">WIP</abbr>. You can use a `Run Configuration` to invoke
 `rustfmt`.
 
 
