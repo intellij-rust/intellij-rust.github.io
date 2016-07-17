@@ -21,7 +21,7 @@ There are a number of actions for efficient navigation across your project and d
 
 * **File Structure** <kbd>Ctrl+F12</kbd>, <kbd>Alt+7</kbd> brings up an overview of the current file.
 
-* **Goto Super** <kbd>Ctru+U</kbd> navigates to the parent module.
+* **Goto Super** <kbd>Ctrl+U</kbd> navigates to the parent module.
 
 
 {% include h title="Code Formatter" %}
@@ -63,8 +63,8 @@ Different live templates are available in different contexts. Use
   * <kbd>f</kbd>, <kbd>pf</kbd> - \[`pub`\] field name and type, applicable
     inside struct definitions.
 
-  * <kbd>loop</kbd>, <kbd>wihled</kbd>, <kbd>for</kbd> templates. You can select
-    a fragment of code and press <kbd>Cltr+Alt+J</kbd> to invoke **Surround With
+  * <kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> templates. You can select
+    a fragment of code and press <kbd>Ctrl+Alt+J</kbd> to invoke **Surround With
     Live Template** action.
 
 
