@@ -44,7 +44,6 @@ h1.square {
  */
 .jumbo {
     background: #fff url('beam.svg') center center no-repeat;
-    background-size: cover;
     padding-top: $spacing-unit * 4 + $header-height;
     padding-bottom: $spacing-unit * 4;
 
@@ -313,8 +312,4 @@ h1.square {
  */
 .whatsnew {
     padding: $spacing-unit*3 0 $spacing-unit;
-
-    @include media-query-min($on-palm) {
-        background: url("./beam2.svg") top right no-repeat;
-    }
 }
