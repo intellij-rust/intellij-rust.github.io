@@ -87,7 +87,7 @@ $doc-nav-min-width: 150px;
 
         li {
             padding: 6px 0;
-            border-bottom: 1px solid $grey-color-light;
+            border-bottom: 1px solid $grey-color-lighter;
 
             &:last-child {
                 border: none;
@@ -121,7 +121,6 @@ $doc-nav-min-width: 150px;
 
     @include media-query-min($on-palm) {
         padding-left: $spacing-unit / 4;
-        background: $background-color;
     }
 }
 
