@@ -32,4 +32,4 @@ date:   2016-06-13 14:34:00 +0200
   ability to change stdlib via project configurable)
 
 [@jajakobyly]: https://github.com/jajakobyly
-[@himikof]: https://github.com/himikokf
+[@himikof]: https://github.com/himikof
