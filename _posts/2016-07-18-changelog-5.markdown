@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #5"
+date:   2016-07-18 13:53:35 +0300
+---
+
+## New Features
+
+* Typification for fields.
+* Better completion for attributes (by [@bgourlie]).
+* Better resolve for inherent and non inherent trait methods.
+* Resolve for `Self` type.
+* Better project import: toolchain is setup automatically in non IDEA IDEs,
+  sources, tests and ignore roots are setup according to Cargo contentions.
+* Red code and quick fix for invalid struct literals.
+
+
+## Fixes
+
+* Fix resolve caching improving performance.
+* Fix macro invocation grammar.
+* Fix completion for methods to be on par with resolve.
+* Create new project adds the necessary content root.
+
+
+## Refactorings
+
+* Implement caching for super modules.
+* Use [intellij-markdown] for quick doc rendering (by @jajakobyly).
+
+
+[@bgourlie]: https://github.com/bgourlie
+[@jajakobyly]: https://github.com/jajakobyly
+[intellij-markdown]: https://github.com/valich/intellij-markdown
