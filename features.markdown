@@ -108,10 +108,11 @@ Intentions and quick fixes are micro refactorings automatically available
 depending on context. If some intentions are available, a light bulb icon
 appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a quick fix.
 
-  * **Expand module**: invoke this action inside `foo.rs` file to get `foo/mod.rs`.
+  * **Expand module**: invoke this refactoring inside `foo.rs` file to get `foo/mod.rs`.
     Available as a quick fix for unresolved module declaration.
 
-  * **Contract module**: the opposite of Expand Module.
+  * **Contract module**: the opposite of Expand Module. Available only if there
+    are no child modules.
 
   * **Create module file**: if you have `mod foo;`, but no `foo.rs` this quick fix
     will create the missing file.
@@ -126,8 +127,7 @@ appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a quick fix.
     If there is `struct S { foo: i32, bar: String }` in scope, then typing `S {}`
     and hitting <kbd>Alt+Enter</kbd> will expand to `S { foo: (), bar: () }`.
 
-**Expand module** and **Contract module** are preferred ways to create a new
-Rust file. For example if I am in `foo.rs` and I want to create a new child
-module `bar.rs`, I type `mod foo;`, press <kbd>Alt+Enter</kbd> to create
-`foo/mod.rs` and then press <kbd>Alt+Enter</kbd> again to get an empty
-`foo/bar.rs`.
+**Create module file** quick fix is the preferred way to create a new Rust file.
+For example if I am in `foo.rs` and want to create a new child module `bar.rs`,
+I type `mod foo;` and press <kbd>Alt+Enter</kbd> to get `foo/mod.rs` and an
+empty `foo/bar.rs`.
