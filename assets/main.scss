@@ -21,13 +21,15 @@ $header-font-weight: 800;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color: #ee6408;
+$text-color:       #161616;
+$background-color: #fff;
+$brand-color:      #ee6408;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color:         #828282;
+$grey-color-lighter: #eaeaeb;
+$grey-color-light:   #cccbcb;
+$grey-color-dark:    #747474;
+$grey-color-darker:  #343434;
 
 $header-height: 56px;
 $square-size: 120px;
@@ -84,6 +86,7 @@ $icon-rss: "\ea9b";
         "layout",
         "home",
         "thisweek",
+        "features",
         "docs",
         "syntax-highlighting"
 ;

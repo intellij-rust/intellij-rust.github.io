@@ -4,16 +4,24 @@ body {
 
 .grey-pane {
     color: $grey-color-dark;
-    background: $grey-color-light;
+    background: $grey-color-lighter;
+
+    h1 {
+        color: $text-color;
+    }
+
+    h2, h3, h4, h5, h6 {
+        color: $grey-color-darker;
+    }
 }
 
 /**
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
+    border-top: 5px solid $text-color;
     border-bottom: 1px solid $grey-color-light;
-    background: transparentize($background-color, 0.05);
+    background: $background-color;
     min-height: $header-height;
 
     // Positioning context for the mobile navigation icon
@@ -65,7 +73,7 @@ body {
         top: 9px;
         right: $spacing-unit / 2;
         background-color: $background-color;
-        border: 1px solid $grey-color-light;
+        border: 1px solid $grey-color-lighter;
         border-radius: 5px;
         text-align: right;
 
@@ -80,7 +88,7 @@ body {
             text-align: center;
 
             &, &:visited, &:hover {
-                color: $grey-color-dark;
+                color: $grey-color-darker;
                 text-decoration: none;
             }
         }
@@ -112,6 +120,7 @@ body {
  */
 .site-footer {
     border-top: 1px solid $grey-color-light;
+    background: $background-color;
     padding: $spacing-unit 0;
 }
 

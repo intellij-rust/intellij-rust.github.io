@@ -5,7 +5,7 @@
 $doc-nav-min-width: 150px;
 
 .doc {
-    color: $grey-color-dark;
+    color: $grey-color-darker;
 
     h1, h2, h3, h4, h5, h6 {
         color: $text-color;
@@ -42,7 +42,7 @@ $doc-nav-min-width: 150px;
         font-size: 32px;
         padding-top: $spacing-unit;
 
-        border-bottom: 1px solid $grey-color-light;
+        border-bottom: 1px solid $grey-color-lighter;
 
         &:first-of-type {
             padding-top: 0;
@@ -122,16 +122,14 @@ $doc-nav-min-width: 150px;
     @include media-query-min($on-palm) {
         padding-left: $spacing-unit / 4;
         background: $background-color;
-        //background: radial-gradient(at left, darken($background-color, 1%), $background-color);
-        border-left: 1px solid $grey-color-light;
-        border-image: linear-gradient(to bottom, $background-color 0%, $grey-color-light 5%, $grey-color-light 95%, $background-color 100%) 1 100%;
     }
 }
 
 .doc-tip {
     border: 1px solid change_color($grey-color-light, $hue: 190deg, $saturation: 40);
     border-bottom-width: 2px;
-    color: change_color($grey-color-dark, $hue: 190deg, $saturation: 40);
+    color: change_color($grey-color-darker, $hue: 190deg, $saturation: 40);
+    background: $background-color;
     padding: $spacing-unit / 2;
     margin-bottom: $spacing-unit;
 }

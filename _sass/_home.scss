@@ -13,7 +13,7 @@ h1.square {
     box-sizing: border-box;
 
     font-size: 12px;
-    background: $text-color;
+    background: #000;
     color: $background-color;
 
     @include media-query($on-palm) {
@@ -107,7 +107,7 @@ h1.square {
     }
 
     &:hover {
-        background-color: transparentize($grey-color-dark, 0.5);
+        background-color: transparentize($grey-color-darker, 0.5);
     }
 }
 
@@ -129,14 +129,14 @@ h1.square {
     right: 0;
     z-index: 50;
 
-    color: $grey-color-light;
-    background: $grey-color-dark;
+    color: $grey-color-lighter;
+    background: $grey-color-darker;
     border: 1px solid $text-color;
 
     font-size: 0.9rem;
     text-align: left;
 
-    box-shadow: 0 2px 6px transparentize(#000, 0.4);
+    box-shadow: 0 3px 25px transparentize(#000, 0.6);
 
     transition: all .2s ease-out;
 
@@ -151,7 +151,7 @@ h1.square {
 
     h2 {
         display: block;
-        background: lighten($grey-color-dark, 7.5%);
+        background: lighten($grey-color-darker, 7.5%);
         padding: $spacing-unit/2 $spacing-unit;
     }
 
@@ -168,12 +168,12 @@ h1.square {
         }
 
         &:hover {
-            color: $grey-color-light;
+            color: $grey-color-lighter;
         }
     }
 
     pre, code {
-        border-color: lighten($grey-color-dark, 7.5%);
+        border-color: lighten($grey-color-darker, 7.5%);
 
         &, & code {
             background-color: #3f3f3f;
@@ -192,7 +192,7 @@ h1.square {
         left: calc(50% - #{16px / 2});
         width: 16px;
         height: 16px;
-        background: lighten($grey-color-dark, 7.5%);
+        background: lighten($grey-color-darker, 7.5%);
         border-top: 1px solid $text-color;
         border-right: 1px solid $text-color;
         transform: rotate(-45deg);
@@ -232,7 +232,7 @@ h1.square {
     }
 
     &:hover {
-        color: $grey-color-light !important;
+        color: $grey-color-lighter !important;
         text-decoration: none;
     }
 }
@@ -286,12 +286,12 @@ h1.square {
         overflow: hidden;
 
         // h1 margin + half h1 size + shadow + nice margin
-        margin-top: -($spacing-unit + $square-size/2 + 13px + 27px);
+        margin-top: -($spacing-unit + $square-size/2 + 26px + 27px);
         left: calc(50% - #{$content-width * 0.1});
         width: calc(50% + #{$content-width * 0.1});
 
         box-sizing: border-box;
-        padding: 13px 0 0 13px;
+        padding: 26px 0 0 26px;
 
         img {
             position: relative;
@@ -299,7 +299,7 @@ h1.square {
             max-width: none;
             margin-bottom: $spacing-unit;
 
-            box-shadow: 0 2px 12px transparentize($text-color, 0.4);
+            box-shadow: 0 3px 25px transparentize(#000, 0.5);
         }
 
         .intention {
