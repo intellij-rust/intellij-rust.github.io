@@ -9,6 +9,16 @@
     var filter = wrap(Array.prototype.filter);
 
     /*
+     * Menu
+     */
+    var menuBtn = document.querySelector(".menu-icon");
+    if (menuBtn) {
+        menuBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+        });
+    }
+
+    /*
      * Install button
      */
     var installBtn = document.getElementById("download-stable");
