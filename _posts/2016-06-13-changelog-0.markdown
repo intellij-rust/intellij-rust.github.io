@@ -6,13 +6,13 @@ date:   2016-06-13 14:34:00 +0200
 ## New features
 
 * Context aware run configurations
-* Working formatter (contributed by @jajakobyly)
+* Working formatter (contributed by [@jajakobyly])
 * Basic completion for fields and methods
 
 
 ## Fixes
 
-* Better parser recovery (contributed by @himikof)
+* Better parser recovery (contributed by [@himikof])
 * Cyclic package dependencies in cargo metadata supported
 * Module index supports `#[path]` attribute
 
@@ -30,3 +30,6 @@ date:   2016-06-13 14:34:00 +0200
 
 * Better handling of "attaching stdlib sources" workflow (error reporting and
   ability to change stdlib via project configurable)
+
+[@jajakobyly]: https://github.com/jajakobyly
+[@himikof]: https://github.com/himikokf

@@ -6,7 +6,7 @@ date:   2016-06-27 14:34:00 +0200
 ## New Features
 
 * :tada: First alpha is published. :tada:
-* Completion contributor for `#[derive()]` caluse (contributed by @bgourlie).
+* Completion contributor for `#[derive()]` caluse (contributed by [@bgourlie]).
 * Stubs and _Goto Symbol_ for fields.
 * Resolve and completion for static methods.
 * Better notifications about Cargo version in use.
@@ -17,7 +17,7 @@ date:   2016-06-27 14:34:00 +0200
 ## Fixes
 
 * Language ID is changed from `RUST` to `Rust`.
-* Literals are properly highlighted inside attributes (contributed by @jajakobyly)
+* Literals are properly highlighted inside attributes (contributed by [@jajakobyly])
 * Better parser recovery in if, while and match.
 * More tests and fixes for type inference.
 
@@ -29,3 +29,6 @@ date:   2016-06-27 14:34:00 +0200
 * Resolve caching.
 * `RustComputingVisitor` is used in type inference.
 * Overhaul of pattern matching code.
+
+[@jajakobyly]: https://github.com/jajakobyly
+[@bgourlie]: https://github.com/bgourlie
