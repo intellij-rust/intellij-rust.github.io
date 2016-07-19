@@ -29,7 +29,7 @@ h1.square {
 .fancy-link {
     font-size: 11pt;
     text-transform: uppercase;
-    font-weight: $header-font-weight;
+    font-weight: $bold-font-weight;
     transition: border-bottom-color 0.1s;
     border-bottom: 3px solid transparent;
 
@@ -49,22 +49,24 @@ h1.square {
 
     font-size: 1.75em;
     text-align: center;
-    color: transparentize(#000, 0.08);
+    color: #141414;
 
     h1 {
         font-family: $title-font-family;
         font-weight: $title-font-weight;
         text-transform: none;
         font-size: 2.5em;
-        line-height: 0.5;
+        line-height: 1.0;
     }
 
     .desc {
         margin: 0;
+        line-height: 0.9;
     }
 
     .preview-note {
-        font-size: 0.45em;
+        margin: 0;
+        font-size: 0.5em;
         color: transparentize(#000, 0.25);
     }
 
@@ -76,7 +78,7 @@ h1.square {
 }
 
 #download {
-    margin-top: $spacing-unit * 1.5;
+    margin-top: $spacing-unit;
 }
 
 #download-stable, #download-gh {
@@ -96,17 +98,17 @@ h1.square {
     height: $height;
 
     font-size: 11pt;
-    font-weight: $header-font-weight;
-    background: transparentize(#000, 0.5);
+    font-weight: $bold-font-weight;
+    background: transparentize(#000, 0.3);
     padding: 0 $spacing-unit;
     border-radius: $height/2;
 
     &, &:visited {
-        color: transparentize($background-color, 0.1);
+        color: $background-color;
     }
 
     &:hover {
-        background-color: transparentize($grey-color-darker, 0.5);
+        background-color: transparentize($grey-color-darker, 0.3);
     }
 }
 
@@ -223,7 +225,7 @@ h1.square {
     right: 10px;
 
     font-size: 1.3em;
-    font-weight: 700;
+    font-weight: $bold-font-weight;
     line-height: 1;
 
     &, &:visited {

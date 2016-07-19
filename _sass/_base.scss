@@ -86,7 +86,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: $header-font-weight;
+    font-weight: $bold-font-weight;
     text-transform: uppercase;
 }
 
@@ -232,5 +232,5 @@ pre {
     color: $brand-color;
     vertical-align: super;
     font-size: 0.5em;
-    font-weight: 400;
+    font-weight: $base-font-weight;
 }
