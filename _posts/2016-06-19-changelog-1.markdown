@@ -32,7 +32,7 @@ date:   2016-06-19 14:34:00 +0200
 enumerateScopesFor is moved inside RRE.
 
 * `RustItemElement` is now an interface.
-`RustFnElement` is now a suppertype for a bunch of function-like PSI nodes
+`RustFnElement` is now a supertype for a bunch of function-like PSI nodes
 
 * Stubs improvements:
   - methods now have stubs
