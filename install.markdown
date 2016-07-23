@@ -31,3 +31,10 @@ Nightly builds are daily snapshots of current development branch. So, it's natur
 more bugs than in alpha channel. If you find one, we would very appreciate if you file an
 [issue](https://github.com/intellij-rust/intellij-rust/issues) on our bugtracker or ping us on our
 [chat](https://gitter.im/intellij-rust/intellij-rust).
+
+## Compatible IDEs
+
+The plugin should be compatible with any Intellij based IDE starting from build
+_143.2287.1_. For example, the minimum supported IDEA version is _15.0.4_, the
+minimum supported CLion version is _1.2_. See `Help > About` menu in the IDE to
+learn the build version you are using.
