@@ -125,7 +125,9 @@ body {
 }
 
 .footer-heading {
+    font-family: $title-font-family;
     font-size: 18px;
+    font-weight: $title-font-weight;
     margin-bottom: $spacing-unit / 2;
 }
 
