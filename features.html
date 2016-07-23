@@ -14,7 +14,10 @@ class: features-page
   <div class="feature">
     <h3>Code Formatter</h3>
 
-    <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional formatter based on IntelliJ's formatting engine, though rustfmt support is <abbr class="wip" title="Work In Progress">WIP</abbr>. You can use a <code>Run Configuration</code> to invoke <code>rustfmt</code>.</p>
+    <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional
+      formatter based on IntelliJ's formatting engine, though rustfmt support is
+      <abbr class="wip" title="Work In Progress">WIP</abbr>. You can use a <code>Run Configuration</code> to invoke
+      <code>rustfmt</code>.</p>
   </div>
 </div>
 
@@ -23,7 +26,12 @@ class: features-page
   <h2>Code Completion<abbr class="wip" title="Work In Progress">WIP</abbr></h2>
 
   <div class="feature feature-major">
-    <p>intellij-rust features built from scratch code completion, leveraging IntelliJ Platform capabilities. <kbd>Ctrl+Space</kbd> invokes completion. We <a  href="{{ site.github.url }}/docs/faq.html#racer">do not</a> plan to use <code>racer</code>. A decent amount of completion intelligence is already implemented, but there is definitely a lot more to do. Here are some examples of what works and what does not work (as of <b>June 20</b>).</p>
+    <p>
+      IntelliJ Rust features built from scratch code completion, leveraging IntelliJ Platform capabilities.
+      <kbd>Ctrl+Space</kbd> invokes completion. We <a href="{{ site.github.url }}/docs/faq.html#racer">do not</a> plan
+      to use <code>racer</code>. A decent amount of completion intelligence is already implemented, but there is
+      definitely a lot more to do. Here are some examples of what works and what does not work (as of <b>June 20</b>).
+    </p>
 
 {% highlight rust %}
 use std::collections::HashMap;
@@ -45,7 +53,8 @@ fn main() {
 }
 {% endhighlight %}
 
-    <p>Remember, if the smart completion does not work for your particular case, you can always invoke "dumb completion" via <kbd>Alt+/</kbd>. It merely suggests identifiers already present in the file, but works surprisingly well.</p>
+    <p>Remember, if the smart completion does not work for your particular case, you can always invoke "dumb completion"
+      via <kbd>Alt+/</kbd>. It merely suggests identifiers already present in the file, but works surprisingly well.</p>
   </div>
 </div>
 
@@ -72,7 +81,8 @@ fn main() {
 
   <div class="feature">
     <h3>Goto Symbol</h3>
-    <p><kbd>Ctrl+Shift+Alt+N</kbd> searches for any symbol (types, methods, functions, fields) by name. Together with <kbd>Ctrl+N</kbd> it is the main method to explore large projects.</p>
+    <p><kbd>Ctrl+Shift+Alt+N</kbd> searches for any symbol (types, methods, functions, fields) by name. Together with
+      <kbd>Ctrl+N</kbd> it is the main method to explore large projects.</p>
   </div>
 
   <div class="feature">
@@ -93,10 +103,13 @@ fn main() {
   <div class="feature feature-major">
     <h3>'Surround With' and Live Templates</h3>
 
-    <p>There is a number of built in live templates and you can define your own. Different live templates are available in different contexts. Use <kbd>Ctrl+J</kbd> to list templates available in context.</p>
+    <p>There is a number of built in live templates and you can define your own. Different live templates are available
+      in different contexts. Use <kbd>Ctrl+J</kbd> to list templates available in context.</p>
 
     <ul>
-      <li><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>println!</code> value with <code>{}</code>, debug <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.</li>
+      <li><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>println!</code> value with <code>{}</code>, debug
+        <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.
+      </li>
 
       <li><kbd>a</kbd>, <kbd>ae</kbd> - <code>assert!</code> / <code>assert_eq!</code></li>
 
@@ -106,33 +119,47 @@ fn main() {
 
       <li><kbd>f</kbd>, <kbd>pf</kbd> - <code>pub</code> field name and type, applicable inside struct definitions.</li>
 
-      <li><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> templates. You can select a fragment of code and press <kbd>Ctrl+Alt+J</kbd> to invoke <b>Surround With Live Template</b> action.</li>
+      <li><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> templates. You can select a fragment of code and press <kbd>Ctrl+Alt+J</kbd>
+        to invoke <b>Surround With Live Template</b> action.
+      </li>
     </ul>
   </div>
 
   <div class="feature feature-major">
     <h3>Intentions</h3>
 
-    <p>Intentions and quick fixes are micro refactorings automatically available depending on context. If some intentions are available, a light bulb icon appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a quick fix.</p>
+    <p>Intentions and quick fixes are micro refactorings automatically available depending on context. If some
+      intentions are available, a light bulb icon appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a
+      quick fix.</p>
 
     <ul>
-      <li><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get <code>foo/mod.rs</code>. Available as a quick fix for unresolved module declaration.</li>
+      <li><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get <code>foo/mod.rs</code>.
+        Available as a quick fix for unresolved module declaration.
+      </li>
 
       <li><b>Contract module</b>: the opposite of Expand Module. Available only if there are no child modules.</li>
 
-      <li><b>Create module file</b>: if you have <code>mod foo;</code>, but no <code>foo.rs</code> this quick fix will create the missing file.</li>
+      <li><b>Create module file</b>: if you have <code>mod foo;</code>, but no <code>foo.rs</code> this quick fix will
+        create the missing file.
+      </li>
 
       <li><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file.</li>
 
       <li><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums.</li>
 
-      <li><b>Remove/Add curly braces</b>: toggles between <code>use foo::{bar}</code> and <code>use foo::bar</code>.</li>
+      <li><b>Remove/Add curly braces</b>: toggles between <code>use foo::{bar}</code> and <code>use foo::bar</code>.
+      </li>
 
-      <li><b>Add missing fields</b>: a handy way to fill out the struct literal template. If there is <code>struct S { foo: i32, bar: String }</code> in scope, then typing <code>S {}</code> and hitting <kbd>Alt+Enter</kbd> will expand to <code>S { foo: (), bar: () }</code>.</li>
+      <li><b>Add missing fields</b>: a handy way to fill out the struct literal template. If there is <code>struct S {
+        foo: i32, bar: String }</code> in scope, then typing <code>S {}</code> and hitting <kbd>Alt+Enter</kbd> will
+        expand to <code>S { foo: (), bar: () }</code>.
+      </li>
     </ul>
 
-    <p><b>Create module file</b> quick fix is the preferred way to create a new Rust file. For example if I am in <code>foo.rs</code> and want to create a new child module <code>bar.rs</code>, I type <code>mod foo;</code> and press <kbd>Alt+Enter</kbd> to get <code>foo/mod.rs</code> and an empty <code>foo/bar.rs</code>.</p>
-    </div>
+    <p><b>Create module file</b> quick fix is the preferred way to create a new Rust file. For example if I am in
+      <code>foo.rs</code> and want to create a new child module <code>bar.rs</code>, I type <code>mod foo;</code> and
+      press <kbd>Alt+Enter</kbd> to get <code>foo/mod.rs</code> and an empty <code>foo/bar.rs</code>.</p>
+  </div>
 </div>
 
 
@@ -142,10 +169,13 @@ fn main() {
   <div class="feature feature-major">
     <h3>Configurations</h3>
 
-    <p>Built-in <code>Cargo Command</code> run configuration, automatically created with <kbd>Ctrl+Shift+F10</kbd> in following contexts:</p>
+    <p>Built-in <code>Cargo Command</code> run configuration, automatically created with <kbd>Ctrl+Shift+F10</kbd> in
+      following contexts:</p>
 
     <ul>
-      <li>In the file with a <code>main</code> function to execute the corresponding binary target with <code>cargo run</code>.</li>
+      <li>In the file with a <code>main</code> function to execute the corresponding binary target with <code>cargo
+        run</code>.
+      </li>
 
       <li>Inside a <code>#[test]</code> function to execute a single test.</li>
 
