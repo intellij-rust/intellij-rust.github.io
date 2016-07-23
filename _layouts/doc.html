@@ -8,7 +8,7 @@ layout: base
         {% assign sorted_pages = (site.docs | sort: 'order', 'last') %}
         {% for page in sorted_pages %}
           <li>
-            <a href="{{ page.url | site.baseurl }}">{{ page.title }}</a>
+            <a href="{{ site.github.url }}{{ page.url }}">{{ page.title }}</a>
           </li>
         {% endfor %}
       </ul>

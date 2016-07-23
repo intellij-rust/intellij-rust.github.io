@@ -10,7 +10,7 @@ class: features-page
 {% include h title="Code Completion<abbr class=\"wip\" title=\"Work In Progress\">WIP</abbr>" %}
 
 intellij-rust features built from scratch code completion, leveraging IntelliJ
-Platform capabilities. <kbd>Ctrl+Space</kbd> invokes completion. We [do not](https://intellij-rust.github.io/docs/faq.html#racer)
+Platform capabilities. <kbd>Ctrl+Space</kbd> invokes completion. We [do not]({{ site.github.url }}/docs/faq.html#racer)
 plan to use `racer`. A decent amount of completion intelligence is already implemented,
 but there is definitely a lot more to do. Here are some examples of what works and
 what does not work (as of **June 20**).

@@ -9,7 +9,7 @@ class: thisweek-listing
   {% for post in site.posts %}
     <tr>
       <td><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></td>
-      <td><h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2></td>
+      <td><h2><a href="{{ post.url | prepend: site.github.url }}">{{ post.title }}</a></h2></td>
     </tr>
   {% endfor %}
 </table>
