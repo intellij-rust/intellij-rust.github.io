@@ -25,6 +25,8 @@ class: features-page
 <div class="feature-group">
   <h2>Code Completion<abbr class="wip" title="Work In Progress">WIP</abbr></h2>
 
+  <div class="pic"><img src="{{ site.github.url }}/assets/feature-completion.png"/></div>
+
   <div class="feature feature-major">
     <p>
       IntelliJ Rust features built from scratch code completion, leveraging IntelliJ Platform capabilities.
@@ -60,18 +62,20 @@ fn main() {
 
 
 <div class="feature-group">
-  <h2>Navigation and usages search</h2>
+  <h2>Source code navigation</h2>
+
+  <div class="pic"><img src="{{ site.github.url }}/assets/feature-navigation.png"/></div>
 
   <p>There are a number of actions for efficient navigation across your project and dependencies.</p>
 
   <div class="feature">
-    <h3>Goto Declaration</h3>
-    <p><kbd>Ctrl+B</kbd> goes to the definition of the symbol at caret.</p>
+    <h3>Find Usages<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
+    <p><kbd>Alt+F7</kbd> finds usages of element at caret.</p>
   </div>
 
   <div class="feature">
-    <h3>Quick Documentation</h3>
-    <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
+    <h3>Goto Declaration</h3>
+    <p><kbd>Ctrl+B</kbd> goes to the definition of the symbol at caret.</p>
   </div>
 
   <div class="feature">
@@ -86,13 +90,13 @@ fn main() {
   </div>
 
   <div class="feature">
-    <h3>File Structure</h3>
-    <p><kbd>Ctrl+F12</kbd>, <kbd>Alt+7</kbd> brings up an overview of the current file.</p>
+    <h3>Goto Super</h3>
+    <p><kbd>Ctrl+U</kbd> navigates to the parent module.</p>
   </div>
 
   <div class="feature">
-    <h3>Goto Super</h3>
-    <p><kbd>Ctrl+U</kbd> navigates to the parent module.</p>
+    <h3>File Structure</h3>
+    <p><kbd>Ctrl+F12</kbd>, <kbd>Alt+7</kbd> brings up an overview of the current file.</p>
   </div>
 </div>
 
@@ -164,7 +168,23 @@ fn main() {
 
 
 <div class="feature-group">
-  <h2>Run</h2>
+  <h2>Documentation</h2>
+  <div class="pic"><img src="{{ site.github.url }}/assets/feature-doc.png"/></div>
+
+  <div class="feature half">
+    <h3>Highlighting</h3>
+    <p>IntelliJ Rust highlights important parts of documentation comments, so they never look so bland.</p>
+  </div>
+
+  <div class="feature half">
+    <h3>Quick documentation</h3>
+    <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
+  </div>
+</div>
+
+
+<div class="feature-group">
+  <h2>Running</h2>
 
   <div class="feature feature-major">
     <h3>Configurations</h3>

@@ -32,6 +32,14 @@ body.features-page {
         }
     }
 
+    & .pic {
+        margin-bottom: $spacing-unit;
+
+        & > img {
+            box-shadow: 0 3px 25px transparentize(#000, 0.7);
+        }
+    }
+
     margin-left: -$spacing-unit;
     margin-right: -$spacing-unit;
 
@@ -53,7 +61,7 @@ body.features-page {
     }
 }
 
-.feature-group > h2, .feature-group > p, .feature-group > img, .feature {
+.feature-group > h2, .feature-group > p, .feature-group > .pic, .feature {
     box-sizing: border-box;
     flex: 0 0 auto;
 
@@ -85,9 +93,14 @@ body.features-page {
         max-width: 33.333%;
         flex-basis: 33.333%;
     }
+
+    .feature.half {
+        max-width: 50%;
+        flex-basis: 50%;
+    }
 }
 
-.feature-group > h2, .feature-group > p, .feature-group > img, .feature-major {
+.feature-group > h2, .feature-group > p, .feature-group > .pic, .feature-major {
     max-width: 100%;
     flex-basis: 100%;
 }
