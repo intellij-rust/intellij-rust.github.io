@@ -98,6 +98,11 @@ body.features-page {
         max-width: 50%;
         flex-basis: 50%;
     }
+
+    .feature.side-pic {
+        max-width: 66.666%;
+        flex-basis: 66.666%;
+    }
 }
 
 .feature-group > h2, .feature-group > p, .feature-group > .pic, .feature-major {
