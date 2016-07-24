@@ -30,12 +30,39 @@ body.features-page {
                 margin-bottom: 0;
             }
         }
+
+        @include media-query-min($on-palm) {
+            &.with-side-pic {
+                & > li {
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+
+
+                    & > .pic {
+                        box-sizing: border-box;
+                        max-width: 220px;
+                        flex-basis: 220px;
+                        margin: 0;
+                        text-align: left;
+                    }
+
+                    & > p, & > .p {
+                        box-sizing: border-box;
+                        max-width: calc(100% - 220px);
+                        flex-basis: calc(100% - 220px);
+                        padding-left: $spacing-unit;
+                    }
+                }
+            }
+        }
     }
 
     & .pic {
         margin-bottom: $spacing-unit;
+        text-align: center;
 
-        & > img {
+        & > img, & > iframe {
             box-shadow: 0 3px 25px transparentize(#000, 0.7);
         }
     }

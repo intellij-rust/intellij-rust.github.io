@@ -110,21 +110,36 @@ fn main() {
     <p>There is a number of built in live templates and you can define your own. Different live templates are available
       in different contexts. Use <kbd>Ctrl+J</kbd> to list templates available in context.</p>
 
-    <ul>
-      <li><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>println!</code> value with <code>{}</code>, debug
-        <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.
+    <ul class="with-side-pic">
+      <li>
+        {% include feature-gfy.html n="UnrulyMajorElephantseal" w="220" h="60" %}
+        <p><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>println!</code> value with <code>{}</code>, debug
+        <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.</p>
       </li>
 
-      <li><kbd>a</kbd>, <kbd>ae</kbd> - <code>assert!</code> / <code>assert_eq!</code></li>
+      <li>
+        {% include feature-gfy.html n="PlushOddballBoilweevil" w="220" h="60" %}
+        <p><kbd>a</kbd>, <kbd>ae</kbd> - <code>assert!</code> / <code>assert_eq!</code></p>
+      </li>
 
-      <li><kbd>tfn</kbd> - test function boilerplate</li>
+      <li>
+        {% include feature-gfy.html n="ShyThatAmericanquarterhorse" w="220" h="180" %}
+        <div class="p">
+          <p><kbd>tfn</kbd> - test function boilerplate</p>
+          <p><kbd>tmod</kbd> - test module boilerplate</p>
+        </div>
+      </li>
 
-      <li><kbd>tmod</kbd> - test module boilerplate</li>
+      <li>
+        {% include feature-gfy.html n="GlamorousUnacceptableHowlermonkey" w="220" h="60" %}
+        <p><kbd>f</kbd>, <kbd>pf</kbd> - (<code>pub</code>) field name and type, applicable inside struct
+          definitions.</p>
+      </li>
 
-      <li><kbd>f</kbd>, <kbd>pf</kbd> - <code>pub</code> field name and type, applicable inside struct definitions.</li>
-
-      <li><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> templates. You can select a fragment of code and press <kbd>Ctrl+Alt+J</kbd>
-        to invoke <b>Surround With Live Template</b> action.
+      <li>
+        {% include feature-gfy.html n="WelldocumentedUnsteadyCougar" w="220" h="70" %}
+        <p><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> templates. You can select a fragment of code and press
+          <kbd>Ctrl+Alt+J</kbd> to invoke <b>Surround With Live Template</b> action.</p>
       </li>
     </ul>
   </div>
