@@ -25,7 +25,7 @@ date:   2016-07-25 12:32:46 +0300
 * `isCrateRoot` is now consistent with `getCrateRootFor`.
 * `isCrateRoot` is much faster, because it no longer does vfs operations.
 * Fix a crash when changing standard library location in the older IDE.
-* Several formatter fixes (by @jajakobyly)
+* Several formatter fixes (by [@jajakobyly])
 
 
 ## Refactorings
