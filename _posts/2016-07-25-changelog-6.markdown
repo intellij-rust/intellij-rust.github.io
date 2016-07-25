@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #6"
+date:   2016-07-25 12:32:46 +0300
+---
+
+## New Features
+
+* Better parser recovery inside impls.
+* Completion popup is automatically shown after typing `::`.
+* Red code: impls with missing or wrong methods are highlighted. A quick fix to
+  add missing methods is available.
+* Red code: duplicated fields in structs are highlighted.
+* Run configurations: when creating a test configuration from context only a
+  single target is executed. Useful if you have a lot of test crates in the
+  `tests` directory.
+
+
+## Fixes
+
+* List only modules with Cargo.toml in run configurations.
+* Goto class now works for traits.
+* Add missing fields quick fix now works if only some portion of fields is
+  missing.
+* `isCrateRoot` is now consistent with `getCrateRootFor`.
+* `isCrateRoot` is much faster, because it no longer does vfs operations.
+* Fix a crash when changing standard library location in the older IDE.
+* Several formatter fixes (by @jajakobyly)
+
+
+## Refactorings
+
+* Some resolve tests now use inline Rust code instead of file fixtures.
+* CTRS tests and submodule are removed, the source code of rustc and
+  standard library is used instead.
+* Notifications are completely reworked. No more memory leaks and better UI.
+* Structs and enum variants now have a common interface `FieldsOwner`.
+
+[@jajakobyly]: https://github.com/jajakobyly
