@@ -14,12 +14,48 @@ class: features-page
   {% include feature-pic.html i="feature-editor" %}
 
   <div class="feature">
-    <h3>Code Formatter</h3>
+    <h3>Syntax highlighting</h3>
+
+    <p>IntelliJ-Rust, apart from basic lexer highlighting, also highlights resolved types, functions, variables (marking
+      out mutable ones) and macros. All color schemes are customizable and we support light and dark themes out of the
+      box.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Code formatter</h3>
 
     <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional
       formatter based on IntelliJ's formatting engine, though rustfmt support is
       <abbr class="wip" title="Work In Progress">WIP</abbr>. You can use a <code>Run Configuration</code> to invoke
       <code>rustfmt</code>.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Code selection</h3>
+
+    <p>To select a block of code place a cursor inside block and press <kbd>Ctrl+W</kbd> to expand it to an expression,
+      to a line, to a logical block of code, and so on. To shrink selection press <kbd>Ctrl+Shift+W</kbd> as many
+      times as needed.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Code commenting</h3>
+
+    <p>After selecting block, you can apply a block comment (<kbd>Ctrl+Shift+/</kbd>) or line comment
+      (<kbd>Ctrl+/</kbd>) to it. The same shortcuts will remove existing comments from selected lines too.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Code folding</h3>
+
+    <p>Code folding, auto-insertion of braces, brackets & quotes, matching brace/bracket highlighting, etc.</p>
+  </div>
+
+  <div class="feature">
+    <h3>On-the-fly analysis<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
+
+    <p>Errors are shown as you type. Among others, we catch syntax errors, missing fields/methods and unnecessary
+      parens. We also support IntelliJ's built-in spell-checker.</p>
   </div>
 </div>
 
