@@ -15,7 +15,7 @@ class: home
     <p class="desc">{{ site.description }}<sup>*</sup></p>
     <p class="preview-note"><sup>*</sup>work-in-progress, expect bugs and missing features</p>
     <div id="download">
-      <a id="download-stable" href="{{ site.github.url }}/install.html">Install</a>
+      <a id="download-stable" href="/install.html">Install</a>
       <div id="install-pane">
         {{ install-content[2] | markdownify }}
         <a id="install-pane-close" href="#">&times;</a>
@@ -30,8 +30,8 @@ class: home
   <div class="wrapper">
     <h1 class="square">What is intellij-rust</h1>
     <div class="showcase-pic">
-      <img src="{{ site.github.url }}/assets/ir-completion.png" class="completion"/>
-      <img src="{{ site.github.url }}/assets/ir-intention.png" class="intention">
+      <img src="/assets/ir-completion.png" class="completion"/>
+      <img src="/assets/ir-intention.png" class="intention">
     </div>
     <section>
       <h2>Intelligent Rust</h2>
@@ -46,8 +46,8 @@ class: home
     </section>
 
     <ul class="fancy-link-row">
-      <li><a href="{{ site.github.url }}/features/" class="fancy-link">All Features</a></li>
-      <li><a href="{{ site.github.url }}/docs/quick-start.html" class="fancy-link">Quick Start</a></li>
+      <li><a href="/features/" class="fancy-link">All Features</a></li>
+      <li><a href="/docs/quick-start.html" class="fancy-link">Quick Start</a></li>
     </ul>
   </div>
 </div>
@@ -57,9 +57,9 @@ class: home
     <h1 class="square">What's new</h1>
     {% assign post = site.posts.first %}
     <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-    <h2><a class="post-link" href="{{ post.url | prepend: site.github.url }}">{{ post.title }}</a></h2>
+    <h2><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h2>
     <article>{{ post.content }}</article>
-    <div class="center"><a href="{{ site.github.url }}/thisweek/" class="fancy-link">Previous editions</a>
+    <div class="center"><a href="/thisweek/" class="fancy-link">Previous editions</a>
     </div>
   </div>
 </div>
