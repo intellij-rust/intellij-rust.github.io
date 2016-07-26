@@ -62,7 +62,7 @@ body.features-page {
         margin-bottom: $spacing-unit;
         text-align: center;
 
-        & > img, & > iframe {
+        & > img {
             box-shadow: 0 3px 25px transparentize(#000, 0.7);
         }
     }
