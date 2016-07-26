@@ -17,8 +17,8 @@ class: features-page
     <h3>Syntax highlighting</h3>
 
     <p>IntelliJ-Rust, apart from basic lexer highlighting, also highlights resolved types, functions, variables (marking
-      out mutable ones) and macros. All color schemes are customizable and we support light and dark themes out of the
-      box.</p>
+      out mutable ones) and macros. All color schemes are customizable and we support both <i>Default</i> and
+      <i>Darcula</i> themes out of the box.</p>
   </div>
 
   <div class="feature">
@@ -152,7 +152,7 @@ fn main() {
       <li>
         {% include feature-gfy.html n="UnrulyMajorElephantseal" %}
         <p><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>println!</code> value with <code>{}</code>, debug
-        <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.</p>
+          <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.</p>
       </li>
 
       <li>
@@ -183,37 +183,57 @@ fn main() {
   </div>
 
   <div class="feature feature-major">
+    <h3>Refactorings<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
+
+    <div class="feature-group grid">
+      <div class="feature">
+        <p><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get
+          <code>foo/mod.rs</code>. Also available as a quick fix for unresolved module declaration.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature feature-major">
     <h3>Intentions</h3>
 
     <p>Intentions and quick fixes are micro refactorings automatically available depending on context. If some
       intentions are available, a light bulb icon appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a
       quick fix.</p>
 
-    <div class="feature-group">
-      <div class="feature"><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get
-        <code>foo/mod.rs</code>. Available as a quick fix for unresolved module declaration.
+    <div class="feature-group grid">
+      <div class="feature">
+        {% include feature-gfy.html n="PessimisticFlashyAustraliancurlew" %}
+        <p><b>Contract module</b>: the opposite of <i>Expand Module</i> refactoring. Available only if there are no
+          child modules.</p>
       </div>
 
-      <div class="feature"><b>Contract module</b>: the opposite of Expand Module. Available only if there are no child
-        modules.
+      <div class="feature">
+        {% include feature-gfy.html n="HauntingAgonizingDuck" %}
+        <p><b>Create module file</b>: if you have <code>mod foo;</code>, but no <code>foo.rs</code>
+          this quick fix will create the missing file.</p>
       </div>
 
-      <div class="feature"><b>Create module file</b>: if you have <code>mod foo;</code>, but no <code>foo.rs</code>
-        this quick fix will create the missing file.
+      <div class="feature">
+        {% include feature-gfy.html n="BleakWholeGalapagospenguin" %}
+        <p><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file.</p>
       </div>
 
-      <div class="feature"><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file.</div>
-
-      <div class="feature"><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums.
+      <div class="feature">
+        {% include feature-gfy.html n="ChubbyAcrobaticBrahmanbull" %}
+        <p><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums.</p>
       </div>
 
-      <div class="feature"><b>Remove/Add curly braces</b>: toggles between <code>use foo::{bar}</code> and
-        <code>use foo::bar</code>.
+      <div class="feature">
+        {% include feature-gfy.html n="CluelessGiddyBullfrog" %}
+        <p><b>Remove/Add curly braces</b>: toggles between <code>use foo::{bar}</code> and
+          <code>use foo::bar</code>.</p>
       </div>
 
-      <div class="feature"><b>Add missing fields</b>: a handy way to fill out the struct literal template. If there is
-        <code class="wrap">struct S { foo: i32, bar: String }</code> in scope, then typing <code>S {}</code> and
-        hitting <kbd>Alt+Enter</kbd> will expand to <code>S { foo: (), bar: () }</code>.
+      <div class="feature">
+        {% include feature-gfy.html n="ImperfectFreeGecko" %}
+        <p><b>Add missing fields</b>: a handy way to fill out the struct literal template. If there is
+          <code class="wrap">struct S { foo: i32, bar: String }</code> in scope, then typing <code>S {}</code> and
+          hitting <kbd>Alt+Enter</kbd> will expand to <code>S { foo: (), bar: () }</code>.</p>
       </div>
     </div>
 
