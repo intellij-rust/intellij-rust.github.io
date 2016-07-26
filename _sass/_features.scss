@@ -76,6 +76,10 @@ body.features-page {
     }
 }
 
+.feature > .feature-group {
+    margin-bottom: $spacing-unit;
+}
+
 .feature {
     margin-bottom: $spacing-unit/2;
 }

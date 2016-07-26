@@ -151,7 +151,6 @@ pre, code {
 
 code, kbd {
     position: relative;
-    display: inline-block;
     margin: 0 1px;
     font-size: 0.8em;
     white-space: nowrap;
@@ -162,6 +161,7 @@ code {
 }
 
 kbd {
+    display: inline-block;
     padding: 2px 6px 3px;
     background: $background-color;
     color: $grey-color-darker;
@@ -180,6 +180,10 @@ pre {
         padding-left: 0;
         white-space: pre-wrap;
     }
+}
+
+code.wrap {
+    white-space: pre-wrap;
 }
 
 
