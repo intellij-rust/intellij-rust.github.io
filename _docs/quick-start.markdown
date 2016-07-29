@@ -5,11 +5,6 @@ order: 10
 
 {% include doc-shortcut-tip.html %}
 
-{% include h title="Creating new project" tag="create-project" %}
-
-Creating new project from within IDE is not supported yet, so you have to invoke
-`cargo new my_project` from the command line and then open `my_project` directory.
-
 {% include h title="Opening existing project" tag="open-idea" %}
 
 After you have installed the plugin into IntelliJ IDEA you can **import** a
