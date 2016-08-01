@@ -10,7 +10,7 @@ date:   2016-08-01 11:04:17 +0300
 * Creating a project from IDE is supported :confetti_ball:!
 * Method completion works for generic parameters in functions.
 * New `!(expr)` surrounder for boolean expressions (by [@jajakobyly]).
-* New live templates (snippets), use <kbd>Ctrl+J</kbd> to see the full list. (by [@jajakobyly])
+* New live templates (snippets), use <kbd>Ctrl+J</kbd> in different contexts (or `Settings > Editor > Live Templates > Rust`) to see the full list. (by [@jajakobyly])
 
 
 ## Fixes
