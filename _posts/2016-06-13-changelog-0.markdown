@@ -6,7 +6,7 @@ date:   2016-06-13 14:34:00 +0200
 ## New features
 
 * Context aware run configurations
-* Working formatter (contributed by [@jajakobyly])
+* Working formatter (contributed by [@mkaput])
 * Basic completion for fields and methods
 
 
@@ -31,5 +31,5 @@ date:   2016-06-13 14:34:00 +0200
 * Better handling of "attaching stdlib sources" workflow (error reporting and
   ability to change stdlib via project configurable)
 
-[@jajakobyly]: https://github.com/jajakobyly
+[@mkaput]: https://github.com/mkaput
 [@himikof]: https://github.com/himikof

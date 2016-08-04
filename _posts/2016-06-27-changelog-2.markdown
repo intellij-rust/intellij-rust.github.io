@@ -17,7 +17,7 @@ date:   2016-06-27 14:34:00 +0200
 ## Fixes
 
 * Language ID is changed from `RUST` to `Rust`.
-* Literals are properly highlighted inside attributes (contributed by [@jajakobyly])
+* Literals are properly highlighted inside attributes (contributed by [@mkaput])
 * Better parser recovery in if, while and match.
 * More tests and fixes for type inference.
 
@@ -30,5 +30,5 @@ date:   2016-06-27 14:34:00 +0200
 * `RustComputingVisitor` is used in type inference.
 * Overhaul of pattern matching code.
 
-[@jajakobyly]: https://github.com/jajakobyly
+[@mkaput]: https://github.com/mkaput
 [@bgourlie]: https://github.com/bgourlie

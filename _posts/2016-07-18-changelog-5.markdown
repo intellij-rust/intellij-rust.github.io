@@ -26,9 +26,9 @@ date:   2016-07-18 13:53:35 +0300
 ## Refactorings
 
 * Implement caching for super modules.
-* Use [intellij-markdown] for quick doc rendering (by [@jajakobyly]).
+* Use [intellij-markdown] for quick doc rendering (by [@mkaput]).
 
 
 [@bgourlie]: https://github.com/bgourlie
-[@jajakobyly]: https://github.com/jajakobyly
+[@mkaput]: https://github.com/mkaput
 [intellij-markdown]: https://github.com/valich/intellij-markdown

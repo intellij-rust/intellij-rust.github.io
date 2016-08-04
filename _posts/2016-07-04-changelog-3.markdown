@@ -9,7 +9,7 @@ date:   2016-07-04 20:16:00 +0200
 * `--explain` hyperlinks links in console output (by [@tov]).
 * Backtrace option in run configurations (by [@tov]).
 * Better typification for primitives, self, structs and enums.
-* Highlighting of markdown doc comments (by [@jajakobyly]).
+* Highlighting of markdown doc comments (by [@mkaput]).
 * Expand modules is now a quick fix instead of always applicable and annoying intention.
 * Better highlighting of references (by [@mfarrugi]).
 
@@ -25,7 +25,7 @@ date:   2016-07-04 20:16:00 +0200
 * Stubs for impl items.
 * Initial implementation of impl index.
 
-[@jajakobyly]: https://github.com/jajakobyly
+[@mkaput]: https://github.com/mkaput
 [@Furyhunter]: https://github.com/Furyhunter
 [@tov]: https://github.com/tov
 [@mfarrugi]: https://github.com/mfarrugi

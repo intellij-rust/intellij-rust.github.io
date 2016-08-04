@@ -9,21 +9,21 @@ date:   2016-08-01 11:04:17 +0300
 * Use standard library of the previous project by default when creating a new project.
 * Creating a project from IDE is supported :confetti_ball:!
 * Method completion works for generic parameters in functions.
-* New `!(expr)` surrounder for boolean expressions (by [@jajakobyly]).
-* New live templates (snippets), use <kbd>Ctrl+J</kbd> in different contexts (or `Settings > Editor > Live Templates > Rust`) to see the full list. (by [@jajakobyly])
+* New `!(expr)` surrounder for boolean expressions (by [@mkaput]).
+* New live templates (snippets), use <kbd>Ctrl+J</kbd> in different contexts (or `Settings > Editor > Live Templates > Rust`) to see the full list. (by [@mkaput])
 
 
 ## Fixes
 
 * Quick Navigation (<kbd>Ctrl</kbd> + hover) works for methods.
 * Fix stack overflow in type inference.
-* Formatter fixes (by [@jajakobyly]).
+* Formatter fixes (by [@mkaput]).
 * Parser recovery improvements
 
 
 ## Refactorings
 
 * Interaction with Cargo is now tested on Windows as well.
-* Overhaul of surrounder infrastructure (by [@jajakobyly])
+* Overhaul of surrounder infrastructure (by [@mkaput])
 
-[@jajakobyly]: https://github.com/jajakobyly
+[@mkaput]: https://github.com/mkaput

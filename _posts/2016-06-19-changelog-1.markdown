@@ -7,7 +7,7 @@ date:   2016-06-19 14:34:00 +0200
 
 * GoTo symbol (<kbd>Ctrl+Alt+Shift+N</kbd>) works for methods.
 * Completion works for prelude symbols.
-* More formatter options with new code samples in settings (contributed by [@jajakobyly]).
+* More formatter options with new code samples in settings (contributed by [@mkaput]).
 * It is possible to run all tests inside a single module.
 * Functions and statics inside `extern "C" { ... }` blocks are properly resolved.
 
@@ -41,4 +41,4 @@ enumerateScopesFor is moved inside RRE.
 * `getIcon` still depends on some AST information, so goto symbol unfortunately
 parses the world at the moment.
 
-[@jajakobyly]: https://github.com/jajakobyly
+[@mkaput]: https://github.com/mkaput
