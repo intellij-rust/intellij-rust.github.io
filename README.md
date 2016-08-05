@@ -14,7 +14,8 @@ $ bundle exec jekyll serve
 ### Windows
 
 If you are using Windows, it's better not to fight with Ruby Installer. I use WSL and works
-pretty flawlessly, except file change watching (see Microsoft/BashOnWindows#216). So you'll have to run 
+pretty flawlessly, except file change watching (see
+[tracking issue](https://github.com/Microsoft/BashOnWindows/issues/216)). So you'll have to run 
 this instead:
 ```shell
 $ bundle exec jekyll serve --no-watch
