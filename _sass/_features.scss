@@ -59,11 +59,22 @@ body.features-page {
     }
 
     & .pic {
-        margin-bottom: $spacing-unit;
         text-align: center;
 
-        & > img {
+        & > img, & > div {
             box-shadow: 0 3px 25px transparentize(#000, 0.7);
+        }
+    }
+
+    & > .pic {
+        margin-bottom: $spacing-unit;
+    }
+
+    &.side-pic-showcase {
+        align-items: center;
+
+        > .feature {
+            margin-bottom: $spacing-unit*1.5;
         }
     }
 
