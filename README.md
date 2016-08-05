@@ -26,5 +26,5 @@ To workaround lack of watching, you can do:
 
 ```bash
 $ bundle exec jekyll serve --detach
-$ watch -n 5 bundle exec jekyll build --incremental
+$ while (bundle exec jekyll build --incremental); do sleep 5; done
 ```
