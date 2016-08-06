@@ -1,70 +1,55 @@
 $(function () {
-    var wrap = function (fn) {
-        return function (obj, func) {
-            return fn.call(obj, func);
-        };
-    };
-
-    var each = wrap(Array.prototype.forEach);
-    var filter = wrap(Array.prototype.filter);
-
     /*
      * Menu
      */
-    var menuBtn = document.querySelector(".menu-icon");
-    if (menuBtn) {
-        menuBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-        });
-    }
+    $(".menu-icon").on("click", function (e) {
+        e.preventDefault();
+    });
 
     /*
      * Install button
      */
-    var installBtn = document.getElementById("download-stable");
-    if (installBtn) {
-        var installPane = document.getElementById("install-pane");
-        var installPaneCloseBtn = document.getElementById("install-pane-close");
+    $("#download-stable").each(function () {
+        var installPane = $("#install-pane");
+        var installPaneCloseBtn = $("#install-pane-close");
 
-        installBtn.addEventListener("click", function (e) {
-            installPane.classList.toggle("visible");
-            e.target.blur();
+        $(this).on("click", function (e) {
+            installPane.toggleClass("visible");
+            $(e.target).blur();
             e.preventDefault();
         });
 
-        installPaneCloseBtn.addEventListener("click", function (e) {
-            installPane.classList.remove("visible");
+        installPaneCloseBtn.on("click", function (e) {
+            installPane.removeClass("visible");
             e.preventDefault();
         });
-    }
+    });
 
     /*
      * Documentation table of contents
      */
-    var docNavCurrentLink = filter(document.querySelectorAll(".doc-nav > ul > li > a"), function (link) {
-        return link.href == window.location.href;
-    })[0];
-    if (docNavCurrentLink) {
-        var ul = document.createElement("ul");
-        each(document.querySelectorAll(".doc > .doc-content > h2 > i"), function (anchorNode) {
-            var tag = anchorNode.id,
-                title = anchorNode.nextSibling.nodeValue;
+    $(".doc-nav > ul > li > a")
+        .filter(function (idx, link) {
+            return link.href == window.location.href
+        })
+        .after(function () {
+            var ul = $("<ul/>");
+            $(".doc > .doc-content > h2 > i").each(function () {
+                var tag = $(this).attr("id"),
+                    title = this.nextSibling.nodeValue;
 
-            var li = document.createElement("li"),
-                a = document.createElement("a");
-
-            a.appendChild(document.createTextNode(title));
-            a.title = title;
-            a.href = "#" + tag;
-
-            li.appendChild(a);
-            ul.appendChild(li);
+                ul.append(
+                    $("<li/>").append(
+                        $("<a/>")
+                            .attr("href", "#" + tag)
+                            .attr("title", title)
+                            .text(title)));
+            });
+            return ul;
         });
-        docNavCurrentLink.parentNode.appendChild(ul);
-    }
 
     /*
      * GIF Player
      */
-    $('.gif').gifplayer();
+    $(".gif").gifplayer();
 });
