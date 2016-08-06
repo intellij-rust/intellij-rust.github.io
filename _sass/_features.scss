@@ -61,8 +61,10 @@ body.features-page {
     & .pic {
         text-align: center;
 
-        & > img, & > div {
+        & > img, & > .gifplayer-wrapper {
             box-shadow: 0 3px 25px transparentize(#000, 0.7);
+            width: 100%;
+            overflow: hidden;
         }
     }
 

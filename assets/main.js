@@ -1,4 +1,4 @@
-(function () {
+$(function () {
     var wrap = function (fn) {
         return function (obj, func) {
             return fn.call(obj, func);
@@ -62,4 +62,9 @@
         });
         docNavCurrentLink.parentNode.appendChild(ul);
     }
-})();
+
+    /*
+     * GIF Player
+     */
+    $('.gif').gifplayer();
+});
