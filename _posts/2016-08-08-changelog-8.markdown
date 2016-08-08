@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #8"
+date:   2016-08-08 11:34:51 +0300
+---
+
+## New Features
+
+* `pd` family of life templates allows to distinguish different printed
+  expressions.
+* Run icon is displayed in the gutter area for tests and the main function.
+* Add ability to suppress inspections via comments.
+* Type inference handles new kinds of expressions (loops and conditionals).
+* Initial rename refactoring support (not yet 100% accurate).
+* Better <kbd>enter</kbd> handling in documentation comments (by [@mkaput]).
+
+## Fixes
+
+* Parser recovery improvements inside items.
+* Formatter fixes for `for` bounds (by [@mkaput]).
+* Fix a bug that prevented completion in `mod.rs` files.
+
+
+## Refactorings
+
+* `RustDeclaringElement` is removed in favor of directly collection bindings
+  from a pattern.
+
+[@mkaput]: https://github.com/mkaput
