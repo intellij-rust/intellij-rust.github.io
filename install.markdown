@@ -35,6 +35,6 @@ more bugs than in alpha channel. If you find one, we would very appreciate if yo
 ## Compatible IDEs
 
 The plugin should be compatible with any Intellij based IDE starting from build
-_143.2287.1_. For example, the minimum supported IDEA version is _15.0.4_, the
-minimum supported CLion version is _1.2_. See `Help > About` menu in the IDE to
-learn the build version you are using.
+_143.2287.1_. This includes all 2016.1 releases and newer.For example, the 
+minimum supported IDEA version is _15.0.4_, the minimum supported CLion version 
+is _1.2_. See `Help > About` menu in the IDE to learn the build version you are using.
