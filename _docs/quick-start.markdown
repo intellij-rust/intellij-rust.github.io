@@ -20,7 +20,11 @@ Use _from existing sources_ import.
 
 ![from-sources](/assets/quick-start/import-from-existing-sources.png)
 
-Click through the wizard steps and select a Rust toolchain:
+Check that directory is recognized as a Rust project:
+
+![rust-source](/assets/quick-start/rust-source.png)
+
+Select a Rust toolchain:
 
 ![import-toolchain-step](/assets/quick-start/import-toolchain-setup.png)
 
