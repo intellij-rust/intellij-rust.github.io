@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #9"
+date:   2016-08-29 10:49:32 +0300
+---
+
+This an entry for several weeks!
+
+## New Features
+
+* Intentions to add/remove braces around single exrpression lambdas (by [@zjhmale]).
+* **Reformat with rustfmt** action. It is not bound to any key combination by
+  default, you need to setup binding yourself, or use <kbd>Ctrl+Shift+A</kbd> (by [@zjhmale]).
+* Inspections for duplicate items in trait declarations (by [@mbStavola]).
+* De Morgan's Laws intention (by [@zjhmale]).
+* Inspection for unsafe usage of `CString` (by [@zjhmale]). PSA: code like
+  `CString::new("hello").unwrap().as_ptr()` is dangerously broken and memory
+  unsafe, see [documentation] for explanation.
+* Support for unstable impl trait syntax.
+* Show rustup version in the settings (by [@zjhmale]).
+* **Goto super** action works for methods (by [@atsky]).
+
+
+## Fixes
+
+* Symbols from Rust prelude are correctly scoped.
+* Fix exponential time parsing of array expressions.
+* Don't run several instances of Cargo concurrently. This could have caused
+  Cargo to deadlock if there were git dependencies ([also fixed in cargo][cargo-deadlock]).
+* Properly display multiline lookup strings in completion (by [@zjhmale]).
+* Properly refresh Cargo project when an implicit target like `src/bin/foo.rs` is added.
+* Make plugin buildable with OpenJDK (by [@kumbayo]).
+* Fix resolve of mod declarations with relative path in the path attribute (by [@kumbayo]).
+* Fix NPE when renaming a Rust file (by [@zjhmale]).
+
+
+## Refactorings
+
+* Stubs for use declaration, foreign modules and extern crate declarations.
+* `ReustQualifiedPath` abstraction for PSI-independent paths.
+* Visitor-driven equality for types.
+* New implementation of `ImplIndex`.
+* `AliasIndex`.
+* Better interface for binary operators (by [@mkaput]).
+* Remove bodies from trait and impl PSI.
+
+
+
+[cargo-deadlock]: https://github.com/rust-lang/cargo/pull/2991
+[documentation]: https://doc.rust-lang.org/std/ffi/struct.CString.html#method.as_ptr
+
+[@mkaput]: https://github.com/mkaput
+[@zjhmale]: https://github.com/zjhmale
+[@mbStavola]: https://github.com/mbStavola
+[@kumbayo]: https://github.com/kumbayo
+[@atsky]: https://github.com/atsky
