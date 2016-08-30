@@ -8,7 +8,7 @@ This an entry for several weeks!
 
 ## New Features
 
-* Intentions to add/remove braces around single exrpression lambdas (by [@zjhmale]).
+* Intentions to add/remove braces around single expression lambdas (by [@zjhmale]).
 * **Reformat with rustfmt** action. It is not bound to any key combination by
   default, you need to setup binding yourself, or use <kbd>Ctrl+Shift+A</kbd> (by [@zjhmale]).
 * Inspections for duplicate items in trait declarations (by [@mbStavola]).
