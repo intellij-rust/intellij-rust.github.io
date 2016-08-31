@@ -37,7 +37,7 @@ This an entry for several weeks!
 ## Refactorings
 
 * Stubs for use declaration, foreign modules and extern crate declarations.
-* `ReustQualifiedPath` abstraction for PSI-independent paths.
+* `RustQualifiedPath` abstraction for PSI-independent paths.
 * Visitor-driven equality for types.
 * New implementation of `ImplIndex`.
 * `AliasIndex`.
