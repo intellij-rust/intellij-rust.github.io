@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "IntelliJ-Rust Changelog #10"
+date:   2016-09-07 12:50:47 +0300
+
+---
+
+## New Features
+
+* On nightly Cargo, `--all-features` flag is used to learn about all project
+  dependencies.
+* Support for workspaces on nightly Cargo.
+* Compatibility with 2013.3 EAP.
+* More precise contexts for snippets (by [@kumbayo]).
+
+
+## Fixes
+
+* Correctly handle symlinks and case insensitive file systems.
+* Show inner docstrings in quick doc.
+* Fix resolve of `self`.
+* Correct run configuration relative precedence.
+
+## Refactorings
+
+* Reorganize version checks for various Rust tools.
+* Reorganize grammar for blocks and correctly handle the trailing expression.
+* Don't assume that Rust are always present present in the toolchain.
+
+
+[@kumbayo]: https://github.com/kumbayo
