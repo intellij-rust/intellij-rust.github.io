@@ -10,7 +10,7 @@ date:   2016-09-07 12:50:47 +0300
 * On nightly Cargo, `--all-features` flag is used to learn about all project
   dependencies.
 * Support for workspaces on nightly Cargo.
-* Compatibility with 2013.3 EAP.
+* Compatibility with 2016.3 EAP.
 * More precise contexts for snippets (by [@kumbayo]).
 
 
@@ -25,7 +25,7 @@ date:   2016-09-07 12:50:47 +0300
 
 * Reorganize version checks for various Rust tools.
 * Reorganize grammar for blocks and correctly handle the trailing expression.
-* Don't assume that Rust are always present present in the toolchain.
+* Don't assume that Rust are always present in the toolchain.
 
 
 [@kumbayo]: https://github.com/kumbayo
