@@ -9,15 +9,13 @@ class: features-page
 
 
 <div class="feature-group">
-  <div id="smart-editor" class="feature-anchor"></div>
-  <div class="feature-link"><a class="icon-link" href="#smart-editor"></a></div>
+  {% include feature-anchor anchor="smart-editor" %}
   <h2>Smart editor</h2>
 
   {% include feature-pic.html i="feature-editor" %}
 
   <div class="feature">
-    <div id="syntax-highlighting" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#syntax-highlighting"></a></div>
+    {% include feature-anchor anchor="syntax-highlighting" %}
     <h3>Syntax highlighting</h3>
 
     <p>IntelliJ-Rust, apart from basic lexer highlighting, also highlights resolved types, functions, variables (marking
@@ -26,8 +24,7 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="code-formatter" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#code-formatter"></a></div>
+    {% include feature-anchor anchor="code-formatter" %}
     <h3>Code formatter</h3>
 
     <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional
@@ -37,8 +34,7 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="code-selection" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#code-selection"></a></div>
+    {% include feature-anchor anchor="code-selection" %}
     <h3>Code selection</h3>
 
     <p>To select a block of code place a cursor inside block and press <kbd>Ctrl+W</kbd> to expand it to an expression,
@@ -47,8 +43,7 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="code-commenting" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#code-commenting"></a></div>
+    {% include feature-anchor anchor="code-commenting" %}
     <h3>Code commenting</h3>
 
     <p>After selecting block, you can apply a block comment (<kbd>Ctrl+Shift+/</kbd>) or line comment
@@ -56,16 +51,14 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="code-folding" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#code-folding"></a></div>
+    {% include feature-anchor anchor="code-folding" %}
     <h3>Code folding</h3>
 
     <p>Code folding, auto-insertion of braces, brackets & quotes, matching brace/bracket highlighting, etc.</p>
   </div>
 
   <div class="feature">
-    <div id="analysis" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#analysis"></a></div>
+    {% include feature-anchor anchor="analysis" %}
     <h3>On-the-fly analysis<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
 
     <p>Errors are shown as you type. Among others, we catch syntax errors, missing fields/methods and unnecessary
@@ -75,8 +68,7 @@ class: features-page
 
 
 <div class="feature-group">
-  <div id="code-completion" class="feature-anchor"></div>
-  <div class="feature-link"><a class="icon-link" href="#code-completion"></a></div>
+  {% include feature-anchor anchor="code-completion" %}
   <h2>Code Completion<abbr class="wip" title="Work In Progress">WIP</abbr></h2>
 
   {% include feature-pic.html i="feature-completion" %}
@@ -98,8 +90,7 @@ class: features-page
 
 
 <div class="feature-group">
-  <div id="navigation" class="feature-anchor"></div>
-  <div class="feature-link"><a class="icon-link" href="#navigation"></a></div>
+  {% include feature-anchor anchor="navigation" %}
   <h2>Source code navigation</h2>
 
   {% include feature-pic.html i="feature-navigation" %}
@@ -107,44 +98,38 @@ class: features-page
   <p>There are a number of actions for efficient navigation across your project and dependencies.</p>
 
   <div class="feature">
-    <div id="find-usages" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#find-usages"></a></div>
+    {% include feature-anchor anchor="find-usages" %}
     <h3>Find Usages<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
     <p><kbd>Alt+F7</kbd> finds usages of element at caret.</p>
   </div>
 
   <div class="feature">
-    <div id="goto-declaration" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#goto-declaration"></a></div>
+    {% include feature-anchor anchor="goto-declaration" %}
     <h3>Goto Declaration</h3>
     <p><kbd>Ctrl+B</kbd> goes to the definition of the symbol at caret.</p>
   </div>
 
   <div class="feature">
-    <div id="goto-class" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#goto-class"></a></div>
+    {% include feature-anchor anchor="goto-class" %}
     <h3>Goto Class</h3>
     <p><kbd>Ctrl+N</kbd> search for a struct or enum by name.</p>
   </div>
 
   <div class="feature">
-    <div id="goto-symbol" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#goto-symbol"></a></div>
+    {% include feature-anchor anchor="goto-symbol" %}
     <h3>Goto Symbol</h3>
     <p><kbd>Ctrl+Shift+Alt+N</kbd> searches for any symbol (types, methods, functions, fields) by name. Together with
       <kbd>Ctrl+N</kbd> it is the main method to explore large projects.</p>
   </div>
 
   <div class="feature">
-    <div id="goto-super" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#goto-super"></a></div>
+    {% include feature-anchor anchor="goto-super" %}
     <h3>Goto Super</h3>
     <p><kbd>Ctrl+U</kbd> navigates to the parent module.</p>
   </div>
 
   <div class="feature">
-    <div id="file-structure" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#file-structure"></a></div>
+    {% include feature-anchor anchor="file-structure" %}
     <h3>File Structure</h3>
     <p><kbd>Ctrl+F12</kbd>, <kbd>Alt+7</kbd> brings up an overview of the current file.</p>
   </div>
@@ -152,13 +137,11 @@ class: features-page
 
 
 <div class="feature-group">
-  <div id="generation-refactorings" class="feature-anchor"></div>
-  <div class="feature-link"><a class="icon-link" href="#generation-refactorings"></a></div>
+  {% include feature-anchor anchor="generation-refactorings" %}
   <h2>Code generation and refactorings</h2>
 
   <div class="feature feature-major">
-    <div id="live-templates" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#live-templates"></a></div>
+    {% include feature-anchor anchor="live-templates" %}
     <h3>'Surround With' and Live Templates</h3>
 
     <p>There is a number of built in live templates and you can define your own. Different live templates are available
@@ -199,14 +182,12 @@ class: features-page
   </div>
 
   <div class="feature feature-major">
-    <div id="refactorings" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#refactorings"></a></div>
+    {% include feature-anchor anchor="refactorings" %}
     <h3>Refactorings<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
 
     <div class="feature-group grid">
       <div class="feature">
-        <div id="expand-module" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#expand-module"></a></div>
+        {% include feature-anchor anchor="expand-module" %}
         <p><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get
           <code>foo/mod.rs</code>. Also available as a quick fix for unresolved module declaration.</p>
       </div>
@@ -214,8 +195,7 @@ class: features-page
   </div>
 
   <div class="feature feature-major">
-    <div id="intentions" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#intentions"></a></div>
+    {% include feature-anchor anchor="intentions" %}
     <h3>Intentions</h3>
 
     <p>Intentions and quick fixes are micro refactorings automatically available depending on context. If some
@@ -224,53 +204,46 @@ class: features-page
 
     <div class="feature-group grid">
       <div class="feature">
-        <div id="contract-module" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#contract-module"></a></div>
+        {% include feature-anchor anchor="contract-module" %}
         {% include feature-gfy.html n="PessimisticFlashyAustraliancurlew" %}
         <p><b>Contract module</b>: the opposite of <i>Expand Module</i> refactoring. Available only if there are no
           child modules.</p>
       </div>
 
       <div class="feature">
-        <div id="create-module" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#create-module"></a></div>
+        {% include feature-anchor anchor="create-module" %}
         {% include feature-gfy.html n="HauntingAgonizingDuck" %}
         <p><b>Create module file</b>: if you have <code>mod foo;</code>, but no <code>foo.rs</code>
           this quick fix will create the missing file.</p>
       </div>
 
       <div class="feature">
-        <div id="extract-module" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#extract-module"></a></div>
+        {% include feature-anchor anchor="extract-module" %}
         {% include feature-gfy.html n="BleakWholeGalapagospenguin" %}
         <p><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file.</p>
       </div>
 
       <div class="feature">
-        <div id="derive-clause" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#derive-clause"></a></div>
+        {% include feature-anchor anchor="derive-clause" %}
         {% include feature-gfy.html n="ChubbyAcrobaticBrahmanbull" %}
         <p><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums.</p>
       </div>
 
       <div class="feature">
-        <div id="curly-braces" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#curly-braces"></a></div>
+        {% include feature-anchor anchor="curly-braces" %}
         {% include feature-gfy.html n="CluelessGiddyBullfrog" %}
         <p><b>Remove/Add curly braces</b>: toggles between <code>use foo::{bar}</code> and
           <code>use foo::bar</code>.</p>
       </div>
 
       <div class="feature">
-        <div id="missing-fields" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#missing-fields"></a></div>
+        {% include feature-anchor anchor="missing-fields" %}
         {% include feature-gfy.html n="ImperfectFreeGecko" %}
         <p><b>Add missing fields</b>: a handy way to fill out the struct literal template.</p>
       </div>
 
       <div class="feature">
-        <div id="implement-methods" class="feature-anchor"></div>
-        <div class="feature-link"><a class="icon-link" href="#implement-methods"></a></div>
+        {% include feature-anchor anchor="implement-methods" %}
         {% include feature-gfy.html n="GlisteningCostlyAntarcticfurseal" %}
         <p><b>Implement methods</b>: quickly scafold an impl.</p>
       </div>
@@ -281,21 +254,18 @@ class: features-page
 
 
 <div class="feature-group">
-  <div id="documentation" class="feature-anchor"></div>
-  <div class="feature-link"><a class="icon-link" href="#documentation"></a></div>
+  {% include feature-anchor anchor="documentation" %}
   <h2>Documentation</h2>
   {% include feature-pic.html i="feature-doc" %}
 
   <div class="feature half">
-    <div id="highlighting" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#highlighting"></a></div>
+    {% include feature-anchor anchor="highlighting" %}
     <h3>Highlighting</h3>
     <p>IntelliJ-Rust highlights important parts of documentation comments, so they never look so bland.</p>
   </div>
 
   <div class="feature half">
-    <div id="quick-documentation" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#quick-documentation"></a></div>
+    {% include feature-anchor anchor="quick-documentation" %}
     <h3>Quick documentation</h3>
     <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
   </div>
@@ -303,8 +273,7 @@ class: features-page
 
 
 <div class="feature-group side-pic-showcase">
-  <div id="running" class="feature-anchor"></div>
-  <div class="feature-link"><a class="icon-link" href="#running"></a></div>
+  {% include feature-anchor anchor="running" %}
   <h2>Running</h2>
 
   <div class="feature side-fpic">
@@ -312,8 +281,7 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="cargo-configurations" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#cargo-configurations"></a></div>
+    {% include feature-anchor anchor="cargo-configurations" %}
     <h3>Configurations</h3>
 
     <p>Built-in <code>Cargo Command</code> run configuration allows to build,
@@ -328,8 +296,7 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="context-aware" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#context-aware"></a></div>
+    {% include feature-anchor anchor="context-aware" %}
     <h3>Context aware</h3>
 
     You can use <kbd>Ctrl+Shift+F10</kbd> shortcut to run a <code>main</code> or a <code>test</code> function.
@@ -342,8 +309,7 @@ class: features-page
   </div>
 
   <div class="feature">
-    <div id="synergy" class="feature-anchor"></div>
-    <div class="feature-link"><a class="icon-link" href="#synergy"></a></div>
+    {% include feature-anchor anchor="synergy" %}
     <h3>Synergy</h3>
 
     You can combine <kbd>Ctrl+Alt+Shift+N</kbd> with <kbd>Ctrl+Shift+F10</kbd> to

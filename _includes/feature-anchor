@@ -1,0 +1,2 @@
+<div id="{{ include.anchor }}" class="feature-anchor"></div>
+<div class="feature-link"><a class="icon-link" href="#{{ include.anchor }}"></a></div>
