@@ -99,6 +99,37 @@ body.features-page {
 
 .feature {
     margin-bottom: $spacing-unit/2;
+
+    .feature-link {
+        margin-left: -$spacing-unit !important;
+    }
+}
+
+.feature, .feature-group {
+    .feature-anchor {
+        top: -($header-height + $header-border-top-height + $header-border-bottom-height + $spacing-unit/2);
+        display: block;
+        position: relative;
+    }
+
+    .feature-link {
+        display: none;
+    }
+
+    &:hover {
+        &> .feature-link {
+            display: block;
+            position: absolute;
+            margin-top: ($spacing-unit/4);
+            z-index: 2;
+        }
+    }
+}
+
+.feature {
+    .feature-link {
+
+    }
 }
 
 .feature-major {

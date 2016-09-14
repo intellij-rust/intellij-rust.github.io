@@ -19,8 +19,8 @@ body {
  * Site header
  */
 .site-header {
-    border-top: 5px solid $text-color;
-    border-bottom: 1px solid $grey-color-light;
+    border-top: $header-border-top-height solid $text-color;
+    border-bottom: $header-border-bottom-height solid $grey-color-light;
     background: $background-color;
     min-height: $header-height;
 
