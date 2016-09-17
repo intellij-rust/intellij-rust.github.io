@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "IntelliJ-Rust Changelog #4"
+title:  "IntelliJ Rust Changelog #4"
 date:   2016-07-11 12:27:29 +0300
 ---
 ## New Features

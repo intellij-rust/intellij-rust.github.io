@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Install IntelliJ-Rust
+title: Install IntelliJ Rust
 ---
 
 ## Getting alpha builds
 
-IntelliJ-Rust is currently in the _alpha_ stage of development. When we reach some acceptable level of stability,
+IntelliJ Rust is currently in the _alpha_ stage of development. When we reach some acceptable level of stability,
 we publish alpha builds to the IntelliJ's main plugin [repository](https://plugins.jetbrains.com/plugin/8182).
 You can download and install these builds directly from `Plugins > Browse repositories` screen in your IDE.
 
