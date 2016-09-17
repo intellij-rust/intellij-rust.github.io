@@ -4,7 +4,7 @@
 @charset "utf-8";
 
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:400,800';
-@import 'https://fonts.googleapis.com/css?family=Ruda:900&text=intellij-rust';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:700&text=intellij-rust';
 @import '/assets/gifplayer/gifplayer.css';
 
 // Our variables
@@ -15,8 +15,8 @@ $bold-font-weight: 800;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$title-font-family: 'Ruda', Helvetica, Arial, sans-serif;
-$title-font-weight: 900;
+$title-font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+$title-font-weight: 700;
 $title-color:       lighten(#000, 15%);
 
 $spacing-unit:     30px;
