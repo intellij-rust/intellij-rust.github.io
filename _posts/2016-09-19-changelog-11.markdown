@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "IntelliJ Rust Changelog #11"
+date:   2016-09-19 14:40:40 +0300
+
+---
+
+## New Features
+
+* `rustup` is used to download sources of the standard library for the nightly
+  toolchain.
+* Function signature is shown in quick doc (by [@allengeorge]).
+* Better handling of string literals (by [@mkaput]):
+    - <kbd>Enter</kbd> will automatically escape a new line,
+    - closing quotes are inserted automatically for raw string literals.
+
+
+## Fixes
+
+* Fix resolve and highlighting for `char` and `str` (by [@kumbayo]).
+* Fix run configurations for kebab-named targets.
+* Correct retrieval of empty string attributes like `[path=""]` (by [@mkaput]).
+
+
+## Refactorings
+
+* Switch to EAP version of Kotlin.
+* `RustPath` is a fully decoupled from PSI representation of paths.
+
+
+
+[@mkaput]: https://github.com/mkaput
+[@kumbayo]: https://github.com/kumbayo
+[@allengeorge]: https://github.com/allengeorge
