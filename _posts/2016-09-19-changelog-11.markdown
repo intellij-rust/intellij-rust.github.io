@@ -19,7 +19,7 @@ date:   2016-09-19 14:40:40 +0300
 
 * Fix resolve and highlighting for `char` and `str` (by [@kumbayo]).
 * Fix run configurations for kebab-named targets.
-* Correct retrieval of empty string attributes like `[path=""]` (by [@mkaput]).
+* Correct retrieval of empty string attributes like `#[path=""]` (by [@mkaput]).
 
 
 ## Refactorings
