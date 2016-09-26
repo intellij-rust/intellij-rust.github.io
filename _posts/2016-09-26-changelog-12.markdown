@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "IntelliJ Rust Changelog #12"
+date:   2016-09-26 13:25:12 +0300
+
+
+---
+
+## New Features
+
+* Customizeable highlighting for operators (by [@allengeorge]).
+* Intention to remove braces around a block with a single expression. For
+  example to convert `{ 92 }` to `92`. (by [@ujpv]).
+
+
+## Fixes
+
+* Completion works for items imported with aliases.
+* Better formatting of tuple structs (by [@allengeorge]).
+* Fix enter handling in an empty Rust file (by [@mkaput]).
+
+
+## Refactorings
+
+* introduce `RustPathNamedElement` to get `::`-separated path.
+* paths now store type parameters.
+
+
+[@mkaput]: https://github.com/mkaput
+[@kumbayo]: https://github.com/kumbayo
+[@allengeorge]: https://github.com/allengeorge
+[@ujpv]: https://github.com/ujpv
