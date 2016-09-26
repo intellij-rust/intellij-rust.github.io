@@ -2,13 +2,11 @@
 layout: post
 title:  "IntelliJ Rust Changelog #12"
 date:   2016-09-26 13:25:12 +0300
-
-
 ---
 
 ## New Features
 
-* Customizeable highlighting for operators (by [@allengeorge]).
+* Customizable highlighting for operators (by [@allengeorge]).
 * Intention to remove braces around a block with a single expression. For
   example to convert `{ 92 }` to `92`. (by [@ujpv]).
 
