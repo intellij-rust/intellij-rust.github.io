@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "IntelliJ Rust Changelog #13"
+date:   2016-10-03 11:49:24 +0300
+---
+
+## New Features
+
+* Go to symbol now shows a path to a symbol.
+
+* Typing or deleting `#` in a raw string literal quote automatically balances
+  the opposite side (by [@mkaput]).
+
+* You can surround code with `if`, `while`, `loop`, `for` (by [@ujpv]).
+
+* Project structure now shows const and static items, and features better icons
+  (by [@alygin]).
+
+
+## Fixes
+
+* Don't execute `cargo --version` every time a rust file is opened.
+
+* Fix typing a quote inside a raw literal (by [@mkaput]).
+
+
+## Refactorings
+
+* Upgrade to Kotlin 1.0.4.
+
+* Surrounder tests now use language injection instead of file fixtures (by
+  [@ujpv]).
+
+* Better internal docs about the testing infrastructure (by [@allengeorge]).
+
+[@mkaput]: https://github.com/mkaput
+[@kumbayo]: https://github.com/kumbayo
+[@allengeorge]: https://github.com/allengeorge
+[@ujpv]: https://github.com/ujpv
+[@alygin]: https://github.com/alygin
