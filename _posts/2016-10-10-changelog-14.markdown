@@ -1,0 +1,45 @@
+---
+layout: post
+title:  "IntelliJ Rust Changelog #14"
+date:   2016-10-10 12:14:00 +0300
+---
+
+## New Features
+
+* More accurate resolve with initial support for types and values namespaces.
+  See [this thread][types-values-discussion] for the discussion about this
+  feature of the Rust language.
+
+* Display directory name in the tab title for `mod.rs` files (by [@mbStavola]).
+
+* New inspections:
+  - drop reference,
+  - double negation,
+  - suspicions assignment,
+  - missing else,
+
+  [@alygin] is on a roll!
+
+
+* Join lines action works with string literals (by [@mkaput]).
+
+
+
+## Fixes
+
+* Better parser recovery for const and static items.
+
+
+## Refactorings
+
+* No code duplication in expression surrounders (by [@ujpv]).
+
+* Simpler completion tests.
+
+
+[types-values-discussion]: https://users.rust-lang.org/t/today-i-learned-that-in-rust/7505/5
+
+[@mkaput]: https://github.com/mkaput
+[@mbStavola]: https://github.com/mbStavola
+[@ujpv]: https://github.com/ujpv
+[@alygin]: https://github.com/alygin
