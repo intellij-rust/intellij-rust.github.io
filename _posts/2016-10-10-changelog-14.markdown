@@ -37,7 +37,7 @@ date:   2016-10-10 12:14:00 +0300
 * Simpler completion tests.
 
 
-[types-values-discussion]: https://users.rust-lang.org/t/today-i-learned-that-in-rust/7505/5
+[types-values-discussion]: https://users.rust-lang.org/t/today-i-learned-that-in-rust/7505
 
 [@mkaput]: https://github.com/mkaput
 [@mbStavola]: https://github.com/mbStavola
