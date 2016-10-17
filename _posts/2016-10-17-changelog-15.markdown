@@ -1,0 +1,38 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #15"
+date: 2016-10-17 12:01:35 +0300
+---
+
+## New Features
+
+* More inspections from [@alygin]:
+  - dangling else,
+  - naming conventions.
+
+* Backtraces now have links to the source code (by [@alygin]).
+
+* Support for assert family of macros (by [@kumbayo]).
+
+* Better resolve for multi-namespace use declarations.
+
+* Support for `..` in tuple and enum patterns.
+
+## Fixes
+
+* Type inference for comparison boolean expressions (by [@ujpv]).
+
+* Better parser recovery for use declarations.
+
+* Fix operator priority for lambda expressions.
+
+## Refactorings
+
+* Simpler resolve tests.
+
+* No code duplication in statement surrounders (by [@ujpv]).
+
+
+[@ujpv]: https://github.com/ujpv
+[@alygin]: https://github.com/alygin
+[@kumbayo]: https://github.com/kumbayo
