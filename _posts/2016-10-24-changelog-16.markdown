@@ -1,0 +1,30 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #16"
+date: 2016-10-24 15:46:49 +0300
+---
+
+## New Features
+
+* Gutter icons for navigation from the `impl` method to the corresponding
+  `trait` method (by [@alygin]).
+
+* Gutter icons to find all the implementations of the trait (by [@alygin]).
+
+* New intention: "add else branch" (by [@ujpv])
+
+## Fixes
+
+* Fix formatting of use declarations.
+
+* Allow lables on while let loops.
+
+## Refactorings
+
+* Simpler inspections (by [@alygin]).
+* Use rustup to download source code for testing.
+* Reuse project description between tests.
+* Update to Grammar Kit 1.4.3.
+
+[@ujpv]: https://github.com/ujpv
+[@alygin]: https://github.com/alygin
