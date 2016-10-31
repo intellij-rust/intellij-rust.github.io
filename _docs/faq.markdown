@@ -9,7 +9,7 @@ We don't use IntelliJ IDEA's SDK concept to manage Rust versions because it is
 specific to IDEA and is not present, for example, in the CLion. Path to Cargo is
 configured per project in the `Settings > Languages & Frameworks > Rust`.
 
-{% include h title="Why Make Project action does not work?" tag="sdk" %}
+{% include h title="Why Make Project action does not work?" tag="make" %}
 
 Because we don't use an SDK, the generic **Make Project** action is not
 available. Instead, you can create a **Run Configuration** with a `cargo build`
