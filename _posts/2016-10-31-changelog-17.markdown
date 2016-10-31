@@ -1,0 +1,34 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #17"
+date: 2016-10-31 16:05:47 +0300
+---
+
+## New Features
+
+* Gutter icon for recursive call (by [@alygin]).
+
+* Better support for `vec![]` and `panic!()` macros (by [@HeyLey]).
+
+* Support for `!` type ([RFC](https://github.com/rust-lang/rfcs/blob/master/text/1216-bang-type.md)).
+
+* Postfix templates for `if` and `while` (by [@ujpv]).
+
+* Intention to move constraints to a where clause (by [@alobb]).
+
+## Fixes
+
+* Minor formatter fixes.
+
+* Better parser recovery.
+
+* Better handling of namespaces in imports.
+
+## Refactorings
+
+* Simplified resolve API.
+
+[@alygin]: https://github.com/alygin
+[@HeyLey]: https://github.com/HeyLey
+[@ujpv]: https://github.com/ujpv
+[@alobb]: https://github.com/alobb
