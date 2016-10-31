@@ -6,7 +6,7 @@ date: 2016-10-31 16:05:47 +0300
 
 ## New Features
 
-* Gutter icon for recursive call (by [@alygin]).
+* Gutter icon for recursive calls (by [@alygin]).
 
 * Better support for `vec![]` and `panic!()` macros (by [@HeyLey]).
 
