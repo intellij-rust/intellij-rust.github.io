@@ -1,0 +1,32 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #18"
+date: 2016-11-14 11:57:49 +0300
+---
+
+## New Features
+
+* Inspection to convert usages of `try!` macro to the new `?` operator.
+
+* Separate setting for the color of function parameters (by [@alobb]).
+
+* New inspection to warn about a semicolon in cases like `fn foo() -> i32 { 92; }`.
+
+* Inplace rename for local variables.
+
+## Fixes
+
+* Don't report naming convention errors for structs annotated with `allow(non_snake_case)`.
+
+* Fix run gutter icon (investigated by [@mrobakowski]).
+
+## Refactorings
+
+* Improved resolve performance.
+
+* Add a base class to simplify intention tests.
+
+* Update to Kotlin 1.0.5.
+
+[@alobb]: https://github.com/alobb
+[@mrobakowski]: https://github.com/mrobakowski
