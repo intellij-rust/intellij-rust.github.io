@@ -23,7 +23,8 @@ project from source:
 
 ![idea-import](/assets/quick-start/import-project.png)
 
-Select the directory with the project.
+Select the directory with the project. The directory must contain a `Cargo.toml`
+file.
 
 ![select-directory](/assets/quick-start/select-project.png)
 
@@ -31,7 +32,7 @@ Use _from existing sources_ import.
 
 ![from-sources](/assets/quick-start/import-from-existing-sources.png)
 
-Check that directory is recognized as a Rust project:
+Check that the directory is recognized as a Rust project:
 
 ![rust-source](/assets/quick-start/rust-source.png)
 
