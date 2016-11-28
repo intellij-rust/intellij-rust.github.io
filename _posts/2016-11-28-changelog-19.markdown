@@ -1,0 +1,25 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #19"
+date: 2016-11-28 12:53:44 +0300
+---
+
+## New Features
+
+* Intention to convert match statement to if let (by [@ujpv]).
+
+* Go to definition for tuple struct fields.
+
+* Support untagged unions.
+
+## Fixes
+
+* Correctly display "explain" links in the console (by [@d9n]).
+
+
+## Refactorings
+
+* `union` and `default` are proper context keywords.
+
+[@ujpv]: https://github.com/ujpv
+[@d9n]: https://github.com/d9n
