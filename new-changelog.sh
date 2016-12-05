@@ -2,7 +2,7 @@
 
 set -e
 
-next_post=$(($(ls _posts | wc -l) - 1))
+next_post=$(ls _posts | wc -l)
 today=$(date +"%Y-%m-%d")
 
 cat << EOF > _posts/$today-changelog-$next_post.markdown

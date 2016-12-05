@@ -1,0 +1,48 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #20"
+date: 2016-12-05 16:33:34 +0300
+---
+
+## New Features
+
+* New icons (by [@mkaput] and [@alygin]).
+
+* Disable naming convention inspections by `allow` attributes (by [@alygin]).
+
+* Introduce variable refactoring (by [@LiamClark]).
+
+* Colored Cargo output on Linux and Mac.
+
+* New intentions by @Litarvan:
+  - add/remove `mut` from the reference,
+  - add an `impl` block.
+
+* Parameter hints (`Ctrl+P`) by [@alygin].
+
+* `match` postifx template (by [@ujpv]).
+
+* Separate configurable color for `?` operator (by [@alygin]).
+
+## Fixes
+
+* Make sure that all indexes are invalidated if the grammar is changed.
+
+* Fix parsing of `{1} & 2;` (these are two different statements).
+
+* Explain links work for warnings as well (by [@alygin]).
+
+## Refactorings
+
+* Overhaul `build.gradle`.
+
+* Toml plugin again lives in intellij-rust repository.
+
+* Gradle console output for tests is a bit less verbose.
+
+
+[@mkaput]: https://github.com/mkaput
+[@alygin]: https://github.com/alygin
+[@LiamClark]: https://github.com/LiamClark
+[@Litarvan]: https://github.com/Litarvan
+[@ujpv]: https://github.com/ujpv
