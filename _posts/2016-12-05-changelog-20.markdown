@@ -14,7 +14,7 @@ date: 2016-12-05 16:33:34 +0300
 
 * Colored Cargo output on Linux and Mac.
 
-* New intentions by @Litarvan:
+* New intentions by [@Litarvan]:
   - add/remove `mut` from the reference,
   - add an `impl` block.
 
