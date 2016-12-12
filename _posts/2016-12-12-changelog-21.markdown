@@ -1,0 +1,24 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #21"
+date: 2016-12-12 12:40:26 +0300
+---
+
+## New Features
+
+* Introduce variable suggests better names (by [@LiamClark]).
+
+## Fixes
+
+* Better highlighting of punctuation (by [@alygin]).
+
+## Refactorings
+
+* Simplified cargo project refreshing.
+
+* Replace GUI designer with MigLayout and
+  [Kotlin DSL](https://github.com/JetBrains/intellij-community/blob/a6654d1145ed080c45c36c85a9f15c4bc22f14ba/platform/platform-impl/src/com/intellij/ui/layout/readme.md).
+
+
+[@alygin]: https://github.com/alygin
+[@LiamClark]: https://github.com/LiamClark
