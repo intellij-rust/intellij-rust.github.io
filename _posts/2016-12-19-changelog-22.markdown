@@ -1,0 +1,29 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #22"
+date: 2016-12-19 11:02:23 +0300
+---
+
+## New Features
+
+* Live template for benchmark (`bfn`) by [@Keats].
+
+* First stab at **Unelide lifetimes** intention (by [@ujpv]).
+
+* Introduce variable is available via `let` postfix template (by [@ujpv]).
+
+## Fixes
+
+* Better caret placement for **Add Fields** quick fix.
+* It's possible to run tests directly from **Goto File** action.
+* Postfix templates `par` ( `1 + 2.par -> (1 + 2)` ) and `lambda` (`1 + 2.lambda
+  -> || 1 + 2`) by [@ujpv].
+* Expression selection for **Introduce Variable** is more natural.
+* Compatibility with the latest EAP IDEA and nightly Rust.
+
+## Refactorings
+
+* `RustPath` is used to express fully qualified paths.
+
+[@ujpv]: https://github.com/ujpv
+[@Keats]: https://github.com/Keats
