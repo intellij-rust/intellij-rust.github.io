@@ -1,0 +1,35 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #23"
+date: 2016-12-26 12:34:01 +0300
+---
+
+## New Features
+
+* Auto-complete functions, enums and strcts with parentheses included (by
+  [@alygin]).
+
+* Remove special case formatting for `macro_use` attribute (by [@johnthagen]).
+
+* Backtraces are enabled by default and have links to source code (by [@alygin]).
+
+## Fixes
+
+* Fix slow performance with winapi crate.
+
+* Fix wrong parsing of statement-like expressions.
+
+* Don't try to balance `#` in raw string literal in presence of parsing errors.
+
+## Refactorings
+
+* Important run configurations are committed to the repository.
+
+* Stub infrastructure is redone.
+
+* More resolve operations can be done using only stubs.
+
+* Resolve procedure is simplified.
+
+[@alygin]: https://github.com/alygin
+[@johnthagen]: https://github.com/johnthagen
