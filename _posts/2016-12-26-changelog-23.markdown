@@ -10,7 +10,7 @@ updates, please upgrade your IDE.
 
 ## New Features
 
-* Auto-complete functions, enums and strcts with parentheses included (by
+* Auto-complete functions, enums and structs with parentheses included (by
   [@alygin]).
 
 * Remove special case formatting for `macro_use` attribute (by [@johnthagen]).
