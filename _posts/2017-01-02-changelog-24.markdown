@@ -15,8 +15,7 @@ date: 2017-01-02 12:52:34 +0300
 
 ## Fixes
 
-* Backtraces are again disabled by default because of
-  https://github.com/rust-lang/rust/issues/37477
+* Backtraces are again disabled by default because of [rust-lang/rust#37477]
 
 * **Un-elide lifetimes** intention handles methods (by [@ujpv]).
 
@@ -35,3 +34,4 @@ date: 2017-01-02 12:52:34 +0300
 [@alygin]: https://github.com/alygin
 [@ujpv]: https://github.com/ujpv
 [@himikof]: https://github.com/himikof
+[rust-lang/rust#37477]: https://github.com/rust-lang/rust/issues/37477
