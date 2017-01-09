@@ -1,0 +1,39 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #25"
+date: 2017-01-09 11:14:07 +0300
+---
+
+## New Features
+
+* Goto class (`Ctrl+N`) works with type aliases.
+
+* Various improvements to completion, including context-dependent keyword
+  completion (by [@alygin]).
+
+* Better diagnostics for parser errors (by [@alygin]).
+
+* Support for `i128` / `u128` types (by [@alygin]).
+
+* Highlight duplicate definitions (by [@alygin])
+
+## Fixes
+
+* Completion and resolve fixes.
+
+* Introduce a variable (`Ctrl + Alt + V` or `a + b.let` and press tab)
+  correctly works for several occurrences of the expression.
+
+## Refactorings
+
+* Developer docs are updated. Checkout the
+  new
+  [architecture](https://github.com/intellij-rust/intellij-rust/blob/master/ARCHITECTURE.md) section
+  if you want to learn how the plugin works on the inside.
+
+* More resolve is purely stub-based, which improves performance.
+
+* Highlighter is rewritten not to touch AST to improve performance.
+
+
+[@alygin]: https://github.com/alygin
