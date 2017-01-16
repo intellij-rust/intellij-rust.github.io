@@ -16,7 +16,7 @@ date: $(date +"%Y-%m-%d %H:%M:%S %z")
 
 ## Fixes
 
-## Refactorings
+## Internal Improvements
 
 [@w]: https://github.com/w
 EOF

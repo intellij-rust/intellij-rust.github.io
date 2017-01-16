@@ -1,0 +1,45 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #26"
+date: 2017-01-16 10:32:52 +0300
+---
+
+## New Features
+
+* Highlight duplicate lifetime declaration (by [@alygin]).
+
+* Type inference for `?` operator.
+
+* Support for `pub(crate)` syntax.
+
+* Support for attributes on type parameters.
+
+* **Simplify Boolean Expression** intention (by [@slavam2605]).
+
+* **Run Configuration From Context** uses `--package` argument for multi-package
+  workspaces.
+
+
+## Fixes
+
+* Quick fixes now correctly handle read-only files.
+
+* Correctly color `self` in use declarations.
+
+
+## Internal Improvements
+
+* Major PSI rearrangements:
+  - `Rs` prefix is used instead of `Rust/Element`,
+  - argument-related PSI nodes renames,
+  - more rules unified (by [@alygin]).
+
+* Kotlin runtime and stdlib jars are no longer bundled.
+
+* Type-related code simplified, stub data is almost always sufficient to
+  compute the type.
+
+* CI now runs both the latest nightly Rust toolchain as well as 1.13.0.
+
+[@alygin]: https://github.com/alygin
+[@slavam2605]: https://github.com/slavam2605
