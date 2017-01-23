@@ -1,0 +1,43 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #27"
+date: 2017-01-23 12:53:02 +0300
+---
+
+## New Features
+
+* Better resolve for trait with bounds.
+
+* Better type inference for match expressions.
+
+* Gutter icon for extern crates to open docs.rs (by [@alygin]).
+
+* Highlight chained comparisons as errors (by [@la10736]).
+
+* Refresh standard library location using rustup every time the project is
+  opened.
+  
+* Better code completion for `derive` attribute (by [@alygin]).
+
+* Duplicate declarations are detected on the file level (by [@alygin]).
+
+
+## Fixes
+
+* Mod declarations work with case-insensitive file systems.
+
+* Workspace configuration is updated when buildscript is created.
+
+* Missing fields quick fix is more smart about adding fields. 
+
+* Cargo processes are killed on IDE exit.
+
+
+## Internal Improvements
+
+* Pattern matching code is simplified. 
+
+* Resolve is slightly improved. 
+
+[@alygin]: https://github.com/alygin
+[@la10736]: https://github.com/la10736
