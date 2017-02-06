@@ -1,0 +1,46 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #29"
+date: 2017-02-06 15:10:29 +0300
+---
+
+## New Features
+
+* New intention: convert `if let` to `match` (by [@Shiroy]).
+
+* Check that functions and methods are called with the correct number of
+  arguments.
+
+* Check that lifetimes are not omitted from references if they are mandatory (by
+  [@alygin]).
+
+* Complete module names in module declarations (by [@Shiroy]).
+
+* Make `match` postfix template available for any expression.
+
+* Support field shorthand notation.
+
+
+## Fixes
+
+* Prefer inherent methods to trait methods during resovle (by [@alygin]).
+
+* Formatter preserves string literals intact.
+
+* Formatter handles multiline or single line blocks more intelligently.
+
+* Enable backtraces by default.
+
+
+## Internal Improvements
+
+* Upgrade Grammar Kit to 1.5.0.
+
+* Use jitpack.io to download Grammar Kit.
+
+* Remove IDEA 2016.1 compatibility.
+
+* Test that intentions and inspections have descriptions.
+
+[@alygin]: https://github.com/alygin
+[@Shiroy]: https://github.com/Shiroy
