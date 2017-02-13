@@ -1,0 +1,42 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #30"
+date: 2017-02-13 12:12:49 +0300
+---
+
+## New Features
+
+* Simplify boolean expression is now more powerful (by [@slavam2605]).
+
+* **Unwrap to `?`** intention (by [@slavam2605]).
+
+* **Join Lines** (`Ctrl+Shift+J`) smartly handles `if`s, blocks and
+  lambdas. Check this [video](https://gfycat.com/FirstDarlingGalago)!
+  
+* Completion for the `else` / `else if` branch automatically inserts braces.
+
+
+## Fixes
+
+* Fix false positive "Missing lifetime specifier" (by [@alygin]).
+
+* Fix colored output in console on linux (by [@jonas-schievink]).
+
+* Automatically setup module for run configuration in multi-module project. 
+
+* Indent initializer expressions in `let` and `const`.
+
+
+## Internal Improvements
+
+* First scratches of
+  debugger. See
+  [#535](https://github.com/intellij-rust/intellij-rust/issues/535) for detail.
+  
+* Improve CI infrastructure: specifically report statuses of nightly and alpha
+  release builds.  
+  
+
+[@alygin]: https://github.com/alygin
+[@jonas-schievink]: https://github.com/jonas-schievink
+[@slavam2605]: https://github.com/slavam2605
