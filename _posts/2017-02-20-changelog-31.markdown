@@ -1,0 +1,41 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #31"
+date: 2017-02-20 11:48:00 +0300
+---
+
+## New Features
+
+* An action to execute a Cargo command
+  ([gif](https://gfycat.com/SlipperyDemandingCrab)). You might want to bind it
+  to a key combination.
+
+* Better expand selection (`Ctrl+W`) support for lists (by [@alygin]).
+
+* Goto definition and find usages for lifetimes (by [@alygin]).
+
+* Better parser recovery in code blocks.
+
+* Wrong usages of `self` value in associated functions are annotated (by [@sirgl])
+
+## Fixes
+
+* Fix colored terminal output (by [@jonas-schievink], [@alygin] and
+  [@Stebalien], terminals are hard).
+
+* Module-level live templates are not suggested in expressions.
+
+* Watching Cargo.toml works again and has tests now.
+
+* Formatter does not add spaces around `=` in `Iterator<Item=Foo>`
+
+## Internal Improvements
+
+* Run configurations refactoring (by [@mkaput])
+
+
+[@Stebalien]: https://github.com/Stebalien
+[@alygin]: https://github.com/alygin
+[@jonas-schievink]: https://github.com/jonas-schievink
+[@mkaput]: https://github.com/mkaput
+[@sirgl]: https://github.com/sirgl
