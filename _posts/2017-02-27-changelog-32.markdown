@@ -1,0 +1,41 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #32"
+date: 2017-02-27 11:38:30 +0300
+---
+
+
+## New Features
+
+* Highlight error on reassignment of immutable variable (by [@Shiroy]).
+
+* **Add impl** intention now handle generic parameters
+  ([video](https://zippy.gfycat.com/CarefulCoarseAnt.webm)).
+  
+* More useful **Quick Navigation** (Ctrl + hover) (by [@alygin]).
+
+* Match angle brackets in generics (by [@matklad] and [@oistein]).
+
+* Infer type of literals used as array sizes and enum discriminants (by [@alygin]).
+
+
+## Fixes
+
+* Fix completion inside `use ::{foo}`.
+
+* Fix validation edge cases in rename refactoring (by [@alygin]).
+
+
+## Internal Improvements
+
+* Reverse turbo fish paths grammar cleanup.
+
+* Move various utility PSI extensions to a single `core.psi.ext` package.
+
+* New `test anything` function to "fuzzy-check" any PSI-related functionality on
+  an existing corpus of Rust code. 
+
+[@Shiroy]: https://github.com/Shiroy
+[@alygin]: https://github.com/alygin
+[@matklad]: https://github.com/matklad
+[@oistein]: https://github.com/oistein
