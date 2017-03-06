@@ -1,0 +1,33 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #33"
+date: 2017-03-06 14:27:35 +0300
+---
+
+
+## New Features
+
+* Better type inference for string types (by [@sirgl]).
+
+* Place `mod.rs` files on top in project view.
+
+* New icons for `mod.rs` and crate roots (by [@mkaput]).
+
+
+## Fixes
+
+* Fix unresolved lifetime false positive (by [@alygin]).
+
+* Fix NPE in file structure (`Ctrl+F12`) view (by [@alygin]).
+
+
+## Internal Improvements
+
+* Improve resolve performance by using standard library information more
+  efficiently.
+
+
+
+[@alygin]: https://github.com/alygin
+[@mkaput]: https://github.com/mkaput
+[@sirgl]: https://github.com/sirgl
