@@ -1,0 +1,62 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #34"
+date: 2017-03-20 10:28:32 +0300
+---
+
+
+## New Features
+
+* [Postfix template] not: `assert!(xs.is_empty().not) ->
+  assert!(!xs.is_empty())`.
+  
+* Annotate calls to unsafe functions outside of `unsafe` block (by
+  [@farodin91]).
+  
+* Improved run configuration UI (by [@alygin]).
+
+* Quick fix to add a missing turbofish operator (by [@la10736]).
+
+* Support for type ascription syntax ([RFC 803]).
+
+* Preliminary support for go to definition for macros.
+
+* Support colored output for `cargo check` (by [@alygin]).
+
+* Support option to use short backtraces (by [@alygin]).
+
+
+[Postfix template]: https://www.jetbrains.com/help/idea/2016.3/using-postfix-templates.html
+[RFC 803]: https://github.com/rust-lang/rfcs/blob/master/text/0803-type-ascription.md
+
+
+## Fixes
+
+* Various type inference fixes (by [@kumbayo]).
+
+* Fix cast expression parsing priority (by [@alygin]).
+
+* Fix Unicode handling when annotating invalid character literal (by
+  [@framlog]).
+  
+* Fix "using stdlib at ..." notification to appear only if version of rust is
+  changed.
+  
+* Don't execute several instances of `rustup` concurrently.
+
+
+## Internal Improvements
+
+* Upgrade to [Kotlin 1.1] (by [@framlog]).
+
+* Improve test infrastructure for directory based tests.
+
+
+[Kotlin 1.1]: https://blog.jetbrains.com/kotlin/2017/03/kotlin-1-1/
+
+
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@framlog]: https://github.com/framlog
+[@kumbayo]: https://github.com/kumbayo
+[@la10736]: https://github.com/la10736
