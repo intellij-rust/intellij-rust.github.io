@@ -1,0 +1,42 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #35"
+date: 2017-03-27 12:45:27 +0300
+---
+
+
+## New Features
+
+* Formatter cleans up comas in match arms.
+
+* Intention to pull a match arm guard inside the expression
+  ([video](https://zippy.gfycat.com/PracticalCreepyBoutu.mp4)).
+
+* Implement methods intention/quick fix now works with associated types and
+  default methods (by
+  [@slavam2605],
+  [video](https://zippy.gfycat.com/ClearHealthyIcterinewarbler.webm)).
+
+* Conversion between `foo.rs` and `foo/mod.rs` as a refactoring
+  ([video](https://zippy.gfycat.com/SandyGrandBabirusa.webm)).
+
+
+## Fixes
+
+* More type inference fixes (by [@kumbayo]).
+
+* Fix edge cases when parsing trait bounds.
+
+* Quick documentation shows fully qualified names.
+
+
+## Internal Improvements
+
+* Various cleanups of grammar.
+
+* Cleanup CI.
+
+* Bundle debugger with the plugin.
+
+[@kumbayo]: https://github.com/kumbayo
+[@slavam2605]: https://github.com/slavam2605

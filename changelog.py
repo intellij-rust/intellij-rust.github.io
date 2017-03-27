@@ -50,6 +50,7 @@ def contributors():
         f.write("\n")
         for name in names:
             url = "https://github.com/" + name
+            print("checking " + url)
             req = urllib.request.Request(url, method="HEAD")
             with urllib.request.urlopen(req) as _:
                 pass  # will thrown on 404
