@@ -1,0 +1,29 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #36"
+date: 2017-04-03 12:52:38 +0300
+---
+
+This is the last release to support IDEA 2016.2. If you want to continue to
+receive updates, please upgrade your IDE.
+
+
+## New Features
+
+* Test configurations use `--nocapture` flag by default ([#1086]).
+
+* Resolving external crates take dependencies graph into account (by [@alygin]).
+
+[#1086]: https://github.com/intellij-rust/intellij-rust/issues/1086
+
+
+## Fixes
+
+* Reformatting no longer removes mandatory commas in match arms.
+
+## Internal Improvements
+
+* In-progress rework of the resolving engine.
+
+
+[@alygin]: https://github.com/alygin
