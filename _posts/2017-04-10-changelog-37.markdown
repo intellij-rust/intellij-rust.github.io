@@ -1,0 +1,33 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #37"
+date: 2017-04-10 13:15:49 +0300
+---
+
+
+## New Features
+
+* Code completion works for lifetimes and labels.
+
+* One line methods are folded by default (by [@alygin]).
+
+* Annotate generics with wrong number of lifetime parameters. (by [@alygin]).
+
+* Better discovery of rustup toolchains on Windows.
+
+
+## Fixes
+
+* Fix handling of non-ascii paths on Windows.
+
+* Restore the ability to select standard library manually and clean up the
+  settings dialog in general.
+
+* Fix false positive in the "reassigning immutable" annotation (by [@alygin]).
+
+
+## Internal Improvements
+
+* Name resolution engine was rewritten.
+
+[@alygin]: https://github.com/alygin
