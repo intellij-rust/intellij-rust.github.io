@@ -1,0 +1,47 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #38"
+date: 2017-04-24 11:38:28 +0300
+---
+
+
+## New Features
+
+* Annotate wrong number of type arguments (by [@alygin]).
+
+* Annotate returns with values in unit-returning functions (by [@alygin]).
+
+* A lot of improvements to type inference. Thanks, [@vlad20012]!
+
+* Option to disable commas removal during formatting.
+
+* Initial **Extract method** refactoring (by [@farodin91]).
+
+* Automatically insert `>` after `::<` (by [@Undin]).
+
+* Infer type of a variable in simple `for` loops.
+
+
+## Fixes
+
+* Live template name for a `#[bench]` function changed to `bfn` (by [@Ketas]).
+
+* Fix missing completions for methods declared in the same file (by
+  [@vlad20012]).
+
+* Fix autocompletion for default methods.
+
+
+## Internal Improvements
+* Enforce
+  the
+  [The Not Rocket Science Rule Of Software Engineering](http://graydon2.dreamwidth.org/1597.html) with
+  the help of [Bors](https://bors-ng.github.io/).
+
+* A single index is used for all `Impls`.
+
+[@Ketas]: https://github.com/Ketas
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@vlad20012]: https://github.com/vlad20012
