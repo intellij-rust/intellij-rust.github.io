@@ -1,0 +1,51 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #39"
+date: 2017-05-02 13:38:57 +0300
+---
+
+
+## New Features
+
+* Automatically insert pairing `>` (by [@Undin]).
+
+* **Variable does not need to be mutable** inspection (by [@farodin91]).
+
+* **Convert to named fields** refactoring
+  ([video](https://zippy.gfycat.com/SpiritedRealArieltoucan.webm)). Note that it
+  does not fix the usages yet.
+
+* In CLion, it is possible to chose between GDB and LLDB for debugging Rust code
+  via usual C++ toolchain settings.
+
+* Complete and resolve trait associated types (by [@Undin]).
+
+## Fixes
+
+* Path dependencies are treated as sources and not as libraries (by [@alygin]).
+
+* More precise trait matching (by [@vlad20012]).
+
+* Type inference for generic functions (by [@vlad20012]).
+
+* One-liners are not folded if they exceed the line length limit.
+
+* Resolve private imports via use declarations.
+
+
+## Internal Improvements
+
+* Switch to GrammarKit gradle plugin.
+
+* Optimized type inference performance (by [@vlad20012] and [@matklad]).
+
+* Separate slow running tests from the main test suite.
+
+* Use `getContext` instead of `getParent` in resolve to allow for nifty tricks
+  with injecting elements in arbitrary places.
+
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@matklad]: https://github.com/matklad
+[@vlad20012]: https://github.com/vlad20012
