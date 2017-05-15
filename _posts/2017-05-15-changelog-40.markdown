@@ -1,0 +1,55 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #40"
+date: 2017-05-15 11:22:40 +0300
+---
+
+
+## New Features
+
+* Resolve and complete constants in patterns, like `Option::None`.
+
+* Initial type inference for arrays (by [@Undin]).
+
+* Quick documentation for local variables and struct fields (by [@Undin]).
+
+* Initial support for `Deref` (by [@farodin91]).
+
+* **Make Project** (`Ctrl+F9`) now runs `cargo build` or `cargo check`.
+
+* Go to implementation for traits works with a shortcut (`Ctrl+Alt+B`) as well
+  as via a gutter icon.
+  
+* Completion popup now shows the name of the trait a method is originating from
+  (by [@farodin91]).
+  
+* It is possible to select rustup channel in Run Configurations (by [@alygin]).
+
+## Fixes
+
+* Typing `>` jumps over the closing angle bracket.
+
+* Support colored output for clippy (by [@alygin]).
+
+* Do not suggest `#[test]` functions in completion (by [Afarodin91]).
+
+* Fix name resolution for `proc-macro` crates (by [@alygin]).
+
+* Debugger discovers test binaries.
+
+
+## Internal Improvements
+
+* Ground work for name resolution in macro definitions (by [@farodin91]).
+
+* Cleanup quick documentation tests (by [@Undin]).
+
+* Reorganize type inference code.
+
+* CI is gating on appveyor.
+
+
+
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
