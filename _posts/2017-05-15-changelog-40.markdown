@@ -31,7 +31,7 @@ date: 2017-05-15 11:22:40 +0300
 
 * Support colored output for clippy (by [@alygin]).
 
-* Do not suggest `#[test]` functions in completion (by [Afarodin91]).
+* Do not suggest `#[test]` functions in completion (by [@farodin91]).
 
 * Fix name resolution for `proc-macro` crates (by [@alygin]).
 
