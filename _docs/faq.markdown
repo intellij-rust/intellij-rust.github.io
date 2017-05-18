@@ -3,17 +3,17 @@ title: FAQ
 order: 999999
 ---
 
-{% include h title="Where is Rust SDK?" tag="sdk" %}
+{% include h title="Where is the Rust SDK?" tag="sdk" %}
 
 We don't use IntelliJ IDEA's SDK concept to manage Rust versions because it is
-specific to IDEA and is not present, for example, in the CLion. Path to Cargo is
-configured per project in the `Settings > Languages & Frameworks > Rust`.
+specific to IDEA and is not present, for example, in CLion. The path to Cargo is
+configured per project through `Settings > Languages & Frameworks > Rust`.
 
-{% include h title="Why Make Project action does not work?" tag="make" %}
+{% include h title="Why does the Make Project action not work?" tag="make" %}
 
 Because we don't use an SDK, the generic **Make Project** action is not
 available. Instead, you can create a **Run Configuration** with a `cargo build`
-command. That way, you can also specify necessary Cargo flags, like
+command. This way, you can also specify necessary Cargo flags, like
 `--features`.
 
 {% include h title="Does IntelliJ Rust have a debugger?" tag="debugger" %}
