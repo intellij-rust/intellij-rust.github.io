@@ -1,0 +1,42 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #41"
+date: 2017-05-22 22:36:39 +0300
+---
+
+
+## New Features
+
+* **Run Clippy** action (by [@alygin]).
+
+* Initial type inference for index expressions (by [@Undin]).
+
+* Name resolution for macro patterns (by [@farodin91]).
+
+* Convert some error annotations to inspections, which can be disabled
+  (by [@alygin]).
+
+* Highlight unknown crates as errors (by [@Litarvan]).
+
+
+## Fixes
+
+* Restore optimistic trait matching in presence of partially infered
+  types.
+
+* Don't jump over `>` in comments.
+
+* Fix false positive for reassigning immutable inspection (by [@alygin]).
+
+
+## Internal Improvements
+
+* Speedup appveyor CI.
+
+* Use https to download dependencies (by [@kumbayo]).
+
+[@Litarvan]: https://github.com/Litarvan
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
