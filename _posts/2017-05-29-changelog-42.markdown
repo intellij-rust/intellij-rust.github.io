@@ -1,0 +1,28 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #42"
+date: 2017-05-29 11:10:44 +0300
+---
+
+
+## New Features
+
+* Better autocompletion for methods on primitive types (by [@kumbayo]).
+
+* Better type inference for tuples and generic functions (by [@Undin]).
+
+* Add breadcrumbs, showing current struct, trait and function.
+
+* Fold documentation comments (by [@vasily-kirichenko], [gif](https://cloud.githubusercontent.com/assets/873919/26526999/0753b332-4393-11e7-9ed5-538932835825.gif))
+
+* Support colors in `cargo rustc` command (by [@alygin]).
+
+## Fixes
+
+* Fix ClassCastException during completion.
+
+
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@kumbayo]: https://github.com/kumbayo
+[@vasily-kirichenko]: https://github.com/vasily-kirichenko
