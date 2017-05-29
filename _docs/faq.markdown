@@ -9,18 +9,10 @@ We don't use IntelliJ IDEA's SDK concept to manage Rust versions because it is
 specific to IDEA and is not present, for example, in CLion. The path to Cargo is
 configured per project through `Settings > Languages & Frameworks > Rust`.
 
-{% include h title="Why does the Make Project action not work?" tag="make" %}
-
-Because we don't use an SDK, the generic **Make Project** action is not
-available. Instead, you can create a **Run Configuration** with a `cargo build`
-command. This way, you can also specify necessary Cargo flags, like
-`--features`.
-
 {% include h title="Does IntelliJ Rust have a debugger?" tag="debugger" %}
 
-There is no debugger support at the moment. It will be implemented eventually,
-but there is no precise plan now. You may want to subscribe/vote on [this issue][debugger].
-
+There is preliminary debugger support for CLion, see [this issue][debugger] for
+details.
 
 {% include h title="Are you going to use racer or RLS?" tag="racer" %}
 
