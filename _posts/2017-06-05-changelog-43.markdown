@@ -1,0 +1,36 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #43"
+date: 2017-06-05 13:13:47 +0300
+---
+
+
+## New Features
+
+* Autocompletion for `return` adds `;` or a whitespace automatically.
+
+* Better type inference for arithmetic expressions and slices (by
+  [@Undin]).
+  
+* Annotate unsafe impls missing `unsafe` keyword (by [@farodin91]).
+
+
+## Fixes
+
+* False positive for "unnecessary parenthesis" (by
+  [@vasily-kirichenko]).
+
+* Autoderef does not erase type arguments.
+
+* Better parser recovery for struct fields. 
+
+* Resolve `proc_macro` crate (by [@alygin]).
+
+* NPE when searching for lang items.
+
+
+
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@vasily-kirichenko]: https://github.com/vasily-kirichenko
