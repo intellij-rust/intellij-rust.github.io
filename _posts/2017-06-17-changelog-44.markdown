@@ -1,0 +1,38 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #44"
+date: 2017-06-17 18:08:23 +0300
+---
+
+
+## New Features
+
+* Show errors from `cargo check` inline (by
+  [@vasily-kirichenko]). This feature is configurable via settings.
+
+* Join lines automatically removes trailing commas in struct literals
+  (by [greg-kargin])
+  ([gif](https://cloud.githubusercontent.com/assets/9350729/26667847/d1313cfa-46af-11e7-88b6-9a833671e391.gif))
+
+* Show variable type on hover (by [@Undin]).
+
+* Type inference improvements in patterns and generic method calls (by
+  [@Undin]).
+
+* Type inference improvements for macros and ranges (by [@kumbayo]).
+
+* **Specify type explicitly** intention (by [@sirgl]).
+
+## Fixes
+
+* Toned down missing struct fields highlighting  (by [@vasily-kirichenko]).
+
+
+## Internal Improvements
+
+* Test more versions of IDEA on travis.
+
+[@Undin]: https://github.com/Undin
+[@kumbayo]: https://github.com/kumbayo
+[@sirgl]: https://github.com/sirgl
+[@vasily-kirichenko]: https://github.com/vasily-kirichenko
