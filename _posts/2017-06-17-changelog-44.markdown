@@ -11,7 +11,7 @@ date: 2017-06-17 18:08:23 +0300
   [@vasily-kirichenko]). This feature is configurable via settings.
 
 * Join lines automatically removes trailing commas in struct literals
-  (by [greg-kargin])
+  (by [@greg-kargin])
   ([gif](https://cloud.githubusercontent.com/assets/9350729/26667847/d1313cfa-46af-11e7-88b6-9a833671e391.gif))
 
 * Show variable type on hover (by [@Undin]).
@@ -36,3 +36,4 @@ date: 2017-06-17 18:08:23 +0300
 [@kumbayo]: https://github.com/kumbayo
 [@sirgl]: https://github.com/sirgl
 [@vasily-kirichenko]: https://github.com/vasily-kirichenko
+[@greg-kargin]: https://github.com/greg-kargin
