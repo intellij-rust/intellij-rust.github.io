@@ -1,0 +1,60 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #45"
+date: 2017-07-03 12:05:52 +0300
+---
+
+## New Features
+
+* Simple **Convert to named fields** refactoring
+  ([gif](https://media.giphy.com/media/3o7buezkWc17ONpJNC/giphy.gif)). It
+  was implemented a while back, but was not advertised enough.
+
+* **Goto definition** works for traits inside `derive` attribute and
+  for methods of the derived traits (by [@Undin]).
+
+* More type inference improvements (by [@Undin]).
+
+* Error annotation and quick fix for dereferencing a raw pointer
+  without an `unsafe` block (by [@kumbayo]).
+  
+* Code formatter removes `{}` around single items in use declarations.
+
+* Initial support for type inference in lambda expressions (by
+  [@farodin91] & [@matklad]).
+  
+* Annotate wrong number of type parameters (by [@farodin91]).
+
+
+## Fixes
+
+* Fix false positives for E0198, E0060 (by [@kumbayo]).
+
+* Pattern bindings don't shadow modules with the same name (by
+  [@kumbayo]).
+  
+* Don't crash in **Implement Members** if there is nothing to
+  implement.
+  
+* Fix project leaks in Cargo check annotator.
+
+* Allow `use *` and `use ::*` in the grammar.
+
+* Fix false positives in reassign immutable inspection (by [@alygin] &
+  [@matklad])
+
+	
+## Internal Improvements
+
+* Update versions of CLion and Gradle.
+
+* Establish contributor license agreement
+  ([#1385](https://github.com/intellij-rust/intellij-rust/issues/1385)).
+
+* Unify `trait` and `impl` handing during type inference.
+
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
+[@matklad]: https://github.com/matklad
