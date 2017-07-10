@@ -1,0 +1,64 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #46"
+date: 2017-07-10 11:22:37 +0300
+---
+
+
+## New Features
+
+* Join lines deals with trailing commas smartly
+  .[GIF](https://zippy.gfycat.com/HandyIdleHarpseal.webm).
+
+* **Semantic Highlighting** is implemented for Rust (by [@farodin91]).
+  Semantic highlighting, originally introduce in KDevelop, colors each
+  local variable and parameter in a different
+  color. [Example](https://user-images.githubusercontent.com/1711539/28011920-bce0147a-656c-11e7-8802-a796cffc75e8.png).
+
+* Quick documentation for type parameters (by [@Undin]).
+
+* **Create New Project** dialog allows to create a library (by [@Undin]).
+
+* Type inference improvements:
+  - derived traits know about `Self` type (by [@Undin]).
+  - use type arguments when inferring function type (by [@vlad20012]).
+  - don't special case tuple struct constructor functions (by
+	[@vlad20012]).
+
+* Code formatter automatically inserts `;` after return statements (by
+  [@anton-okolelov]).
+
+
+## Fixes
+
+* Parser correctly handles parenthesis in casts.
+
+* Indexing operation returns a value instead of a reference (by
+  [@Undin]).
+
+* Fix invalid offset crash in Cargo check annotator.
+
+* Better filter compiler messages in Cargo check annotator.
+
+* Format logging and asserting macros (by [@matklad] and
+  [@farodin91]).
+
+* Don't warn about non-conventional names if `#[allow(bad_style)]` is
+  present.
+
+
+## Internal Improvements
+
+* Expression type inference code cleaned up (by [@Undin]).
+
+* More uniform handling of generics in type inference (by
+  [@vlad20012]).
+
+* Refactor grammar, PSI and stub structure for types.
+
+
+[@Undin]: https://github.com/Undin
+[@anton-okolelov]: https://github.com/anton-okolelov
+[@farodin91]: https://github.com/farodin91
+[@matklad]: https://github.com/matklad
+[@vlad20012]: https://github.com/vlad20012
