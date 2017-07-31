@@ -1,0 +1,79 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #47"
+date: 2017-07-31 12:29:31 +0300
+---
+
+Plugin is now officially supported by JetBrains :tada:.
+
+Support for IDEA 2016.3 was dropped, the minimal required version is
+2017.1.
+
+By default, `cargo check` is **not** used for on the fly checking due
+to performance considerations for larger projects. It is used for
+**Build Project** action though (<kbd>Ctrl+F9</kbd>).
+
+
+## New Features
+
+* More information is present in quick documentation (by [@Undin]).
+
+* Goto definition for local macros (by [@farodin91]).
+
+* Code completion for macros (by [@farodin91]).
+
+* Improvements for type inference of associated types, lambdas and
+  iterators.
+
+* Hints for local variables types and parameter names (by
+  [@farodin91]). In the first iteration, they can be a little noisy,
+  but it is possible to disable them in settings.
+
+* Move left/right action for different lists in the Rust language (by
+  [@Undin]),
+  [video](https://zippy.gfycat.com/CaringMintyBarnswallow.webm).
+
+* Exit points of functions (`returns`, `?`, result expressions) are
+  highlighted (by [@farodin91]).
+
+* Better type inference for loop expressions (by [@Undin]).
+
+* Better completion in `#[Dervive]` attribute (by [@Undin]).
+
+* Checkbox to control if code formatter should change punctuation.
+
+## Fixes
+
+* Parameter info appears automatically after completing function.
+
+* Goto super module (<kbd>Ctrl+U</kbd>) works from a method in an
+  inherent impl.
+
+* `eprint!` and `eprintln!` macros are treated as formatting macros.
+
+* Run configuration from context for a single function uses a more
+  precise matching (by [@la10736]).
+
+* Reformat code does not break `use foo::{self}` (by [@la10736]).
+
+* Renaming module correctly renames the file.
+
+
+## Internal Improvements
+
+* More compact stub representation (by [@Undin]).
+
+* Add `RsInferenceContext` to infer types for function at a time.
+
+* Completion tests use before/after style, to check caret position as
+  well.
+
+Special thanks to [@mkaput] and [@alygin] for helping contributors to
+land pull requests!
+
+
+[@Undin]: https://github.com/Undin
+[@alygin]: https://github.com/alygin
+[@farodin91]: https://github.com/farodin91
+[@la10736]: https://github.com/la10736
+[@mkaput]: https://github.com/mkaput
