@@ -38,7 +38,7 @@ to performance considerations for larger projects. It is used for
 
 * Better type inference for loop expressions (by [@Undin]).
 
-* Better completion in `#[Dervive]` attribute (by [@Undin]).
+* Better completion in `#[Derive]` attribute (by [@Undin]).
 
 * Checkbox to control if code formatter should change punctuation.
 
