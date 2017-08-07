@@ -1,0 +1,39 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #48"
+date: 2017-08-07 13:40:23 +0300
+---
+
+
+## New Features
+
+* Better icons for derive completion (by [@Undin]).
+
+* Automatically indent `.` in method chains.
+
+* Parameter hints for lambdas (by [@farodin91]).
+
+* Gutter icon for test modules (by [@farodin91]).
+
+* Intelligent moving of structs and functions up and down (by [@farodin91]).
+
+
+## Fixes
+
+* Fix exponential blowup in memory usage in type inference.
+
+* Fix wrong autoindent on newline.
+
+* Fix type inference for `Self` (by [@Undin]).
+
+* Parameter info works with tuple structs.
+
+
+## Internal Improvements
+
+* Don't special case arithmetic operations for primitive types.
+
+
+
+[@Undin]: https://github.com/Undin
+[@farodin91]: https://github.com/farodin91
