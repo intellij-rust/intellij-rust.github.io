@@ -44,3 +44,7 @@ date: 2017-08-15 16:20:06 +0300
 * Type inference refactoring.
 
 
+
+[@Undin]: https://github.com/Undin
+[@farodin91]: https://github.com/farodin91
+[@himikof]: https://github.com/himikof
