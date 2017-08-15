@@ -1,0 +1,46 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #49"
+date: 2017-08-15 16:20:06 +0300
+---
+
+
+## New Features
+
+* `pd` and `ppd` snippets use `eprintln!`.
+
+* **Navigate To Implementation** shortcut and gutter icon for structs
+  and enums.
+
+* Quick definition (<kbd>Ctrl+Shift+I</kbd>) works (by [@Undin]).
+
+* Find usages filters by usage type (by [@farodin91]).
+
+* **Toggle Ignore** intention for tests (by [@farodin91]).
+
+* Use hyperlinks in quick documentation (by [@Undin]).
+
+
+## Fixes
+
+* Autoderef works for field access (by [@himikof]).
+
+* Fix infinite loop in type inference. 
+
+* Hints for overly long types use `_`.
+
+* Cargo project is updated when `Cargo.lock` changes.
+
+* Autoscroll from source works for structure (<kbd>Alt+7</kbd>).
+
+
+## Internal Improvements
+
+* Most of the internal APIs work with `CargoWorkspace` instead of
+  `Module`.
+  
+* Cargo libraries are created on the fly.
+
+* Type inference refactoring.
+
+
