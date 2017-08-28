@@ -13,7 +13,7 @@ date: 2017-08-28 17:23:51 +0300
 
 * Completion for `if` and `match` constructs (by [@Undin]).
 
-* **Fill match amrs** intention to populate an empty match expression
+* **Fill match arms** intention to populate an empty match expression
   over an enum.
 
 
@@ -26,7 +26,7 @@ date: 2017-08-28 17:23:51 +0300
 
 * **Reformat file with `rustfmt`** action works with workspaces.
 
-* **Add where clause** intention correctly handles existing clasue.
+* **Add where clause** intention correctly handles existing clause.
 
 
 ## Internal Improvements
