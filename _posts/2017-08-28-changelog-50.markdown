@@ -1,0 +1,38 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #50"
+date: 2017-08-28 17:23:51 +0300
+---
+
+
+## New Features
+
+* Autocompletion for Cargo commands. Note that the serialization
+  format we use for Cargo commands have changed. Run configurations
+  will be updated automatically.
+
+* Completion for `if` and `match` constructs (by [@Undin]).
+
+* **Fill match amrs** intention to populate an empty match expression
+  over an enum.
+
+
+## Fixes
+
+* Don't suggest macro completions where it does not make sense (by
+  [@Undin]).
+
+* Fix a conflict between Kotlin's and Rust'c extract function refactoring.
+
+* **Reformat file with `rustfmt`** action works with workspaces.
+
+* **Add where clause** intention correctly handles existing clasue.
+
+
+## Internal Improvements
+
+* Performance improvements.
+
+
+
+[@Undin]: https://github.com/Undin
