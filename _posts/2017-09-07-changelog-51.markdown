@@ -1,0 +1,45 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #51"
+date: 2017-09-07 15:35:25 +0300
+---
+
+
+## New Features
+
+* [Cargo toolbar](https://user-images.githubusercontent.com/1711539/30163700-98d74842-93e2-11e7-9b40-93e4a4194f18.png) to
+  conveniently access Cargo related functionality. As a remainder, all
+  Cargo actions are available via **Find Action**, and you can bind
+  them to shortcuts as well.
+  
+* Inspection which shows when field initialization shorthand may be used.
+  
+* Support for associated constants.
+
+* Better type inference for arrays and primitive types (by [@kumbayo]).
+
+* Cargo launched by IDE honors proxy settings (by [@anton-okolelov]).
+
+
+## Fixes
+
+* Allow empty where clauses in the grammar.
+
+* Fix return types of `!` returning macros (by [@kumbayo]).
+
+* Fix error in `try!` to `?` inspection.
+
+* Fix icons rendering in structure view (by [@farodin91]).
+
+
+## Internal Improvements
+
+* Performance improvements.
+
+* Cleanup inlay hits and mutability inspection (by [@farodin91]).
+
+* Refactor handing of associated items.
+
+[@anton-okolelov]: https://github.com/anton-okolelov
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
