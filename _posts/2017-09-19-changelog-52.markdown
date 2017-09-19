@@ -1,0 +1,64 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #52"
+date: 2017-09-19 10:25:18 +0300
+---
+
+Intellij Rust participates
+in
+[impl period](https://blog.rust-lang.org/2017/09/18/impl-future-for-rust.html)!
+If you've always wanted to contribute to IntelliJ Rust, then now it's
+the best time for it! Take a look at
+our
+[up for grab issues](https://github.com/intellij-rust/intellij-rust/issues?q=is%3Aissue+is%3Aopen+label%3A%22up+for+grab%22),
+say hello in the impl
+period
+[gitter room](https://gitter.im/rust-impl-period/WG-dev-tools-IntelliJ) or
+learn about
+the
+[inner workings](https://github.com/intellij-rust/intellij-rust/blob/8a8a74f820e6e832c33cc1409a028ed84d104dec/ARCHITECTURE.md) of
+the plugin!
+
+
+## New Features
+
+* Some privacy-related errors are annotated (by [@farodin91]).
+
+* More complete type inference.
+
+* Some type-checking related errors are annotated. 
+
+* Better type inference for primitive types (by [@kumbayo]).
+
+
+## Fixes
+
+* Fix false positive for "cannot borrow immutable local variable" (by
+  [@kumbayo]).
+  
+* Don't add `::` after self in self parameter on completion (by [@farodin91]).
+
+* **Expression Type** (<kbd>Ctrl+Shift+P</kbd>) works for local
+  variable declarations.
+  
+* Fix type of byte literals.  
+
+
+## Internal Improvements
+
+* Short-term plan is now
+  available
+  [at the wiki](https://github.com/intellij-rust/intellij-rust/wiki/Worklist).
+  
+* Build now uses Kotlin Gradle DSL.
+
+* Macro completion is simplified (by [@farodin91]).
+
+* Slightly faster parser.
+
+* Tests no longer use assertj.
+
+* Fix all compiler's warnings.
+
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
