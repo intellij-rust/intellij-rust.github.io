@@ -1,0 +1,60 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #53"
+date: 2017-10-02 14:17:27 +0300
+---
+
+
+## New Features
+
+* It's now possible to attach several Cargo projects to a single IDE project.
+  It's also possible to specify a custom location for Cargo.toml. You can
+  view and modify the list of currently attached projects via the 
+  [Cargo toolbar](https://user-images.githubusercontent.com/1711539/31075734-aae32da2-a77f-11e7-8d5a-e962fcfad8d8.png).
+
+* **Move Statement Up/Down** (<kbd>Ctrl+Shift+Up/Down</kbd>) works in more cases 
+  (by [@farodin91]).
+  
+* Support blanket impls of the form `impl<T> Foo for T` (by [@Undin]).
+
+* More mismatched types errors supported.      
+
+* Inspection to change `assert(x == y)` to `assert_eq(x, y)` (by [@pocket7878]).
+
+* Structure view (<kbd>Ctrl+F12</kbd>) shows macro declarations and extern items 
+  (by [@kumbayo]).
+
+* Use `xargo` instead of `cargo` if `Xargo.toml` is present (by [@idubrov]).
+
+* Better error message if `rustfmt` is not installed (by [@maraisr]).
+
+
+## Fixes
+
+* Propery attach documentation comments to macros (by [@kumbayo]).
+
+* Type inference improvements (by [@kumbayo] and [@Undin]).
+
+* Place macros last in autocompletion list.
+
+* Fix Cargo deadlock when debugging in CLion on windows.
+
+* Fix some false positives in type checking.
+
+* Fix false positive for E0424 (by [@osialr]).
+
+
+## Internal Improvements
+
+* Upgrade Gradle to 4.2 (by [@Undin]).
+
+* Project model is now independent of IDEA's modules. `CargoProjectsService` is
+  responsible for the new model.
+
+[@Undin]: https://github.com/Undin
+[@farodin91]: https://github.com/farodin91
+[@idubrov]: https://github.com/idubrov
+[@kumbayo]: https://github.com/kumbayo
+[@maraisr]: https://github.com/maraisr
+[@osialr]: https://github.com/osialr
+[@pocket7878]: https://github.com/pocket7878
