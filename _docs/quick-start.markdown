@@ -10,7 +10,7 @@ order: 10
 You can use any JetBrains IDE to develop Rust. If you are not sure which one to
 choose, download
 [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/). Install the
-plugin via `Settings > Plugins > Browse repositories` menu.
+plugin via `Settings > Plugins > Install JetBrains plugin` menu.
 
 It's most convenient to use [rustup.rs](https://rustup.rs/) to install Rust.
 Using your operating system's package manager will work as well, but you will
@@ -40,17 +40,11 @@ Select a Rust toolchain. It's OK if there is no rustup.
 
 ![import-toolchain-step](/assets/quick-start/import-toolchain-setup.png)
 
-Wait until Cargo downloads all project dependencies. Open any Rust file. You
-should see a suggestion to add the sources of the standard library:
+If you want to check if the project is imported successfully, or to link
+additional Cargo projects to an exitising IDE project, you could use Cargo
+toolwindow:
 
-![download-stdlib](/assets/quick-start/download-stdlib-notification.png)
-
-
-If you are using rustup, just click **Download**. Otherwise, download the
-archive with the source code from
-[rust-lang.org](https://www.rust-lang.org/en-US/downloads.html), extract it and
-click **Attach**.
-
+![cargo-toolwindow](/assets/quick-start/cargo-toolwindow.png)
 
 {% include h title="After your project is ready..." tag="project-ready" %}
 
