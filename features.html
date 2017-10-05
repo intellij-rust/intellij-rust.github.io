@@ -25,9 +25,8 @@ class: features-page
     <h3>Code formatter</h3>
 
     <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional
-      formatter based on IntelliJ's formatting engine, though rustfmt support is
-      <abbr class="wip" title="Work In Progress">WIP</abbr>. You can use a <code>Run Configuration</code> to invoke
-      <code>rustfmt</code>.</p>
+      formatter based on IntelliJ's formatting engine. There's also a special action
+      for formatting code with `rustfmt`.
   </div>
 
   <div class="feature">
@@ -69,11 +68,8 @@ class: features-page
     <p>
       IntelliJ Rust features built from scratch code completion, leveraging IntelliJ Platform capabilities.
       <kbd>Ctrl+Space</kbd> invokes completion. We <a href="/docs/faq.html#racer">do not</a> plan
-      to use <code>racer</code>. A decent amount of completion intelligence is already implemented, but there is
-      definitely a lot more to do. Here are some examples of what works and what does not work (as of <b>August 1</b>).
-    </p>
-
-    {% include feature-pic.html i="feature-completion-state-of-the-art" %}
+      to use <code>racer</code>. Most of the code completion is implemented, but support
+      for macros is a work in progress.
 
     <p>Remember, if the smart completion does not work for your particular case, you can always invoke "dumb completion"
       via <kbd>Alt+/</kbd>. It merely suggests identifiers already present in the file, but works surprisingly well.</p>
