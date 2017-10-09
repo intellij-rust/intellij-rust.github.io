@@ -1,0 +1,36 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #54"
+date: 2017-10-09 17:44:28 +0300
+---
+
+
+## New Features
+
+* Cargo workspace is automatically refreshed when `src/lib.rs` or
+  `src/bin/bin-name/main.rs` files are created (by [@kumbayo]).
+
+* Quick fix to add missing struct fields creates defaults values and
+  can fill structs recursively (by [@pocket7878]).
+
+
+## Fixes
+
+* Type inference supports syntax for explicit self type (by [@kumbayo]).
+
+* Fix false positive for unnecessaryry parenthesis inspection (by [@maraisr]).
+
+* Irrelevant controlls are not shown in Rust settings.
+
+* Speciing rustup channel works with the latest rustup (by [sanmal-NL]).
+
+
+## Internal Improvements
+
+* Check that type inference relays only on stubs (by [@Undin]).
+
+* Reorganized utility packages.
+[@Undin]: https://github.com/Undin
+[@kumbayo]: https://github.com/kumbayo
+[@maraisr]: https://github.com/maraisr
+[@pocket7878]: https://github.com/pocket7878
