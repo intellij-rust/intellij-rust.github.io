@@ -22,7 +22,7 @@ date: 2017-10-09 17:44:28 +0300
 
 * Irrelevant controls are not shown in Rust settings.
 
-* Speciing rustup channel works with the latest rustup (by [@sanmai-NL]).
+* Specifying rustup channel works with the latest rustup (by [@sanmai-NL]).
 
 
 ## Internal Improvements
