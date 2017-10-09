@@ -18,11 +18,11 @@ date: 2017-10-09 17:44:28 +0300
 
 * Type inference supports syntax for explicit self type (by [@kumbayo]).
 
-* Fix false positive for unnecessaryry parenthesis inspection (by [@maraisr]).
+* Fix false positive for unnecessary parenthesis inspection (by [@maraisr]).
 
-* Irrelevant controlls are not shown in Rust settings.
+* Irrelevant controls are not shown in Rust settings.
 
-* Speciing rustup channel works with the latest rustup (by [sanmal-NL]).
+* Speciing rustup channel works with the latest rustup (by [@sanmai-NL]).
 
 
 ## Internal Improvements
@@ -35,3 +35,4 @@ date: 2017-10-09 17:44:28 +0300
 [@kumbayo]: https://github.com/kumbayo
 [@maraisr]: https://github.com/maraisr
 [@pocket7878]: https://github.com/pocket7878
+[@sanmai-NL]: https://github.com/sanmai-NL
