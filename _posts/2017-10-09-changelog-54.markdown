@@ -30,6 +30,7 @@ date: 2017-10-09 17:44:28 +0300
 * Check that type inference relays only on stubs (by [@Undin]).
 
 * Reorganized utility packages.
+
 [@Undin]: https://github.com/Undin
 [@kumbayo]: https://github.com/kumbayo
 [@maraisr]: https://github.com/maraisr
