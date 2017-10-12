@@ -53,4 +53,4 @@ Check that the basic functionality is working. Try **Goto Symbol**
 completion <kbd>Ctrl+Space</kbd>.
 
 
-{% include feature-gfy.html n="SadCourteousDobermanpinscher" %}
+{% include feature-video.html v="quick-start/features" %}
