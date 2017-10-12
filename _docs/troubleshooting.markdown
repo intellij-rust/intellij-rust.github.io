@@ -14,10 +14,13 @@ weird behavior, try reimporting your project or/and rebuilding indices (using
 
 {% include h title="Is Cargo project structure correct?" %}
 
-At the moment we support only Cargo based projects. Check that `Cargo.toml` is
-present in the root directory of the project and that you can build the project
-with `cargo build`. You can use `cargo metadata` command to understand how
-exactly IntelliJ Rust sees your project.
+At the moment we support only Cargo based projects. Use Cargo toolbar to see
+the list of linked Cargo projects:
+
+{% include feature-pic.html i="cargo-toolbar" %}
+
+Check you can build the project with `cargo build`. You can use `cargo metadata`
+command to understand how exactly IntelliJ Rust sees your project.
 
 
 {% include h title="Is the Rust toolchain properly setup?" %}
