@@ -26,7 +26,7 @@ class: features-page
 
     <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional
       formatter based on IntelliJ's formatting engine. There's also a special action
-      for formatting code with `rustfmt`.
+      for formatting code with rustfmt.
   </div>
 
   <div class="feature">
@@ -47,7 +47,7 @@ class: features-page
   <div class="feature">
     <h3>Code folding</h3>
 
-    <p>Code folding, auto-insertion of braces, brackets & quotes, matching brace/bracket highlighting, etc.</p>
+    <p>Code folding, auto-insertion of braces, brackets &amp; quotes, matching brace/bracket highlighting, etc.</p>
   </div>
 
   <div class="feature">
@@ -114,6 +114,17 @@ class: features-page
     <h3>File Structure</h3>
     <p><kbd>Ctrl+F12</kbd>, <kbd>Alt+7</kbd> brings up an overview of the current file.</p>
   </div>
+
+  <div class="feature side-pic">
+    {% include feature-pic.html i="feature-nav-to-impl"%}
+  </div> 
+
+  <div class="feature">
+    <h3>Implementations</h3>
+    <p>
+      Gutter icon or <kbd>Ctrl+Alt+B</kbd> shortcut can be used to navigate between traits or types and impls.
+    </p>
+  </div>
 </div>
 
 
@@ -167,6 +178,10 @@ class: features-page
       <div class="feature">
         <p><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get
           <code>foo/mod.rs</code>. Also available as a quick fix for unresolved module declaration.</p>
+      </div>
+
+      <div class="feature">
+        <p><b>Introduce variable</b>: use <kbd>Ctrl+Alt+V</kbd> or <code>.let</code> postfix template to extract a variable from an expression.</p>
       </div>
     </div>
   </div>
@@ -235,6 +250,33 @@ class: features-page
     <h3>Quick documentation</h3>
     <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
   </div>
+</div>
+
+<div class="feature-group">
+  <h2>Reading code</h2>
+  {% include feature-pic.html i="feature-reading" %}
+
+  <div class="feature half">
+    <h3>Quick documentation</h3>
+    <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
+  </div>
+
+  <div class="feature half">
+    <h3>Documentation highlighting</h3>
+    <p>IntelliJ Rust highlights important parts of documentation comments, so they never look so bland.</p>
+  </div>
+
+  <div class="feature half">
+    <h3>Parameter hints</h3>
+    <p>In the editor, you can see hints with names of parameters and types of local variables</p>
+  </div>
+
+  <div class="feature half">
+    <h3>Type information</h3>
+    <p>Use <kbd>Ctrl+Shift+P</kbd> to view the type of selected expression.</p>
+  </div>
+
+
 </div>
 
 
