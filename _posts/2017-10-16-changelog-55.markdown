@@ -15,3 +15,4 @@ date: 2017-10-16 11:45:24 +0300
 
 * Tweak gradle build: both IDEA and CLion are downloaded to `deps` folder.
  
+[@farodin91]: https://github.com/farodin91
