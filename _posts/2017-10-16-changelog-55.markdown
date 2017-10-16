@@ -1,0 +1,17 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #55"
+date: 2017-10-16 11:45:24 +0300
+---
+
+## Fixes
+
+* Fill match arm intention handles comments correctly by [@farodin91]).
+
+* Hide a type hint for a local variable, initialized from a struct literal (by [@farodin91]).
+
+
+## Internal Improvements
+
+* Tweak gradle build: both IDEA and CLion are downloaded to `deps` folder.
+ 
