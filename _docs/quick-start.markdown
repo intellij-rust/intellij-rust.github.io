@@ -9,7 +9,7 @@ order: 10
 
 You can use any JetBrains IDE to develop Rust. If you are not sure which one to
 choose, download
-[IntelliJ IDEA community edition](https://www.jetbrains.com/idea/). Install the
+[IntelliJ IDEA community edition](https://www.jetbrains.com/idea/), it's free. Install the
 plugin via `Settings > Plugins > Install JetBrains plugin` menu.
 
 It's most convenient to use [rustup.rs](https://rustup.rs/) to install Rust.
