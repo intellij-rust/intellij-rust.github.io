@@ -1,0 +1,61 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #57"
+date: 2017-11-07 19:09:44 +0300
+---
+
+
+## New Features
+
+* Go-to-definition for overloaded operators [@Undin]
+
+* "Extract function" refactoring now support return type(s) [@farodin91]
+
+* Insert semicolon when complete use statements [@mhaessig]
+
+* Notify about files outside of Cargo projects
+
+* Expand `lazy_static!` macro (!)
+
+* Slightly more intuitive behavior when inserting `()` with completion
+
+* Don't scroll Cargo console to end if there are errors
+
+* Enable automatic fixing of macro and lifetime parameter naming conven [@kumbayo]
+
+* "Implement methods" intention renamed to "Implement members" [@ttaomae]
+
+* Auto complete #[macro_use] on "mod mod_name;" [@kumbayo]
+
+* Error codes (E0000) in error annotations are now clickable links [@shssoichiro]
+
+
+## Fixes
+
+* Locate Cargo manifest & working directory properly
+
+* Correctly rebuild workspace when adding stdlib
+
+* Resolve bindings in else branch of 'if let' expression correctly [@Undin]
+
+* Allow spaces in the new project name
+
+* Fixed carret position after "Add curly braces" intention apply
+
+* Fix E0121 false positive [@ttaomae]
+
+* "Implement methods" intention now correctly inserts `unsafe` modifier [@ttaomae]
+
+
+## Internal Improvements
+
+* Cache package content root
+
+* Agressive TOML plugin refactoring
+
+[@Undin]: https://github.com/Undin
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
+[@mhaessig]: https://github.com/mhaessig
+[@shssoichiro]: https://github.com/shssoichiro
+[@ttaomae]: https://github.com/ttaomae
