@@ -1,0 +1,36 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #58"
+date: 2017-11-13 11:49:24 +0300
+---
+
+
+## New Features
+
+* Simple completion of keys in Cargo.toml. 
+  This feature requires a recent version of [TOML plugin](https://plugins.jetbrains.com/plugin/8195-toml).
+  ![Example of completion](https://user-images.githubusercontent.com/1711539/32717042-499ca69e-c869-11e7-8ac6-a6470f9b1ab0.png)
+
+
+## Fixes
+
+* Exit point highlighting logic shares code with **Extra Semicolon** inspection.
+
+* Fix & test regressed **Implement Members** quick fix.
+
+* Better type inference for `!` type.
+
+* Enable configurable template for Rust file.
+
+* Don't try to refresh Cargo project if its directory does not exist.
+
+* Correctly handle `pub(crate)` syntax in formatter.
+
+
+## Internal Improvements
+
+* Cleanup of **Implement Members** quick fix tests (by [@ttaomae]).
+
+* More low-level type inference groundwork.
+
+[@ttaomae]: https://github.com/ttaomae
