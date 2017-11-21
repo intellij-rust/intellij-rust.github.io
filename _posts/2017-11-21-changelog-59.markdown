@@ -36,3 +36,7 @@ date: 2017-11-21 19:16:23 +0300
 * Allow attributes on expressions.
 
 * Introduce Testmark framework to make tests more robust.
+
+[@FatalCatharsis]: https://github.com/FatalCatharsis
+[@GuillaumeEveillard]: https://github.com/GuillaumeEveillard
+[@kumbayo]: https://github.com/kumbayo
