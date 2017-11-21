@@ -1,0 +1,38 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #59"
+date: 2017-11-21 19:16:23 +0300
+---
+
+
+## New Features
+
+* Groundwork for `Sized` types analysis.
+
+* Support `?` for `Option<T>`.
+
+## Fixes
+
+* Fix stack overflow in type inference
+
+* Fix name resolution for modules with explicit `#[path]` attributes (by [@kumbayo]).
+
+* Extract variable works for tuple types (by [@GuillaumeEveillard]).
+
+* It's possible to debug tests in CLion.
+
+* Fix name resolution for crates bundled with stdlib.
+
+* Inspection about `assert_eq` correctly handles format arguments (by [@FatalCatharsis]).
+
+
+## Internal Improvements
+
+* Rework testing infrastructure for refactorings which
+  create GUI dialogs.
+
+* Make grammar for patterns more sensible.
+
+* Allow attributes on expressions.
+
+* Introduce Testmark framework to make tests more robust.
