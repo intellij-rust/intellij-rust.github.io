@@ -1,0 +1,41 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #60"
+date: 2017-11-27 12:22:54 +0300
+---
+
+
+## New Features
+
+* Type inference for `impl Trait` syntax (by [@oleg-semenov]).
+
+* Error annotation for `!Sized` values being used in 
+  cases where `Sized` is required.
+
+* Correctly disambiguate multiple candidate methods in some cases.
+
+* New project dialog for PyCharm, WebStorm, PhpStorm and RubyMine.
+
+
+## Fixes
+
+* Extract inline module intention preserves comments and 
+  attributes
+
+* Don't indent commented-out code.  
+
+
+## Internal Improvements
+
+* Almost all tests now use `words in backticks`
+  convention.
+
+* Simplify Up/Down movers.  
+
+[@oleg-semenov]: https://github.com/oleg-semenov
+
+
+
+
+
+

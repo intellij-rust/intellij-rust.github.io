@@ -46,6 +46,9 @@ def contributors():
 
     names = sorted({n[2:-1] for n in re.findall(r"\[@[^\]]+\]", text)})
 
+    with open(last_post) as f:
+        old_text = f.read()
+
     with open(last_post, 'a') as f:
         f.write("\n")
         for name in names:
@@ -55,7 +58,9 @@ def contributors():
             with urllib.request.urlopen(req) as _:
                 pass  # will thrown on 404
 
-            f.write("[@{}]: {}\n".format(name, url))
+            line = "[@{}]: {}\n".format(name, url)
+            if line not in old_text:
+                f.write()
 
 
 if __name__ == '__main__':
