@@ -60,7 +60,7 @@ def contributors():
 
             line = "[@{}]: {}\n".format(name, url)
             if line not in old_text:
-                f.write()
+                f.write(line)
 
 
 if __name__ == '__main__':

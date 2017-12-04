@@ -1,0 +1,33 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #61"
+date: 2017-12-04 11:13:04 +0300
+---
+
+
+## New Features
+
+* Type inference can disambiguate methods based on trait bounds.
+
+* IDE no longer sets `RUSTC` environmental variable automatically. It helps
+  tools like `clippy`, which also use `RUSTC`. If you don't use rustup
+  and don't have `rustc` in `PATH`, you need to set `RUSTC` environmental
+  variable manually.
+
+* Macro expansion supports simple cases, like `if_std` in `failure`.
+
+* Support for CLion 2017.3. Note that you'll need to use previous version of
+  plugin for CLion 2017.2. 
+
+
+## Fixes
+
+* Fix macro visibility rules (by [@kumbayo]).
+
+
+## Internal Improvements
+
+* Simplify processing of files in modules during name resolution.
+
+
+[@kumbayo]: https://github.com/kumbayo
