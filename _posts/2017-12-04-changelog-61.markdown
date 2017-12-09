@@ -14,7 +14,7 @@ date: 2017-12-04 11:13:04 +0300
   and don't have `rustc` in `PATH`, you need to set `RUSTC` environmental
   variable manually.
 
-* Macro expansion supports simple cases, like `if_std` in `failure`.
+* Macro expansion supports simple cases, like `with_std` in `failure`.
 
 * Support for CLion 2017.3. Note that you'll need to use previous version of
   plugin for CLion 2017.2. 
