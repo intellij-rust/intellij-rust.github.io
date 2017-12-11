@@ -1,0 +1,37 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #62"
+date: 2017-12-11 16:13:40 +0300
+---
+
+
+## New Features
+
+* Support for nested use groups.
+
+* Code folding for extern crates, mods and use items (by [@Filippok]).
+
+* Add links to the documentation for external crates to Cargo.toml (by [@farodin91]).
+  This feature requires the TOML plugin.
+
+* New rust project action for CLion.
+
+* Up/Down movers for comma separated lists.
+
+
+## Fixes
+
+* Correctly annotate inaccessible mods.
+
+* Fix "more than one binary produced" error with debugger on OS X.
+
+* Implement members fix no longer suggest already implemented items (by [@GuillaumeEveillard]).
+
+* Allow attributes on lifetimes (by [@kumbayo]).
+
+* Fix "module already declared" error for macros (by [@kumbayo]).
+
+[@Filippok]: https://github.com/Filippok
+[@GuillaumeEveillard]: https://github.com/GuillaumeEveillard
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
