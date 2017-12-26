@@ -1,0 +1,48 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #63"
+date: 2017-12-26 14:23:47 +0300
+---
+
+This is the latest release in this year. 
+
+We are very happy that more and more people use intellij-rust and 
+we are very pleased the number of contributors is constantly growing! 
+Hope that next year will be even better than this one!
+
+Happy new year! :christmas_tree: :santa: :bell: :sparkles: :star2: :fireworks:
+ 
+
+## New Features
+
+* Initial support of auto import :tada: Now it is implemented as intention 
+so you can try it via <kbd>Alt+Enter</kbd> at unresolved reference
+
+* Quick fix to add cast for the numeric types mismatch (by [@oleg-semenov])
+
+* Goto type declaration action (<kbd>Ctrl+Shift+B</kbd>)
+
+* New icon for type alias item (by [@Nilera])
+
+## Fixes
+
+* Don't show error on getting mut reference of function/method (by [@kumbayo])
+
+* Correctly sanitize names in introduce variable action
+
+* Correctly resolve struct literals and fields with type aliases (by [@kumbayo])
+
+
+## Internal Improvements
+
+* Fix some compiler warnings after migration to IDEA 2017.3
+
+* Update gradle and kotlin
+
+* Fix rustfmt-nightly compilation for CI builds
+
+[@Nilera]: https://github.com/Nilera
+[@kumbayo]: https://github.com/kumbayo
+[@oleg-semenov]: https://github.com/oleg-semenov
+
+
