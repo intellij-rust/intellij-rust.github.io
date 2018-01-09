@@ -1,0 +1,35 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #64"
+date: 2018-01-09 16:22:15 +0300
+---
+
+
+## New Features
+
+* Handle multiple attributes with same name (by [@kumbayo])
+
+* Quick fix to convert types via `From` trait (by [@oleg-semenov])
+
+
+## Fixes
+
+* New icon for cargo tool window to fix runtime warning (by [@Nilera])
+
+* Fix incorrect auto import in some cases and improve filtering of import candidates
+
+* Increase timeout for stdlib search (by [@AtomicInteger]) 
+
+
+## Internal Improvements
+
+* Refactor `LookupElement` creation (by [@mhaessig]) 
+
+* Update IDEA, CLion, gradle and Kotlin
+
+
+[@AtomicInteger]: https://github.com/AtomicInteger
+[@Nilera]: https://github.com/Nilera
+[@kumbayo]: https://github.com/kumbayo
+[@mhaessig]: https://github.com/mhaessig
+[@oleg-semenov]: https://github.com/oleg-semenov
