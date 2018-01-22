@@ -1,0 +1,44 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #65"
+date: 2018-01-22 11:20:20 +0300
+---
+
+
+## New Features
+
+* Initial support of input parameters extraction using function extraction refactoring. 
+Note that work at this feature in progress so some things may work incorrectly (by [@farodin91]) 
+
+* Quick fix to convert types using `ToOwned` trait (by [@oleg-semenov])
+
+* Initial re-exports support for auto import intention
+
+* Support 2018.1 EAPs
+
+## Fixes
+
+* Fix `PluginException` in MPS because of redundant separate action for function extraction refactoring
+
+* Correctly extract associated function in trait item (by [@t-kameyama])
+
+* Insert comma after `match` expression arm using `Remove braces from single expression` intention (by [@Nilera])
+
+* Resolve references and infer their types in match guard clause 
+and struct update syntax (by [@kumbayo])
+
+* Infer type of closures with `return` statement properly
+
+## Internal Improvements
+
+* Improve function extraction refactoring tests
+
+* Stubs for inner and outer attributes (by [@kumbayo])
+
+* Use same nightly rust version for `rustfmt` build and tests
+
+[@Nilera]: https://github.com/Nilera
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
+[@oleg-semenov]: https://github.com/oleg-semenov
+[@t-kameyama]: https://github.com/t-kameyama
