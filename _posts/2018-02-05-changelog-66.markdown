@@ -1,0 +1,62 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #66"
+date: 2018-02-05 11:42:12 +0300
+---
+
+This is the last release to support IDEA 2017.2. If you want to continue to 
+receive plugin updates, please upgrade your IDE to 2017.3. 
+
+
+## New Features
+
+* Support `auto` keyword in trait declaration
+
+* Enable type check for references. Note, type check inspection is disabled by default 
+because it can generate false positive warnings
+
+* Take into account `path` attribute of parent modules while resolving
+
+* Initial version of import optimizer (by [@farodin91])
+
+* Inspection to check different members order in impl and corresponding trait (by [@t-kameyama]) 
+
+* Infer array size by evaluation of const expression
+
+* Detect `.cargo/config` as toml file
+
+
+## Fixes
+
+* Allow debugging example binaries
+
+* Use explicit types from function and struct declarations to improve type inference
+
+* Fix indexing of `impl<T> Trait for &T` for more precise method resolution for reference types 
+
+* Improve navigation around const and type in traits (by [@kumbayo])
+
+* Fix quick documentation and breadcrumbs for const and type alias items (by [@kumbayo])
+
+* Resolve types in pattern matching properly
+
+* Allow scrolling content of cargo tool window
+
+* Don't show unnecessary type hints in lambda arguments (by [@farodin91])
+
+
+## Internal Improvements
+
+* Fix warnings in some quick fixes implementation
+
+* Use `rustfmt-nightly` on appveyor
+
+* Check that all expressions typified in type inference tests 
+
+* Slightly optimize type inference
+
+* Use single objects for integer and float types
+
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
+[@t-kameyama]: https://github.com/t-kameyama
