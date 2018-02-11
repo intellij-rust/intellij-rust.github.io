@@ -16,12 +16,34 @@ It's most convenient to use [rustup.rs](https://rustup.rs/) to install Rust.
 Using your operating system's package manager will work as well, but you will
 need to download sources of the standard library manually.
 
-{% include h title="Opening existing project" tag="open-idea" %}
+{% include h title="Create new project..." tag="new-project" %}
 
-After you have installed the plugin into IntelliJ IDEA you can **import** a
-project from source:
+After you have installed the plugin you can **create new** project.
 
-![idea-import](/assets/quick-start/import-project.png)
+![idea-new-project](/assets/quick-start/idea-new-project.png){:width="750px"}
+
+Select Rust project type.
+
+![idea-select-project-type](/assets/quick-start/idea-select-project-type.png){:width="750px"}
+
+And specify a project name and location.
+
+![idea-project-location](/assets/quick-start/idea-project-location.png){:width="750px"}
+
+If you are using other IDE ([CLion](https://www.jetbrains.com/clion/), [PyCharm](https://www.jetbrains.com/pycharm/), etc.) 
+you will see slightly different interface while creating a new project.
+
+![clion-new-project](/assets/quick-start/clion-new-project.png){:width="750px"}
+
+And then select Rust project type and specify project location.
+
+![clion-project-location](/assets/quick-start/clion-project-location.png){:width="750px"}
+
+{% include h title="...or open existing one" tag="open-idea" %}
+
+You can also **import** existing project from source.
+
+![idea-import](/assets/quick-start/idea-import-project.png){:width="750px"}
 
 Select the directory with the project. The directory must contain a `Cargo.toml`
 file.
@@ -39,6 +61,12 @@ Check that the directory is recognized as a Rust project:
 Select a Rust toolchain. It's OK if there is no rustup.
 
 ![import-toolchain-step](/assets/quick-start/import-toolchain-setup.png)
+
+To import project in other IDEs just use **open** option.
+
+![clion-import](/assets/quick-start/clion-import-project.png){:width="750px"}
+
+And select project directory.
 
 If you want to check if the project is imported successfully, or to link
 additional Cargo projects to an exitising IDE project, you could use Cargo
