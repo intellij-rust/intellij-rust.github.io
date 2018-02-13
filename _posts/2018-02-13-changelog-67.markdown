@@ -1,0 +1,38 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #67"
+date: 2018-02-13 14:07:05 +0300
+---
+
+
+## New Features
+
+* Support paths relative to workspace directory which are produced by cargo 1.24 (current beta) 
+to add links in console properly
+
+* Support generic parameters in `Extract Method` refactoring (by [@t-kameyama])
+
+* Sort `extern crate` items while import optimizing (by [@farodin91])
+
+* Parse [crate visibility](https://github.com/rust-lang/rust/blob/master/src/doc/unstable-book/src/language-features/crate-visibility-modifier.md)
+correctly (by [@mrhota])
+
+* Use short backtraces by default
+
+## Fixes
+
+* Underline only `impl Trait for Type` part of impl by `Different impl member order from the trait` inspection
+
+* Highlight `auto` modifier as keyword
+
+* Distinguish items with the same names but different types by `Not all trait items implemented` inspection (by [@t-kameyama])
+
+## Internal Improvements
+
+* Introduce `TyProjection` type for associated types
+
+* Tests for stub existence
+
+[@farodin91]: https://github.com/farodin91
+[@mrhota]: https://github.com/mrhota
+[@t-kameyama]: https://github.com/t-kameyama
