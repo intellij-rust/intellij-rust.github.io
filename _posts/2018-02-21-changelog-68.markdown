@@ -1,0 +1,50 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #68"
+date: 2018-02-21 14:59:46 +0300
+---
+
+
+## New Features
+
+* Auto import takes into account module re-exports
+
+* New SVG icons (by [@Nilera])
+
+* **Great** optimization improvement of type inference
+
+* Initial support of `dyn Trait` type
+
+* Quick fix to convert types using `ToString` trait (by [@oleg-semenov])
+
+* Quick fix to convert `String` to `&str` (by [@oleg-semenov])
+
+* Add semicolon after `break` and `continue` while formatting (by [@t-kameyama])
+
+* Implement resolve and type inference in associated type bindings
+
+## Fixes
+
+* Infer types of variables with postponed initialization
+
+* Correctly format `use` items with trailing comma (by [@AtomicInteger])
+
+* Don't infer type of items with ambiguous declaration
+
+* Various fixes of auto import
+
+* Don't allow using `Specify type explicitly` intention if variable type isn't fully infered
+
+* Don't drop `unsafe` keyword while `Join Lines` action (by [@pcholakov])
+
+## Internal Improvements
+
+* Clean up `Extract Method` refactoring (by [@t-kameyama])
+
+* Add explicit dependency on kotlin stdlib to download its source for IDE
+
+[@AtomicInteger]: https://github.com/AtomicInteger
+[@Nilera]: https://github.com/Nilera
+[@oleg-semenov]: https://github.com/oleg-semenov
+[@pcholakov]: https://github.com/pcholakov
+[@t-kameyama]: https://github.com/t-kameyama
