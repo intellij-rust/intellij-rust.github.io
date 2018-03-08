@@ -1,0 +1,49 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #69"
+date: 2018-03-08 05:51:14 +0300
+---
+
+
+## New Features
+
+* Implement `Build` action for small IDEs (except of AppCode)
+
+* Improve support of mutable variables during `Extract Method` refactoring (by [@farodin91])
+
+* A lot of improvements of auto import
+
+* `Move type constraints to parameter list` intention (by [@t-kameyama])
+
+* Make `Unresolved reference` inspection enabled by default and 
+convert auto import into quick fix of this inspection
+
+* Filter method completion variants by trait bounds of impls
+
+* Support new debugger API in CLion 2018.1
+
+## Fixes
+
+* Improve type inference related to struct fields
+
+* Calculate length of byte string literals with escaped characters in correct way (by [@kumbayo])
+
+* Fix endless indexing
+
+* Improve IDE support of trait types: trait objects and `impl`/`dyn Trait`
+
+* Slightly improve performance of macros resolve
+
+* Fix displaying of generic types in tooltips
+
+## Internal Improvements
+
+* Rename `TyStructOrEnumBase` to `TyAdt` and slightly optimize it
+
+* Temporal using dependency of intellij-toml plugin from the repository instead of local one (by [@kumbayo])
+
+
+
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
+[@t-kameyama]: https://github.com/t-kameyama
