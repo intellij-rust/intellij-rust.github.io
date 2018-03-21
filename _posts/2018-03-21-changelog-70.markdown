@@ -1,0 +1,49 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #70"
+date: 2018-03-21 01:54:03 +0300
+---
+
+
+## New Features
+
+* Quick fix to convert types using `Borrow`/`BorrowMut` and `AsRef`/`AsMut` traits (by [@oleg-semenov])
+
+* Highlight mutable `self` as a mutable variable (by [@farodin91])
+
+* Substitute generic types in `Implement Members` quick fix
+
+* `Flip operator` intention (by [@t-kameyama])
+
+* Support new inclusive range syntax `a..=b` (by [@kumbayo])
+
+* Take into account generic type arguments while associated types processing
+
+* Improve method resolving for primitive types
+
+
+## Fixes
+
+* Fix `break` and `continue` formatting in match expression (by [@anton-okolelov])
+
+* Fix various issues with `Self` type
+
+* Save all documents before `refresh`/`attach cargo project` action
+to take into account the latest changes in `Cargo.toml` 
+
+* Infer type of index operator result correctly
+
+* Fix parsing of `Fn` trait types
+
+## Internal Improvements
+
+* Use local dependency of intellij-toml plugin again
+
+* Check channel of rustc while resolve tests
+
+
+[@anton-okolelov]: https://github.com/anton-okolelov
+[@farodin91]: https://github.com/farodin91
+[@kumbayo]: https://github.com/kumbayo
+[@oleg-semenov]: https://github.com/oleg-semenov
+[@t-kameyama]: https://github.com/t-kameyama
