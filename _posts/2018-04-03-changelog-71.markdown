@@ -1,0 +1,50 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #71"
+date: 2018-04-03 09:46:37 +0300
+---
+
+
+## New Features
+
+* Add quick fix to convert types by using `TryFrom` trait (by [@oleg-semenov])
+
+* Enable type check inspection by default
+
+* Completion for `dev` and `build` dependencies in `Cargo.toml`
+
+* Improve quick fixes on type mismatch
+
+* Support new syntax of match arms introduced in rust 1.25
+(see [rfc](https://github.com/rust-lang/rfcs/blob/master/text/1925-optional-match-vert.md))
+
+* Don't highlight generic parameters by `Unresolved Reference` inspection
+
+* Filter import candidates by their namespace
+
+* Improve presentation of generic `impl`s in structure view (by [@Filippok])
+
+## Fixes
+
+* Fix highlighting of a path with primitive type name by `Unresolved Reference` inspection
+
+* `Make mutable` quick fix correctly supports `ref` modifier (by [@rrevenantt])
+
+* Prevent infinite loop issue with cyclic type aliases
+
+* Fix wrong top padding in rust file type icons (by [@Nilera])
+
+* Correctly parse `Z` suffix of date values in TOML files
+
+## Internal Improvements
+
+* Fix possible exception during `TyInteger` and `TyFloat` classes initialization
+
+* Update IDEA and CLion
+
+* Check rust version in stdlib resolve tests
+
+[@Filippok]: https://github.com/Filippok
+[@Nilera]: https://github.com/Nilera
+[@oleg-semenov]: https://github.com/oleg-semenov
+[@rrevenantt]: https://github.com/rrevenantt
