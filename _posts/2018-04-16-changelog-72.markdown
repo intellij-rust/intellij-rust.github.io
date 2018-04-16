@@ -19,7 +19,7 @@ You can switch off this feature via `Rust Settings` (<kbd>Languages & Frameworks
 
 * Use `--all-targets` for build/check actions if possible (by [@orium])
 
-* Add ability to pass `-Zoffline` to cargo during building/checking (by @[chabapok])
+* Add ability to pass `-Zoffline` to cargo during building/checking (by [@chabapok])
 
 ## Fixes
 
@@ -35,7 +35,9 @@ You can switch off this feature via `Rust Settings` (<kbd>Languages & Frameworks
 
 * More completion-friendly TOML grammar
 
+
 [@Nilera]: https://github.com/Nilera
+[@chabapok]: https://github.com/chabapok
 [@oleg-semenov]: https://github.com/oleg-semenov
 [@orium]: https://github.com/orium
 [@sgift]: https://github.com/sgift
