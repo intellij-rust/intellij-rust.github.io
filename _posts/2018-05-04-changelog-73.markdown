@@ -1,0 +1,48 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #73"
+date: 2018-05-04 00:25:16 +0300
+---
+
+
+This is the last release which supports IDEA 2017.3. If you want to continue to
+receive plugin updates, please upgrade your IDE to 2018.1.
+
+## New Features
+
+* Implement initial dependency completion in `Cargo.toml` (by [@vitvakatu])
+
+* Support extern types
+
+* Add underscore support in Unicode escape sequences (by [@rrevenantt])
+
+* Take into account selected cargo project while running cargo command (by [@rrevenantt])
+
+* Support raw literal at lexer level (by [@Dimonchik0036])
+
+* Take into account `#[repr(u*)]` attribute during enum discriminant type inference (by [@kumbayo])
+
+## Fixes
+
+* Correctly resolve comparison and equality operators for primitive types
+
+* Properly format `?Trait` bound (by [@kumbayo])
+
+* `Implement members` quick fix tries to insert member
+according to order of trait definition (by [@JakubAdamWieczorek])
+
+* Fix `Apply same member order` quick fix for incomplete `impl`s (by [@JakubAdamWieczorek])
+
+* Fix type inference for `vec![val; len]` expressions (by [@kumbayo])
+
+## Internal Improvements
+
+* Update IDEA, CLion & Kotlin
+
+* Use `rustfmt-preview` for test on CI
+
+[@Dimonchik0036]: https://github.com/Dimonchik0036
+[@JakubAdamWieczorek]: https://github.com/JakubAdamWieczorek
+[@kumbayo]: https://github.com/kumbayo
+[@rrevenantt]: https://github.com/rrevenantt
+[@vitvakatu]: https://github.com/vitvakatu
