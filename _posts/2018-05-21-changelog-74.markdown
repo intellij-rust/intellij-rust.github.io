@@ -1,0 +1,31 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #74"
+date: 2018-05-21 11:20:53 +0300
+---
+
+
+## New Features
+
+* Show values of default rust types in debugger via rust pretty-printers
+
+* Show all workspace members and targets in cargo toolwindow
+
+* Split rust settings into sections
+
+* Support 2018.2 EAPs
+
+## Fixes
+
+* Show only unique annotations by cargo check annotator
+
+* Pass environment variables into debug process
+
+* Fix import optimization inside inner modules
+
+* Improve error messages when debugger toolchain is not configured correctly
+
+## Internal Improvements
+
+* Drop outdated code
+
