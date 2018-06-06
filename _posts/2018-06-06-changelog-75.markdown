@@ -1,0 +1,27 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #75"
+date: 2018-06-06 11:17:32 +0300
+---
+
+
+## New Features
+
+* Add quick fix to convert types by using deref and ref operators (by [@oleg-semenov])
+
+* New icons for targets in cargo toolwindow
+
+## Fixes
+
+* Put expressions into parentheses during macro expansion to preserve the right operation order (by [@kumbayo])
+
+* Show `Convert to assert_eq/assert_ne` quick fixes only for `Debug` types (by [@JakubAdamWieczorek])
+
+* Don't search text occurrences outside of lambda expression while rename action (by [@JakubAdamWieczorek])
+
+* Fix `NullPointerException` during macro expansion for 2018.2 IDEs
+
+
+[@JakubAdamWieczorek]: https://github.com/JakubAdamWieczorek
+[@kumbayo]: https://github.com/kumbayo
+[@oleg-semenov]: https://github.com/oleg-semenov
