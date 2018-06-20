@@ -1,0 +1,39 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #76"
+date: 2018-06-20 01:04:38 +0300
+---
+
+
+## New Features
+
+* Provide links to external documentation in quick doc for stdlib items
+
+## Fixes
+
+* Show `Convert to assert_eq/assert_ne` quick fixes only for `PartialEq` types
+
+* Fix incorrect target path in test run configuration when `#[path]` attribute is used in module hierarchy
+
+* Pass `emit` flag instead of `write-mode` to `rustfmt` from the latest nightly builds (by [@king6cong])
+
+* Save file before run `rustfmt` to format actual file content
+
+* Suggest quick fixes to convert types using `BororwMut` and `AsMut` traits 
+only for mutable expressions (by [@oleg-semenov])
+
+* Fix endless loop while matching of `$()*` pattern during macro expansion
+
+* Select correct impl for reference types while method resolution 
+
+* Make item resolution able to work with new macro re-export syntax
+
+## Internal Improvements
+
+* Type inference takes into account primitive type impls of default traits, like `Clone`, `Copy`, `Ord`, `Eq`, etc.
+
+* Update gradle and other dependencies
+
+
+[@king6cong]: https://github.com/king6cong
+[@oleg-semenov]: https://github.com/oleg-semenov
