@@ -26,8 +26,6 @@ only for mutable expressions (by [@oleg-semenov])
 
 * Select correct impl for reference types while method resolution 
 
-* Make item resolution able to work with new macro re-export syntax
-
 ## Internal Improvements
 
 * Type inference takes into account primitive type impls of default traits, like `Clone`, `Copy`, `Ord`, `Eq`, etc.
