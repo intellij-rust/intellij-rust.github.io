@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "IntelliJ Rust Changelog #76"
-date: 2018-06-20 01:04:38 +0300
+date: 2018-06-20 15:04:38 +0300
 ---
 
 
