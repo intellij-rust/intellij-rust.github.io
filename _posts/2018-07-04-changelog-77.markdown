@@ -7,6 +7,9 @@ date: 2018-07-04 11:23:44 +0300
 
 ## New Features
 
+* Improve type inference performance.
+Now function body change invalidates type inference cache of the function instead of all caches
+
 * Make item resolution able to work with new macro (re-)export syntax
 
 * Support token tree in attributes
@@ -20,8 +23,6 @@ date: 2018-07-04 11:23:44 +0300
 * Fall back to common macro parsing if special log macro parser fails
 
 * Fix `ClassCastException` while type inference
-
-* Invalidate type inference cache for only one function when the function body is changed (instead of all caches)
 
 * Partially fix relative links in quick documentation provided by documentation comments
 
