@@ -1,0 +1,39 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #77"
+date: 2018-07-04 11:23:44 +0300
+---
+
+
+## New Features
+
+* Make item resolution able to work with new macro (re-)export syntax
+
+* Support token tree in attributes
+
+* Update quick documentation layout
+
+* Allow running tests from multiple files at the same time (by [@JakubAdamWieczorek])
+
+## Fixes
+
+* Fall back to common macro parsing if special log macro parser fails
+
+* Fix `ClassCastException` while type inference
+
+* Invalidate type inference cache for only one function when the function body is changed (instead of all caches)
+
+* Partially fix relative links in quick documentation provided by documentation comments
+
+## Internal Improvements
+
+* Add ability to inject custom references into attributes
+
+* Update IDEA & CLion
+
+* Save sysroot and rustc version in cargo project instance
+
+
+
+
+[@JakubAdamWieczorek]: https://github.com/JakubAdamWieczorek
