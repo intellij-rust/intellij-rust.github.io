@@ -1,0 +1,43 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #78"
+date: 2018-07-11 09:31:00 +0300
+---
+
+
+## New Features
+
+* Improve performance of item resolution and completion. Now changing body of a function doesn’t invalidate global resolution cache.
+
+* Allow function parameter list folding (by [@t-kameyama])
+
+* Add annotation about reserved lifetime names (see [E0262](https://doc.rust-lang.org/error-index.html#E0262))
+
+* Expand macros in traits and impls
+
+* Infer closure parameter types from trait object
+
+* Add option not to use `--all-target` flag while cargo build/check
+
+* Support `match ergonomics` (see [RFC](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md))
+
+* Inject platform regex language into string literals in `Regex::new` and `RegexSet::new` from `regex` crate
+
+## Fixes
+
+* Fix compatibility with the latest versions of IDEA and CLion
+
+* Fix potential type inference cache corruption in reason of mutable data
+
+* Type inference of field expressions takes into account `Deref` impls
+
+* Invalidate macro expansion cache properly
+
+## Internal Improvements
+
+* Improve performance tests
+
+
+
+
+[@t-kameyama]: https://github.com/t-kameyama
