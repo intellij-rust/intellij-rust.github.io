@@ -1,0 +1,51 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #79"
+date: 2018-07-24 22:43:21 +0300
+---
+
+
+## New Features
+
+* Now `Implement members` quick fix can substitute lifetimes
+
+* Improve `Re-assignment of immutable variable` inspection
+
+* Error annotation and quick fix for `crate_visibility_modifier` feature
+
+* `Goto declaration` action navigates to the corresponding macro call for for generated items
+
+* Open help page from rust settings panel in CLion
+
+## Fixes
+
+* Fix wrong `Self` substitution inside traits that leads to infinity loop in type inference
+
+* Fix resolution of items exported in crate root
+
+* Invalidate caches on file removing
+
+* Invalidate resolve caches on path changes inside function body
+
+* Fix exception while macro resolution
+
+* Better error recovering in toml parser
+
+* Fix type check false-positive error in `match` for string literals
+
+* Fix crash while type check error detection in expanded macro
+
+* Disable stdlib path selection if it can be found automatically
+
+## Internal Improvements
+
+* Start work to support lifetimes
+
+* Change infrastructure for convenient creation error annotations (and quick fixes for them)
+about wrong using of compiler features
+
+* `MockRustcVersion` annotation to specify rustc version for single test case
+
+* Now we store all source code in one branch instead of separate branches for each supported platform version
+
+
