@@ -1,0 +1,61 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #80"
+date: 2018-08-06 14:52:51 +0300
+---
+
+
+## New Features
+
+* Add `Needless lifetimes` inspection to check unnecessary lifetimes which can be removed. 
+See the corresponding clippy [inspection](https://github.com/rust-lang-nursery/rust-clippy/wiki#needless_lifetimes)
+
+* Support method separators. You can enable this feature 
+via  `Preferences | Editor | General | Appearance | Show method separators` (by [@t-kameyama])
+
+* Add `Assign to immutable` inspection 
+which annotates wrong assignments to element or field of the corresponding immutable array or struct
+
+* Support `Inject Language” intention for rust string literals
+
+* Implement new `Show expanded macro` and `Show recursively expanded macro` actions. 
+Now you can see how the plugin expands macros
+
+* Validate package name while new project creation
+
+* Implement `Goto definition` action for dependencies in `Cargo.toml`. 
+Now it navigates you to `lib.rs` of the corresponding crate
+
+* Support `crate` keyword at the beginning of paths
+
+* Allow attaching cargo project by directory with `Cargo.toml`
+
+
+## Fixes
+
+* Better completion for partial unknown types
+
+* Fix false positive `Cannot borrow immutable local variable` annotation for index expressions 
+
+* Avoid UI freezes while typing string literals
+
+* Don’t reset run configuration working directory on each reopening `Edit configuration` window
+
+* Correctly process empty groups while macro expansion
+
+* Consider `self` and `Self` as identifiers in macro expansion
+
+* Support parenthesized around bounds like `fn foo<T: (Bar)>(t: T)`
+
+
+## Internal Improvements
+
+* Update IDEA & CLion. Now 2018.2 platform is default for development
+
+* Initial work on macro expansion in type and pattern context. 
+Note, name resolution and type inference are not supposed to work with such macros yet
+
+
+
+
+[@t-kameyama]: https://github.com/t-kameyama
