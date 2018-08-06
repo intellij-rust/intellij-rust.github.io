@@ -16,7 +16,7 @@ via  `Preferences | Editor | General | Appearance | Show method separators` (by 
 * Add `Assign to immutable` inspection 
 which annotates wrong assignments to element or field of the corresponding immutable array or struct
 
-* Support `Inject Language” intention for rust string literals
+* Support `Inject Language` intention for rust string literals
 
 * Implement new `Show expanded macro` and `Show recursively expanded macro` actions. 
 Now you can see how the plugin expands macros
