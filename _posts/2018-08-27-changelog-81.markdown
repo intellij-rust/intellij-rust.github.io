@@ -1,0 +1,47 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #81"
+date: 2018-08-27 11:26:42 +0300
+---
+
+
+## New Features
+
+* Split rust settings into separate panels. Add tooltips for some options
+
+* Don’t highlight words that have been reserved before as keywords
+
+* Extend `Unresolved Reference` inspection to highlight trait method calls if the corresponding trait is not in the scope. 
+Also, provide quick fix to import this trait
+
+## Fixes
+
+* Add correct prelude module if one of attributes (`#![no_std]` or `#![no_core]`) are set
+
+* Fix `Needless Lifetimes` inspection
+
+* Improve `Reformat File with Rustfmt` action:
+  * Use `rustfmt` directly instead of `cargo fmt` to reformat single file
+  * Don't pass `--skip-children` flag by default
+  * Add option to use `--skip-children` flag with nightly toolchain
+
+* Fix `Add missing fields` quick fix for type aliases
+
+* Infer type of `vec![]` correctly
+ 
+* Fix type inference inside loop statement over a mutable collection
+
+## Internal Improvements
+
+* Prepare for 2018.3 EAPs
+
+* Implement control flow graph and scopes for future analysis 
+
+* Use unknown type as a default value instead of original generic type while type substitution in pattern matching
+
+* Add `ProjectDescriptor` annotation to specify project descriptor for single test case
+
+* Update IDEA & CLion
+
+
+
