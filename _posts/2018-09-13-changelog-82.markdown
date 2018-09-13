@@ -1,0 +1,46 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #82"
+date: 2018-09-13 09:33:29 +0300
+---
+
+
+## New Features
+
+* Now `Goto Declaration` action navigates to `derive` meta item if the corresponding trait is implemented via `#[derive]` attribute
+
+* Implement name resolution and completion of paths in include macros and `#[path]` attribute
+
+* Support `Context Info` action
+
+* Show nested items of function in structure view
+
+* Support type hints for generic type parameters (by [@dem1tris])
+
+* Initial implementation of `iter` postfix template (by [@Voronchikhin])
+
+* Implement preliminary inspection of anchored paths for Rust 2018. Note, it’s disabled by default because final design of `use` item paths is not fixed yet
+
+* Create error annotation for [E0404](https://doc.rust-lang.org/error-index.html#E0404) error
+
+* Support type inference in [box](https://github.com/rust-lang/rust/blob/master/src/doc/unstable-book/src/language-features/box-patterns.md) pattern
+
+## Fixes
+
+* Now `Different impl member order from the trait` annotation doesn’t highlight comments and attributes
+
+* Correctly resolve `extern crate` items with dependency on the same crate with a different version
+
+* Fix false positive error highlighting of `Unresolved Reference` inspection for trait objects and generic type parameters
+
+## Internal Improvements
+
+* Implement expression categorization as part of borrow checker implementation
+
+* Various refactorings in tests
+
+
+
+
+[@Voronchikhin]: https://github.com/Voronchikhin
+[@dem1tris]: https://github.com/dem1tris
