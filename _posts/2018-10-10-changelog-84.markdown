@@ -1,0 +1,58 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #84"
+date: 2018-10-10 22:54:36 +0300
+---
+
+
+This is the last release which supports IDEA 2018.1. If you want to continue to 
+receive plugin updates, please upgrade your IDE to 2018.2.
+
+## New Features
+
+* Filter path completion variants by trait bounds
+
+* Implement `Split if` intention. Now you can easily split 
+your complex `if` condition into two simplified ones (by [@Dimonchik0036])
+
+* Parse `yield` expression correctly. Note, type inference for such expression is not implemented yet
+
+* Sort completion variants by their types
+
+* Add initial version of `Generate Constructor` action (by [@Voronchikhin])
+
+## Fixes
+
+* Fix `Borrow checker` inspection for tuple fields
+
+* Don't suggest items by auto import quick fix from transitive dependencies
+
+* Filter some irrelevant items from completion variants
+
+* Ignore items from non-lib targets of dependencies while name resolution and completion
+
+* Correctly add `use` item by auto import quick fix in modules with outer attributes like `#[cfg(test)]`
+
+* Improve type inference of struct literals with field shorthand (by [@msmorgan])
+
+* Fix name resolution and completion for items from extern crates in edition 2018
+
+* Fix some false positive `mismatched types` errors
+
+* Improve suggestion of element name in `for` live template
+
+* Improve completion of parenthesis in attributes (by [@nicholastmosher])
+
+* Expand `crate` meta variable in macros correctly
+
+## Internal Improvements
+
+* Update IDEA & CLion
+
+
+
+
+[@Dimonchik0036]: https://github.com/Dimonchik0036
+[@Voronchikhin]: https://github.com/Voronchikhin
+[@msmorgan]: https://github.com/msmorgan
+[@nicholastmosher]: https://github.com/nicholastmosher
