@@ -1,0 +1,68 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #85"
+date: 2018-10-22 12:34:24 +0300
+---
+
+
+## New Features
+
+* Initial implementation of test tool window (by [@farodin91] & [@mchernyavsky])
+
+* Implement the first version of full move analysis
+
+* Check missing lifetime parameter for associated constants (by [@ttaomae])
+
+* Adjust auto import quick fix for edition 2018. Now it doesn’t insert `extern crate` items 
+and adds `crate` keyword for `use` items if it’s necessary for targets with edition 2018
+
+* More user-friendly UI for binary/library project templates
+
+* Some improvements of `Add missing fields` quick fix
+
+* Add `--all-features` option in cargo run configuration
+
+* Various improvements in macro expansion
+
+## Fixes
+
+* Fix cargo check annotator for nightly rust
+
+* Improve type hints to prevent showing too long ones in the editor
+
+* Don't show type hints for ignored bindings
+
+* Fix false positive error annotation of `Needless lifetimes` inspection
+
+* Don’t take into account `impl`s which are not attached to any crate 
+while name resolution and completion
+
+* Show cargo tool window content while indexing. Moreover, there is allowed invoking 
+cargo-related actions (like `Attach Cargo project` or `Run Cargo command`) at this time
+
+* Invalidate caches on `Comment with Line Comment` action. 
+Now it should correctly update all code annotations after the action
+
+* Don’t suggest existing names by `Extract variable` refactoring
+
+* Better formatting for `Show * macro expansion` actions
+
+* Correctly resolve struct enum variants
+
+* Fix false positive `Unresolved reference` annotation for methods from aliased traits
+
+## Internal Improvements
+
+* Drop 2018.1 support
+
+* Implement regions for trait objects
+
+* Clean up error annotation handling  (by [@ttaomae])
+
+* Update IDEA & CLion
+
+
+
+[@farodin91]: https://github.com/farodin91
+[@mchernyavsky]: https://github.com/mchernyavsky
+[@ttaomae]: https://github.com/ttaomae
