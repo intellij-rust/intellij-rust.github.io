@@ -1,0 +1,70 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #86"
+date: 2018-11-07 19:23:30 +0300
+---
+
+
+## New Features
+
+* Support paths which start with crate name and `crate` keyword for edition 2015. 
+See `Module system improvements` section in rust 1.30 
+[release notes](https://blog.rust-lang.org/2018/10/25/Rust-1.30.0.html) for more details
+
+* More convenient work with lldb. Now you can view separate children of `Vec` 
+and correct utf-8 values of `&str` and `String` in the debugger tool window. 
+Currently, it’s implemented via own lldb formatters. 
+You can disable them or switch to default ones in 
+`Preferences | Build, Execution, Deployment | Debugger | Data Views | Rust`
+
+* Implement "Nest use statements" intention 
+[gif](/assets/posts/changelog-86/nest-use-statements.gif) (by [@majecty])
+
+* Extend `Simplify boolean expression` intention for `==` and `!=` operators 
+[gif](/assets/posts/changelog-86/simplify-boolean-expression.gif) (by [@DaryaShirokova])
+
+* Group imports by semantics while import optimization (by [@isamborskiy])
+
+* Add gutter icon to run benchmarks
+
+* Add annotation for using extern functions and constants outside of `unsafe` block as error (by [@garyttierney])
+
+* Support `vis` macro matcher. See the corresponding [issue](https://github.com/rust-lang/rust/issues/41022) for more details
+
+## Fixes
+
+* Open project properly via project `Cargo.toml`
+
+* Prevent moving of `use` items outside of  inline module block while import optimization
+
+* Correctly create new test configuration if another one is already created
+
+* More precise resolution of paths in `use` items with the same names
+
+* Fix false positive error annotation in visibility restriction
+
+* Take into account lexical order while name resolution of macros
+
+* Do not mark `'_` lifetime as undeclared
+
+* Expand log macros correctly
+
+* Properly show a result of the first test in test tool window on Windows
+
+* Restore `Show stdout/stderr in tests` option in cargo run configuration. Note, this option disables the test tool window because of the [bug](https://github.com/rust-lang/rust/issues/54669) in libtest
+
+* Improve symlinks support. Now name resolution should work correctly if stdlib source path contains symlinks
+
+## Internal Improvements
+
+* Exclude jars related to java support from plugin classpath while building. It should prevent accidental using of java API which leads to `NoClassDefFoundError` in small IDEs like CLion
+
+* Update Kotlin to 1.3.0
+
+
+
+
+[@DaryaShirokova]: https://github.com/DaryaShirokova
+[@garyttierney]: https://github.com/garyttierney
+[@isamborskiy]: https://github.com/isamborskiy
+[@majecty]: https://github.com/majecty
