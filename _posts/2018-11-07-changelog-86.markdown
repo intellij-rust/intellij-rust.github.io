@@ -49,8 +49,6 @@ You can disable them or switch to default ones in
 
 * Expand log macros correctly
 
-* Properly show a result of the first test in test tool window on Windows
-
 * Restore `Show stdout/stderr in tests` option in cargo run configuration. Note, this option disables the test tool window because of the [bug](https://github.com/rust-lang/rust/issues/54669) in libtest
 
 * Improve symlinks support. Now name resolution should work correctly if stdlib source path contains symlinks
