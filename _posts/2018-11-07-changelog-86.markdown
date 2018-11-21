@@ -17,7 +17,7 @@ Currently, it’s implemented via own lldb formatters.
 You can disable them or switch to default ones in 
 `Preferences | Build, Execution, Deployment | Debugger | Data Views | Rust`
 
-* Implement "Nest use statements" intention 
+* Implement `Nest use statements` intention 
 [gif](/assets/posts/changelog-86/nest-use-statements.gif) (by [@majecty])
 
 * Extend `Simplify boolean expression` intention for `==` and `!=` operators 
