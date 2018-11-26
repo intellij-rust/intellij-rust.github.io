@@ -1,0 +1,73 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #87"
+date: 2018-11-26 11:32:38 +0300
+---
+
+
+## New Features
+
+* Initial support of raw identifiers. 
+See the corresponding [RFC](https://github.com/rust-lang/rfcs/blob/master/text/2151-raw-identifiers.md)
+
+* Improve completion performance
+
+* Implement `Replace .unwrap() with match` intention 
+[gif](/assets/posts/changelog-87/unwrap-to-match.gif) (by [@sohich])
+
+* Support custom folding regions [gif](/assets/posts/changelog-87/custom-folding-regions.gif) (by [@garyttierney])
+
+* Improve extend selection for function, struct and trait bodies
+
+* Implement lldb formatters for `Rc`, `Arc`, `Cell`, `RefCell` and `Ref` structs.
+
+* Render enums and tuples better by bundled lldb formatters.
+Note, in some cases, enum values can be shown incorrectly because of 
+wrong debug info provided by the compiler
+
+* Infer type of some built-in macros like `env`, `stringify`, `include_str`, etc. (by [@kumbayo])
+
+* Show test tool window in debug
+
+## Fixes
+
+* Properly show a result of the first test in test tool window on Windows
+
+* Run single test in debug properly
+
+* Fix running integration test in debug. 
+
+* Take into account params of run configuration template during a creation of cargo run configuration
+
+* Make `Use all features in test` option of `Cargo Command` run configuration disabled by default. 
+In case if you would like to make it enabled by default, you should change the corresponding option in  
+`Cargo Command` [template](https://www.jetbrains.com/help/idea/changing-default-run-debug-configurations.html)
+
+* Do not take into account extern functions and constants while type name resolution
+
+* Fix false positive `Cannot move` error annotations
+
+* Do not create new run configuration if a suitable one already exists
+
+* Show stdout for failed tests in test tool window
+
+* Identify type mismatch errors for tuples better
+
+* Do not show `Remove parentheses from expression` warning 
+for struct literals in for loop iterator (by [@t-kameyama])
+
+* Show `Build` action on MacBook touch bar in CLion
+
+## Internal Improvements
+
+* Land first part of tests for platform test framework integration
+
+* Change project source layout for platform-dependent code to make it possible to write platform-dependent tests
+
+
+
+[@garyttierney]: https://github.com/garyttierney
+[@kumbayo]: https://github.com/kumbayo
+[@sohich]: https://github.com/sohich
+[@t-kameyama]: https://github.com/t-kameyama
+
