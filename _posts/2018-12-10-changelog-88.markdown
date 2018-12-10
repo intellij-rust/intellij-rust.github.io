@@ -1,0 +1,49 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #88"
+date: 2018-12-10 12:51:55 +0300
+---
+
+
+## New Features
+
+* Implement `Run Anything` action for Cargo [gif](https://user-images.githubusercontent.com/2539310/49729305-2b797f00-fc86-11e8-9881-78fdd72acba8.gif). 
+Note, the action is available since 2018.3
+
+* Support `Copyright` plugin [gif](https://user-images.githubusercontent.com/2539310/49729454-93c86080-fc86-11e8-9c4d-9712ba0504b9.gif).
+Note, the plugin is not available in CLion (see the corresponding [issue](https://youtrack.jetbrains.com/issue/CPP-10423))
+
+* Highlight code blocks in quick documentation
+
+* Add formatter setting for indenting where clauses (by [@msmorgan])
+
+## Fixes
+
+* Do not show `Cannot move` error annotation for a copyable type parameter
+
+* Fix grouping of usages in the `Find` tool window (by [@kumbayo])
+
+* Fix parsing of macros and float literals
+
+* Handle method defined by macros better
+
+* Improve `lldb` formatters: correctly print empty `&str`, values of `Ref` and `RefMut` structs, 
+as well as `weak` property of `Rc` and `Arc`
+
+* Fix lifetime completion (by [@Dimonchik0036])
+
+* Properly handle explicit `--no-run` parameter in cargo run configuration
+
+## Internal Improvements
+
+* Update IDEA & CLion. Now 2018.3 platform is default for development
+
+* Correctly invalidate caches for Rust language injections 
+
+
+
+
+[@Dimonchik0036]: https://github.com/Dimonchik0036
+[@kumbayo]: https://github.com/kumbayo
+[@msmorgan]: https://github.com/msmorgan
+
