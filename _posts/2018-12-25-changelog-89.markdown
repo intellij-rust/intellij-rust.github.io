@@ -1,0 +1,64 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #89"
+date: 2018-12-25 21:41:58 +0300
+---
+
+This is the latest release in this year. 
+
+We are very happy that the number of our users is constantly growing. 
+Also great thanks for our contributors - 
+now more than one hundred people participated in the improvement of intellij-rust. Thank you!
+Hope that next year will be even better than this one!
+
+Happy New Year! :christmas_tree: :santa: :bell: :sparkles: :star2: :fireworks:
+
+## New Features
+
+* Implement name resolution for module declaration [without `mod.rs`](https://rust-lang-nursery.github.io/edition-guide/rust-2018/module-system/path-clarity.html#no-more-modrs)
+
+* Support import of macros with `use` items and new macro call syntax. 
+See [tracking issue](https://github.com/rust-lang/rust/pull/50911/) for more details
+
+* Correctly parse `async` and `try` keywords
+
+* Provide support of multiline todo comments for Rust and Toml
+
+* Highlight usages of unsafe code. It should allow you to correctly understand 
+what piece of code in `unsafe` function or block is really unsafe (by [@garyttierney])
+
+* Support positional fields in struct literals
+
+* Allow expanding `Command` input field in `Cargo Command` run configuration
+
+* Improve `Add missing fields` quick fix: support more types which can be automatically substituted, 
+and use more convenient for changes default values for `Vec` and `String` types (by [@vlad20012] & [@webdesus])
+
+* Rework name resolution for field shorthand in struct literals. 
+Now it refers to both: variable and struct’s field
+
+## Fixes
+
+* Fix false positive error annotations for struct literals and arrays produced by move analysis
+
+* Do not disable `Refresh Cargo project` button for a correct project
+
+* Improve `Remove curly braces` intention. Now it correctly processes `use` items with aliases
+
+* Format `if` expressions correctly
+
+* Correctly perform name resolution for complex `use` items like `use {{foo::{{bar}}}}`
+
+* Fix brace completion before `]`
+
+## Internal Improvements
+
+* Initial support of 2019.1 platform
+
+* Update IDEA, CLion, Kotlin & Gradle
+
+
+
+[@garyttierney]: https://github.com/garyttierney
+[@vlad20012]: https://github.com/vlad20012
+[@webdesus]: https://github.com/webdesus
