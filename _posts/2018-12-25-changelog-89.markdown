@@ -47,7 +47,7 @@ Now it refers to both: variable and struct’s field
 
 * Format `if` expressions correctly
 
-* Correctly perform name resolution for complex `use` items like `use {{foo::{{bar}}}}`
+* Correctly perform name resolution for complex `use` items like {% raw %}`use {{foo::{{bar}}}}`{% endraw %}
 
 * Fix brace completion before `]`
 
