@@ -95,6 +95,7 @@ def collect_changelog(login_or_token: str, password: str = None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", action='store_true', help="add contributor links")
+    parser.add_argument("--offline", action='store_true', help="do not preform net requests")
     parser.add_argument("--token", type=str, help="github token")
     parser.add_argument("--login", type=str, help="github login")
     parser.add_argument("--password", type=str, help="github password")
@@ -103,20 +104,24 @@ def main():
 
     if args.c:
         contributors()
-    elif args.token is not None:
-        new_post(args.token)
     else:
-        new_post(args.login, args.password)
+        new_post(args)
 
 
-def new_post(login_or_token: str = None, password: str = None):
+def new_post(args: argparse.Namespace):
     next_post = len(os.listdir("_posts"))
     today = datetime.date.today().isoformat()
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S +0300")
     name = "_posts/{}-changelog-{}.markdown".format(today, next_post)
-    if login_or_token is None:
-        changelog = Changelog()
-    else:
+
+    changelog = Changelog()
+    if not args.offline:
+        if args.token is not None:
+            login_or_token = args.token
+            password = None
+        else:
+            login_or_token = args.login
+            password = args.password
         changelog = collect_changelog(login_or_token, password)
     with open(name, 'w') as f:
         f.write("""---
