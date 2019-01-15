@@ -1,0 +1,74 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #90"
+date: 2019-01-15 13:30:25 +0300
+---
+
+
+This is the last release which supports IDEA 2018.2. If you want to continue to
+receive plugin updates, please upgrade your IDE to 2018.3.
+
+## New Features
+
+* Introduce `Put parameters on one line` intention 
+[gif](https://user-images.githubusercontent.com/2539310/51148535-ac243000-186f-11e9-92de-5bba88e80950.gif)
+
+* Support extern crate 
+[renaming](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml) via `Cargo.toml`
+
+* Provide completion for `edition` property in `Cargo.toml` 
+[gif](https://user-images.githubusercontent.com/2539310/51148538-adedf380-186f-11e9-980e-d8f25f9d3ac9.gif) (by [@SomeoneToIgnore])
+
+* Implement `Denote infinite loops with 'loop { ... }'` inspection and the corresponding quick fix 
+[gif](https://user-images.githubusercontent.com/2539310/51148539-b0504d80-186f-11e9-87f1-fd025c3dd303.gif) (by [@dimonchik0036])
+
+* Support [`lifetime`](https://github.com/rust-lang/rfcs/blob/master/text/1590-macro-lifetimes.md) and 
+[`literal`](https://github.com/rust-lang/rfcs/blob/master/text/1576-macros-literal-matcher.md) macro matchers  (by [@Jezza])
+
+
+## Fixes
+
+* Invalidate caches while completion in the proper way to keep them consistent with written code
+
+* Correctly highlight modules, extern crates, and their references
+
+* Improve `Add mut` quick fix. 
+Now it retains the reference's declared lifetime and can be applied for more cases (by [@Jezza] & [@gfreezy])
+
+* Improve `match to if let` and `if let to match` intentions (by [@dimonchik0036])
+
+* Run `clippy` with active project toolchain (by [@SomeoneToIgnore])
+
+* Properly display string values with Unicode symbols on Linux with lldb
+
+* Fix false positive error annotations for `async` and `try` keywords
+
+* Do not provide `super` completion after named path segment
+
+* Do not remove quotes of string values in include macros and path attributes while renaming the corresponding path
+
+* Fix `Join Lines` action for `async` and `try` blocks
+
+* Now `Implement members` quick fix correctly process `Self` parameter
+
+* Do not highlight valid private re-exports which start with `crate::` as unresolved
+
+* Show single warning annotation for nested redundant parentheses (by [@dimonchik0036])
+
+* Highlight only invalid segment of path by `Invalid path: …` annotation instead of the whole path
+
+## Internal Improvements
+
+* Reorganize plugin module structure. Split code into separate modules that have different dependencies
+
+* Provide API to test only particular annotator
+
+* Update IDEA & CLion
+
+
+
+
+[@Jezza]: https://github.com/Jezza
+[@SomeoneToIgnore]: https://github.com/SomeoneToIgnore
+[@dimonchik0036]: https://github.com/dimonchik0036
+[@gfreezy]: https://github.com/gfreezy
