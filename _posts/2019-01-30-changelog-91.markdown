@@ -1,0 +1,82 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #91"
+date: 2019-01-30 16:34:55 +0300
+---
+
+
+## New Features
+
+* Infer types for [`try`](https://github.com/rust-lang/rfcs/blob/master/text/2388-try-expr.md) blocks
+and [generators](https://doc.rust-lang.org/std/ops/trait.Generator.html)
+
+* Support `Introduce Parameter` refactoring [gif](https://user-images.githubusercontent.com/2539310/51984317-13ff8b00-24ac-11e9-987f-839f04f3bfbf.gif) (by [@DaryaShirokova])
+
+* Provide `Make mutable` quick fix for `Assign to immutable` inspection [gif](https://user-images.githubusercontent.com/4854600/51183691-0e6a4880-18e3-11e9-8520-78f4d5008a01.gif)
+
+* Support [`dbg!`](https://doc.rust-lang.org/std/macro.dbg.html) macro introduced in rust 1.32.
+Now all common IDE features work for expressions inside this macro
+
+* Show type hints for local variables provided by bindings
+in `if let`, `while let`, `match` and struct destructure patterns
+
+* Add `Put arguments on separate lines` and `Put arguments on one line` intentions [gif](https://user-images.githubusercontent.com/2539310/51984313-1235c780-24ac-11e9-9f8f-1580626bb918.gif) (by [@t-kameyama])
+
+* Add `println` postfix template [gif](https://user-images.githubusercontent.com/2539310/51984309-106c0400-24ac-11e9-85a8-e5130cd20618.gif) (by [@SomeoneToIgnore])
+
+* Initial support of [macro 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md) syntax.
+Note, all other features like name resolution, completion, etc. are not supported yet
+
+* Provide `lldb` formatter for `OsString`
+
+* Annotate the `yield` keyword as experimental
+
+## Fixes
+
+* Correctly show variable values while debugging
+
+* Fix false positive `Use of moved value` error annotations:
+correctly process bindings in `if let` and `while let`, and handle noreturn functions
+
+* More precise type inference for types with complex trait bounds
+
+* Correctly process `impl`s for `impl Trait` types while name resolution
+
+* Take into account super traits defined with `where` clause while name resolution (by [@vlad9486] & [@vlad20012])
+
+* Enable console colors for output on Windows
+
+* Perform name resolution for associated type paths like `Self::Item` properly
+
+* Do not add extra lifetimes by `Implement members` quick fix (by [@SomeoneToIgnore])
+
+* Fix `lldb` formatters for `Vec`, `String` and other structures for nightly rust builds
+
+* Fix name resolution of macros imported via wildcard
+
+* Forbid `Unwrap Single Expr` intention for `async` and `try` blocks
+
+* Do not show two build actions in CLion 2019.1 toolbar
+
+* Improve type inference for `str` type. Now it doesn't implement the trait `Sized` (by [@kumbayo])
+
+* Expand macros correctly when `vis` fragment specifier should be mapped to the empty token
+
+
+## Internal Improvements
+
+* Introduce `lldb` pretty-printers test runner
+
+* Run tests with CLion
+
+* Drop 2018.2 platform support; compile plugin with 2019.1 EAP sources
+
+
+
+
+[@DaryaShirokova]: https://github.com/DaryaShirokova
+[@SomeoneToIgnore]: https://github.com/SomeoneToIgnore
+[@kumbayo]: https://github.com/kumbayo
+[@t-kameyama]: https://github.com/t-kameyama
+[@vlad20012]: https://github.com/vlad20012
+[@vlad9486]: https://github.com/vlad9486
