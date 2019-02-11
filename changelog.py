@@ -8,11 +8,13 @@ import urllib.request
 from dataclasses import dataclass
 from typing import Set, List
 
+# https://github.com/PyGithub/PyGithub
 from github import Github
 from github.GitCommit import GitCommit
 from github.Repository import Repository
 
-MERGE_REGEX = re.compile(r"Merge #(\d+)")
+MERGE_REGEX = re.compile(r"Merge( #\d+)+")
+PR_REGEX = re.compile(r"#(\d+)")
 MAINTAINERS = [
     "matklad",
     "Undin",
@@ -75,20 +77,22 @@ def collect_changelog(login_or_token: str, password: str = None):
                 continue
 
             first_line: str = message.splitlines()[0]
-            result = re.match(MERGE_REGEX, first_line)
-            if result is None:
+            merge_line_result = re.match(MERGE_REGEX, first_line)
+            if merge_line_result is None:
                 continue
-            pull_request_id = int(result[1])
-            pull_request = repo.get_pull(pull_request_id)
-            labels: Set[str] = set(map(lambda l: l.name, pull_request.labels))
 
-            changelog_item = ChangelogItem(pull_request.title, pull_request.user.login)
-            if "feature" in labels:
-                changelog.add_feature(changelog_item)
-            if "fix" in labels:
-                changelog.add_fix(changelog_item)
-            if "internal" in labels:
-                changelog.add_internal(changelog_item)
+            for result in re.finditer(PR_REGEX, first_line):
+                pull_request_id = int(result[1])
+                pull_request = repo.get_pull(pull_request_id)
+                labels: Set[str] = set(map(lambda l: l.name, pull_request.labels))
+
+                changelog_item = ChangelogItem(pull_request.title, pull_request.user.login)
+                if "feature" in labels:
+                    changelog.add_feature(changelog_item)
+                if "fix" in labels:
+                    changelog.add_fix(changelog_item)
+                if "internal" in labels:
+                    changelog.add_internal(changelog_item)
     return changelog
 
 
