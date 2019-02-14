@@ -1,0 +1,97 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #92"
+date: 2019-02-14 13:40:37 +0300
+---
+
+
+## New Features
+
+* Suggest items that are not in scope while completion.
+Now you don't need to remember where the necessary item is located and even the precise name of this item.
+You just need to start typing item’s name and then select it from a suggested list.
+The corresponding `extern crate` and `use` items will be inserted automatically [gif](https://user-images.githubusercontent.com/2539310/52750735-20342e00-2ffe-11e9-9caa-8b38209ceb36.gif).
+Special thanks to [@Riateche] for trying a nightly version of this feature and the corresponding feedback.
+It helped us to find out and fix some bugs before this release
+
+* Show `Use of possibly uninitialized variable` annotation
+
+* Make various improvements of `cargo check` external annotator:
+  * Show progress indicator when `cargo check` is running
+  * Don't provide outdated or duplicate errors
+  * Introduce `Toggle Cargo check` action to quickly enable/disable `cargo check` annotator
+  * Take into account `Offline mode` setting
+
+* Add new formatters for GDB. They support rendering of `Rc`, `Arc`, `Cell` and `RefCell` structs
+in addition to standard formatters provided by `rustup`. Also, they should fix some bugs in string displaying [gif](https://user-images.githubusercontent.com/2539310/52784755-39bd9000-3067-11e9-91c9-87536cd510a1.gif).
+You can disable them or switch to default ones in
+`Preferences | Build, Execution, Deployment | Debugger | Data Views | Rust`
+
+* Support type inference for `async` blocks, functions and lambdas
+
+* Add quick fix to create lifetime parameter from usage [gif](https://user-images.githubusercontent.com/2539310/52750616-d1869400-2ffd-11e9-85c7-ee3a382cded4.gif) (by [@sirgl])
+
+* Provide `dbg` postfix completion [gif](https://user-images.githubusercontent.com/2539310/52471629-63c40d80-2ba2-11e9-9227-a47da53e29bb.gif)
+
+* Allow installing `clippy` from IDE if it's not installed.
+In case if you don’t have `clippy`, the plugin will suggest to install it in one click, when you launch `Run clippy` action
+
+* Infer type of box expressions like `box Foo` and box patterns like `let Foo { box x } = expr`
+
+* Show `Experimental feature` error annotations for [`irrefutable let patterns`](https://github.com/rust-lang/rfcs/blob/master/text/2086-allow-if-let-irrefutables.md),
+`box expression` and `box patterns` features
+
+* Implement special support for `Serialize`, `Deserialize` and `Fail` traits
+from [`serde`](https://crates.io/crates/serde) and [`failure`](https://crates.io/crates/failure) crates respectively.
+Now they can be correctly resolved and suggested in `derive` attribute.
+
+* Support focus mode for Rust files
+
+## Fixes
+
+* Prevent showing annoying `File not found for module` error annotation for incomplete code
+
+* Various `Auto Import` quick fix improvements:
+  * Do not provide the quick fix for names which are already in scope. It's mostly helpful
+   when an item is already imported but cannot be resolved because code is incomplete (like `let map = HashMap`)
+  * Correctly import items re-exported via `use` item with a wildcard like `pub use core::future::*` 
+  * Make the quick fix works for paths with type params like `let map = HashMap::<i32, i32>`
+  * Do not suggest to import the same trait several times when the quick fix is available for trait method.
+   It also improves name resolution of trait methods in cases when the corresponding trait is not in scope.
+  
+* Slightly improve completion performance   
+
+* Improve type inference of patterns in `for`, `while let` and `if let` expressions
+
+* Allow extracting a function from a single expression
+
+* Macro expansion improvements:
+  * `show macro expansion` action shows error balloon if it failed to expand macro
+  * Expand macros in statement context
+  * Correctly expand macro with `$crate` metavar inside a group
+  * Support keywords as metavar names
+
+* Save all documents before running any external process from a run configuration.
+It should prevent invoking cargo on outdated sources
+
+* Provide proper documentation link for renamed dependencies in `Cargo.toml` (by [@bc-lee])
+
+* Do not show extra line markers after a syntax error
+
+* Improve parsing of `async` functions and `use` items
+
+* Provide `New | Rust file` action only inside Cargo project directory
+
+## Internal Improvements
+
+* Update IDEA, CLion, gradle & kotlin
+
+* Update kotlin language and API versions to 1.3.
+So now it's possible to use all new features from kotlin 1.3 for the plugin implementation
+
+
+
+
+[@Riateche]: https://github.com/Riateche
+[@bc-lee]: https://github.com/bc-lee
+[@sirgl]: https://github.com/sirgl
