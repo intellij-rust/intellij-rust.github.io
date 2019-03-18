@@ -1,0 +1,90 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #94"
+date: 2019-03-18 20:43:09 +0300
+---
+
+
+## New Features
+
+* Highlight non-exhaustive `match` expressions and useless patterns in match arms [gif1](https://user-images.githubusercontent.com/4854600/52786843-07169600-306d-11e9-870c-9c7c67d4aa46.gif)
+[gif2](https://user-images.githubusercontent.com/2539310/54551008-31d27200-49be-11e9-914e-ec0ab66d30b8.gif).
+Note, it's initial version so it doesn't cover all possible cases at this moment (by [@Leidenn2509] & [@ortem])
+
+* Make some improvements of `cargo check` external annotator:
+ * Introduce `External linter` options instead of `cargo check` ones. It generalizes settings related to `cargo check`
+ * Make possible to use `clippy` instead of `cargo check` to annotate code.
+ You can choose external tool via `Preferences | Languages & Frameworks | Rust | Cargo | External linter` option
+ * Provide `External Linter` inspection. It allows analyzing all code in batch mode using chosen external linter
+ * Create quick fixes from `cargo check`/`clippy` suggestions
+
+* Run `rustfmt` on the document before saving. It's disabled by default.
+You can enable it via `Preferences | Languages & Frameworks | Rust | Rustfmt | Run rustfmt on Save` option.
+Note, it can affect UI responsiveness in some cases
+
+* Support completion of primitive types [gif](https://user-images.githubusercontent.com/4854600/54525536-78f04100-4985-11e9-8a7c-fcba9467a706.gif)
+
+* Add `Initialize with a default value` quick fix for `Use of possibly uninitialized variable` error annotation [gif](https://user-images.githubusercontent.com/4854600/54525534-78f04100-4985-11e9-9283-b5f331f7d568.gif).
+Note, it just initializes a local variable, so it doesn't make code valid in all cases 
+
+* Implement `Invert If` intention [gif](https://user-images.githubusercontent.com/4854600/54525535-78f04100-4985-11e9-8d53-887c73afe465.gif) (by [@zinoviy23])
+
+* Improve `Simplify boolean expression`. Now it can convert `!(expr1 == expr2)` to `expr1 != expr2`
+
+* Support `crate` and `pub(in path)` restricted visibility better.
+Now the plugin correctly annotate usage of items with such visibility in wrong places and doesn't add them in completion
+
+* Quick documentation improvements:
+ * Provide quick documentation for primitive types
+ * Correctly resolve links to macros that declared in non-crate root modules
+ * Provide correctly links to primitive types and method of primitive types
+
+* Correctly parse underscore imports.
+See the corresponding [RFC](https://github.com/rust-lang/rfcs/pull/2166) for more details (by [@Kobzol])
+
+* Provide `Make mutable` quick fix for parameters with reference types [gif](https://user-images.githubusercontent.com/4854600/54526259-41829400-4987-11e9-8a0c-9c9fd1af3761.gif) (by [@snpefk])
+
+* Support `?` operator in macro definition.
+See the corresponding [RFC](https://github.com/rust-lang/rfcs/pull/2298) for more details
+
+* Show variable's value by hovering while debugging [gif](https://user-images.githubusercontent.com/4854600/54526928-5eb86200-4989-11e9-9583-fd9301119fa9.gif). Delay time is configurable via `Preferences | Build, Execution, Deployment | Debugger | Data Views | Value tooltip delay`
+
+## Fixes
+
+* `Reformat File with Rustfmt` uses correct config file now
+
+* Don't jump over multi-line whitespaces in up/down mover
+
+* Allow expanding std macro invocations like `vec![1, 2, 3]`
+
+* Do not allow renaming numeric fields of tuple structs
+
+* Correctly convert module name to `self` while `Nest use statements` intention (by [@Kobzol])
+
+* Don't try to setup cargo package module roots if project is already disposed.
+It prevents some weird exceptions on project closing
+
+* Take into account defaulted type parameters in `Implement members` refactoring
+
+* Fix `Convert to assert_eq!` and `Convert to assert_ne!` quick fixes.
+Now they produce correct AST while code transformation
+
+## Internal Improvements
+
+* Add tests to check our analysis on real projects like `cargo` and `tokio`
+
+* Provide binary compatible API for Rust project settings
+
+* Move `ContributedReferenceHost` interface to `RsLitExpr` API from its implementation.
+So now third-party plugins can rely on it
+
+* Update IDEA & CLion EAPs and nightly rust
+
+
+
+
+[@Kobzol]: https://github.com/Kobzol
+[@Leidenn2509]: https://github.com/Leidenn2509
+[@ortem]: https://github.com/ortem
+[@snpefk]: https://github.com/snpefk
+[@zinoviy23]: https://github.com/zinoviy23
