@@ -12,11 +12,11 @@ date: 2019-03-18 20:43:09 +0300
 Note, it's initial version so it doesn't cover all possible cases at this moment (by [@Leidenn2509] & [@ortem])
 
 * Make some improvements of `cargo check` external annotator:
- * Introduce `External linter` options instead of `cargo check` ones. It generalizes settings related to `cargo check`
- * Make possible to use `clippy` instead of `cargo check` to annotate code.
- You can choose external tool via `Preferences | Languages & Frameworks | Rust | Cargo | External linter` option
- * Provide `External Linter` inspection. It allows analyzing all code in batch mode using chosen external linter
- * Create quick fixes from `cargo check`/`clippy` suggestions
+  * Introduce `External linter` options instead of `cargo check` ones. It generalizes settings related to `cargo check`
+  * Make possible to use `clippy` instead of `cargo check` to annotate code.
+  You can choose external tool via `Preferences | Languages & Frameworks | Rust | Cargo | External linter` option
+  * Provide `External Linter` inspection. It allows analyzing all code in batch mode using chosen external linter
+  * Create quick fixes from `cargo check`/`clippy` suggestions
 
 * Run `rustfmt` on the document before saving. It's disabled by default.
 You can enable it via `Preferences | Languages & Frameworks | Rust | Rustfmt | Run rustfmt on Save` option.
@@ -35,9 +35,9 @@ Note, it just initializes a local variable, so it doesn't make code valid in all
 Now the plugin correctly annotate usage of items with such visibility in wrong places and doesn't add them in completion
 
 * Quick documentation improvements:
- * Provide quick documentation for primitive types
- * Correctly resolve links to macros that declared in non-crate root modules
- * Provide correctly links to primitive types and method of primitive types
+  * Provide quick documentation for primitive types
+  * Correctly resolve links to macros that declared in non-crate root modules
+  * Provide correctly links to primitive types and method of primitive types
 
 * Correctly parse underscore imports.
 See the corresponding [RFC](https://github.com/rust-lang/rfcs/pull/2166) for more details (by [@Kobzol])
