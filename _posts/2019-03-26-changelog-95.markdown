@@ -1,0 +1,36 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #95"
+date: 2019-03-26 20:49:17 +0300
+---
+
+
+## New Features
+
+* Initial CPU profiler support in CLion. At this moment it's available only on Linux and macOS.
+The implementation is based on the [Perf](https://perf.wiki.kernel.org/index.php/Main_Page) on Linux
+and [DTrace](http://dtrace.org/blogs/about/) on macOS.
+You can read more about profiler setup [here](https://www.jetbrains.com/help/clion/cpu-profiler.html#Prerequisites).
+Note, on macOS we need [rustfilt](https://github.com/luser/rustfilt) tool to show human readable function names and perform `Jump to Source` correctly
+
+* Implement deprecation inspection. It highlights items marked with `deprecated` and `rustc_deprecated` attributes. 
+To suppress these warnings you can add `allow(deprecated)` attribute. 
+See the corresponding [RFC](https://github.com/rust-lang/rfcs/blob/master/text/1270-deprecation.md) for more details (by [@isamborskiy])
+
+* Support struct patterns with integer fields like `let S { 0: x } = expr` (by [@rrevenantt])
+
+* Add `for` postfix completion. Its behavior is exactly the same as `iter` template
+
+* Correctly perform name resolution for `foo!()` macro call when `foo` is proc macro.
+`Goto definition` will navigate you to the corresponding function
+
+## Fixes
+
+* Make `rustfmt` correctly works with UTF-8 symbols when `Run rustfmt on Save` option is enabled
+
+* Fix type inference of generic function args, struct destructuring patterns and `vec!` macro expression
+
+* Fix name resolution for type-qualified paths like `<T as Foo>::bar`
+
+[@isamborskiy]: https://github.com/isamborskiy
+[@rrevenantt]: https://github.com/rrevenantt
