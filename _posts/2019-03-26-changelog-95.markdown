@@ -7,7 +7,7 @@ date: 2019-03-26 20:49:17 +0300
 
 ## New Features
 
-* Initial CPU profiler support in CLion. At this moment it's available only on Linux and macOS.
+* Initial CPU profiler support in CLion since 2019.1. At this moment it's available only on Linux and macOS.
 The implementation is based on the [Perf](https://perf.wiki.kernel.org/index.php/Main_Page) on Linux
 and [DTrace](http://dtrace.org/blogs/about/) on macOS.
 You can read more about profiler setup [here](https://www.jetbrains.com/help/clion/cpu-profiler.html#Prerequisites).
