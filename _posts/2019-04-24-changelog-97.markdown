@@ -1,0 +1,69 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #97"
+date: 2019-04-24 16:46:19 +0300
+---
+
+
+## New Features
+
+* Support integer const expression evaluation in `Match Check` inspection. 
+Now this inspection can analyze complex constant arithmetic expressions and hexadecimal, octal or binary forms of integer literals. 
+Should also fix false positive `Unreachable pattern` warnings when constants are used   
+
+* Test runner improvements:
+  * Provide run configuration to launch all tests/benches in the whole directory
+  * Show line marker for tests marked with `quickcheck` attribute provided by [quickcheck](https://crates.io/crates/quickcheck) crate
+  * Correctly handle multiple targets with the same names
+  * Better navigation from test tool window to the corresponding test
+
+* `Add missing fields` quick fix allows defining field values interactively [gif](https://user-images.githubusercontent.com/2539310/56668224-d62f8e80-66b7-11e9-9466-cffadf3321f5.gif)
+
+* Allow taking into account the corresponding trait items by `Find usages` action
+
+* Add `Cargo Crate` action to create a new Cargo crate in existing project (by [@Kobzol]) 
+
+* Support `label_break_value` syntax. 
+See the corresponding [RFC](https://github.com/rust-lang/rfcs/blob/master/text/2046-label-break-value.md) for more details
+
+* Improve inspection suppression. 
+Now `Naming conventions` and `Deprecation` inspections provide quick fixes to suppress the corresponding
+warning via `allow(lint)` attribute insertion [gif](https://user-images.githubusercontent.com/2539310/56668281-ee9fa900-66b7-11e9-811c-e2c1cdf1712f.gif)
+
+## Fixes
+
+* New macro expansion engine improvements:
+  * Disable highlighting, inspections and other analysis while macro expansion to speed up the whole expansion process
+  * Fix progress bar hangs while macro expansion
+  * Fix performance regression of name resolution. Now new macro expansion engine shouldn't affect name resolution performance
+  
+* Slightly optimize name resolution performance  
+  
+* Mark workspace `target` dir as excluded
+
+* Don't show false positive `Unresolved reference` errors inside trait implementation 
+
+* Don't show parameter hints for unnamed fields (by [@tuxxi])
+
+* Filter out redundant auto import candidates better. 
+Now auto import quick fix provides a single variant to import for `HashMap`, `HashSet` and similar structs
+
+* Fix false positive `Module is private` error annotations when module have restricted visibility like `pub(self)`
+
+* Move plugin project settings from `misc.xml` to `workspace.xml`
+
+* [Underscore imports](https://github.com/rust-lang/rfcs/blob/master/text/2166-impl-only-use.md) don't bring the corresponding names into the scope now
+
+* Fix name resolution of `Self` in structs and enums
+
+* Add non-public fields into completion suggestions if they are allowed
+
+* Parse paired brackets inside Rust doc link text properly (by [@ArtsiomCh])
+
+* Provide completion for new keys like `crate-type` and `incremental` in `Cargo.toml`
+
+
+
+[@ArtsiomCh]: https://github.com/ArtsiomCh
+[@Kobzol]: https://github.com/Kobzol
+[@tuxxi]: https://github.com/tuxxi
