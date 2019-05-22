@@ -27,14 +27,17 @@ MAINTAINERS = [
 
 @dataclass
 class ChangelogItem:
+    pull_request_id: int
     title: str
     username: str
 
     def display(self):
         if self.username in MAINTAINERS:
-            return "* {}".format(self.title)
+            return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {}"\
+                .format(self.pull_request_id, self.title)
         else:
-            return "* {} (by [@{}])".format(self.title, self.username)
+            return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {} (by [@{}])"\
+                .format(self.pull_request_id, self.title, self.username)
 
 
 class Changelog:
@@ -86,7 +89,7 @@ def collect_changelog(login_or_token: str, password: str = None):
                 pull_request = repo.get_pull(pull_request_id)
                 labels: Set[str] = set(map(lambda l: l.name, pull_request.labels))
 
-                changelog_item = ChangelogItem(pull_request.title, pull_request.user.login)
+                changelog_item = ChangelogItem(pull_request_id, pull_request.title, pull_request.user.login)
                 if "feature" in labels:
                     changelog.add_feature(changelog_item)
                 if "fix" in labels:
