@@ -1,0 +1,115 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #98"
+date: 2019-05-23 19:08:53 +0300
+---
+
+
+## New Features
+
+* Support 2019.2 EAPs
+
+* Language support improvements:
+  * Support postfix `await` syntax
+  * Parse `static` keyword in generator expressions correctly
+
+* Detection of new compiler errors: [E0040](https://doc.rust-lang.org/error-index.html#E0040), 
+[E0081](https://doc.rust-lang.org/error-index.html#E0081), 
+[E0120](https://doc.rust-lang.org/error-index.html#E0120)
+and [E0184](https://doc.rust-lang.org/error-index.html#E0184) (by [@mibac138])
+
+* Completion improvements:
+  * Take into account type information to sort suggested items while completion [gif](https://user-images.githubusercontent.com/4854600/58242981-7da3ed80-7d58-11e9-9550-dbe629f512d1.gif)
+  * Implement `deref` postfix completion to add `*` before selected expression [gif](https://user-images.githubusercontent.com/4854600/58247348-1ee37180-7d62-11e9-8a90-bb38ed059d05.gif) (by [@mibac138])
+  * Add completion for `deprecated` attribute
+  
+* Debugger improvements:
+  * Provide GDB formatters for [`HashMap`](https://user-images.githubusercontent.com/4854600/55983010-cd47c180-5ca2-11e9-987d-b2ce38af9149.png) and [`HashSet`](https://user-images.githubusercontent.com/4854600/55983092-fc5e3300-5ca2-11e9-818c-5ecbd09025c0.png) collections. Note, these formatters require Rust 1.33 or above to work properly
+  * Display enum values correctly while debugging with GDB
+  * Provide common IDE features (e.g. name resolution and completion) in `Evaluate Expression` and `New Watch` fields [gif](https://user-images.githubusercontent.com/4854600/58243896-37e82480-7d5a-11e9-9903-267caf1b79ab.gif).
+  Note, `Evaluate Expression` feature is not fully supported and works in certain cases only
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3738 -->
+* Improve `Convert to named fields` refactoring. 
+Now it allows converting all usages of the the struct to the corresponding representation [gif](https://user-images.githubusercontent.com/4854600/58244990-6c5ce000-7d5c-11e9-836b-4d02ff5907d3.gif) (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3779 -->
+* Automatically detect stdlib sources in `rustc` sysroot even if rustup is absent
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3796 -->
+* Take into account constants of primitive types: `bool`, `f32/64`, `char` and `&str` in `Match Check` inspection. 
+In addition, the inspection can evaluate constant boolean expressions while analysis (constant functions are not supported)
+like it has already implemented for integer expressions
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3819 -->
+* Now it’s possible to filter usage of variables and fields by read/write access [png](https://user-images.githubusercontent.com/4854600/58246480-d5922280-7d5f-11e9-9200-802b9ac87f08.png)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3520  -->
+* Support more types from stdlib, like `Rc`, `Arc`, `Cell`, `RefCell`, etc., in `Add missing fields` quick fix [gif](https://user-images.githubusercontent.com/4854600/58246805-b647c500-7d60-11e9-8ba6-ac58e414a3e1.gif) (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3826 -->
+* Notify a user when a file is not included in the project structure. 
+It should simplify to find out the reason why common IDE features (e.g. name resolution, completion, etc) don't work properly in the file (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3778 -->
+* Add `Flatten use statements` intention [gif](https://user-images.githubusercontent.com/4854600/58247063-687f8c80-7d61-11e9-9217-fbd1d1c4d498.gif) (by [@mibac138])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3745 -->
+* Allow folding of macros and macro expansion branches (by [@ice1000])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3736 -->
+* Add `Show the result of macro expansion` intention to invoke `cargo expand` command.
+If you don't have the corresponding package, the plugin shows a notification to install `cargo-expand` binary in one click
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3827 -->
+* Update `Extract function` dialog. Now it allows changing parameter names.
+Also, it validates creating function name (by [@Kobzol])
+
+## Fixes
+
+* Name resolution fixes:
+  * Fix name resolution of [uniform paths](https://doc.rust-lang.org/edition-guide/rust-2018/module-system/path-clarity.html#uniform-paths)
+  * Properly process atom `use` items like `use crate_name` for 2018 edition.
+  Previously such items broke name resolution of all items imported from the corresponding crate
+  * Take into account alias of `extern crate` item for 2018 edition
+  * Correctly detect edition of stdlib crates. It should fix unresolved references to stdlib items like `BTreeMap` and `LinkedList`
+  * Perform name resolution properly when path contains primitive type name as qualifier like `f64::INFINITY`
+  * Make `GoTo Declaration`, `Find usages` and `Type Declaration` actions work correctly for `self` parameter (by [@vlad20012] & [@mibac138])
+
+* Performance improvements:
+  * Significantly speed up `Find usages` action especially for private and local items
+  * Fix possible UI freezes caused by parameter info popup 
+  * Show large macro expansions faster
+
+* False positive annotation fixes:
+  * Fix a lot of false positive error annotation like `Expected Vec, found Vec` for [rust-lang/rust](https://github.com/rust-lang/rust) project
+  * Fix false positive error annotation produced by `Dropping reference` inspection (by [@mibac138])
+  * Perform better analysis by `Match Check` inspection on complex patterns with multiple types
+
+* Type inference improvements:
+  * Take into account `Deref` trait implementation while binary expression type inference
+  * Use proper rules of [match ergonomics](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md) to correctly infer types of variable bindings in all cases (previously not all rules were supported)
+
+* Provides navigation links from backtrace to project sources for crates with 2018 edition.
+This feature has been working for 2015 edition crates for long time but was broken for 2018 edition
+
+* Highlight `const` and `static` items properly
+
+* Better brace matching while deletion and inside macro calls (by [@rrevenantt])
+
+* More precise code highlighting in doc tests
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3800 -->
+* Parse 4 slashes in doc comments properly (by [@rrevenantt])
+
+## Internal Improvements
+
+* Provide new API to evaluate constant expressions. It's already used in `Match Check` inspection
+
+
+
+[@Kobzol]: https://github.com/Kobzol
+[@ice1000]: https://github.com/ice1000
+[@mibac138]: https://github.com/mibac138
+[@rrevenantt]: https://github.com/rrevenantt
+[@vlad20012]: https://github.com/vlad20012
