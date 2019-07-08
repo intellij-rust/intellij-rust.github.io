@@ -60,7 +60,7 @@ Note, this inspection is not available in free IDEs like IDEA Community or PyCha
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4082 -->
 * Make lexer incremental (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4113 →
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4113 -->
 * Add `Create New Issue` action. Now it’s possible to open issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE. 
 The action automatically collects environment information about IDE, plugin, Rust versions, etc. 
 Also, selected code is added into `Steps to reproduce` issue section
