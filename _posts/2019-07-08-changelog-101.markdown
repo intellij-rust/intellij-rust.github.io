@@ -1,0 +1,73 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #101"
+date: 2019-07-08 17:21:29 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4001 -->
+* Add initial completion inside macro calls [gif](https://user-images.githubusercontent.com/4854600/59201649-90fde800-8ba3-11e9-8088-e90d013882cc.gif)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3792 -->
+* Navigation works inside macro calls now [gif](https://user-images.githubusercontent.com/2539310/60794662-e6152580-a172-11e9-8b72-cd395144c9fa.gif).
+Note, it works only when the new experimental macro expansion engine is enabled.
+You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option 
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4002 -->
+* Support [`Duplicated code fragment`](https://www.jetbrains.com/help/idea/analyzing-duplicates.html#dup) inspection for Rust [gif](https://user-images.githubusercontent.com/2539310/60805989-790d8a00-a18a-11e9-875a-d56ea2abba6c.gif).
+The inspection can detect duplicates even with different names of local variables, functions and fields, and values of literals.
+By default, only anonymization of local variable names is enabled. 
+You may change default settings via `Preferences | Editor | Duplicates | Rust`. 
+Note, this inspection is not available in free IDEs like IDEA Community or PyCharm Community
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4064 -->
+* Add `Create field` quick fix for `No such field` error annotation
+[gif](https://user-images.githubusercontent.com/6079006/60605854-f029d380-9dc2-11e9-975c-9a6a1259dcb4.gif) (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3991 -->
+* Add `Convert to struct` and `Convert to tuple` intentions to invoke the corresponding refactorings via <kbd>Alt + Enter</kbd> (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4055 -->
+* Provide proper navigation from `derive` arguments and custom attributes to the corresponding definition of procedural macros (by [@fedochet])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3946 -->
+* Add quick fix to create a subdirectory with the corresponding `mod.rs` for unresolved module declaration (by [@mibac138]) 
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4069 -->
+* Support [arbitrary enum discriminants](https://github.com/rust-lang/rfcs/blob/master/text/2363-arbitrary-enum-discriminant.md) (by [@mibac138])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4050 -->
+* Automatically open `lib.rs`/`main.rs` when project is created
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4059 -->
+* Detect [E0586](https://doc.rust-lang.org/error-index.html#E0586) compiler error (by [@mibac138])
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4071 -->
+* Make `Auto Import` works correctly when an imported trait is re-exported
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4101 -->
+* Fix occurred exception while invoking `Make public fix` quick fix for module declarations
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4067 -->
+* Correctly parse macro calls with the same names as stdlib provides
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4082 -->
+* Make lexer incremental (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4113 →
+* Add `Create New Issue` action. Now it’s possible to open issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE. 
+The action automatically collects environment information about IDE, plugin, Rust versions, etc. 
+Also, selected code is added into `Steps to reproduce` issue section
+
+
+
+[@fedochet]: https://github.com/fedochet
+[@mibac138]: https://github.com/mibac138
+[@rrevenantt]: https://github.com/rrevenantt
+[@t-kameyama]: https://github.com/t-kameyama
