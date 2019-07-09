@@ -20,7 +20,7 @@ You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand dec
 The inspection can detect duplicates even with different names of local variables, functions and fields, and values of literals.
 By default, only anonymization of local variable names is enabled. 
 You may change default settings via `Preferences | Editor | Duplicates | Rust`. 
-Note, this inspection is not available in free IDEs like IDEA Community or PyCharm Community
+Note, this inspection is available since 2019.2 and not available in free IDEs like IDEA Community or PyCharm Community
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4064 -->
 * Add `Create field` quick fix for `No such field` error annotation
