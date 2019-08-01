@@ -8,7 +8,7 @@
 # Site settings
 title: IntelliJ Rust
 email: ""
-description: Rust plugin for IntelliJ IDEA
+description: Open-source Rust plugin for IntelliJ-based IDEs
 
 collections:
   docs:
