@@ -3,29 +3,29 @@ layout: page
 title: Install IntelliJ Rust
 ---
 
-## Alpha builds
+## Stable builds
 
-IntelliJ Rust is in _alpha_ stage. We regularly publish stable builds to the JetBrains plugin [repository](https://plugins.jetbrains.com/plugin/8182).
-You can download and install these builds directly from `Settings / Preferences | Plugins | Marketplace` in your IDE.
-
-For bug reports and feature requests, please use our [issue tracker](https://github.com/intellij-rust/intellij-rust/issues).
+IntelliJ Rust is in active development, and we regularly publish new stable builds to the JetBrains plugin [repository](https://plugins.jetbrains.com/plugin/8182).
+You can download and install them directly from `Settings / Preferences | Plugins | Marketplace` in your IDE.
 
 ## Nightly builds
 
-In addition to aplha releases, we also ship pre-builds of _intellij-rust_ and _intellij-toml_ in the nightly channel.
-
-To use them, follow this
-[instruction](https://www.jetbrains.com/idea/help/managing-enterprise-plugin-repositories.html#repos)
-for adding a custom plugin repository, and use one of the following URLs:
+In addition to stable releases, we also ship nightly snapshots of the _intellij-rust_ development branch. 
+To use the nightly channel, [add a custom plugin repository](https://www.jetbrains.com/idea/help/managing-enterprise-plugin-repositories.html#repos)
+ and set the following URL:
 
 ```yaml
-- Rust: https://plugins.jetbrains.com/plugins/nightly/8182
-- TOML: https://plugins.jetbrains.com/plugins/nightly/8195
+https://plugins.jetbrains.com/plugins/nightly/8182
 ```
-
-Nightly builds are daily snapshots of the current development branch, so there may be more bugs than in the alpha channel. If you find one, please file an
-[issue](https://github.com/intellij-rust/intellij-rust/issues) in our tracker.
 
 ## Compatible IDEs
 
 The plugin is compatible with all Intellij-based IDEs like IDEA, CLion, or PyCharm. The latest plugin version supports the latest released platform version (for example, `2019.2`).
+
+## Bug reports and feature requests
+
+Please use our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new). 
+You can get there quickly right from the IDE: 
+call `Create New Issue` on a selected piece of code, and you'll jump to a pre-filled issue creating form.
+
+Also feel free to ping us on [Gitter](https://gitter.im/intellij-rust/intellij-rust).
