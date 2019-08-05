@@ -12,8 +12,7 @@ class: home
 <div class="page-content jumbo">
   <div class="wrapper">
     <h1>{{ site.title }}</h1>
-    <p class="desc">{{ site.description }}<sup>*</sup></p>
-    <p class="preview-note"><sup>*</sup>work-in-progress, expect bugs and missing features</p>
+    <p class="desc">{{ site.description }}</p>
     <div id="download">
       <a id="download-stable" href="/install.html">Install</a>
       <div id="install-pane">
@@ -28,22 +27,33 @@ class: home
 
 <div class="page-content showcase">
   <div class="wrapper">
-    <h1 class="square">What is IntelliJ Rust</h1>
+    <!--h1 class="square">What is IntelliJ Rust</h1-->
+    <h1 class="square">Intelligent Rust</h1>
     <div class="showcase-pic">
-      <img src="/assets/ir-completion.png" class="completion"/>
-      <img src="/assets/ir-intention.png" class="intention">
+      <!--img src="/assets/ir-completion.png" class="completion"/-->
+      <!--img src="/assets/ir-intention.png" class="intention"-->
+      <img src="/assets/intro_screen_editor.png" width="800" alt="editor features"/>
+      <!--img src="/assets/intro_screen_debugger.png" width="900" alt="debugger"/-->
     </div>
     <section>
-      <h2>Intelligent Rust</h2>
-      <p>We aim to build JetBrains-quality language support for IntelliJ IDEA and related IDEs.
+      <!--h2>Intelligent Rust</h2-->
+      <!--p>We aim to build JetBrains-quality language support for IntelliJ IDEA and related IDEs.
         Right now, you get native code completion<abbr class="wip" title="Work In Progress">WIP</abbr>,
-        broad navigation, intentions, formatting and much more...</p>
+        broad navigation, intentions, formatting and much more...</p-->
+
+      <p>IntelliJ Rust brings JetBrains-quality language support and full IDE experience to your Rust workflow.</p>
+      <p>Rust becomes native to <a href="https://www.jetbrains.com/idea/">IDEA</a>, <a href="https://www.jetbrains.com/clion/">CLion</a>,
+        and other IntelliJ IDEs with smart coding assistance,
+        seamless Cargo support, and built-in test runner.</p>
+      <p>
+        In CLion, you get even more: fully-fledged debugger, CPU profiler, and Valgrind memcheck.
+      </p>
     </section>
-    <section>
+    <!--section>
       <h2>Corroded IDEA</h2>
       <p>...while this is still your ol' good IDE. Enjoy highly productive developer experience, VCS integration
         and other languages support.</p>
-    </section>
+    </section-->
 
     <ul class="fancy-link-row">
       <li><a href="/features/" class="fancy-link">All Features</a></li>
