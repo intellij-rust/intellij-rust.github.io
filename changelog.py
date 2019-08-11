@@ -76,7 +76,7 @@ def collect_changelog(post_number: int, login_or_token: str, password: str = Non
         if issue.pull_request is None:
             continue
         labels: Set[str] = set(map(lambda l: l.name, issue.labels))
-        changelog_item = ChangelogItem(issue.id, issue.title, issue.user.login)
+        changelog_item = ChangelogItem(issue.number, issue.title, issue.user.login)
         if "feature" in labels:
             changelog.add_feature(changelog_item)
         if "fix" in labels:
