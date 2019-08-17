@@ -2,7 +2,7 @@
  * Documentation
  */
 
-$doc-nav-min-width: 150px;
+$doc-nav-min-width: 200px;
 
 .doc {
     color: $grey-color-darker;
@@ -75,7 +75,7 @@ $doc-nav-min-width: 150px;
 }
 
 .doc-nav {
-    width: calc((100% - #{$content-width}) / 2);
+    width: calc((100% - #{$content-width}) /2 );
     min-width: $doc-nav-min-width;
     max-width: $doc-nav-min-width*2;
     font-size: 0.9em;
