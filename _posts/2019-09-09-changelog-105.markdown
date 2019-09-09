@@ -1,0 +1,97 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #105"
+date: 2019-09-09 11:30:07 +0300
+---
+
+
+## New Features
+
+* Type hints improvements: 
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4217 -->
+    * Provide new interactive inlay type hints. 
+    Now you can collapse complex types in desired way, navigate to type declarations or even disable hints just from an editor.
+    You can change settings of type hints in `Preferences | Editor | Inlay Hints | Rust` panel.
+    Note, interactive inlay hints available only since 2019.2 and work only for types so far
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+         src="https://user-images.githubusercontent.com/2539310/64512185-84964200-d2ee-11e9-8e76-8adf7ec55df8.png"
+         data-gif="https://user-images.githubusercontent.com/4854600/62386077-7458ad80-b55f-11e9-8956-375670ffd342.gif"/>
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4243 -->
+    * Now type hints take into account type aliases for enum and structs
+
+* New intentions:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4297 -->
+    * Add `Replace .. with actual fields` intentions for struct literals (by [@shevtsiv])
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4301 -->
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4304 -->
+    * Implement `Put on separate lines` and `Put on one line` intentions for enum variants and struct fields (by [@t-kameyama])
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+             src="https://user-images.githubusercontent.com/2539310/64515273-f2de0300-d2f4-11e9-9cf0-e973bbd636ea.png"
+             data-gif="https://user-images.githubusercontent.com/2539310/64515169-be6a4700-d2f4-11e9-9f11-b9007533a09f.gif"/>
+        
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4327 -->
+* Navigate to the corresponding `Cargo.toml` file when `Goto super` action is called for crate root file
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4313 -->
+* Provide completion of macro fragment specifiers like `ty`, `item`, `expr`, etc. (by [@t-kameyama])
+<img class="gif" data-wait="true" data-scope="gif-scope"
+         src="https://user-images.githubusercontent.com/2539310/64514351-23bd3880-d2f3-11e9-9852-b1f99f94aadc.png"
+         data-gif="https://user-images.githubusercontent.com/2539310/64514243-e9ec3200-d2f2-11e9-8b3b-16dd6893dbff.gif"/>
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4291 -->
+* Show items expanded from macros in `Navigate | Class/Symbol` dialogs for all scopes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4139 -->
+* Show stdout for successful tests. Previously, test output was shown only for failed tests because of [lack](https://github.com/rust-lang/rust/issues/54669) of the corresponding support in `libtest`.
+Note, at this moment it works only with nightly toolchain because 
+the implementation is based on `--show-output` flag introduced [recently](https://github.com/rust-lang/rust/pull/62600)
+and available only in nightly compiler for now (by [@emmericp])
+
+## Fixes
+
+* Debugger improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4272 -->
+    * Fix incorrect rendering of test results tree in `Run` tool window while debugging
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4296 -->
+    * Correctly parse build and run arguments to run debug process
+    
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4318 -->
+* Fix false positive `Cannot move` error annotation while using slice patterns     
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4343 -->
+* Fix false positive [E0026](https://doc.rust-lang.org/error-index.html#E0026) error annotation on a struct pattern with a raw identifier
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4168 -->
+* Take into account crate re-exports via `pub use` item for 2018 edition
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4312 -->
+* Fix sporadic `Unresolved reference` error annotations for valid code
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4278 -->
+* Improve type inference with generic default type params
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4259 -->
+* Fix `Too few arguments for option` exception while manual changing of run configuration command 
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4083 -->
+* Correctly auto import trait items if possible when [UFCS](https://github.com/rust-lang/rfcs/blob/master/text/0132-ufcs.md) form is using
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4323 -->
+* Correctly handle trailing commas in `Put on separate lines` intentions
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4315 -->
+* Improve error messages for [E0023](https://doc.rust-lang.org/error-index.html#E0023) and [E0027](https://doc.rust-lang.org/error-index.html#E0027) errors (by [@shevtsiv])
+ 
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4232 -->
+* Add initial support of `cfg` attributes in the plugin's analysis.
+For now, it's turned off by default and doesn't affect users because of incomplete implementation 
+
+
+
+[@emmericp]: https://github.com/emmericp
+[@shevtsiv]: https://github.com/shevtsiv
+[@t-kameyama]: https://github.com/t-kameyama
