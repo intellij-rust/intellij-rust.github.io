@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import argparse
 import datetime
-import itertools
 import os
 import re
 import urllib.request
@@ -10,11 +9,9 @@ from typing import Set, List
 
 # https://github.com/PyGithub/PyGithub
 from github import Github
-from github.GitCommit import GitCommit
+from github.Milestone import Milestone
 from github.Repository import Repository
 
-MERGE_REGEX = re.compile(r"Merge( #\d+)+")
-PR_REGEX = re.compile(r"#(\d+)")
 MAINTAINERS = [
     "matklad",
     "Undin",
@@ -58,44 +55,35 @@ class Changelog:
         self.internals.append(internal)
 
 
-def collect_changelog(login_or_token: str, password: str = None):
-    print("checking repo commits")
+def collect_changelog(post_number: int, login_or_token: str, password: str = None):
+    expected_milestone_title = f"v{post_number}"
+    print(f"Collecting changelog issues for `{expected_milestone_title}` milestone")
     changelog = Changelog()
     g = Github(login_or_token, password)
     repo: Repository = g.get_repo("intellij-rust/intellij-rust")
-    commits = repo.get_commits()
 
-    for page_number in itertools.count():
-        print("checking commit page {}".format(page_number))
-        page = commits.get_page(page_number)
-        for commit in page:
-            git_commit: GitCommit = commit.commit
-            message: str = git_commit.message
+    milestone: Milestone = None
+    for m in repo.get_milestones():
+        if m.title == expected_milestone_title:
+            milestone = m
+            break
 
-            if message == "Changelog":
-                return changelog
+    if milestone is None:
+        raise RuntimeError(f"Milestone `{expected_milestone_title}` is not found")
 
-            if len(commit.parents) == 1:
-                # we want to check only merge commits
-                continue
+    issues = repo.get_issues(milestone=milestone, state="all")
+    for issue in issues:
+        if issue.pull_request is None:
+            continue
+        labels: Set[str] = set(map(lambda l: l.name, issue.labels))
+        changelog_item = ChangelogItem(issue.number, issue.title, issue.user.login)
+        if "feature" in labels:
+            changelog.add_feature(changelog_item)
+        if "fix" in labels:
+            changelog.add_fix(changelog_item)
+        if "internal" in labels:
+            changelog.add_internal(changelog_item)
 
-            first_line: str = message.splitlines()[0]
-            merge_line_result = re.match(MERGE_REGEX, first_line)
-            if merge_line_result is None:
-                continue
-
-            for result in re.finditer(PR_REGEX, first_line):
-                pull_request_id = int(result[1])
-                pull_request = repo.get_pull(pull_request_id)
-                labels: Set[str] = set(map(lambda l: l.name, pull_request.labels))
-
-                changelog_item = ChangelogItem(pull_request_id, pull_request.title, pull_request.user.login)
-                if "feature" in labels:
-                    changelog.add_feature(changelog_item)
-                if "fix" in labels:
-                    changelog.add_fix(changelog_item)
-                if "internal" in labels:
-                    changelog.add_internal(changelog_item)
     return changelog
 
 
@@ -129,7 +117,7 @@ def new_post(args: argparse.Namespace):
         else:
             login_or_token = args.login
             password = args.password
-        changelog = collect_changelog(login_or_token, password)
+        changelog = collect_changelog(next_post, login_or_token, password)
     with open(name, 'w') as f:
         f.write("""---
 layout: post
