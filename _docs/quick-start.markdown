@@ -48,26 +48,26 @@ In the case of GitHub, provide the repository URL, test the connection using the
 
 In `Settings/Preferences | Languages & Frameworks | Rust`, you can adjust the toolchain settings and select the macro expansion engine.
 
-![check-cargo-tw](/assets/quick-start/qsg_mainsettings.png){:width="750px"}
+![main-settings](/assets/quick-start/qsg_mainsettings.png){:width="750px"}
 
  If you plan to use an external linter, select it in `Settings/Preferences | Languages & Frameworks | Rust | Cargo`:
  
- ![check-cargo-tw](/assets/quick-start/qsg_linter.png){:width="450px"}
+ ![external-linter](/assets/quick-start/qsg_linter.png){:width="450px"}
 
 
 {% include h title="Run Cargo commands" tag="run-commands" %}
 
 To run a Cargo command, click ![Run Cargo Command](/assets/quick-start/cargo@2x.svg){:width="16px"} in the Cargo tool window or press `Ctrl` twice. Type the command in the **Run Anything** popup:
 
-![check-cargo-tw](/assets/quick-start/qsg_runanything.png){:width="600px"}
+![run-anything](/assets/quick-start/qsg_runanything.png){:width="600px"}
 
 Every time you run a Cargo command, the IDE creates a temporary run/debug configuration. You can save it and create more configurations of the **Cargo Command** type in `Edit Configurations`.
 
-![check-cargo-tw](/assets/quick-start/qsg_configslist.png){:width="200px"}
+![config-switcher](/assets/quick-start/qsg_configslist.png){:width="200px"}
 
 You can switch Cargo channels (stable, beta, nightly, or dev) separately for each configuration:
 
-![check-cargo-tw](/assets/quick-start/qsg_cargochannel.png){:width="600px"}
+![cargo-channel](/assets/quick-start/qsg_cargochannel.png){:width="600px"}
 
 {% include h title="Build" tag="build-prj" %}
 
@@ -84,7 +84,7 @@ To run an application, choose from these options:
 
 To view stack traces, use the **Backtrace** option in the configuration settings:
 
-![check-cargo-tw](/assets/quick-start/qsg_backtrace.png){:width="600px"}
+![backtrace](/assets/quick-start/qsg_backtrace.png){:width="600px"}
 
 {% include h title="Test" tag="run-tests" %}
 
@@ -92,4 +92,4 @@ When you run `cargo test`, the tests are shown in a tree view with the indicator
 
 You can rerun the test manually or toggle automatic rerun on changes in your code.
 
-![check-cargo-tw](/assets/quick-start/qsg_testrunner.png){:width="350px"}
+![test-runner](/assets/quick-start/qsg_testrunner.png){:width="350px"}
