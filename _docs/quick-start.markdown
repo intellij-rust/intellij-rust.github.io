@@ -46,11 +46,11 @@ In the case of GitHub, provide the repository URL, test the connection using the
 
 {% include h title="Configure project settings" tag="settings" %}
 
-In `Settings/Preferences | Languages & Frameworks | Rust`, you can adjust the toolchain settings and select the macro expansion engine.
+In `Settings/Preferences | Languages & Frameworks | Rust`, you can adjust the toolchain settings and select the macro expansion engine<!-- TODO: link the description in Features -->.
 
 ![main-settings](/assets/quick-start/qsg_mainsettings.png){:width="750px"}
 
- If you plan to use an external linter, select it in `Settings/Preferences | Languages & Frameworks | Rust | Cargo`:
+ If you plan to use an external linter<!-- TODO: link the description in Features --> in addition to the built-in set of code inspections, choose between Cargo Check and Clippy in `Settings/Preferences | Languages & Frameworks | Rust | Cargo`:
  
  ![external-linter](/assets/quick-start/qsg_linter.png){:width="450px"}
 
@@ -61,35 +61,48 @@ To run a Cargo command, click ![Run Cargo Command](/assets/quick-start/cargo@2x.
 
 ![run-anything](/assets/quick-start/qsg_runanything.png){:width="600px"}
 
-Every time you run a Cargo command, the IDE creates a temporary run/debug configuration. You can save it and create more configurations of the **Cargo Command** type in `Edit Configurations`.
-
-![config-switcher](/assets/quick-start/qsg_configslist.png){:width="200px"}
-
-You can switch Cargo channels (stable, beta, nightly, or dev) separately for each configuration:
-
-![cargo-channel](/assets/quick-start/qsg_cargochannel.png){:width="600px"}
-
 {% include h title="Build" tag="build-prj" %}
 
-To build a project, do one of the following:
 - Run `cargo build`
 - Press `Ctrl/⌘ + F9`
-- Use actions from the `Build` menu
-- Run any **Cargo Command** configuration (by default, it includes a build step)
+- Use the `Build` menu
+
 
 {% include h title="Run" tag="run-prj" %}
-To run an application, choose from these options:
-- Call `cargo run` (if the executable is ready)
-- Create and run a **Cargo Command** configuration with `run` in the **Command** field (build will be performed automatically).
 
-To view stack traces, use the **Backtrace** option in the configuration settings:
+- Use left gutter icon next to a program entry point
 
-![backtrace](/assets/quick-start/qsg_backtrace.png){:width="600px"}
+    ![run-main](/assets/quick-start/qsg_gutter_main.png){:width="400px"}
+
+- Call `cargo run`
+- Double-click an executable target in the Cargo tool window
+
 
 {% include h title="Test" tag="run-tests" %}
 
-When you run `cargo test`, the tests are shown in a tree view with the indicators of progress, status, and duration for each of them. 
+- Use left gutter icon next to a test entry point
 
-You can rerun the test manually or toggle automatic rerun on changes in your code.
+    ![run-tests](/assets/quick-start/qsg_gutter_tests.png){:width="400px"}
+
+- Call `cargo test`
+- Double-click a test target in the Cargo tool window
+
+Test runner shows the results in a tree view with indicators of progress, status, and duration of each test:
 
 ![test-runner](/assets/quick-start/qsg_testrunner.png){:width="350px"}
+
+{% include h title="Create Cargo Command configurations" tag="run-debug-configs" %}
+
+Every time you run a Cargo command, the IDE creates a temporary run/debug configuration. You can save it and create more configurations of the **Cargo Command** type.
+
+![config-switcher](/assets/quick-start/qsg_configslist.png){:width="200px"}
+
+Go to the `Edit Configurations` dialog, click `+` and select **Cargo Command** from the list of templates.
+
+Name your configuration and provide the command. You can switch Cargo channels (stable, beta, nightly, or dev) separately for each configuration:
+
+![cargo-channel](/assets/quick-start/qsg_cargochannel.png){:width="600px"}
+
+To view stack traces, use the **Backtrace** option, which corresponds to `RUST_BACKTRACE`:
+
+![backtrace](/assets/quick-start/qsg_backtrace.png){:width="600px"}
