@@ -1,14 +1,148 @@
 ---
-layout: page
+layout: features
 title: Features
 permalink: /features/
 class: features-page
 ---
 
+<style>
+  table {
+    width: 100%; /* Ширина таблицы */
+  }
+  td {
+    padding: 5px; /* Поля в ячейках */
+    vertical-align: top; /* Выравнивание по верхнему краю ячеек */
+  }
+</style>
+
 {% include doc-shortcut-tip.html %}
 
 
-<div class="feature-group">
+<h2 id="editor" align="center">Smart editor</h2>
+<h3>Syntax highlighting</h3>
+<table border="1" cellpadding="5">
+  <tr>
+    <td width="50%">On top of the basic lexer highlighting, Intellij Rust highlights inferred types and macros, including generated modules and methods from <code>impl</code> blocks. It also marks mutable elements in your code:</td>
+    <td>Those expressions and functions within <code>unsafe {}</code> blocks that perform unsafe operations are additionally highlighted with contrast background:</td>
+  </tr>
+  <tr>
+    <td><img src="/assets/features/smart_editor/highlight_basic.png" width="400"></td>
+    <td><img src="/assets/features/smart_editor/highlight_unsafe.png" width="400"></td>
+  </tr>
+</table>
+<br/>
+<p>The highlighting palette is fully customizable for both Darcula and Light color schemes.</p>
+
+
+
+  <h3>Quick docs and Quick definition</h3>
+<table border="1" cellpadding="5">
+  <tr>
+    <td width="50%" >At any code element, including library functions, invoke <strong>Quick Doc</strong> (<code>Ctrl+Q / F1</code>) to view the documentation popup. If there is a piece of code in the docs, it will be formatted and highlighted properly:</td>
+    <td>To view the implementation or declaration of an element without leaving your current context, call <strong>Quick Definition</strong> by pressing <code>Ctrl+Shift+I / ⌥Space</code>:</td>
+  </tr>
+  <tr>
+    <td><img src="/assets/features/smart_editor/quick_doc.png" width="400"></td>
+    <td><img src="/assets/features/smart_editor/quick_def.png" width="450"></td>
+  </tr>
+</table>
+<br/>
+<p>Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to the extern crate declarations. Click it, and you will jump right to the particular crate’s description on <a href="docs.rs">docs.rs</a>.</p>
+
+<!--div class="feature-group">
+  <div class="feature half">
+<p>At any code element, including library functions, invoke Quick Doc (Ctrl+Q / F1) to view the documentation popup. If there is a piece of code in the docs, it will be formatted and highlighted properly:</p>
+    <p>img 3</p>
+  </div>
+  <div class="feature half">
+<p>To view the implementation or declaration of an element without leaving your current context, call Quick Definition by pressing Ctrl+Shift+I / ⌥Space:</p>
+    <p>img 4</p>
+  </div>
+  <p>Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to extern crate declarations. Click it, and you will jump right to the particular crate’s description on docs.rs.</p>
+</div-->
+
+
+  <h3>Hints and Type information</h3>
+<p>Hints for function argument names, types, and lambda parameters are displayed in the editor, and IntelliJ Rust adjusts them as you type. If you prefer not to see some of the hints or hide all of them, you can always tune it in the settings.</p>
+
+
+<table border="1" cellpadding="5">
+  <tr>
+    <td width="50%" >If you press <code>Ctrl</code> and hover the mouse over a hint, it will get into an interactive inlay:</td>
+    <td>You can also get the type information by calling <strong>Type Info</strong> (<code>Ctrl + Shift + P / ⌃⇧P</code>) for a selected expression:</td>
+  </tr>
+  <tr>
+    <td><!--img class="gif" data-wait="true" data-scope="gif-scope" width=450
+             src="/assets/features/smart_editor/hints_change.png" data-gif="/assets/features/smart_editor/hints_change.gif"/-->
+      <img class="gif" data-wait="true" data-scope="gif-scope" width=450
+               src="/assets/features/smart_editor/hints_inlay.png" data-gif="/assets/features/smart_editor/hints_inlay.gif"/></td>
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+             src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/></td>
+  </tr>
+</table>
+
+<!--
+<p>If you press <code>Ctrl</code> and hover the mouse over a hint, it will get into an interactive inlay:
+<img class="gif" data-wait="true" data-scope="gif-scope" width=500
+     src="/assets/features/smart_editor/hints_change.png" data-gif="/assets/features/smart_editor/hints_change.gif"/>
+</p>
+
+<p>You can also get the type information by calling Type Info (<code>Ctrl + Shift + P / ?</code>) for a selected expression:
+<img class="gif" data-wait="true" data-scope="gif-scope" width=500
+     src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/>
+</p>
+-->
+<br/>
+<p>Another alternative to view the types is to turn off the <strong>Show local variable type hints</strong> option and hover your mouse while holding <code>Ctrl / ⌘</code>.</p>
+
+
+
+  <h3>Macro expansion popup</h3>
+<p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion. This feature is a part of the macro expansion functionality that affects most of the code insight.
+</p>
+<p>
+<img class="gif" data-wait="true" data-scope="gif-scope" width=600
+     src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif"/>
+</p>
+
+  <h3>Doc comments highlighting</h3>
+<p>Code block inside Doc comments are treated as valid Rust code: you get full code insight including syntax highlighting, completion, and intentions.</p>
+<p>
+  <img src="/assets/features/smart_editor/doc_comments_hl.png" width="600">
+</p>
+
+
+  <h3>Code style and formatting</h3>
+
+<p>IntelliJ Rust helps your code stay compliant with style guidelines and naming conventions. You can configure every detail of the preferred style, and adjust the inspections that validate your code against Rust naming conventions.</p>
+
+<p>To explicitly reformat your code, you can use the built-in action (<code>Code | Reformat</code> or <code>Ctrl+Alt+L / ⌥⌘L</code>) or call <a href="https://github.com/rust-lang/rustfmt">rustfmt</a> (<code>Code | Reformat Cargo Project with Rustfmt</code> or using the special button in the Cargo tool window).</p>
+
+
+
+  <h2 id="completion">Code completion</h2>
+
+
+  <h2 id="codegen">Code generation</h2>
+
+
+  <h2 id="navigation">Navigation and search</h2>
+
+
+  <h2 id="analysis">Code analysis</h2>
+
+  <h2 id="cargo">Cargo support</h2>
+
+  <h2 id="testing">Testing</h2>
+
+  <h2 id="debug">Debug and Dynamic Analysis (CLion)</h2>
+
+  <h2 id="coverage">Code coverage</h2>
+
+
+
+
+
   <h2>Smart editor</h2>
 
   {% include feature-pic.html i="feature-editor" %}
@@ -117,7 +251,7 @@ class: features-page
 
   <div class="feature side-pic">
     {% include feature-pic.html i="feature-nav-to-impl"%}
-  </div> 
+  </div>
 
   <div class="feature">
     <h3>Implementations</h3>
