@@ -70,7 +70,7 @@ To run a Cargo command, click ![Run Cargo Command](/assets/quick-start/cargo@2x.
 
 {% include h title="Run" tag="run-prj" %}
 
-- Use left gutter icon next to a program entry point
+- Use the gutter icon next to a program entry point
 
     ![run-main](/assets/quick-start/qsg_gutter_main.png){:width="400px"}
 
@@ -80,7 +80,7 @@ To run a Cargo command, click ![Run Cargo Command](/assets/quick-start/cargo@2x.
 
 {% include h title="Test" tag="run-tests" %}
 
-- Use left gutter icon next to a test entry point
+- Use the gutter icon next to a test entry point
 
     ![run-tests](/assets/quick-start/qsg_gutter_tests.png){:width="400px"}
 
