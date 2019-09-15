@@ -72,9 +72,7 @@ class: features-page
     <td>You can also get the type information by calling <strong>Type Info</strong> (<code>Ctrl + Shift + P / ⌃⇧P</code>) for a selected expression:</td>
   </tr>
   <tr>
-    <td><!--img class="gif" data-wait="true" data-scope="gif-scope" width=450
-             src="/assets/features/smart_editor/hints_change.png" data-gif="/assets/features/smart_editor/hints_change.gif"/-->
-      <img class="gif" data-wait="true" data-scope="gif-scope" width=450
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=450
                src="/assets/features/smart_editor/hints_inlay.png" data-gif="/assets/features/smart_editor/hints_inlay.gif"/></td>
     <td><img class="gif" data-wait="true" data-scope="gif-scope" width=500
              src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/></td>
@@ -100,17 +98,18 @@ class: features-page
   <h3>Macro expansion popup</h3>
 <p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion. This feature is a part of the macro expansion functionality that affects most of the code insight.
 </p>
-<p>
-<img class="gif" data-wait="true" data-scope="gif-scope" width=600
+<div class="pic">
+<img class="gif" data-wait="true" data-scope="gif-scope" width=550
      src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif"/>
-</p>
+</div>
+<p></p>
 
   <h3>Doc comments highlighting</h3>
 <p>Code block inside Doc comments are treated as valid Rust code: you get full code insight including syntax highlighting, completion, and intentions.</p>
-<p>
+<div class="pic">
   <img src="/assets/features/smart_editor/doc_comments_hl.png" width="600">
-</p>
-
+</div>
+<p></p>
 
   <h3>Code style and formatting</h3>
 
@@ -127,18 +126,18 @@ class: features-page
     <td>For out-of-scope items, like the cases of adding a trait import during method completion, the corresponding <code>use</code> item is inserted automatically:</td>
   </tr>
   <tr>
-    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
              src="/assets/features/code_completion/completion_derive.png" data-gif="/assets/features/code_completion/completion_derive.gif"/></td>
-    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=250
              src="/assets/features/code_completion/completion_trait.png" data-gif="/assets/features/code_completion/completion_trait.gif"/></td>
   </tr>
 </table>
 <br/>
 <p>In addition, IntelliJ Rust provides completion inside macro calls. It knows the resulting macro substitution and suggests the applicable items:</p>
 
-<p><img src="/assets/features/code_completion/completion_macro_calls.png" width="400">
-</p>
-
+<div class="pic"><img src="/assets/features/code_completion/completion_macro_calls.png" width="400">
+</div>
+<p></p>
 
 
   <h2 id="codegen" align="center">Code generation</h2>
@@ -146,27 +145,29 @@ class: features-page
     <h3>Intentions and quick-fixes</h3>
 <table border="1" cellpadding="5">
   <tr>
-    <td width="60%">The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
+    <td width="50%">The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
     <td>You can quickly add <code>#[derive]</code> clauses and <code>impl</code> blocks for structs and enums, and perform struct-to-tuple and tuple-to-struct conversion:</td>
   </tr>
   <tr>
-    <td height="200">
+    <td>
       <img class="gif" data-wait="true" data-scope="gif-scope" width="400"
            src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif"/>
     </td>
-    <td height="200"><img src="/assets/features/code_generation/add_derive_close.png" width="300"></td>
+    <td><img src="/assets/features/code_generation/add_derive_close.png" width="250"></td>
   </tr>
 </table>
 <br/>
 <p>Auto-import works for all unresolved references in your code:</p>
-<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+<div class="pic">
+  <img class="gif" data-wait="true" data-scope="gif-scope" width=500
        src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif"/>
-</p>
-
+</div>
+<p></p>
 <p>IntelliJ Rust also checks <code>match</code> expressions in your code and suggest to remove unreachable patterns or add missing ones, including the cases of complex patterns with multiple types. This inspection also supports <a href="https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md">match ergonomics</a>.</p>
-<p><img src="/assets/features/code_generation/mathc_checks.png" width="400">
-</p>
-
+<div class="pic">
+  <img src="/assets/features/code_generation/mathc_checks.png" width="400">
+</div>
+<p></p>
 
     <h3>Live templates, ‘Surround with’, and Postfix completion</h3>
 <p>There is a number of ready-to-use live templates to help you insert frequently used Rust constructs into your code. You can always customize and extend this set.
@@ -174,15 +175,17 @@ class: features-page
 <p>
   Which templates will be available is defined by the current context: press <code>Ctrl/⌘ + J</code> to see the options. If you already know the abbreviation, just start typing it, choose from the list of suggestions, and then press <code>Tab</code> to navigate between the template variables:
 </p>
-<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=500
         src="/assets/features/code_generation/livetemplates_basic.png" data-gif="/assets/features/code_generation/livetemplates_basic.gif"/>
-</p>
+</div>
+<p></p>
 
 <p>You can select a piece of code and press <code>Ctrl+Alt+J / ⌥⌘J</code> to surround it with a live template, or press <code>Ctrl+Alt+T / ⌥⌘T</code> to surround it with <code>loop</code>, <code>while</code>, <code>if</code>, <code>for</code>, or other wrappers, depending on the context.</p>
 <p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it:</p>
-<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=600
         src="/assets/features/code_generation/postfix.png" data-gif="/assets/features/code_generation/postfix.gif"/>
-</p>
+</div>
+<p></p>
 
 
     <h3>Refactorings</h3>
@@ -198,28 +201,31 @@ class: features-page
 
 <p>One of the most frequently used refactorings, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), renames any symbols and automatically corrects all the references in your code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:
 </p>
-<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
         src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"/>
-</p>
-
+</div>
+<p></p>
 <p>You can rename symbols in-place or use a dialog with a preview.</p>
 <p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to see the list of available context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
 </p>
-<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=600
         src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"/>
-</p>
-<br/>
+</div>
+<p></p>
+
 
   <h2 id="navigation" align="center">Navigation and search</h2>
 <h3>Search everywhere</h3>
 <p>The easiest way to find anything in the IDE - a code item, action, or UI element - is Search Everywhere. Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search by setting the required scope:</p>
-<p><img src="/assets/features/navigation/search_everywhere.png" width="600"></p>
+<div class="pic"><img src="/assets/features/navigation/search_everywhere.png" width="600"></div>
+<p></p>
 
 <h3>Find Usages</h3>
 <p>To locate all the occurrences of any symbol in your code, place the caret on it and call Find Usages. The IDE understands symbol context, so you will not see textual matches in the results.</p>
 <p>You can highlight the usages in the current file by pressing <code>Ctrl+Shift+F7 / ⇧⌘F7</code>, and then jump between them, or list all usages in a separate window using <code>Alt+F7 / ⌥F7</code>. In the results window, you can filter and group the results, and jump back to the source code:
 </p>
-<p><img src="/assets/features/navigation/find_usages.png" width="600"></p>
+<div class="pic"><img src="/assets/features/navigation/find_usages.png" width="500"></div>
+<p></p>
 
 
 <h3>Go-To and File Structure</h3>
@@ -229,19 +235,19 @@ class: features-page
 
 <p>There is also a handy ‘Go to Implementation’ gutter icon to help you quickly switch between traits, types, and impls:
 </p>
-<p><img src="/assets/features/navigation/goto_impl_gutter.png" width="500"></p>
+<div class="pic"><img src="/assets/features/navigation/goto_impl_gutter.png" width="500"></div>
+<p></p>
 
-<p>If the <i>experimental macro expansion engine</i> is turned on in Settings / Preference | Languages & Frameworks | Rust | Expand declarative macros, all navigation actions are also available inside macro calls:</p>
-<p><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+<p>If the <i>experimental macro expansion engine</i> is turned on in <strong>Settings / Preference | Languages & Frameworks | Rust | Expand declarative macros</strong>, all navigation actions are also available inside macro calls:</p>
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=500
         src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"/>
-</p>
-<br/>
-
+</div>
+<p></p>
 <p>To explore the structure of the currently opened file, press <code>Ctrl+F12 / ⌘F12</code>:</p>
-<p><img src="/assets/features/navigation/file_structure.png" width="500"></p>
+<div class="pic"><img src="/assets/features/navigation/file_structure.png" width="400"></div>
+<p></p>
 
-
-  <h2 id="analysis">Code analysis</h2>
+  <h2 id="analysis" align="center">Code analysis</h2>
 <h3>Inspections</h3>
 <p>IntelliJ Rust uses a set of inspections to monitor code as you type. You can configure the list of inspections, and set their severities and scopes in <strong>Settings / Preference | Editor | Inspections</strong>.</p>
 <p>
