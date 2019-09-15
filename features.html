@@ -127,9 +127,9 @@ class: features-page
     <td>For out-of-scope items, like the cases of adding a trait import during method completion, the corresponding <code>use</code> item is inserted automatically:</td>
   </tr>
   <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
              src="/assets/features/code_completion/completion_derive.png" data-gif="/assets/features/code_completion/completion_derive.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=300
+    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
              src="/assets/features/code_completion/completion_trait.png" data-gif="/assets/features/code_completion/completion_trait.gif"/></td>
   </tr>
 </table>
@@ -146,48 +146,69 @@ class: features-page
     <h3>Intentions and quick-fixes</h3>
 <table border="1" cellpadding="5">
   <tr>
-    <td width="50%" >The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
+    <td width="60%">The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
     <td>You can quickly add <code>#[derive]</code> clauses and <code>impl</code> blocks for structs and enums, and perform struct-to-tuple and tuple-to-struct conversion:</td>
   </tr>
   <tr>
-    <td>gif</td>
-    <td>img</td>
+    <td height="200">
+      <img class="gif" data-wait="true" data-scope="gif-scope" width="400"
+           src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif"/>
+    </td>
+    <td height="200"><img src="/assets/features/code_generation/add_derive_close.png" width="300"></td>
   </tr>
 </table>
-<p>Auto-import works for all unresolved references in your code: GIF
-</p>
-<p>IntelliJ Rust also checks <code>match</code> expressions in your code and suggest to remove unreachable patterns or add missing ones, including the cases of complex patterns with multiple types. This inspection also supports <a href="https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md">match ergonomics</a>. IMG
+<br/>
+<p>Auto-import works for all unresolved references in your code:</p>
+<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+       src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif"/>
 </p>
 
+<p>IntelliJ Rust also checks <code>match</code> expressions in your code and suggest to remove unreachable patterns or add missing ones, including the cases of complex patterns with multiple types. This inspection also supports <a href="https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md">match ergonomics</a>.</p>
+<p><img src="/assets/features/code_generation/mathc_checks.png" width="400">
+</p>
 
 
     <h3>Live templates, ‘Surround with’, and Postfix completion</h3>
 <p>There is a number of ready-to-use live templates to help you insert frequently used Rust constructs into your code. You can always customize and extend this set.
 </p>
 <p>
-  Which templates will be available is defined by the current context: press <code>Ctrl/⌘ + J</code> to see the options. If you already know the abbreviation, just start typing it, choose from the list of suggestions, and then press <code>Tab</code> to navigate between the template variables: GIF
+  Which templates will be available is defined by the current context: press <code>Ctrl/⌘ + J</code> to see the options. If you already know the abbreviation, just start typing it, choose from the list of suggestions, and then press <code>Tab</code> to navigate between the template variables:
+</p>
+<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+        src="/assets/features/code_generation/livetemplates_basic.png" data-gif="/assets/features/code_generation/livetemplates_basic.gif"/>
 </p>
 
 <p>You can select a piece of code and press <code>Ctrl+Alt+J / ⌥⌘J</code> to surround it with a live template, or press <code>Ctrl+Alt+T / ⌥⌘T</code> to surround it with <code>loop</code>, <code>while</code>, <code>if</code>, <code>for</code>, or other wrappers, depending on the context.</p>
-<p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it: GIF</p>
+<p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it:</p>
+<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+        src="/assets/features/code_generation/postfix.png" data-gif="/assets/features/code_generation/postfix.gif"/>
+</p>
 
 
     <h3>Refactorings</h3>
-<p>IntelliJ Rust supports the following refactorings: THIS SHOULD BE A LIST
+<p>IntelliJ Rust supports the following refactorings:</p>
+<ul>
+  <li>Rename (Shift+F6 / ⇧F6)</li>
+  <li>Extract Variable (Ctrl+Alt+V / ⌥⌘V)</li>
+  <li>Extract Parameter (Ctrl+Alt+P / ⌥⌘P)</li>
+  <li>Extract Method (Ctrl+Alt+M / ⌥⌘M)</li>
+  <li>Convert to Tuple / Struct</li>
+  <li>Promote / Downgrade module</li>
+</ul>
 
-  Rename (Shift+F6 / ⇧F6)
-  Extract Variable (Ctrl+Alt+V / ⌥⌘V)
-  Extract Parameter (Ctrl+Alt+P / ⌥⌘P)
-  Extract Method (Ctrl+Alt+M / ⌥⌘M)
-  Convert to Tuple / Struct
-  Promote / Downgrade module
+<p>One of the most frequently used refactorings, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), renames any symbols and automatically corrects all the references in your code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:
+</p>
+<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+        src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"/>
 </p>
 
-<p>One of the most frequently used refactorings, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), renames any symbols and automatically corrects all the references in your code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well: GIF
-</p>
 <p>You can rename symbols in-place or use a dialog with a preview.</p>
-<p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to see the list of available context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages: GIF
+<p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to see the list of available context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
 </p>
+<p><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+        src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"/>
+</p>
+<br/>
 
   <h2 id="navigation">Navigation and search</h2>
 <h3>Search everywhere</h3>
