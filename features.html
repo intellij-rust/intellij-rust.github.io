@@ -210,14 +210,16 @@ class: features-page
 </p>
 <br/>
 
-  <h2 id="navigation">Navigation and search</h2>
+  <h2 id="navigation" align="center">Navigation and search</h2>
 <h3>Search everywhere</h3>
-<p>The easiest way to find anything in the IDE - a code item, action, or UI element - is Search Everywhere. Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search by setting the required scope: IMG</p>
+<p>The easiest way to find anything in the IDE - a code item, action, or UI element - is Search Everywhere. Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search by setting the required scope:</p>
+<p><img src="/assets/features/navigation/search_everywhere.png" width="600"></p>
 
 <h3>Find Usages</h3>
 <p>To locate all the occurrences of any symbol in your code, place the caret on it and call Find Usages. The IDE understands symbol context, so you will not see textual matches in the results.</p>
-<p>You can highlight the usages in the current file by pressing <code>Ctrl+Shift+F7 / ⇧⌘F7</code>, and then jump between them, or list all usages in a separate window using <code>Alt+F7 / ⌥F7</code>. In the results window, you can filter and group the results, and jump back to the source code: IMG
+<p>You can highlight the usages in the current file by pressing <code>Ctrl+Shift+F7 / ⇧⌘F7</code>, and then jump between them, or list all usages in a separate window using <code>Alt+F7 / ⌥F7</code>. In the results window, you can filter and group the results, and jump back to the source code:
 </p>
+<p><img src="/assets/features/navigation/find_usages.png" width="600"></p>
 
 
 <h3>Go-To and File Structure</h3>
@@ -225,12 +227,18 @@ class: features-page
 
 <p>To navigate through declarations/definitions and hierarchies in your code, use Go-To action for Declaration (<code>Ctrl+B / ⌘B</code>), Definition (<code>Ctrl+Alt+B / ⌥⌘B</code>), Type Declaration (<code>Ctrl+Shift+B / ⇧⌘B</code>), and Super Method (<code>Ctrl+U / ⌘U</code>) which navigates to a parent module.</p>
 
-<p>/MAKE TABLE/There is also a handy ‘Go to Implementation’ gutter icon to help you quickly switch between traits, types, and impls: IMG
+<p>There is also a handy ‘Go to Implementation’ gutter icon to help you quickly switch between traits, types, and impls:
 </p>
+<p><img src="/assets/features/navigation/goto_impl_gutter.png" width="500"></p>
 
-<p>If the <i>experimental macro expansion engine</i> is turned on in Settings / Preference | Languages & Frameworks | Rust | Expand declarative macros, all navigation actions are also available inside macro calls: GIF /END TABLE/</p>
+<p>If the <i>experimental macro expansion engine</i> is turned on in Settings / Preference | Languages & Frameworks | Rust | Expand declarative macros, all navigation actions are also available inside macro calls:</p>
+<p><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+        src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"/>
+</p>
+<br/>
 
-<p>And to explore the structure of the currently opened file, press <code>Ctrl+F12 / ⌘F12</code>: IMG</p>
+<p>To explore the structure of the currently opened file, press <code>Ctrl+F12 / ⌘F12</code>:</p>
+<p><img src="/assets/features/navigation/file_structure.png" width="500"></p>
 
 
   <h2 id="analysis">Code analysis</h2>
