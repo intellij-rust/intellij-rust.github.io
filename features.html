@@ -260,16 +260,22 @@ class: features-page
     <td>Accessing private items:</td>
   </tr>
   <tr>
-    <td>gif</td>
-    <td>gif</td>
-    <td>gif</td>
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+             src="/assets/features/code_analysis/type_checks.png" data-gif="/assets/features/code_analysis/type_checks.gif"/></td>
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+             src="/assets/features/code_analysis/nosuch_field.png" data-gif="/assets/features/code_analysis/nosuch_field.gif"/></td>
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+             src="/assets/features/code_analysis/make_public.png" data-gif="/assets/features/code_analysis/make_public.gif"/></td>
   </tr>
 </table>
-<p>You can also run inspections on demand by calling <strong>Code | Inspect Code</strong>. In this case, the results are shown in a separate window, from which you can apply quick fixes to a single case, or to several cases at a time: IMG</p>
+<br/>
+<p>You can also run inspections on demand by calling <strong>Code | Inspect Code</strong>. In this case, the results are shown in a separate window, from which you can apply quick fixes to a single case, or to several cases at a time:</p>
+<div class="pic"><img src="/assets/features/code_analysis/inspections_batch.png" width="600"></div>
+<p></p>
 
 
-<h3>External linters</h3>
-<p>In addition to the built-in set of inspections, you can run Cargo Check or Clippy without leaving the IDE. Select the linter in <Settings / Preference | Languages & Frameworks | Rust | Cargo, and run it from the Cargo tool window.
+<h3 id="external-linters">External linters</h3>
+<p>In addition to the built-in set of inspections, you can run Cargo Check or Clippy without leaving the IDE. Select the linter in <strong>Settings / Preference | Languages & Frameworks | Rust | Cargo</strong>, and run it from the Cargo tool window.
 </p>
 <p>
   You also have the option to run external linters on-the-fly along with other inspections, yet this may cause significant performance slowdown.
@@ -283,13 +289,17 @@ class: features-page
 <p>Intellij Rust fully supports Cargo-based Rust projects: it provides a Cargo template for new projects and takes project-level information from <code>Cargo.toml</code> files to open the existing ones.
 </p>
 <p>
-  By the way, <code>.toml</code> files get code assistance too, since the IntelliJ TOML/LINK/ plugin is installed in pair with IntelliJ Rust.</p>
-<p>In the Cargo tool window, you can see all the workspace members and targets. From there, it’s easy to monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using Rustfmt /LINK/, and run external linters/LINK to prev chapter/.</p>
-<p><strong>Run Anything</strong> is a very handy IDE feature, which includes Cargo commands: just press <code>Ctrl</code> twice and start typing the command you want to run: GIF
-</p>
+  By the way, <code>.toml</code> files get code assistance too, since the IntelliJ <a href="https://plugins.jetbrains.com/plugin/8195-toml">TOML</a> plugin is installed in pair with IntelliJ Rust.</p>
+<p>In the Cargo tool window, you can see all the workspace members and targets. From there, it’s easy to monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run external linters/LINK TO PREV CHAPTER/.</p>
+<p><strong>Run Anything</strong> is a very handy IDE feature, which includes Cargo commands: just press <code>Ctrl</code> twice and start typing the command you want to run:</p>
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+                      src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif"/>
+</div>
+<p></p>
 
-<p>Every call to a Cargo command is essentially an automatic creation of a Cargo Command run/debug configuration. You can create more configurations of this type in the <strong>Edit Configurations</strong> dialog, adjust the settings to your needs, and use these configurations with Run /ICON/ and Debug /ICON/ (CLion) actions. - IMG</p>
-
+<p>Every call to a Cargo command is essentially an automatic creation of a Cargo Command run/debug configuration. You can create more configurations of this type in the <strong>Edit Configurations</strong> dialog, adjust the settings to your needs, and use these configurations with Run /ICON/ and Debug /ICON/ (CLion) actions.</p>
+<div class="pic"><img src="/assets/features/cargo/rd_config.png" width="600"></div>
+<p></p>
 
 
   <h2 id="testing">Testing</h2>
