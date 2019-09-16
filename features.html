@@ -305,37 +305,52 @@ class: features-page
   <h2 id="testing">Testing</h2>
 <p>When you run <code>cargo test</code> /OR USE OTHER OPTIONS/, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results.
 </p>
-<p>The test runner window shows the status and duration of all tests, lets you quickly jump to the corresponding code, sort, and import/export the results: IMG
+<p>The test runner window shows the status and duration of all tests, lets you quickly jump to the corresponding code, sort, and import/export the results:
 </p>
-<p>THIS SHOULD BE THE 1ST PARAGRAPH, WAYS OF RUNNING TESTS You can also start a run or debug (in CLion) session for tests using gutter icons: IMG</p>
+<div class="pic"><img src="/assets/features/testing/test_runner.png" width="450"></div>
+<p></p>
 
+<p>THIS SHOULD BE THE 1ST PARAGRAPH, WAYS OF RUNNING TESTS You can also start a run or debug (in CLion) session for tests using gutter icons: IMG</p>
+<div class="pic"><img src="/assets/features/testing/test_gutter.png" width="450"></div>
+<p></p>
 
   <h2 id="debug">Debug and Dynamic Analysis (CLion)</h2>
 <p>IntelliJ Rust integrates with both GDB and LLDB debuggers in CLion. All of the essential debug features like breakpoints, stepping actions, watches, and others, are fully available for your Rust code. As a plus, CLion debugger provides hexadecimal view for integer variables, and the options to step into disassembly and view raw memory.</p>
 
-<p>The plugin’s bundled formatters for Rust types are loaded automatically. You can also switch to the compiler’s renderers, or turn the formatters off completely in the <strong>Debugger Data Views</strong> settings: IMG
-</p>
+<p>The plugin’s bundled formatters for Rust types are loaded automatically. You can also switch to the compiler’s renderers, or turn the formatters off completely in the <strong>Debugger Data Views</strong> settings:</p>
+<div class="pic"><img src="/assets/features/debugger/renderers.png" width="450"></div>
+<p></p>
 
-<p>Bundled renderers not only give a tree-view visualization and provide elements access for strings, structs, enums, and vectors - they also support standard library types like <code>HashMap</code>, <code>HashSet</code>, <code>Rc</code>, <code>Arc</code>, <code>Cell</code>, and <code>Ref</code>. - IMG</p>
+<p>Bundled renderers not only give a tree-view visualization and provide elements access for strings, structs, enums, and vectors - they also support standard library types like <code>HashMap</code>, <code>HashSet</code>, <code>Rc</code>, <code>Arc</code>, <code>Cell</code>, and <code>Ref</code>.</p>
+<div class="pic"><img src="/assets/features/debugger/type_rendering.png" width="450"></div>
+<p></p>
+
 <p>
   During a debug session, you can explore threads and frames separately, and evaluate expressions (this functionality is limited to what is currently provided by the Rust expression parsers in GDB and LLDB).</p>
-<p>The values of local variables are also shown inline in the editor, and if you enable hex view, CLion will add the formatted values into the inlined presentation as well.</p>
-<p>To jump into memory, select a pointer variable, and call Show in Memory View: IMG </p>
+<p>The values of local variables are also shown inline in the editor, and if you <a href="https://www.jetbrains.com/help/clion/using-hexadecimal-view.html">enable hex view</a>, CLion will add the formatted values into the inlined presentation as well.</p>
 
-<p>CLion’s debugger functionality stays fully available if you target a remote machine. With the executable running remotely under gdbserver, you can connect to it from CLion, and inspect the code as if it was running locally (learn more/LINK/).</p>
+<p>To jump into memory, select a pointer variable, and call Show in Memory View.</p>
+<div class="pic"><img src="/assets/features/debugger/debugger_overview.png" width="700"></div>
+<p></p>
 
-<p>To help you work on performance improvements, CLion integrates with CPU profiler on Linux (Perf) and macOS (DTrace). Run profiling /ICON/ on your Rust project /A DEBUG CONFIGURATION/, and get the results presented in a flame graph, call tree, and method list: - IMG
+<p>CLion’s debugger functionality stays fully available if you target a remote machine. With the executable running remotely under gdbserver, you can connect to it from CLion, and inspect the code as if it was running locally (<a href="https://www.jetbrains.com/help/clion/remote-debug.html">learn more</a>).</p>
+
+<p>To help you work on performance improvements, CLion integrates with CPU profiler on Linux (Perf) and macOS (DTrace). Run profiling /ICON/ on your Rust project /A DEBUG CONFIGURATION/, and get the results presented in a flame graph, call tree, and method list:
 </p>
+<div class="pic"><img src="/assets/features/debugger/profiler.png" width="600"></div>
+<p></p>
 
-<p>See CLion web help for details on how to configure the profiler and interpret results.</p>
+<p>See <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on how to configure the profiler and interpret results.</p>
 
-<p>One more option for dynamic analysis in running your program under Valgrind Memcheck /LINK to CLion help/, available on Linux and macOS. This memory error detector can help you deeper investigate the behavior of unsafe{} blocks and Rust wrappers around C.</p>
+<p>One more option for dynamic analysis in running your program under <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a>, available on Linux and macOS. This memory error detector can help you deeper investigate the behavior of unsafe{} blocks and Rust wrappers around C.</p>
 
 <h2 id="coverage">Code coverage</h2>
-<p>Coverage analysis for your Rust code is implemented on top of the grcov/LINK/ utility, which you’ll be prompted to install. Note that currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using /ICON/: - IMG</p>
+<p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility, which you’ll be prompted to install. Note that currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using /ICON/:</p>
+<div class="pic"><img src="/assets/features/coverage/coverage.png" width="700"></div>
+<p></p>
 
 
-
+<!--
 
   <h2>Smart editor</h2>
 
@@ -648,3 +663,4 @@ class: features-page
     find and execute a test without switching between code and tests.
   </div>
 </div>
+-->
