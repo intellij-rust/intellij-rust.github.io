@@ -30,7 +30,7 @@ class: features-page
     <td><img src="/assets/features/smart_editor/highlight_unsafe.png" width="400"></td>
   </tr>
 </table>
-<br/>
+<p></p>
 <p>The highlighting palette is fully customizable for both Darcula and Light color schemes.</p>
 
 
@@ -46,7 +46,7 @@ class: features-page
     <td><img src="/assets/features/smart_editor/quick_def.png" width="450"></td>
   </tr>
 </table>
-<br/>
+<p></p>
 <p>Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to the extern crate declarations. Click it, and you will jump right to the particular crate’s description on <a href="docs.rs">docs.rs</a>.</p>
 
 <!--div class="feature-group">
@@ -90,7 +90,7 @@ class: features-page
      src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/>
 </p>
 -->
-<br/>
+<p></p>
 <p>Another alternative to view the types is to turn off the <strong>Show local variable type hints</strong> option and hover your mouse while holding <code>Ctrl / ⌘</code>.</p>
 
 
@@ -132,7 +132,7 @@ class: features-page
              src="/assets/features/code_completion/completion_trait.png" data-gif="/assets/features/code_completion/completion_trait.gif"/></td>
   </tr>
 </table>
-<br/>
+<p></p>
 <p>In addition, IntelliJ Rust provides completion inside macro calls. It knows the resulting macro substitution and suggests the applicable items:</p>
 
 <div class="pic"><img src="/assets/features/code_completion/completion_macro_calls.png" width="400">
@@ -156,7 +156,7 @@ class: features-page
     <td><img src="/assets/features/code_generation/add_derive_close.png" width="250"></td>
   </tr>
 </table>
-<br/>
+<p></p>
 <p>Auto-import works for all unresolved references in your code:</p>
 <div class="pic">
   <img class="gif" data-wait="true" data-scope="gif-scope" width=500
@@ -191,16 +191,15 @@ class: features-page
     <h3>Refactorings</h3>
 <p>IntelliJ Rust supports the following refactorings:</p>
 <ul>
-  <li>Rename (Shift+F6 / ⇧F6)</li>
-  <li>Extract Variable (Ctrl+Alt+V / ⌥⌘V)</li>
+  <li>Rename            (Shift+F6 / ⇧F6)</li>
+  <li>Extract Variable  (Ctrl+Alt+V / ⌥⌘V)</li>
   <li>Extract Parameter (Ctrl+Alt+P / ⌥⌘P)</li>
-  <li>Extract Method (Ctrl+Alt+M / ⌥⌘M)</li>
+  <li>Extract Method    (Ctrl+Alt+M / ⌥⌘M)</li>
   <li>Convert to Tuple / Struct</li>
   <li>Promote / Downgrade module</li>
 </ul>
 
-<p>One of the most frequently used refactorings, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), renames any symbols and automatically corrects all the references in your code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:
-</p>
+<p>One of the most frequently used refactorings, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), renames any symbols and automatically corrects all the references in your code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:</p>
 <div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
         src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"/>
 </div>
@@ -217,7 +216,7 @@ class: features-page
   <h2 id="navigation" align="center">Navigation and search</h2>
 <h3>Search everywhere</h3>
 <p>The easiest way to find anything in the IDE - a code item, action, or UI element - is Search Everywhere. Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search by setting the required scope:</p>
-<div class="pic"><img src="/assets/features/navigation/search_everywhere.png" width="600"></div>
+<div class="pic"><img src="/assets/features/navigation/search_everywhere.png" width="650"></div>
 <p></p>
 
 <h3>Find Usages</h3>
@@ -243,6 +242,7 @@ class: features-page
         src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"/>
 </div>
 <p></p>
+
 <p>To explore the structure of the currently opened file, press <code>Ctrl+F12 / ⌘F12</code>:</p>
 <div class="pic"><img src="/assets/features/navigation/file_structure.png" width="400"></div>
 <p></p>
@@ -260,17 +260,17 @@ class: features-page
     <td>Accessing private items:</td>
   </tr>
   <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
-             src="/assets/features/code_analysis/type_checks.png" data-gif="/assets/features/code_analysis/type_checks.gif"/></td>
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=300
+             src="/assets/features/code_analysis/type_cast.png" data-gif="/assets/features/code_analysis/type_cast.gif"/></td>
     <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
              src="/assets/features/code_analysis/nosuch_field.png" data-gif="/assets/features/code_analysis/nosuch_field.gif"/></td>
     <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
              src="/assets/features/code_analysis/make_public.png" data-gif="/assets/features/code_analysis/make_public.gif"/></td>
   </tr>
 </table>
-<br/>
+<p></p>
 <p>You can also run inspections on demand by calling <strong>Code | Inspect Code</strong>. In this case, the results are shown in a separate window, from which you can apply quick fixes to a single case, or to several cases at a time:</p>
-<div class="pic"><img src="/assets/features/code_analysis/inspections_batch.png" width="600"></div>
+<div class="pic"><img src="/assets/features/code_analysis/inspections_batch.png" width="650"></div>
 <p></p>
 
 
@@ -286,33 +286,36 @@ class: features-page
 
 
   <h2 id="cargo">Cargo support</h2>
-<p>Intellij Rust fully supports Cargo-based Rust projects: it provides a Cargo template for new projects and takes project-level information from <code>Cargo.toml</code> files to open the existing ones.
-</p>
-<p>
-  By the way, <code>.toml</code> files get code assistance too, since the IntelliJ <a href="https://plugins.jetbrains.com/plugin/8195-toml">TOML</a> plugin is installed in pair with IntelliJ Rust.</p>
-<p>In the Cargo tool window, you can see all the workspace members and targets. From there, it’s easy to monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run external linters/LINK TO PREV CHAPTER/.</p>
+
+<p>Intellij Rust fully supports Cargo-based Rust projects: it provides a Cargo template for new projects and takes project-level information from <code>Cargo.toml</code> files to open the existing ones.</p>
+
+<p>By the way, <code>.toml</code> files get code assistance too, since the <a href="https://plugins.jetbrains.com/plugin/8195-toml">IntelliJ TOML</a> plugin is installed in pair with IntelliJ Rust.</p>
+
+<p>In the Cargo tool window, you can see all the workspace members and targets. From there, it’s easy to monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run <a href="#external-linters">external linters</a>.</p>
+
 <p><strong>Run Anything</strong> is a very handy IDE feature, which includes Cargo commands: just press <code>Ctrl</code> twice and start typing the command you want to run:</p>
+
 <div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=500
-                      src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif"/>
-</div>
+                      src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif"/></div>
 <p></p>
 
-<p>Every call to a Cargo command is essentially an automatic creation of a Cargo Command run/debug configuration. You can create more configurations of this type in the <strong>Edit Configurations</strong> dialog, adjust the settings to your needs, and use these configurations with Run /ICON/ and Debug /ICON/ (CLion) actions.</p>
+<p>Every call to a Cargo command is essentially an automatic creation of a Cargo Command run/debug configuration. You can create more configurations of this type in the <strong>Edit Configurations</strong> dialog, adjust the settings to your needs, and use these configurations with Run <img src="/assets/features/icons/icons_run.png" width="16"/> and Debug <img src="/assets/features/icons/icons_debug.png" width="16"/> (CLion) actions.</p>
+
 <div class="pic"><img src="/assets/features/cargo/rd_config.png" width="600"></div>
 <p></p>
 
 
   <h2 id="testing">Testing</h2>
-<p>When you run <code>cargo test</code> /OR USE OTHER OPTIONS/, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results.
-</p>
-<p>The test runner window shows the status and duration of all tests, lets you quickly jump to the corresponding code, sort, and import/export the results:
+<p>The quickest way to start a run or debug (in CLion) session for tests is by using gutter icons menu:</p>
+<div class="pic"><img src="/assets/features/testing/test_gutter.png" width="450"></div>
+<p></p>
+
+<p>When you run tests using gutter icons or by calling <code>cargo test</code>, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results. The test runner window shows the status and duration of all tests, lets you jump to the corresponding code, sort the results, and import or export them:
 </p>
 <div class="pic"><img src="/assets/features/testing/test_runner.png" width="450"></div>
 <p></p>
 
-<p>THIS SHOULD BE THE 1ST PARAGRAPH, WAYS OF RUNNING TESTS You can also start a run or debug (in CLion) session for tests using gutter icons: IMG</p>
-<div class="pic"><img src="/assets/features/testing/test_gutter.png" width="450"></div>
-<p></p>
+
 
   <h2 id="debug">Debug and Dynamic Analysis (CLion)</h2>
 <p>IntelliJ Rust integrates with both GDB and LLDB debuggers in CLion. All of the essential debug features like breakpoints, stepping actions, watches, and others, are fully available for your Rust code. As a plus, CLion debugger provides hexadecimal view for integer variables, and the options to step into disassembly and view raw memory.</p>
@@ -329,23 +332,23 @@ class: features-page
   During a debug session, you can explore threads and frames separately, and evaluate expressions (this functionality is limited to what is currently provided by the Rust expression parsers in GDB and LLDB).</p>
 <p>The values of local variables are also shown inline in the editor, and if you <a href="https://www.jetbrains.com/help/clion/using-hexadecimal-view.html">enable hex view</a>, CLion will add the formatted values into the inlined presentation as well.</p>
 
-<p>To jump into memory, select a pointer variable, and call Show in Memory View.</p>
+<p>To jump into memory, select a pointer variable, and call <strong>Show in Memory View</strong>.</p>
 <div class="pic"><img src="/assets/features/debugger/debugger_overview.png" width="700"></div>
 <p></p>
 
 <p>CLion’s debugger functionality stays fully available if you target a remote machine. With the executable running remotely under gdbserver, you can connect to it from CLion, and inspect the code as if it was running locally (<a href="https://www.jetbrains.com/help/clion/remote-debug.html">learn more</a>).</p>
 
-<p>To help you work on performance improvements, CLion integrates with CPU profiler on Linux (Perf) and macOS (DTrace). Run profiling /ICON/ on your Rust project /A DEBUG CONFIGURATION/, and get the results presented in a flame graph, call tree, and method list:
+<p>To help you work on performance improvements, CLion integrates with CPU profiler on Linux (Perf) and macOS (DTrace). Run profiling <img src="/assets/features/icons/icons._profiler.png" width="16"/> on your configuration, and get the results presented in a flame graph, call tree, and method list:
 </p>
 <div class="pic"><img src="/assets/features/debugger/profiler.png" width="600"></div>
 <p></p>
 
 <p>See <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on how to configure the profiler and interpret results.</p>
 
-<p>One more option for dynamic analysis in running your program under <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a>, available on Linux and macOS. This memory error detector can help you deeper investigate the behavior of unsafe{} blocks and Rust wrappers around C.</p>
+<p>One more option for dynamic analysis in running your program under <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a>, available on Linux and macOS. This memory error detector can help you deeper investigate the behavior of <code>unsafe{}</code> blocks and Rust wrappers around C.</p>
 
 <h2 id="coverage">Code coverage</h2>
-<p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility, which you’ll be prompted to install. Note that currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using /ICON/:</p>
+<p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility, which you’ll be prompted to install. Note that currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16"/>:</p>
 <div class="pic"><img src="/assets/features/coverage/coverage.png" width="700"></div>
 <p></p>
 
