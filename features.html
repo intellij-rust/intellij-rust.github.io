@@ -26,8 +26,8 @@ class: features-page
     <td>Those expressions and functions within <code>unsafe {}</code> blocks that perform unsafe operations are additionally highlighted with a contrast background:</td>
   </tr>
   <tr>
-    <td><img src="/assets/features/smart_editor/highlight_basic.png" width="400"></td>
-    <td><img src="/assets/features/smart_editor/highlight_unsafe.png" width="400"></td>
+    <td><img src="/assets/features/smart_editor/highlight_basic.png" width="400" height="150"></td>
+    <td><img src="/assets/features/smart_editor/highlight_unsafe.png" width="400" height="150"></td>
   </tr>
 </table>
 <p></p>
@@ -42,8 +42,8 @@ class: features-page
     <td>To view the implementation or declaration of an element without leaving your current context, call <strong>Quick Definition</strong> by pressing <code>Ctrl+Shift+I / ⌥Space</code>:</td>
   </tr>
   <tr>
-    <td><img src="/assets/features/smart_editor/quick_doc.png" width="400"></td>
-    <td><img src="/assets/features/smart_editor/quick_def.png" width="400"></td>
+    <td><img src="/assets/features/smart_editor/quick_doc.png" width="410" height="240"></td>
+    <td><img src="/assets/features/smart_editor/quick_def.png" width="490" height="240"></td>
   </tr>
 </table>
 <p></p>
@@ -72,9 +72,9 @@ class: features-page
     <td>You can also get the type information by calling <strong>Type Info</strong> (<code>Ctrl + Shift + P / ⌃⇧P</code>) for a selected expression:</td>
   </tr>
   <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
                src="/assets/features/smart_editor/hints_inlay.png" data-gif="/assets/features/smart_editor/hints_inlay.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
              src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/></td>
   </tr>
 </table>
@@ -99,7 +99,7 @@ class: features-page
 <p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion. This feature is a part of the macro expansion functionality that affects most of the code insight.
 </p>
 <div class="pic">
-<img class="gif" data-wait="true" data-scope="gif-scope" width=550
+<img class="gif" data-wait="true" data-scope="gif-scope" width="550"
      src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif"/>
 </div>
 <p></p>
@@ -126,9 +126,9 @@ class: features-page
     <td>For out-of-scope items, like the cases of adding a trait import during method completion, the corresponding <code>use</code> item is inserted automatically:</td>
   </tr>
   <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="390" height="170"
              src="/assets/features/code_completion/completion_derive.png" data-gif="/assets/features/code_completion/completion_derive.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="320" height="170"
              src="/assets/features/code_completion/completion_trait.png" data-gif="/assets/features/code_completion/completion_trait.gif"/></td>
   </tr>
 </table>
@@ -145,21 +145,21 @@ class: features-page
     <h3 id="intentions">Intentions and quick-fixes</h3>
 <table border="1" cellpadding="5">
   <tr>
-    <td>The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
+    <td width="50%">The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
     <td>You can quickly add <code>#[derive]</code> clauses and <code>impl</code> blocks for structs and enums, and perform struct-to-tuple and tuple-to-struct conversion:</td>
   </tr>
   <tr>
     <td>
-      <img class="gif" data-wait="true" data-scope="gif-scope" width="400"
+      <img class="gif" data-wait="true" data-scope="gif-scope" width="400" height="190"
            src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif"/>
     </td>
-    <td><img src="/assets/features/code_generation/add_derive_close.png" width="250"></td>
+    <td><img src="/assets/features/code_generation/add_derive_clause_2.png" width="380" height="190"></td>
   </tr>
 </table>
 <p></p>
 <p>Auto-import works for all unresolved references in your code:</p>
 <div class="pic">
-  <img class="gif" data-wait="true" data-scope="gif-scope" width=500
+  <img class="gif" data-wait="true" data-scope="gif-scope" width="550"
        src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif"/>
 </div>
 <p></p>
@@ -175,14 +175,14 @@ class: features-page
 <p>
   Press <code>Ctrl/⌘ + J</code> to view the templates available in the current context. If you already know the abbreviation, just start typing it, choose from the list of suggestions, and then press <code>Tab</code> to navigate between the template variables:
 </p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
         src="/assets/features/code_generation/livetemplates_basic.png" data-gif="/assets/features/code_generation/livetemplates_basic.gif"/>
 </div>
 <p></p>
 
 <p>You can select a piece of code and press <code>Ctrl+Alt+J / ⌥⌘J</code> to surround it with a live template, or press <code>Ctrl+Alt+T / ⌥⌘T</code> to surround it with <code>loop</code>, <code>while</code>, <code>if</code>, <code>for</code>, and other wrappers, depending on the context.</p>
 <p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it:</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=600
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="600"
         src="/assets/features/code_generation/postfix.png" data-gif="/assets/features/code_generation/postfix.gif"/>
 </div>
 <p></p>
@@ -200,14 +200,14 @@ class: features-page
 </ul>
 
 <p>One of the most frequently used ones, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), changes the name of a symbols and automatically corrects all the references in the code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="450"
         src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"/>
 </div>
 <p></p>
 <p>You can rename symbols in-place or use a dialog with a preview.</p>
 <p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
 </p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=600
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="600"
         src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"/>
 </div>
 <p></p>
@@ -238,7 +238,7 @@ class: features-page
 <p></p>
 
 <p>All navigation actions are available inside macro calls when the <i>experimental macro expansion engine</i> is turned on (<strong>Settings / Preferences | Languages & Frameworks | Rust | Expand declarative macros</strong>):</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=500
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
         src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"/>
 </div>
 <p></p>
@@ -256,21 +256,21 @@ class: features-page
 <table border="1" cellpadding="5">
   <tr>
     <td>Type check errors:</td>
-    <td><i>Not such field</i> annotation:</td>
+    <td><i>No such field</i> annotation:</td>
     <td>Accessing private items:</td>
   </tr>
   <tr>
-    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
-             src="/assets/features/code_analysis/type_cast.png" data-gif="/assets/features/code_analysis/type_cast.gif"/></td>
-    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" height="175" width="300"
+             src="/assets/features/code_analysis/type_cast_2.png" data-gif="/assets/features/code_analysis/type_cast_2.gif"/></td>
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" height="175" width="320"
              src="/assets/features/code_analysis/nosuch_field.png" data-gif="/assets/features/code_analysis/nosuch_field.gif"/></td>
-    <td height="200"><img class="gif" data-wait="true" data-scope="gif-scope" width=400
+    <td><img class="gif" data-wait="true" data-scope="gif-scope" height="175" width="330"
              src="/assets/features/code_analysis/make_public.png" data-gif="/assets/features/code_analysis/make_public.gif"/></td>
   </tr>
 </table>
 <p></p>
 <p>You can also run the inspections on demand by calling <strong>Code | Inspect Code</strong>. The results will be shown in a separate window, from which you can apply quick-fixes to a single case or to several cases at a time:</p>
-<div class="pic"><img src="/assets/features/code_analysis/inspections_batch.png" width="650"></div>
+<div class="pic"><img src="/assets/features/code_analysis/inspections_batch.png" width="700"></div>
 <p></p>
 
 
@@ -287,15 +287,15 @@ class: features-page
 
   <h2 id="cargo">Cargo support</h2>
 
-<p>The plugin fully supports Cargo-based Rust applications: it provides a template for new projects and takes project-level information from <code>Cargo.toml</code> files to open the existing ones.</p>
+<p>The plugin fully supports Cargo-based Rust applications: it takes project-level information from <code>Cargo.toml</code> files to open your projects and creates new ones based on the Cargo template.</p>
 
-<p>The <a href="https://plugins.jetbrains.com/plugin/8195-toml">IntelliJ TOML</a> plugin installs in pair with IntelliJ Rust, so code assistance is available for <code>.toml</code> files as well.</p>
+<p>As <a href="https://plugins.jetbrains.com/plugin/8195-toml">IntelliJ TOML</a> installs in pair with IntelliJ Rust, <code>.toml</code> files in your project get code assistance as well.</p>
 
-<p>Cargo tool window, shows all the workspace members and targets. From there, you can monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run <a href="#external-linters">external linters</a>.</p>
+<p>Cargo tool window shows all the workspace members and targets. From there, you can monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run <a href="#external-linters">external linters</a>.</p>
 
 <p>The <strong>Run Anything</strong> popup includes Cargo commands: press <code>Ctrl</code> twice and start typing the command that you want to run.</p>
 
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width=550
+<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="550"
                       src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif"/></div>
 <p></p>
 
@@ -306,25 +306,22 @@ class: features-page
 
 
   <h2 id="testing">Testing</h2>
-<p>The quickest way to start a run or debug (in CLion) session for tests is by using the gutter icon menu:</p>
+<p>Gutter icon menu is the quickest way to start a run or debug (in CLion) session for your tests:</p>
 <div class="pic"><img src="/assets/features/testing/test_gutter.png" width="450"></div>
 <p></p>
 
-<p>When you run tests using gutter icons or by calling <code>cargo test</code>, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results.</p>
-<p>The test runner window shows the status and duration for each test, and lets you sort the results and jump to the corresponding code:</p>
+<p>When you run tests using gutter icons or by calling <code>cargo test</code>, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results. It shows the status and duration of each test, and you can sort, save, or import/export the results, as well as jump to the corresponding code:</p>
 <div class="pic"><img src="/assets/features/testing/test_runner.png" width="450"></div>
 <p></p>
 
-
-
   <h2 id="debug">Debug and Dynamic Analysis (CLion)</h2>
-<p>IntelliJ Rust integrates with both GDB and LLDB debuggers in CLion. All of the essential debug features like breakpoints, stepping, watches, and others, are fully available for your Rust code. As a plus, CLion can show hexadecimal view for integer variables, and lets you step into disassembly and view raw memory.</p>
+<p>IntelliJ Rust integrates with both GDB and LLDB debuggers in CLion. All of the essential debug features like breakpoints, stepping, watches, and others, are fully available for your Rust code. As a plus, CLion lets you step into disassembly, view raw memory, and get hexadecimal presentation for integers.</p>
 
-<p>The plugin’s bundled Rust type formatters are loaded automatically. You can also switch to the compiler’s renderers, or turn the formatters off in the <strong>Debugger Data Views</strong> settings:</p>
+<p>The plugin bundles its own formatters for Rust data types. You can also switch to the compiler’s renderers, or turn them off in the <strong>Debugger Data Views</strong> settings:</p>
 <div class="pic"><img src="/assets/features/debugger/renderers.png" width="450"></div>
 <p></p>
 
-<p>Bundled renderers build tree-view visualization for strings, structs, enums, and vectors, helping you easily access chind elements. They also support standard library types like <code>HashMap</code>, <code>HashSet</code>, <code>Rc</code>, <code>Arc</code>, <code>Cell</code>, and <code>Ref</code>.</p>
+<p>Bundled renderers build tree-view visualization for strings, structs, enums, and vectors, helping you access child elements. They also support standard library types like <code>HashMap</code>, <code>HashSet</code>, <code>Rc</code>, <code>Arc</code>, <code>Cell</code>, and <code>Ref</code>.</p>
 <div class="pic"><img src="/assets/features/debugger/type_rendering.png" width="450"></div>
 <p></p>
 
@@ -332,7 +329,7 @@ class: features-page
   During a debug session, you can explore threads and frames separately, and evaluate expressions (this functionality is limited to what is currently provided by the Rust expression parsers in GDB and LLDB).</p>
 <p>The values of local variables are also shown inline in the editor, and if you <a href="https://www.jetbrains.com/help/clion/using-hexadecimal-view.html">enable hex view</a>, CLion will add the formatted values into the inlined presentation as well.</p>
 
-<p>To jump into memory, select a pointer variable, and call <strong>Show in Memory View</strong>.</p>
+<p>To jump into memory, you can select a pointer variable and call <strong>Show in Memory View</strong> from the context menu.</p>
 <div class="pic"><img src="/assets/features/debugger/debugger_overview.png" width="700"></div>
 <p></p>
 
@@ -343,13 +340,13 @@ class: features-page
 <div class="pic"><img src="/assets/features/debugger/profiler.png" width="600"></div>
 <p></p>
 
-<p>Refer to <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on how to configure the profiler and interpret results.</p>
+<p>Refer to <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on configuring the profiler and interpreting results.</p>
 
-<p>One more option for dynamic analysis is <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a> available on Linux and macOS. This memory error detector can help you deeper investigate the behavior of <code>unsafe{}</code> blocks and Rust wrappers around C.</p>
+<p>One more option for dynamic analysis is <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a>, supported on Linux and macOS. This memory error detector can help you deeper investigate the behavior of <code>unsafe{}</code> blocks and Rust wrappers around C.</p>
 
 <h2 id="coverage">Code coverage</h2>
-<p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility (you will be prompted to install it).<p>
-</p>Note that currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16"/>:</p>
+<p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility.<p>
+</p>Currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16"/>:</p>
 <div class="pic"><img src="/assets/features/coverage/coverage.png" width="700"></div>
 <p></p>
 
