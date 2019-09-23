@@ -5,7 +5,7 @@ date: 2019-09-23 10:06:14 +0300
 ---
 
 
-This is the last release that supports IDEA 2019.1. To receive plugin updates further, please upgrade your IDE to 2019.2.
+This is the last release that supports 2019.1 platform. To receive plugin updates further, please upgrade your IDE to 2019.2.
 
 
 ## New Features
