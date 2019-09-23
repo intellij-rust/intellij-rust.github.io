@@ -34,7 +34,7 @@ Previously, the plugin always passed `-Zoffline` instead that have been working 
 * Provide a link to external documentation for non stdlib items
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4287 -->
-* Enchant Cargo tool window.
+* Enhance Cargo tool window.
 Now it contains `Expand All` and `Collapse All` actions. In addition, action toolbar has the same layout style as other similar tool windows
 
 ## Fixes
