@@ -22,10 +22,10 @@ This is the last release that supports 2019.1 platform. To receive plugin update
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4293 -->
 * Support [`--offline`](https://github.com/rust-lang/cargo/pull/6934/) Cargo option stabilized in 1.36.
 Now, the plugin passes this flag to each Cargo command if `Preferences | Languages & Frameworks | Rust | Cargo | Offline mode` option is enabled.
-Previously, the plugin always passes `-Zoffline` instead that works only with nightly builds
+Previously, the plugin always passed `-Zoffline` instead that have been working only with nightly builds
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4352 -->
-* Various parsing optimization. It should reduce indexing and macro expanding processes duration
+* Various parsing optimizations. It should reduce indexing and macro expanding processes duration
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4396 -->
 * Support `async` and `try` blocks in lambdas
@@ -47,7 +47,7 @@ Now it contains `Expand All` and `Collapse All` actions. In addition, action too
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4374 -->
 * Fix `NullPointerException` while parsing of rustc commit date.
-Previously, it prevented of correct project metadata update with custom builds of `rustc`
+Previously, it prevented correct project metadata updates with custom builds of `rustc`
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4336 -->
 * Do not add unexpected `;` when `Complete current statement` (add shortcut here) action is invoked (by [@t-kameyama])
@@ -59,7 +59,7 @@ Previously, it prevented of correct project metadata update with custom builds o
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4357 -->
 * Support lazy parsing for macros. In general, it reduces parsing time while indexing
-but this improvement doesn't visible for user (comparing with the previous version).
+but this improvement is not visible to users (in comparison with the previous version).
 So it's more a proof of concept to make further similar improvements easier 
 
 [@rrevenantt]: https://github.com/rrevenantt
