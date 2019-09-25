@@ -18,8 +18,8 @@ details.
 
 No, we plan to implement most of the language analysis from scratch. This is
 a lot of work, but the benefits are substantial. We would be able to leverage
-IntelliJ Platform infrastructure for incremental analysis and indexing. With
-our own analysis we can provide more flexible quick fixes, intentions and typing
+the IntelliJ Platform infrastructure for incremental analysis and indexing. With
+our analysis, we can provide more flexible quick fixes, intentions and typing
 assistance.
 
 The same applies to the formatter (that is also from scratch, but we plan to

@@ -6,7 +6,7 @@ permalink: /docs/
 
 Welcome to the IntelliJ Rust help!
 
-IntelliJ Rust is an open source [Rust](https://www.rust-lang.org/) language support plugin
+IntelliJ Rust is an open-source [Rust](https://www.rust-lang.org/) language support plugin
 for [IntelliJ IDEA](https://www.jetbrains.com/idea/) and its derivatives.
 
  - If you are completely new to IntelliJ Rust, read [Quick Start Guide](/docs/quick-start.html).
