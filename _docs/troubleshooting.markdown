@@ -14,7 +14,7 @@ weird behavior, try reimporting your project or/and rebuilding indices (using
 
 {% include h title="Is Cargo project structure correct?" %}
 
-At the moment we support only Cargo based projects. Use Cargo toolbar to see
+At the moment, we support only Cargo based projects. Use Cargo toolbar to see
 the list of linked Cargo projects:
 
 {% include feature-pic.html i="cargo-toolbar" %}
