@@ -14,8 +14,8 @@ date: 2019-08-12 16:48:35 +0300
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4181 -->
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4179 -->
 * This update brings a significant performance improvement, like plugin cache subsystem was reworked.
-In combination with other micro optimizations, it greatly speeds up name resolution and type inference.
-Note, these changes will have a greater effect with the new experimental macro expansion engine because it's more cache-friendly.
+In combination with other micro-optimizations, it greatly speeds up name resolution and type inference.
+Note, these changes will have a greater effect on the new experimental macro expansion engine because it's more cache-friendly.
 You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option 
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4121 -->
@@ -25,7 +25,7 @@ If you still don't have it, IDE will suggest installing Toml plugin while updati
 * Update the [Rust page](https://www.jetbrains.com/help/clion/rust-support.html) in CLion help
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4194 -->
-* Support `concat` macro. Now name resolution and completion work for direct arguments of the macro like `env!`. Also, value of the macro is taken into account while path evaluation inside `include` macro call.
+* Support `concat` macro. Now name resolution and completion work for direct arguments of the macro like `env!`. Also, the value of the macro is taken into account while path evaluation inside `include` macro call.
 It's yet another step to support code included via macro call like `include!(concat!(env!("OUT_DIR"), "/bindings.rs"))`
 <img class="gif" data-wait="true" data-scope="gif-scope" width="80%"
      src="https://user-images.githubusercontent.com/2539310/62867640-6d2e5e00-bd1c-11e9-8349-1839d0e518fd.png"

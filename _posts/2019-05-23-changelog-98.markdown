@@ -31,7 +31,7 @@ and [E0184](https://doc.rust-lang.org/error-index.html#E0184) (by [@mibac138])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3738 -->
 * Improve `Convert to named fields` refactoring. 
-Now it allows converting all usages of the the struct to the corresponding representation [gif](https://user-images.githubusercontent.com/4854600/58244990-6c5ce000-7d5c-11e9-836b-4d02ff5907d3.gif) (by [@rrevenantt])
+Now it allows converting all usages of the struct to the corresponding representation [gif](https://user-images.githubusercontent.com/4854600/58244990-6c5ce000-7d5c-11e9-836b-4d02ff5907d3.gif) (by [@rrevenantt])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3779 -->
 * Automatically detect stdlib sources in `rustc` sysroot even if rustup is absent
@@ -49,7 +49,7 @@ like it has already implemented for integer expressions
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3826 -->
 * Notify a user when a file is not included in the project structure. 
-It should simplify to find out the reason why common IDE features (e.g. name resolution, completion, etc) don't work properly in the file (by [@Kobzol])
+It should simplify to find out the reason why common IDE features (e.g., name resolution, completion, etc.) don't work properly in the file (by [@Kobzol])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3778 -->
 * Add `Flatten use statements` intention [gif](https://user-images.githubusercontent.com/4854600/58247063-687f8c80-7d61-11e9-9217-fbd1d1c4d498.gif) (by [@mibac138])
@@ -91,7 +91,7 @@ Also, it validates creating function name (by [@Kobzol])
   * Use proper rules of [match ergonomics](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md) to correctly infer types of variable bindings in all cases (previously not all rules were supported)
 
 * Provides navigation links from backtrace to project sources for crates with 2018 edition.
-This feature has been working for 2015 edition crates for long time but was broken for 2018 edition
+This feature has been working for 2015 edition crates for a long time but was broken for 2018 edition
 
 * Highlight `const` and `static` items properly
 

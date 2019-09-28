@@ -44,9 +44,9 @@ date: 2019-09-09 11:30:07 +0300
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4139 -->
 * Show stdout for successful tests. Previously, test output was shown only for failed tests because of [lack](https://github.com/rust-lang/rust/issues/54669) of the corresponding support in `libtest`.
-Note, at this moment it works only with nightly toolchain because 
+Note, at this moment it only works with the nightly toolchain because 
 the implementation is based on `--show-output` flag introduced [recently](https://github.com/rust-lang/rust/pull/62600)
-and available only in nightly compiler for now (by [@emmericp])
+and available only in the nightly compiler for now (by [@emmericp])
 
 ## Fixes
 

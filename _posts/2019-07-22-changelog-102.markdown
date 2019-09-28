@@ -80,7 +80,7 @@ Note, type inference and name resolution have not been implemented yet (by [@lun
 * Correctly process doc tests results while test running
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4099 -->
-* Expand macros properly if it produces new macro definition. It should support new implementation of `iterator` macros in nightly stdlib.
+* Expand macros properly if it produces new macro definition. It should support the new implementation of `iterator` macros in nightly stdlib.
 Note, it works only when an invocation of the new macro is at least on the same expansion step (or deeper) in term of macro expansion engine   
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4119 -->
