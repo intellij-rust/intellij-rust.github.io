@@ -7,11 +7,11 @@ class: features-page
 
 <style>
   table {
-    width: 100%; /* Ширина таблицы */
+    width: 100%;
   }
   td {
-    padding: 5px; /* Поля в ячейках */
-    vertical-align: top; /* Выравнивание по верхнему краю ячеек */
+    padding: 5px;
+    vertical-align: top;
   }
 </style>
 
@@ -22,7 +22,7 @@ class: features-page
 <h3>Syntax highlighting</h3>
 <table border="1" cellpadding="5">
   <tr>
-    <td width="50%">On top of the basic lexer highlighting, Intellij Rust highlights inferred types and macros, including generated modules and methods from <code>impl</code> blocks. It also marks mutable elements in your code:</td>
+    <td width="50%">On top of the basic lexer highlighting, IntelliJ Rust highlights inferred types and macros, including generated modules and methods from <code>impl</code> blocks. It also marks mutable elements in your code:</td>
     <td>Those expressions and functions within <code>unsafe {}</code> blocks that perform unsafe operations are additionally highlighted with a contrast background:</td>
   </tr>
   <tr>
@@ -49,18 +49,6 @@ class: features-page
 <p></p>
 <p>Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to the extern crate declarations. Click it, and you will jump right to the particular crate’s description on <a href="docs.rs">docs.rs</a>.</p>
 
-<!--div class="feature-group">
-  <div class="feature half">
-<p>At any code element, including library functions, invoke Quick Doc (Ctrl+Q / F1) to view the documentation popup. If there is a piece of code in the docs, it will be formatted and highlighted properly:</p>
-    <p>img 3</p>
-  </div>
-  <div class="feature half">
-<p>To view the implementation or declaration of an element without leaving your current context, call Quick Definition by pressing Ctrl+Shift+I / ⌥Space:</p>
-    <p>img 4</p>
-  </div>
-  <p>Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to extern crate declarations. Click it, and you will jump right to the particular crate’s description on docs.rs.</p>
-</div-->
-
 
   <h3>Hints and Type information</h3>
 <p>Hints for function argument names, types, and lambda parameters are displayed in the editor, and IntelliJ Rust adjusts them as you type. If you prefer not to see some of the hints or hide them entirely, you can always tune that in the settings.</p>
@@ -79,17 +67,7 @@ class: features-page
   </tr>
 </table>
 
-<!--
-<p>If you press <code>Ctrl</code> and hover the mouse over a hint, it will get into an interactive inlay:
-<img class="gif" data-wait="true" data-scope="gif-scope" width=500
-     src="/assets/features/smart_editor/hints_change.png" data-gif="/assets/features/smart_editor/hints_change.gif"/>
-</p>
 
-<p>You can also get the type information by calling Type Info (<code>Ctrl + Shift + P / ?</code>) for a selected expression:
-<img class="gif" data-wait="true" data-scope="gif-scope" width=500
-     src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/>
-</p>
--->
 <p></p>
 <p>Another alternative to view the types is to turn off the <strong>Show local variable type hints</strong> option and hover the mouse over a variable while holding <code>Ctrl / ⌘</code>.</p>
 
@@ -277,11 +255,6 @@ class: features-page
 <h3 id="external-linters">External linters</h3>
 <p>In addition to the built-in set of inspections, you can run <strong>Cargo Check</strong> or <a href="https://github.com/rust-lang/rust-clippy">Clippy</a> without leaving the IDE. Select the linter in <strong>Settings / Preference | Languages & Frameworks | Rust | Cargo</strong>, and run it from the Cargo tool window.
 </p>
-<!--p>
-  There is also the option to run external linters on-the-fly along with other inspections, yet this may cause significant performance slowdown.
-</p-->
-
-
 
 
 
@@ -350,318 +323,3 @@ class: features-page
 <div class="pic"><img src="/assets/features/coverage/coverage.png" width="700"></div>
 <p></p>
 
-
-<!--
-
-  <h2>Smart editor</h2>
-
-  {% include feature-pic.html i="feature-editor" %}
-
-  <div class="feature">
-    <h3>Syntax highlighting</h3>
-
-    <p>IntelliJ Rust, apart from basic lexer highlighting, also highlights resolved types, functions, variables (marking
-      out mutable ones) and macros. All color schemes are customizable and we support both <i>Default</i> and
-      <i>Darcula</i> themes out of the box.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Code formatter</h3>
-
-    <p><b>Reformat Code</b> <kbd>Ctrl+Alt+L</kbd> reformats current file or selection using our custom, fully functional
-      formatter based on IntelliJ's formatting engine. There's also a special action
-      for formatting code with rustfmt.
-  </div>
-
-  <div class="feature">
-    <h3>Code selection</h3>
-
-    <p>To select a block of code place a cursor inside block and press <kbd>Ctrl+W</kbd> to expand it to an expression,
-      to a line, to a logical block of code, and so on. To shrink selection press <kbd>Ctrl+Shift+W</kbd> as many
-      times as needed.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Code commenting</h3>
-
-    <p>After selecting a block, you can apply a block comment (<kbd>Ctrl+Shift+/</kbd>) or line comment
-      (<kbd>Ctrl+/</kbd>) to it. The same shortcuts will remove existing comments from selected lines too.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Code folding</h3>
-
-    <p>Code folding, auto-insertion of braces, brackets &amp; quotes, matching brace/bracket highlighting, etc.</p>
-  </div>
-
-  <div class="feature">
-    <h3>On-the-fly analysis<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
-
-    <p>Errors are shown as you type. Among others, we catch syntax errors, missing fields/methods and unnecessary
-      parens. We also support IntelliJ's built-in spell-checker.</p>
-  </div>
-</div>
-
-
-<div class="feature-group">
-  <h2>Code Completion<abbr class="wip" title="Work In Progress">WIP</abbr></h2>
-
-  {% include feature-pic.html i="feature-completion" %}
-
-  <div class="feature feature-major">
-    <p>
-      IntelliJ Rust features built from scratch code completion, leveraging IntelliJ Platform capabilities.
-      <kbd>Ctrl+Space</kbd> invokes completion. We <a href="/docs/faq.html#racer">do not</a> plan
-      to use <code>racer</code>. Most of the code completion is implemented, but support
-      for macros is a work in progress.
-
-    <p>Remember, if the smart completion does not work for your particular case, you can always invoke "dumb completion"
-      via <kbd>Alt+/</kbd>. It merely suggests identifiers already present in the file, but works surprisingly well.</p>
-  </div>
-</div>
-
-
-<div class="feature-group">
-  <h2>Source code navigation</h2>
-
-  {% include feature-pic.html i="feature-navigation" %}
-
-  <p>There are a number of actions for efficient navigation across your project and dependencies.</p>
-
-  <div class="feature">
-    <h3>Find Usages<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
-    <p><kbd>Alt+F7</kbd> finds usages of element at caret.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Goto Declaration</h3>
-    <p><kbd>Ctrl+B</kbd> goes to the definition of the symbol at caret.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Goto Class</h3>
-    <p><kbd>Ctrl+N</kbd> search for a struct or enum by name.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Goto Symbol</h3>
-    <p><kbd>Ctrl+Shift+Alt+N</kbd> searches for any symbol (types, methods, functions, fields) by name. Together with
-      <kbd>Ctrl+N</kbd> it is the main method to explore large projects.</p>
-  </div>
-
-  <div class="feature">
-    <h3>Goto Super</h3>
-    <p><kbd>Ctrl+U</kbd> navigates to the parent module.</p>
-  </div>
-
-  <div class="feature">
-    <h3>File Structure</h3>
-    <p><kbd>Ctrl+F12</kbd>, <kbd>Alt+7</kbd> brings up an overview of the current file.</p>
-  </div>
-
-  <div class="feature side-pic">
-    {% include feature-pic.html i="feature-nav-to-impl"%}
-  </div>
-
-  <div class="feature">
-    <h3>Implementations</h3>
-    <p>
-      Gutter icon or <kbd>Ctrl+Alt+B</kbd> shortcut can be used to navigate between traits or types and impls.
-    </p>
-  </div>
-</div>
-
-
-<div class="feature-group">
-  <h2>Code generation and refactorings</h2>
-
-  <div class="feature feature-major">
-    <h3>'Surround With' and Live Templates</h3>
-
-    <p>There is a number of built in live templates and you can define your own. Different live templates are available
-      in different contexts. Use <kbd>Ctrl+J</kbd> to list templates available in context.</p>
-
-    <ul class="with-side-pic">
-      <li>
-        {% include feature-gfy.html n="UnrulyMajorElephantseal" %}
-        <p><kbd>p</kbd>, <kbd>pd</kbd>, <kbd>ppd</kbd> - <code>println!</code> value with <code>{}</code>, debug
-          <code>{:?}</code> and pretty debug <code>{:#?}</code> formats.</p>
-      </li>
-
-      <li>
-        {% include feature-gfy.html n="PlushOddballBoilweevil" %}
-        <p><kbd>a</kbd>, <kbd>ae</kbd> - <code>assert!</code> / <code>assert_eq!</code></p>
-      </li>
-
-      <li>
-        {% include feature-gfy.html n="ShyThatAmericanquarterhorse" %}
-        <div class="p">
-          <p><kbd>tfn</kbd> - test function boilerplate</p>
-          <p><kbd>tmod</kbd> - test module boilerplate</p>
-        </div>
-      </li>
-
-      <li>
-        {% include feature-gfy.html n="GlamorousUnacceptableHowlermonkey" %}
-        <p><kbd>f</kbd>, <kbd>pf</kbd> - (<code>pub</code>) field name and type, applicable inside struct
-          definitions.</p>
-      </li>
-
-      <li>
-        {% include feature-gfy.html n="WelldocumentedUnsteadyCougar" %}
-        <p><kbd>loop</kbd>, <kbd>while</kbd>, <kbd>for</kbd> templates. You can select a fragment of code and press
-          <kbd>Ctrl+Alt+J</kbd> to invoke <b>Surround With Live Template</b> action.</p>
-      </li>
-    </ul>
-  </div>
-
-  <div class="feature feature-major">
-    <h3>Refactorings<abbr class="wip" title="Work In Progress">WIP</abbr></h3>
-
-    <div class="feature-group grid">
-      <div class="feature">
-        <p><b>Expand module</b>: invoke this refactoring inside <code>foo.rs</code> file to get
-          <code>foo/mod.rs</code>. Also available as a quick fix for unresolved module declaration.</p>
-      </div>
-
-      <div class="feature">
-        <p><b>Introduce variable</b>: use <kbd>Ctrl+Alt+V</kbd> or <code>.let</code> postfix template to extract a variable from an expression.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="feature feature-major">
-    <h3>Intentions</h3>
-
-    <p>Intentions and quick fixes are micro refactorings automatically available depending on the context. If some
-      intentions are available, a light bulb icon appears in the editor. You can use <kbd>Alt+Enter</kbd> to invoke a
-      quick fix.</p>
-
-    <div class="feature-group grid">
-      <div class="feature">
-        {% include feature-gfy.html n="PessimisticFlashyAustraliancurlew" %}
-        <p><b>Contract module</b>: the opposite of <i>Expand Module</i> refactoring. Available only if there are no
-          child modules.</p>
-      </div>
-
-      <div class="feature">
-        {% include feature-gfy.html n="HauntingAgonizingDuck" %}
-        <p><b>Create module file</b>: if you have <code>mod foo;</code>, but no <code>foo.rs</code>
-          this quick fix will create the missing file.</p>
-      </div>
-
-      <div class="feature">
-        {% include feature-gfy.html n="BleakWholeGalapagospenguin" %}
-        <p><b>Extract inline module</b>: move <code>mod foo { ... }</code> to a separate file.</p>
-      </div>
-
-      <div class="feature" id="add-derive">
-        {% include feature-gfy.html n="ChubbyAcrobaticBrahmanbull" %}
-        <p><b>Add derive clause</b>: adds <code>#[derive(..)]</code> attribute to structs and enums.</p>
-      </div>
-
-      <div class="feature">
-        {% include feature-gfy.html n="CluelessGiddyBullfrog" %}
-        <p><b>Remove/Add curly braces</b>: toggles between <code>use foo::{bar}</code> and
-          <code>use foo::bar</code>.</p>
-      </div>
-
-      <div class="feature">
-        {% include feature-gfy.html n="ImperfectFreeGecko" %}
-        <p><b>Add missing fields</b>: a handy way to fill out the struct literal template.</p>
-      </div>
-
-      <div class="feature">
-        {% include feature-gfy.html n="GlisteningCostlyAntarcticfurseal" %}
-        <p><b>Implement methods</b>: quickly scafold an impl.</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<div class="feature-group">
-  <h2>Documentation</h2>
-  {% include feature-pic.html i="feature-doc" %}
-
-  <div class="feature half">
-    <h3>Highlighting</h3>
-    <p>IntelliJ Rust highlights important parts of documentation comments, so they never look so bland.</p>
-  </div>
-
-  <div class="feature half">
-    <h3>Quick documentation</h3>
-    <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
-  </div>
-</div>
-
-<div class="feature-group">
-  <h2>Reading code</h2>
-  {% include feature-pic.html i="feature-reading" %}
-
-  <div class="feature half">
-    <h3>Quick documentation</h3>
-    <p><kbd>Ctrl+Q</kbd> shows docs for the symbol at caret.</p>
-  </div>
-
-  <div class="feature half">
-    <h3>Documentation highlighting</h3>
-    <p>IntelliJ Rust highlights important parts of documentation comments, so they never look so bland.</p>
-  </div>
-
-  <div class="feature half">
-    <h3>Parameter hints</h3>
-    <p>In the editor, you can see hints with names of parameters and types of local variables</p>
-  </div>
-
-  <div class="feature half">
-    <h3>Type information</h3>
-    <p>Use <kbd>Ctrl+Shift+P</kbd> to view the type of selected expression.</p>
-  </div>
-
-
-</div>
-
-
-<div class="feature-group side-pic-showcase">
-  <h2>Running</h2>
-
-  <div class="feature side-pic">
-    {% include feature-pic.html i="feature-runconfig" %}
-  </div>
-
-  <div class="feature">
-    <h3>Configurations</h3>
-
-    <p>Built-in <code>Cargo Command</code> run configuration allows to build,
-      test and run Rust code.
-    </p>
-
-  </div>
-
-
-  <div class="feature side-pic">
-    {% include feature-gfy.html n="FinePopularGreathornedowl" %}
-  </div>
-
-  <div class="feature">
-    <h3>Context aware</h3>
-
-    You can use <kbd>Ctrl+Shift+F10</kbd> shortcut to run a <code>main</code> or a <code>test</code> function.
-    Alternatively, you can use the icon in the gutter area.
-  </div>
-
-
-  <div class="feature side-pic">
-    {% include feature-gfy.html n="VelvetySerpentineCowbird" %}
-  </div>
-
-  <div class="feature">
-    <h3>Synergy</h3>
-
-    You can combine <kbd>Ctrl+Alt+Shift+N</kbd> with <kbd>Ctrl+Shift+F10</kbd> to
-    find and execute a test without switching between code and tests.
-  </div>
-</div>
--->
