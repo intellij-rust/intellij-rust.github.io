@@ -11,7 +11,7 @@ date: 2019-10-07 18:03:21 +0300
 * Import unresolved items automatically while code generation by most of common intentions and quick fixes like
 `Implement members`, `Specify type explicitly`, `Add remaining patterns`.
 Previously, such items were marked as unresolved and had to be imported manually
-{% include gif-img.html path="/assets/posts/changelog-107/generated-item-auto-import" w="90" %}
+{% include gif-img.html path="/assets/posts/changelog-107/generated-item-auto-import" w="90%" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4405 -->
 * Improve `Find Usages` action for pattern bindings (by [@rrevenantt])
