@@ -5,321 +5,461 @@ permalink: /features/
 class: features-page
 ---
 
-<style>
-  table {
-    width: 100%;
-  }
-  td {
-    padding: 5px;
-    vertical-align: top;
-  }
-</style>
-
 {% include features-intro.html %}
 
 
-<h2 id="editor" align="center">Smart editor</h2>
-<h3>Syntax highlighting</h3>
-<table border="1" cellpadding="5">
-  <tr>
-    <td width="50%">On top of the basic lexer highlighting, IntelliJ Rust highlights inferred types and macros, including generated modules and methods from <code>impl</code> blocks. It also marks mutable elements in your code:</td>
-    <td>Those expressions and functions within <code>unsafe {}</code> blocks that perform unsafe operations are additionally highlighted with a contrast background:</td>
-  </tr>
-  <tr>
-    <td><img src="/assets/features/smart_editor/highlight_basic.png" width="400" height="150"></td>
-    <td><img src="/assets/features/smart_editor/highlight_unsafe.png" width="400" height="150"></td>
-  </tr>
-</table>
-<p></p>
-<p>The highlighting palette is fully customizable for both Darcula and Light color schemes.</p>
+<!--
+$grey-color:         #828282;
+$grey-color-lighter: #eaeaeb;
+$grey-color-light:   #cccbcb;
+$grey-color-dark:    #7d8186;
+$grey-color-darker:  #3B3E43;-->
+
+<style>
+  .feature-section {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-template-columns: 1fr 1fr;
+    /*grid-template-rows: minmax(min-content, max-content);*/
+    grid-template-areas:  "l1 l1"
+                          "l2_col1 l2_col2"
+                          "l3 l3"
+                          "l4 l4"
+                          "l5 l5"
+                          "l6 l6"
+                          "l7 l7";
+    background-color: #eaeaeb;
+    color: #444;
+  }
+
+  .feature-section > div {
+    /*background-color: #444;*/
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  .item_toptext {
+    grid-area:l1;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_col1 {
+    grid-area:l2_col1;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_col2 {
+    grid-area:l2_col2;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_bottomtext {
+    grid-area:l3;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_bottomtext2 {
+    grid-area:l4;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_bottomtext3 {
+    grid-area:l5;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_bottomtext4 {
+    grid-area:l6;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_bottomtext5 {
+    grid-area:l7;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .feature-section-3cols {
+    display: grid;
+    grid-column-gap: 0.5em;
+    grid-row-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr;
+    /*grid-template-rows: minmax(min-content, max-content);*/
+    grid-template-areas:  "l1 l1 l1"
+    "l2_col1 l2_col2 l2_col3"
+    "l3 l3 l3"
+    "l4 l4 l4";
+    background-color: #eaeaeb;
+    color: #444;
+  }
+
+  .feature-section-3cols > div {
+    /*background-color: #444;*/
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  .item_toptext_3cols {
+    grid-area:l1;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_col1_3 {
+    grid-area:l2_col1;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+  }
+
+  .item_col2_3 {
+    grid-area:l2_col2;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+  }
+
+  .item_col3_3 {
+    grid-area:l2_col3;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+  }
+
+  .item_bottomtext_col3 {
+    grid-area:l3;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+
+  .item_bottomtext2_col3 {
+    grid-area:l4;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+</style>
+
+<h2 id="editor_syntax" align="left">Syntax highlighting</h2>
+<!--h3>Syntax highlighting</h3-->
+<div class="feature-section">
+  <div class="item_toptext">Highlighting palettes are fully customizable for both Darcula and Light color schemes.</div>
+  <div class="item_col1">
+    <img src="/assets/features/smart_editor/highlight_basic.png">
+    <p></p>
+  <p>On top of the basic lexer highlighting, IntelliJ Rust highlights inferred types and macros, including generated modules and methods from <code>impl</code> blocks. It also marks mutable elements in your code.
+  </p>
+  </div>
+  <div class="item_col2">
+    <img src="/assets/features/smart_editor/highlight_unsafe.png">
+    <p></p>
+    <p>Those expressions and functions within <code>unsafe {}</code> blocks that perform unsafe operations are additionally highlighted with a contrast background.
+    </p>
+  </div>
+</div>
 
 
-
-  <h3>Quick docs and Quick definition</h3>
-<table border="1" cellpadding="5">
-  <tr>
-    <td width="50%" >At any code element, including library functions, invoke <strong>Quick Doc</strong> (<code>Ctrl+Q / F1</code>) to view the documentation popup. If there is a piece of code in the docs, it will be formatted and highlighted properly:</td>
-    <td>To view the implementation or declaration of an element without leaving your current context, call <strong>Quick Definition</strong> by pressing <code>Ctrl+Shift+I / ⌥Space</code>:</td>
-  </tr>
-  <tr>
-    <td><img src="/assets/features/smart_editor/quick_doc.png" width="410" height="240"></td>
-    <td><img src="/assets/features/smart_editor/quick_def.png" width="490" height="240"></td>
-  </tr>
-</table>
-<p></p>
-<p>Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to the extern crate declarations. Click it, and you will jump right to the particular crate’s description on <a href="docs.rs">docs.rs</a>.</p>
-
-
-  <h3>Hints and Type information</h3>
-<p>Hints for function argument names, types, and lambda parameters are displayed in the editor, and IntelliJ Rust adjusts them as you type. If you prefer not to see some of the hints or hide them entirely, you can always tune that in the settings.</p>
-
-
-<table border="1" cellpadding="5">
-  <tr>
-    <td width="50%" >If you press <code>Ctrl</code> and hover the mouse over a hint, it will turn into an interactive inlay:</td>
-    <td>You can also get the type information by calling <strong>Type Info</strong> (<code>Ctrl + Shift + P / ⌃⇧P</code>) for a selected expression:</td>
-  </tr>
-  <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
-               src="/assets/features/smart_editor/hints_inlay.png" data-gif="/assets/features/smart_editor/hints_inlay.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
-             src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/></td>
-  </tr>
-</table>
+<h2 id="editor_qdoc" align="left">Quick docs and Quick definition</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    Another handy option for viewing documentation is the <img src="/assets/features/smart_editor/docsrs.svg" width="16"> gutter icon, which you can see next to the extern crate declarations. Click it, and you will jump right to the particular crate’s description on <a href="docs.rs">docs.rs</a>.
+  </div>
+  <div class="item_col1">
+    <img src="/assets/features/smart_editor/quick_doc.png">
+    <p></p>
+    <p> At any code element, including library functions, invoke <strong>Quick Doc</strong> (<code>Ctrl+Q / F1</code>) to view the documentation popup. If there is a piece of code in the docs, it will be formatted and highlighted properly.
+    </p>
+  </div>
+  <div class="item_col2">
+    <img src="/assets/features/smart_editor/quick_def.png">
+    <p></p>
+    <p>To view the implementation or declaration of an element without leaving your current context, call <strong>Quick Definition</strong> by pressing <code>Ctrl+Shift+I / ⌥Space</code>.
+    </p>
+  </div>
+</div>
 
 
-<p></p>
-<p>Another alternative to view the types is to turn off the <strong>Show local variable type hints</strong> option and hover the mouse over a variable while holding <code>Ctrl / ⌘</code>.</p>
+<h2 id="editor_hints" align="left">Hints and Type information</h2>
+<div class="feature-section">
+  <div class="item_toptext">Hints for function argument names, types, and lambda parameters are displayed in the editor, and IntelliJ Rust adjusts them as you type. If you prefer not to see some of the hints or hide them entirely, you can always tune that in the settings.
+  </div>
+  <div class="item_col1">
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+         src="/assets/features/smart_editor/hints_inlay.png" data-gif="/assets/features/smart_editor/hints_inlay.gif">
+    <p></p>
+    <p>If you press <code>Ctrl</code> and hover the mouse over a hint, it will turn into an interactive inlay.</p>
+  </div>
+  <div class="item_col2">
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+         src="/assets/features/smart_editor/type_info.png" data-gif="/assets/features/smart_editor/type_info.gif"/>
+    <p></p>
+    <p>You can also get the type information by calling <strong>Type Info</strong> (<code>Ctrl + Shift + P / ⌃⇧P</code>) for a selected expression.</p>
+  </div>
+  <div class="item_bottomtext">
+    Another alternative to view the types is to turn off the <strong>Show local variable type hints</strong> option and hover the mouse over a variable while holding <code>Ctrl / ⌘</code>.
+  </div>
+</div>
 
 
+<h2 id="editor_macro" align="left">Macro expansion popup</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion.
+      This feature is a part of the macro expansion functionality that affects most of the code insight.</p>
+    <p></p>
+      <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+        src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif">
+    <!--img data-wait="true" style="width: auto" data-wait="true" data-scope="gif-scope"
+        src="/assets/features/smart_editor/macro_expansion.gif"-->
 
-  <h3>Macro expansion popup</h3>
-<p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion. This feature is a part of the macro expansion functionality that affects most of the code insight.
+</div>
+</div>
+
+
+<h2 id="editor_completion" align="left">Code completion</h2>
+<div class="feature-section">
+  <div class="item_col1">
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+         src="/assets/features/code_completion/completion_derive.png" data-gif="/assets/features/code_completion/completion_derive.gif"/>
+    <p></p>
+    <p>Completion for your Rust code works as you type. It is available for attributes and elements inside <code>#[derive]</code>, including standard library traits.
+    </p>
+  </div>
+  <div class="item_col2">
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+         src="/assets/features/code_completion/completion_trait.png" data-gif="/assets/features/code_completion/completion_trait.gif"/>
+    <p></p>
+    <p>For out-of-scope items, like the cases of adding a trait import during method completion, the corresponding <code>use</code> item is inserted automatically.
+    </p>
+  </div>
+  <div class="item_bottomtext">
+   In addition, IntelliJ Rust provides completion inside macro calls. It knows the resulting macro substitution and suggests the applicable items.
+    <!--div class="pic"><img src="/assets/features/code_completion/completion_macro_calls.png" width="400"-->
+  </div>
+</div>
+
+<h2 id="editor_doccomments" align="left">Doc comments highlighting</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>Code blocks inside doc comments are treated as valid Rust code: you get full code insight including syntax highlighting, <a href="#completion">completion</a>, and <a href="#intentions">intentions</a>.
+    </p>
+    <p></p>
+    <img src="/assets/features/smart_editor/doc_comments_hl.png" style="width: auto">
+  </div>
+</div>
+
+<h2 id="editor_formatting" align="left">Code style and formatting</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>IntelliJ Rust helps your code stay compliant with style guidelines and naming conventions. You can configure the details of the preferred style in <strong>Settings / Preferences | Editor | Code style | Rust</strong>, and adjust the <a href="#inspections">inspections</a> that validate your code against Rust naming conventions.</p>
+    <p>To explicitly reformat your code, you can use the built-in action (<code>Code | Reformat</code> or <code>Ctrl+Alt+L / ⌥⌘L</code>), or call <a href="https://github.com/rust-lang/rustfmt">rustfmt</a> (<code>Code | Reformat Cargo Project with Rustfmt</code> or using the button in the Cargo tool window).</p>
+  </div>
+</div>
+
+
+<h2 id="intentions" align="left">Intentions and quick-fixes</h2>
+<div class="feature-section">
+  <div class="item_col1">
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif"/>
+    <p></p>
+    <p>The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals.</p>
+  </div>
+  <div class="item_col2">
+    <img src="/assets/features/code_generation/add_derive_clause_2.png">
+    <p></p>
+    <p>You can quickly add <code>#[derive]</code> clauses and <code>impl</code> blocks for structs and enums, and perform struct-to-tuple and tuple-to-struct conversion</p>
+  </div>
+  <div class="item_bottomtext">
+    <p>Auto-import works for all unresolved references in your code:</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif"/>
+  </div>
+  <div class="item_bottomtext2">
+   IntelliJ Rust also checks <code>match</code> expressions in your code and suggests removing unreachable patterns or adding the missing ones, including the cases of complex patterns with multiple types. This inspection also supports <a href="https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md">match ergonomics</a>.
+    <!--img src="/assets/features/code_generation/mathc_checks.png" style="width: auto"-->
+  </div>
+</div>
+
+<h2 id="livetemplates" align="left">Live templates, ‘Surround with’, and Postfix completion</h2>
+<div class="feature-section">
+  <div class="item_bottomtext">
+    <p>There is a number of ready-to-use live templates to help you insert frequently used Rust constructs into your code. You can always customize and extend this set in <strong>Settings / Preferences | Editor | Live Templates</strong>.
+    </p>
+    <p>
+      Press <code>Ctrl/⌘ + J</code> to view the templates available in the current context. If you already know the abbreviation, just start typing it, choose from the list of suggestions, and then press <code>Tab</code> to navigate between the template variables:
+    </p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+                          src="/assets/features/code_generation/livetemplates_basic.png" data-gif="/assets/features/code_generation/livetemplates_basic.gif"/>
+  </div>
+  <div class="item_bottomtext2">
+    <p>You can select a piece of code and press <code>Ctrl+Alt+J / ⌥⌘J</code> to surround it with a live template, or press <code>Ctrl+Alt+T / ⌥⌘T</code> to surround it with <code>loop</code>, <code>while</code>, <code>if</code>, <code>for</code>, and other wrappers, depending on the context.</p>
+  </div>
+  <div class="item_bottomtext3">
+    <p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it:</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_generation/postfix.png" data-gif="/assets/features/code_generation/postfix.gif"/>
+    <p></p>
+  </div>
+</div>
+
+
+<h2 id="refactoring" align="left">Refactorings</h2>
+<div class="feature-section">
+  <div class="item_bottomtext">
+    <ul>
+      <li>Rename            (Shift+F6 / ⇧F6)</li>
+      <li>Extract Variable  (Ctrl+Alt+V / ⌥⌘V)</li>
+      <li>Extract Parameter (Ctrl+Alt+P / ⌥⌘P)</li>
+      <li>Extract Method    (Ctrl+Alt+M / ⌥⌘M)</li>
+      <li>Convert to Tuple / Struct</li>
+      <li>Promote / Downgrade module</li>
+    </ul>
+  </div>
+  <div class="item_bottomtext2">
+    <p>One of the most frequently used ones, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), changes the name of a symbols and automatically corrects all the references in the code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:</p>
+   <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+                          src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"/>
+    <!--p>You can rename symbols in-place or use a dialog with a preview.</p-->
+  </div>
+  <div class="item_bottomtext3">
+    <p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
+    </p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+                          src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"/>
+  </div>
+</div>
+
+
+<h2 id="navigation" align="left">Navigation and search</h2>
+<div class="feature-section">
+  <div class="item_bottomtext">
+    <p>The easiest way to find anything in the IDE - a code item, action, or UI element - is <strong>Search Everywhere</strong>.</p>
+    <p>Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search down by setting the required scope:</p>
+    <img src="/assets/features/navigation/search_everywhere.png">
+    <p>In addition to <strong>Search Everywhere</strong>, you can separately call <strong>Go To</strong> class (<code>Ctrl+O / ⌘O</code>), symbol (<code>Ctrl+Alt+O / ⌥⌘O</code>), or file (<code>Ctrl+Shift+O / ⇧⌘O</code>).</p>
+  </div>
+  <div class="item_bottomtext2">
+    <p>To locate all the occurrences of any symbol in your code, place the caret on it and call <strong>Find Usages</strong>. The IDE understands symbol context, so you will not see textual matches in the results.</p>
+    <p>You can highlight the usages in the current file by pressing <code>Ctrl+Shift+F7 / ⇧⌘F7</code>, and then jump between them, or list all usages in a separate window using <code>Alt+F7 / ⌥F7</code>. You can filter and group the results, and jump back to the source code:
+    </p>
+    <img src="/assets/features/navigation/find_usages.png">
+  </div>
+  <div class="item_bottomtext3">
+    <p>To navigate through declarations/definitions and hierarchies in your code, use Go-To action for Declaration (<code>Ctrl+B / ⌘B</code>), Definition (<code>Ctrl+Alt+B / ⌥⌘B</code>), Type Declaration (<code>Ctrl+Shift+B / ⇧⌘B</code>), and Super Method (<code>Ctrl+U / ⌘U</code>), which navigates to a parent module.</p>
+    <p>There is also a handy <i>Go to Implementation</i> gutter icon to help you quickly switch between traits, types, and impls:
+    </p>
+    <img src="/assets/features/navigation/goto_impl_gutter.png">
+  </div>
+  <div class="item_bottomtext4">
+    <p>All navigation actions are available inside macro calls when the <i>experimental macro expansion engine</i> is turned on (<strong>Settings / Preferences | Languages & Frameworks | Rust | Expand declarative macros</strong>):</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+                          src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"/>
+  </div>
+  <!--div class="item_bottomtext5">
+    <p>You can also explore the structure of the currently opened file in the <strong>Structure</strong> view (<code>Ctrl+F12 / ⌘F12</code>):</p>
+    <img src="/assets/features/navigation/file_structure.png" style="width: auto">
+  </div-->
+</div>
+
+<h2 id="analysis" align="left">Code analysis</h2>
+<div class="feature-section-3cols">
+  <div class="item_toptext_3cols">
+    <p>IntelliJ Rust uses a set of inspections to monitor code as you type. You can configure the list of them, and set the severities and scopes in <strong>Settings / Preference | Editor | Inspections</strong>. By default, most inspections work on-the-fly and suggest quick-fixes to be applied right away. Find a few examples below:
+    </p>
+  </div>
+  <div class="item_col1_3">
+    <p>Type check errors</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_analysis/type_cast_2.png" data-gif="/assets/features/code_analysis/type_cast_2.gif"/>
+  </div>
+  <div class="item_col2_3">
+    <p><i>No such field</i> annotation</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_analysis/nosuch_field.png" data-gif="/assets/features/code_analysis/nosuch_field.gif"/>
+  </div>
+  <div class="item_col3_3">
+    <p>Accessing private items</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_analysis/make_public.png" data-gif="/assets/features/code_analysis/make_public.gif"/>
+  </div>
+  <div class="item_bottomtext_col3">
+    <p>You can also run the inspections on demand by calling <strong>Code | Inspect Code</strong>. The results will be shown in a separate window, from which you can apply quick-fixes to a single case or to several cases at a time:</p>
+    <img src="/assets/features/code_analysis/inspections_batch.png">
+  </div>
+  <div class="item_bottomtext2_col3">
+    <p>In addition to the built-in set of inspections, you can run <strong>Cargo Check</strong> or <a href="https://github.com/rust-lang/rust-clippy">Clippy</a> without leaving the IDE. Select the linter in <strong>Settings / Preference | Languages & Frameworks | Rust | Cargo</strong>, and run it from the Cargo tool window.</p>
+  </div>
+</div>
+
+
+<h2 id="cargo_support" align="left">Cargo support</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>The plugin fully supports Cargo-based Rust applications: it takes project-level information from <code>Cargo.toml</code> files to open your projects and creates new ones based on the Cargo template. <a href="https://plugins.jetbrains.com/plugin/8195-toml">IntelliJ TOML</a> installs in pair with IntelliJ Rust, so all the <code>.toml</code> files in your project get code assistance as well.</p>
+  </div>
+  <div class="item_bottomtext">
+    <p>Cargo tool window shows all the workspace members and targets. From there, you can monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run <a href="#external-linters">external linters</a>.</p>
+  </div>
+  <div class="item_bottomtext2">
+    <p>The <strong>Run Anything</strong> popup includes Cargo commands: press <code>Ctrl</code> twice and start typing the command that you want to run.</p>
+    <img class="gif" data-wait="true" data-scope="gif-scope"
+      src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif"/>
+  </div>
+  <div class="item_bottomtext3">
+    <p>For every Cargo command you call, the IDE creates a temporary run/debug configuration. You can edit them and make new configurations out of the Cargo Command template in the <strong>Edit Configurations</strong> dialog. Then, you can use Run <img src="/assets/features/icons/icons_run.png" width="16"/> or Debug <img src="/assets/features/icons/icons_debug.png" width="16"/> (CLion) actions for them.</p>
+    <img src="/assets/features/cargo/rd_config.png">
+  </div>
+</div>
+
+
+<h2 id="testing" align="left">Testing</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>Gutter icon menu is the quickest way to start a run or debug (in CLion) session for your tests:</p>
+    <img src="/assets/features/testing/test_gutter.png">
+  </div>
+  <div class="item_bottomtext">
+    <p>When you run tests using gutter icons or by calling <code>cargo test</code>, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results. It shows the status and duration of each test, and you can sort, save, or import/export the results, as well as jump to the corresponding code:</p>
+    <img src="/assets/features/testing/test_runner.png">
+  </div>
+</div>
+
+<h2 id="debug" align="left">Debug (CLion)</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>IntelliJ Rust integrates with both GDB and LLDB debuggers in CLion. All of the essential debug features like breakpoints, stepping, watches, and others, are fully available for your Rust code. As a plus, CLion lets you step into disassembly, view raw memory, and get hexadecimal presentation for integers.</p>
+  </div>
+  <div class="item_bottomtext">
+    <p>The plugin bundles its own formatters for Rust data types. You can also switch to the compiler’s renderers, or turn them off in the <strong>Debugger Data Views</strong> settings:</p>
+    <img src="/assets/features/debugger/renderers.png">
+    <p></p>
+    <p>Bundled renderers build tree-view visualization for strings, structs, enums, and vectors, helping you access child elements. They also support standard library types like <code>HashMap</code>, <code>HashSet</code>, <code>Rc</code>, <code>Arc</code>, <code>Cell</code>, and <code>Ref</code>.</p>
+    <img src="/assets/features/debugger/type_rendering.png">
+  </div>
+  <div class="item_bottomtext2">
+    <p>
+      During a debug session, you can explore threads and frames separately, and evaluate expressions (this functionality is limited to what is currently provided by the Rust expression parsers in GDB and LLDB).</p>
+    <p>The values of local variables are also shown inline in the editor, and if you <a href="https://www.jetbrains.com/help/clion/using-hexadecimal-view.html">enable hex view</a>, CLion will add the formatted values into the inlined presentation as well.</p>
+  </div>
+  <div class="item_bottomtext3">
+    <p>To jump into memory, you can select a pointer variable and call <strong>Show in Memory View</strong> from the context menu.</p>
+    <img src="/assets/features/debugger/debugger_overview.png">
+  </div>
+  <div class="item_bottomtext4">
+    <p>CLion’s debugger functionality stays fully available even when you target a remote machine. With the executable running remotely under <i>gdbserver</i>, you can connect to it from CLion, and inspect your code as if the program was running locally (<a href="https://www.jetbrains.com/help/clion/remote-debug.html">learn more</a>).</p>
+  </div>
+</div>
+
+<h2 id="dyn_analysis" align="left">Dynamic analysis (CLion)</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>To help you work on performance improvements, CLion integrates with CPU profiler on Linux (Perf) and macOS (DTrace).</p>
+    <p>Run profiling <img src="/assets/features/icons/icons._profiler.png" width="16"/> for your Cargo Command configuration, and the results will be presented in a flame graph, call tree, and method list:
+      <img src="/assets/features/debugger/profiler.png"></p>
+    <p>Refer to <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on configuring the profiler and interpreting results.</p>
+  </div>
+  <div class="item_bottomtext">
+    <p>One more option for dynamic analysis is <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a>, supported on Linux and macOS. This memory error detector can help you deeper investigate the behavior of <code>unsafe{}</code> blocks and Rust wrappers around C.</p>
+  </div>
+</div>
+
+<h2 id="coverage" align="left">Code coverage</h2>
+<div class="feature-section">
+  <div class="item_toptext">
+  <p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility.<p>
 </p>
-<div class="pic">
-<img class="gif" data-wait="true" data-scope="gif-scope" width="550"
-     src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif"/>
+    <p>Currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16"/>:</p>
+    <img src="/assets/features/coverage/coverage.png">
+  </div>
 </div>
-<p></p>
-
-  <h3>Doc comments highlighting</h3>
-<p>Code blocks inside doc comments are treated as valid Rust code: you get full code insight including syntax highlighting, <a href="#completion">completion</a>, and <a href="#intentions">intentions</a>.</p>
-<div class="pic">
-  <img src="/assets/features/smart_editor/doc_comments_hl.png" width="550">
-</div>
-<p></p>
-
-  <h3>Code style and formatting</h3>
-
-<p>IntelliJ Rust helps your code stay compliant with style guidelines and naming conventions. You can configure the details of the preferred style in <strong>Settings / Preferences | Editor | Code style | Rust</strong>, and adjust the <a href="#inspections">inspections</a> that validate your code against Rust naming conventions.</p>
-
-<p>To explicitly reformat your code, you can use the built-in action (<code>Code | Reformat</code> or <code>Ctrl+Alt+L / ⌥⌘L</code>), or call <a href="https://github.com/rust-lang/rustfmt">rustfmt</a> (<code>Code | Reformat Cargo Project with Rustfmt</code> or using the button in the Cargo tool window).</p>
-
-
-
-  <h2 id="completion" align="center">Code completion</h2>
-<table border="1" cellpadding="5">
-  <tr>
-    <td>Completion for your Rust code works as you type. It is available for attributes and elements inside <code>#[derive]</code>, including standard library traits:</td>
-    <td>For out-of-scope items, like the cases of adding a trait import during method completion, the corresponding <code>use</code> item is inserted automatically:</td>
-  </tr>
-  <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="390" height="170"
-             src="/assets/features/code_completion/completion_derive.png" data-gif="/assets/features/code_completion/completion_derive.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" width="320" height="170"
-             src="/assets/features/code_completion/completion_trait.png" data-gif="/assets/features/code_completion/completion_trait.gif"/></td>
-  </tr>
-</table>
-<p></p>
-<p>In addition, IntelliJ Rust provides completion inside macro calls. It knows the resulting macro substitution and suggests the applicable items:</p>
-
-<div class="pic"><img src="/assets/features/code_completion/completion_macro_calls.png" width="400">
-</div>
-<p></p>
-
-
-  <h2 id="codegen" align="center">Code generation</h2>
-
-    <h3 id="intentions">Intentions and quick-fixes</h3>
-<table border="1" cellpadding="5">
-  <tr>
-    <td width="50%">The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals:</td>
-    <td>You can quickly add <code>#[derive]</code> clauses and <code>impl</code> blocks for structs and enums, and perform struct-to-tuple and tuple-to-struct conversion:</td>
-  </tr>
-  <tr>
-    <td>
-      <img class="gif" data-wait="true" data-scope="gif-scope" width="400" height="190"
-           src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif"/>
-    </td>
-    <td><img src="/assets/features/code_generation/add_derive_clause_2.png" width="380" height="190"></td>
-  </tr>
-</table>
-<p></p>
-<p>Auto-import works for all unresolved references in your code:</p>
-<div class="pic">
-  <img class="gif" data-wait="true" data-scope="gif-scope" width="550"
-       src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif"/>
-</div>
-<p></p>
-<p>IntelliJ Rust also checks <code>match</code> expressions in your code and suggests removing unreachable patterns or adding the missing ones, including the cases of complex patterns with multiple types. This inspection also supports <a href="https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md">match ergonomics</a>.</p>
-<div class="pic">
-  <img src="/assets/features/code_generation/mathc_checks.png" width="400">
-</div>
-<p></p>
-
-    <h3>Live templates, ‘Surround with’, and Postfix completion</h3>
-<p>There is a number of ready-to-use live templates to help you insert frequently used Rust constructs into your code. You can always customize and extend this set in <strong>Settings / Preferences | Editor | Live Templates</strong>.
-</p>
-<p>
-  Press <code>Ctrl/⌘ + J</code> to view the templates available in the current context. If you already know the abbreviation, just start typing it, choose from the list of suggestions, and then press <code>Tab</code> to navigate between the template variables:
-</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
-        src="/assets/features/code_generation/livetemplates_basic.png" data-gif="/assets/features/code_generation/livetemplates_basic.gif"/>
-</div>
-<p></p>
-
-<p>You can select a piece of code and press <code>Ctrl+Alt+J / ⌥⌘J</code> to surround it with a live template, or press <code>Ctrl+Alt+T / ⌥⌘T</code> to surround it with <code>loop</code>, <code>while</code>, <code>if</code>, <code>for</code>, and other wrappers, depending on the context.</p>
-<p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it:</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="600"
-        src="/assets/features/code_generation/postfix.png" data-gif="/assets/features/code_generation/postfix.gif"/>
-</div>
-<p></p>
-
-
-    <h3>Refactorings</h3>
-<p>IntelliJ Rust supports the following refactorings:</p>
-<ul>
-  <li>Rename            (Shift+F6 / ⇧F6)</li>
-  <li>Extract Variable  (Ctrl+Alt+V / ⌥⌘V)</li>
-  <li>Extract Parameter (Ctrl+Alt+P / ⌥⌘P)</li>
-  <li>Extract Method    (Ctrl+Alt+M / ⌥⌘M)</li>
-  <li>Convert to Tuple / Struct</li>
-  <li>Promote / Downgrade module</li>
-</ul>
-
-<p>One of the most frequently used ones, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), changes the name of a symbols and automatically corrects all the references in the code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="450"
-        src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"/>
-</div>
-<p></p>
-<p>You can rename symbols in-place or use a dialog with a preview.</p>
-<p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
-</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="600"
-        src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"/>
-</div>
-<p></p>
-
-
-  <h2 id="navigation" align="center">Navigation and search</h2>
-<h3>Search everywhere</h3>
-<p>The easiest way to find anything in the IDE - a code item, action, or UI element - is <strong>Search Everywhere</strong>. Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search down by setting the required scope:</p>
-<div class="pic"><img src="/assets/features/navigation/search_everywhere.png" width="650"></div>
-<p></p>
-
-<h3>Find Usages</h3>
-<p>To locate all the occurrences of any symbol in your code, place the caret on it and call <strong>Find Usages</strong>. The IDE understands symbol context, so you will not see textual matches in the results.</p>
-<p>You can highlight the usages in the current file by pressing <code>Ctrl+Shift+F7 / ⇧⌘F7</code>, and then jump between them, or list all usages in a separate window using <code>Alt+F7 / ⌥F7</code>. You can filter and group the results, and jump back to the source code:
-</p>
-<div class="pic"><img src="/assets/features/navigation/find_usages.png" width="500"></div>
-<p></p>
-
-
-<h3>Go-To and File Structure</h3>
-<p>In addition to <strong>Search Everywhere</strong>, you can separately call <strong>Go To</strong> class (<code>Ctrl+O / ⌘O</code>), symbol (<code>Ctrl+Alt+O / ⌥⌘O</code>), or file (<code>Ctrl+Shift+O / ⇧⌘O</code>).</p>
-
-<p>To navigate through declarations/definitions and hierarchies in your code, use Go-To action for Declaration (<code>Ctrl+B / ⌘B</code>), Definition (<code>Ctrl+Alt+B / ⌥⌘B</code>), Type Declaration (<code>Ctrl+Shift+B / ⇧⌘B</code>), and Super Method (<code>Ctrl+U / ⌘U</code>), which navigates to a parent module.</p>
-
-<p>There is also a handy <i>Go to Implementation</i> gutter icon to help you quickly switch between traits, types, and impls:
-</p>
-<div class="pic"><img src="/assets/features/navigation/goto_impl_gutter.png" width="500"></div>
-<p></p>
-
-<p>All navigation actions are available inside macro calls when the <i>experimental macro expansion engine</i> is turned on (<strong>Settings / Preferences | Languages & Frameworks | Rust | Expand declarative macros</strong>):</p>
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="500"
-        src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"/>
-</div>
-<p></p>
-
-<p>You can also explore the structure of the currently opened file in the <strong>Structure</strong> view (<code>Ctrl+F12 / ⌘F12</code>):</p>
-<div class="pic"><img src="/assets/features/navigation/file_structure.png" width="400"></div>
-<p></p>
-
-  <h2 id="analysis" align="center">Code analysis</h2>
-<h3 id="inspections">Inspections</h3>
-<p>IntelliJ Rust uses a set of inspections to monitor code as you type. You can configure the list of them, and set the severities and scopes in <strong>Settings / Preference | Editor | Inspections</strong>.</p>
-<p>
-  By default, most inspections work on-the-fly and suggest quick-fixes to be applied right away. Find a few examples below:
-</p>
-<table border="1" cellpadding="5">
-  <tr>
-    <td>Type check errors:</td>
-    <td><i>No such field</i> annotation:</td>
-    <td>Accessing private items:</td>
-  </tr>
-  <tr>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" height="175" width="300"
-             src="/assets/features/code_analysis/type_cast_2.png" data-gif="/assets/features/code_analysis/type_cast_2.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" height="175" width="320"
-             src="/assets/features/code_analysis/nosuch_field.png" data-gif="/assets/features/code_analysis/nosuch_field.gif"/></td>
-    <td><img class="gif" data-wait="true" data-scope="gif-scope" height="175" width="330"
-             src="/assets/features/code_analysis/make_public.png" data-gif="/assets/features/code_analysis/make_public.gif"/></td>
-  </tr>
-</table>
-<p></p>
-<p>You can also run the inspections on demand by calling <strong>Code | Inspect Code</strong>. The results will be shown in a separate window, from which you can apply quick-fixes to a single case or to several cases at a time:</p>
-<div class="pic"><img src="/assets/features/code_analysis/inspections_batch.png" width="700"></div>
-<p></p>
-
-
-<h3 id="external-linters">External linters</h3>
-<p>In addition to the built-in set of inspections, you can run <strong>Cargo Check</strong> or <a href="https://github.com/rust-lang/rust-clippy">Clippy</a> without leaving the IDE. Select the linter in <strong>Settings / Preference | Languages & Frameworks | Rust | Cargo</strong>, and run it from the Cargo tool window.
-</p>
-
-
-
-  <h2 id="cargo">Cargo support</h2>
-
-<p>The plugin fully supports Cargo-based Rust applications: it takes project-level information from <code>Cargo.toml</code> files to open your projects and creates new ones based on the Cargo template.</p>
-
-<p>As <a href="https://plugins.jetbrains.com/plugin/8195-toml">IntelliJ TOML</a> installs in pair with IntelliJ Rust, <code>.toml</code> files in your project get code assistance as well.</p>
-
-<p>Cargo tool window shows all the workspace members and targets. From there, you can monitor the status of your project modules and refresh them when needed, run targets in a single click, call Cargo commands, reformat code using <a href="https://github.com/rust-lang/rustfmt">Rustfmt</a>, and run <a href="#external-linters">external linters</a>.</p>
-
-<p>The <strong>Run Anything</strong> popup includes Cargo commands: press <code>Ctrl</code> twice and start typing the command that you want to run.</p>
-
-<div class="pic"><img class="gif" data-wait="true" data-scope="gif-scope" width="550"
-                      src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif"/></div>
-<p></p>
-
-<p>For every Cargo command you call, the IDE creates a temporary run/debug configuration. You can edit them and make new configurations out of the Cargo Command template in the <strong>Edit Configurations</strong> dialog. Then, you can use Run <img src="/assets/features/icons/icons_run.png" width="16"/> or Debug <img src="/assets/features/icons/icons_debug.png" width="16"/> (CLion) actions for them.</p>
-
-<div class="pic"><img src="/assets/features/cargo/rd_config.png" width="600"></div>
-<p></p>
-
-
-  <h2 id="testing">Testing</h2>
-<p>Gutter icon menu is the quickest way to start a run or debug (in CLion) session for your tests:</p>
-<div class="pic"><img src="/assets/features/testing/test_gutter.png" width="450"></div>
-<p></p>
-
-<p>When you run tests using gutter icons or by calling <code>cargo test</code>, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results. It shows the status and duration of each test, and you can sort, save, or import/export the results, as well as jump to the corresponding code:</p>
-<div class="pic"><img src="/assets/features/testing/test_runner.png" width="450"></div>
-<p></p>
-
-  <h2 id="debug">Debug and Dynamic Analysis (CLion)</h2>
-<p>IntelliJ Rust integrates with both GDB and LLDB debuggers in CLion. All of the essential debug features like breakpoints, stepping, watches, and others, are fully available for your Rust code. As a plus, CLion lets you step into disassembly, view raw memory, and get hexadecimal presentation for integers.</p>
-
-<p>The plugin bundles its own formatters for Rust data types. You can also switch to the compiler’s renderers, or turn them off in the <strong>Debugger Data Views</strong> settings:</p>
-<div class="pic"><img src="/assets/features/debugger/renderers.png" width="450"></div>
-<p></p>
-
-<p>Bundled renderers build tree-view visualization for strings, structs, enums, and vectors, helping you access child elements. They also support standard library types like <code>HashMap</code>, <code>HashSet</code>, <code>Rc</code>, <code>Arc</code>, <code>Cell</code>, and <code>Ref</code>.</p>
-<div class="pic"><img src="/assets/features/debugger/type_rendering.png" width="450"></div>
-<p></p>
-
-<p>
-  During a debug session, you can explore threads and frames separately, and evaluate expressions (this functionality is limited to what is currently provided by the Rust expression parsers in GDB and LLDB).</p>
-<p>The values of local variables are also shown inline in the editor, and if you <a href="https://www.jetbrains.com/help/clion/using-hexadecimal-view.html">enable hex view</a>, CLion will add the formatted values into the inlined presentation as well.</p>
-
-<p>To jump into memory, you can select a pointer variable and call <strong>Show in Memory View</strong> from the context menu.</p>
-<div class="pic"><img src="/assets/features/debugger/debugger_overview.png" width="700"></div>
-<p></p>
-
-<p>CLion’s debugger functionality stays fully available even when you target a remote machine. With the executable running remotely under <i>gdbserver</i>, you can connect to it from CLion, and inspect your code as if the program was running locally (<a href="https://www.jetbrains.com/help/clion/remote-debug.html">learn more</a>).</p>
-
-<p>To help you work on performance improvements, CLion integrates with CPU profiler on Linux (Perf) and macOS (DTrace). Run profiling <img src="/assets/features/icons/icons._profiler.png" width="16"/> for your Cargo Command configuration, and the results will be presented in a flame graph, call tree, and method list:
-</p>
-<div class="pic"><img src="/assets/features/debugger/profiler.png" width="600"></div>
-<p></p>
-
-<p>Refer to <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on configuring the profiler and interpreting results.</p>
-
-<p>One more option for dynamic analysis is <a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind Memcheck</a>, supported on Linux and macOS. This memory error detector can help you deeper investigate the behavior of <code>unsafe{}</code> blocks and Rust wrappers around C.</p>
-
-<h2 id="coverage">Code coverage</h2>
-<p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility.<p>
-</p>Currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16"/>:</p>
-<div class="pic"><img src="/assets/features/coverage/coverage.png" width="700"></div>
-<p></p>
-
