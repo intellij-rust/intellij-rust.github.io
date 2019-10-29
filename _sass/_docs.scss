@@ -79,6 +79,8 @@ $doc-nav-min-width: 200px;
     min-width: $doc-nav-min-width;
     max-width: $doc-nav-min-width*2;
     font-size: 0.9em;
+    //position: fixed;
+    //left: $content-width ;
 
     ul {
         margin: 0;
