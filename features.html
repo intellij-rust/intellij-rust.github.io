@@ -197,8 +197,9 @@ $grey-color-darker:  #3B3E43;-->
     <p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion.
       This feature is a part of the macro expansion functionality that affects most of the code insight.</p>
     <p></p>
-      <p><img class="gif" data-wait="true" data-scope="gif-scope" style="width: initial"
-        src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif" alt="macro expansion popup"/></p>
+      <p><img class="gif" data-wait="true" data-scope="gif-scope" style="max-width:616px " style="max-height:217px "
+        src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif" alt="macro expansion popup"
+      /></p>
     <!--img data-wait="true" style="width: auto" data-wait="true" data-scope="gif-scope"
         src="/assets/features/smart_editor/macro_expansion.gif"-->
 
@@ -234,7 +235,7 @@ $grey-color-darker:  #3B3E43;-->
     <p>Code blocks inside doc comments are treated as valid Rust code: you get full code insight including syntax highlighting, <a href="#completion">completion</a>, and <a href="#intentions">intentions</a>.
     </p>
     <p></p>
-    <img src="/assets/features/smart_editor/doc_comments_hl.png" style="width: auto" alt="doc comments highlighting">
+    <img src="/assets/features/smart_editor/doc_comments_hl.png" alt="doc comments highlighting" width="700"/>
   </div>
 </div>
 
@@ -250,21 +251,22 @@ $grey-color-darker:  #3B3E43;-->
 <h2 id="intentions" align="left">Intentions and quick-fixes</h2>
 <div class="feature-section">
   <div class="item_col1">
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
-         src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif" width="380"
-         alt="missing fields intention"/>
+    <!--img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+         src="/assets/features/code_generation/missing_fields.png" data-gif="/assets/features/code_generation/missing_fields.gif"
+         alt="missing fields intention"/-->
+    <img src="/assets/features/code_generation/missing_fields_img.png" alt="missing fields intention"/>
     <p></p>
     <p>The <i>Add missing fields</i> quick fix helps you interactively define field values of struct literals.</p>
   </div>
   <div class="item_col2">
-    <img src="/assets/features/code_generation/add_derive_clause_2.png" alt="add derive clause intention">
+    <img src="/assets/features/code_generation/add_derive_clause_2.png" alt="add derive clause intention"/>
     <p></p>
     <p>You can quickly add <code>#[derive]</code> clauses and <code>impl</code> blocks for structs and enums, and perform struct-to-tuple and tuple-to-struct conversion</p>
   </div>
   <div class="item_bottomtext">
-    <p>Auto-import works for all unresolved references in your code:</p>
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: initial"
-         src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif" alt="auto-import"/>
+    <p>Auto-import works for all unresolved references in your code:
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="max-width: 480px" style="max-height: 216px"
+         src="/assets/features/code_generation/auto-import.png" data-gif="/assets/features/code_generation/auto-import.gif" alt="auto-import" /></p>
   </div>
   <div class="item_bottomtext2">
    IntelliJ Rust also checks <code>match</code> expressions in your code and suggests removing unreachable patterns or adding the missing ones, including the cases of complex patterns with multiple types. This inspection also supports <a href="https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md">match ergonomics</a>.
@@ -310,9 +312,10 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext2">
     <p>One of the most frequently used ones, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), changes the name of a symbols and automatically corrects all the references in the code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:</p>
-   <img class="gif" data-wait="true" data-scope="gif-scope" style="width: initial"
+   <img class="gif" data-wait="true" data-scope="gif-scope" style="max-width: 480px" style="max-height: 160px"
                           src="/assets/features/code_generation/rename_trait.png" data-gif="/assets/features/code_generation/rename_trait.gif"
-        alt="rename trait"/>
+        alt="rename trait"
+   />
     <!--p>You can rename symbols in-place or use a dialog with a preview.</p-->
   </div>
   <div class="item_bottomtext3">
@@ -330,7 +333,7 @@ $grey-color-darker:  #3B3E43;-->
   <div class="item_bottomtext">
     <p>The easiest way to find anything in the IDE - a code item, action, or UI element - is <strong>Search Everywhere</strong>.</p>
     <p>Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search down by setting the required scope:</p>
-    <img src="/assets/features/navigation/search_everywhere.png" alt="search everywhere"/>
+    <img src="/assets/features/navigation/search_everywhere.png" alt="search everywhere" width="750"/>
     <p>In addition to <strong>Search Everywhere</strong>, you can separately call <strong>Go To</strong> class (<code>Ctrl+O / ⌘O</code>), symbol (<code>Ctrl+Alt+O / ⌥⌘O</code>), or file (<code>Ctrl+Shift+O / ⇧⌘O</code>).</p>
   </div>
   <div class="item_bottomtext2">
@@ -347,7 +350,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext4">
     <p>All navigation actions are available inside macro calls when the <i>experimental macro expansion engine</i> is turned on (<strong>Settings / Preferences | Languages & Frameworks | Rust | Expand declarative macros</strong>):</p>
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="max-width: 600px" style="max-height:370px"
                           src="/assets/features/navigation/navigation_in_macros.png" data-gif="/assets/features/navigation/navigation_in_macros.gif"
     alt="navigation inside macro calls"/>
   </div>
@@ -380,7 +383,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext_col3">
     <p>You can also run the inspections on demand by calling <strong>Code | Inspect Code</strong>. The results will be shown in a separate window, from which you can apply quick-fixes to a single case or to several cases at a time:</p>
-    <img src="/assets/features/code_analysis/inspections_batch.png" alt="inspections in batch mode"/>
+    <img src="/assets/features/code_analysis/inspections_batch.png" alt="inspections in batch mode" width="800"/>
   </div>
   <div class="item_bottomtext2_col3">
     <p>In addition to the built-in set of inspections, you can run <strong>Cargo Check</strong> or <a href="https://github.com/rust-lang/rust-clippy">Clippy</a> without leaving the IDE. Select the linter in <strong>Settings / Preference | Languages & Frameworks | Rust | Cargo</strong>, and run it from the Cargo tool window.</p>
@@ -403,7 +406,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext3">
     <p>For every Cargo command you call, the IDE creates a temporary run/debug configuration. You can edit them and make new configurations out of the Cargo Command template in the <strong>Edit Configurations</strong> dialog. Then, you can use Run <img src="/assets/features/icons/icons_run.png" width="16" alt="run icon"/> or Debug <img src="/assets/features/icons/icons_debug.png" width="16" alt="debug icon"/> (CLion) actions for them.</p>
-    <img src="/assets/features/cargo/rd_config.png" alt="cargo command configuration"/>
+    <img src="/assets/features/cargo/rd_config.png" alt="cargo command configuration" width="750"/>
   </div>
 </div>
 
@@ -439,7 +442,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext3">
     <p>To jump into memory, you can select a pointer variable and call <strong>Show in Memory View</strong> from the context menu.</p>
-    <img src="/assets/features/debugger/debugger_overview.png" alt="debugging"/>
+    <img src="/assets/features/debugger/debugger_overview.png" alt="debugging" width="850"/>
   </div>
   <div class="item_bottomtext4">
     <p>CLion’s debugger functionality stays fully available even when you target a remote machine. With the executable running remotely under <i>gdbserver</i>, you can connect to it from CLion, and inspect your code as if the program was running locally (<a href="https://www.jetbrains.com/help/clion/remote-debug.html">learn more</a>).</p>
@@ -453,7 +456,7 @@ $grey-color-darker:  #3B3E43;-->
     <p>Run profiling <img src="/assets/features/icons/icons._profiler.png" width="16" alt="profiler icon"/> for your Cargo Command configuration, and the results will be presented in a flame graph, call tree, and method list:
     </p>
     <p>
-      <img src="/assets/features/debugger/profiler.png" alt="profiling results"/></p>
+      <img src="/assets/features/debugger/profiler.png" alt="profiling results" width="750"/></p>
     <p>Refer to <a href="https://www.jetbrains.com/help/clion/cpu-profiler.html">CLion web help</a> for details on configuring the profiler and interpreting results.</p>
   </div>
   <div class="item_bottomtext">
@@ -467,6 +470,6 @@ $grey-color-darker:  #3B3E43;-->
   <p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility.<p>
 </p>
     <p>Currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16" alr="coverage icon"/>:</p>
-    <img src="/assets/features/coverage/coverage.png" alt="coverage results"/>
+    <img src="/assets/features/coverage/coverage.png" alt="coverage results" width="850"/>
   </div>
 </div>
