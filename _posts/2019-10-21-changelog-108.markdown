@@ -60,6 +60,6 @@ the sources were not indexed sometimes that led to unexpected unresolved names
 * Fix Rust language injection into doc comments with 2019.3 EAPs
 
 
-Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/16)
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/16?closed=1)
 
 

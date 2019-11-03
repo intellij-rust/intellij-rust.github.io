@@ -5,7 +5,7 @@ import os
 import re
 import urllib.request
 from dataclasses import dataclass
-from typing import Set, List
+from typing import Set, List, Optional
 
 # https://github.com/PyGithub/PyGithub
 from github import Github
@@ -41,6 +41,10 @@ class Changelog:
     features: List[ChangelogItem] = []
     fixes: List[ChangelogItem] = []
     internals: List[ChangelogItem] = []
+    milestone_id: Optional[int] = None
+
+    def __init__(self, milestone_id=None):
+        self.milestone_id = milestone_id
 
     def __repr__(self):
         return "features:\n{}\n\nfixes:\n{}\n\ninternals:\n{}\n".format(self.features, self.fixes, self.internals)
@@ -58,11 +62,10 @@ class Changelog:
 def collect_changelog(post_number: int, login_or_token: str, password: str = None):
     expected_milestone_title = f"v{post_number}"
     print(f"Collecting changelog issues for `{expected_milestone_title}` milestone")
-    changelog = Changelog()
     g = Github(login_or_token, password)
     repo: Repository = g.get_repo("intellij-rust/intellij-rust")
 
-    milestone: Milestone = None
+    milestone: Optional[Milestone] = None
     for m in repo.get_milestones():
         if m.title == expected_milestone_title:
             milestone = m
@@ -71,6 +74,7 @@ def collect_changelog(post_number: int, login_or_token: str, password: str = Non
     if milestone is None:
         raise RuntimeError(f"Milestone `{expected_milestone_title}` is not found")
 
+    changelog = Changelog(milestone.number)
     issues = repo.get_issues(milestone=milestone, state="all")
     for issue in issues:
         if issue.pull_request is None:
@@ -137,6 +141,10 @@ date: {}
         f.write("""## Internal Improvements\n\n""")
         for internal in changelog.internals:
             f.write("{}\n\n".format(internal.display()))
+        if changelog.milestone_id is not None:
+            f.write("Full set of changes can be found [here]"
+                    "(https://github.com/intellij-rust/intellij-rust/milestone/{}?closed=1)\n"
+                    .format(changelog.milestone_id))
 
 
 def contributors():
