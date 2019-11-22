@@ -21,7 +21,6 @@ $grey-color-darker:  #3B3E43;-->
     grid-column-gap: 1em;
     grid-row-gap: 1em;
     grid-template-columns: 1fr 1fr;
-    /*grid-template-rows: minmax(min-content, max-content);*/
     grid-template-areas:  "l1 l1"
                           "l2_col1 l2_col2"
                           "l3 l3"
@@ -31,6 +30,7 @@ $grey-color-darker:  #3B3E43;-->
                           "l7 l7";
     background-color: #eaeaeb;
     color: #444;
+    margin-top: 0em;
   }
 
   .feature-section > div {
@@ -55,6 +55,7 @@ $grey-color-darker:  #3B3E43;-->
   }
 
   .item_bottomtext {
+    margin-top: 0em;
     grid-area:l3;
     padding: 0.5em 1em 0.5em 1em;
   }
@@ -209,11 +210,15 @@ $grey-color-darker:  #3B3E43;-->
 
 <h2 id="editor_completion" align="left">Code completion</h2>
 <div class="feature-section">
+  <div class="item_toptext">
+    Completion for your Rust code works as you type. In addition to the basic functionality, IntelliJ Rust provides completion inside macro calls: it knows the resulting macro substitution and suggests the applicable items.
+    <!--div class="pic"><img src="/assets/features/code_completion/completion_macro_calls.png" width="400"-->
+  </div>
   <div class="item_col1">
     <p><img class="gif" data-wait="true" data-scope="gif-scope"
          src="/assets/features/code_completion/completion_derive.png" data-gif="/assets/features/code_completion/completion_derive.gif" alt="completion for derive elements"/></p>
     <p></p>
-    <p>Completion for your Rust code works as you type. It is available for attributes and elements inside <code>#[derive]</code>, including standard library traits.
+    <p>Completion is available for attributes and elements inside <code>#[derive]</code>, including standard library traits.
     </p>
   </div>
   <div class="item_col2">
@@ -222,10 +227,6 @@ $grey-color-darker:  #3B3E43;-->
     <p></p>
     <p>For out-of-scope items, like the cases of adding a trait import during method completion, the corresponding <code>use</code> item is inserted automatically.
     </p>
-  </div>
-  <div class="item_bottomtext">
-   In addition, IntelliJ Rust provides completion inside macro calls. It knows the resulting macro substitution and suggests the applicable items.
-    <!--div class="pic"><img src="/assets/features/code_completion/completion_macro_calls.png" width="400"-->
   </div>
 </div>
 
@@ -301,6 +302,7 @@ $grey-color-darker:  #3B3E43;-->
 <h2 id="refactoring" align="left">Refactorings</h2>
 <div class="feature-section">
   <div class="item_bottomtext">
+    <p>IntelliJ Rust supports the following refactorings:
     <ul>
       <li>Rename            (Shift+F6 / ⇧F6)</li>
       <li>Extract Variable  (Ctrl+Alt+V / ⌥⌘V)</li>
@@ -309,6 +311,7 @@ $grey-color-darker:  #3B3E43;-->
       <li>Convert to Tuple / Struct</li>
       <li>Promote / Downgrade module</li>
     </ul>
+    </p>
   </div>
   <div class="item_bottomtext2">
     <p>One of the most frequently used ones, <strong>Rename</strong> (<code>Shift+F6 / ⇧F6</code>), changes the name of a symbols and automatically corrects all the references in the code. For example, when you rename a trait item, the corresponding items in the trait implementations are renamed as well:</p>
@@ -319,7 +322,7 @@ $grey-color-darker:  #3B3E43;-->
     <!--p>You can rename symbols in-place or use a dialog with a preview.</p-->
   </div>
   <div class="item_bottomtext3">
-    <p>At any place in your code, call <strong>Rector This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
+    <p>At any place in your code, call <strong>Refactor This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
     </p>
     <img class="gif" data-wait="true" data-scope="gif-scope" style="width: initial"
                           src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"
@@ -469,7 +472,7 @@ $grey-color-darker:  #3B3E43;-->
   <div class="item_toptext">
   <p>Coverage analysis for your Rust code is implemented on top of the <a href="https://github.com/mozilla/grcov">grcov</a> utility.<p>
 </p>
-    <p>Currently, this feature is not available in CLion. In IDEA and other IDEs, all you need is to have the nightly toolchain available in order to instrument your code properly, and run the configuration using <img src="/assets/features/icons/icons._coverage.png" width="16" alr="coverage icon"/>:</p>
+    <p>All you need is to use the nightly toolchain to instrument your code properly, and run a configuration using <img src="/assets/features/icons/icons._coverage.png" width="16" alr="coverage icon"/>:</p>
     <img src="/assets/features/coverage/coverage.png" alt="coverage results" width="850"/>
   </div>
 </div>
