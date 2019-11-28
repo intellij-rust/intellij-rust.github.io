@@ -198,7 +198,7 @@ $grey-color-darker:  #3B3E43;-->
     <p>To explore the expansion of any declarative macro in your code, press <code>Alt/⌥ + Enter</code> and choose to view either one-step or full recursive expansion.
       This feature is a part of the macro expansion functionality that affects most of the code insight.</p>
     <p></p>
-      <p><img class="gif" data-wait="true" data-scope="gif-scope" style="max-width:616px " style="max-height:217px "
+      <p><img class="gif" data-wait="true" data-scope="gif-scope" style="width: fit-content"
         src="/assets/features/smart_editor/macro_expansion.png" data-gif="/assets/features/smart_editor/macro_expansion.gif" alt="macro expansion popup"
       /></p>
     <!--img data-wait="true" style="width: auto" data-wait="true" data-scope="gif-scope"
@@ -292,7 +292,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext3">
     <p>Another option to insert code constructs is postfix completion. For example, type <code>.dbg</code> after an expression to insert a <code>dbg!</code> invocation for it:</p>
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: initial"
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="max-width: 595px" style="max-height: 55px"
          src="/assets/features/code_generation/postfix.png" data-gif="/assets/features/code_generation/postfix.gif" alt="postfix completion"/>
     <p></p>
   </div>
@@ -311,6 +311,7 @@ $grey-color-darker:  #3B3E43;-->
       <li>Convert to Tuple / Struct</li>
       <li>Promote / Downgrade module</li>
     </ul>
+    At any place in your code, call <strong>Refactor This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings.
     </p>
   </div>
   <div class="item_bottomtext2">
@@ -322,9 +323,9 @@ $grey-color-darker:  #3B3E43;-->
     <!--p>You can rename symbols in-place or use a dialog with a preview.</p-->
   </div>
   <div class="item_bottomtext3">
-    <p>At any place in your code, call <strong>Refactor This</strong> (<code>Ctrl+Shift+Alt+T / ⌃T</code>) to view the list of all context-depend refactorings. As an example, here is how you can easily put the result of an expression into a variable, affecting all usages:
+    <p>Another example is <strong>Extract Variable</strong> - with this refactorings, you can easily put the result of an expression into a variable, affecting all usages:
     </p>
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: initial"
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: fit-content"
                           src="/assets/features/code_generation/extract_var.png" data-gif="/assets/features/code_generation/extract_var.gif"
          alt="extract variable"/>
   </div>
@@ -337,6 +338,7 @@ $grey-color-darker:  #3B3E43;-->
     <p>The easiest way to find anything in the IDE - a code item, action, or UI element - is <strong>Search Everywhere</strong>.</p>
     <p>Press <code>Shift/⇧</code> twice and start typing what you’re looking for. Completion also works in this dialog to help you find the desired item, and you can narrow the search down by setting the required scope:</p>
     <img src="/assets/features/navigation/search_everywhere.png" alt="search everywhere" width="750"/>
+    <p></p>
     <p>In addition to <strong>Search Everywhere</strong>, you can separately call <strong>Go To</strong> class (<code>Ctrl+O / ⌘O</code>), symbol (<code>Ctrl+Alt+O / ⌥⌘O</code>), or file (<code>Ctrl+Shift+O / ⇧⌘O</code>).</p>
   </div>
   <div class="item_bottomtext2">
@@ -364,31 +366,31 @@ $grey-color-darker:  #3B3E43;-->
 </div>
 
 <h2 id="analysis" align="left">Code analysis</h2>
-<div class="feature-section-3cols">
-  <div class="item_toptext_3cols">
-    <p>IntelliJ Rust uses a set of inspections to monitor code as you type. You can configure the list of them, and set the severities and scopes in <strong>Settings / Preference | Editor | Inspections</strong>. By default, most inspections work on-the-fly and suggest quick-fixes to be applied right away. Find a few examples below:
+<div class="feature-section">
+  <div class="item_toptext">
+    <p>IntelliJ Rust uses a set of inspections to monitor code as you type. You can configure the list of them, and set the severities and scopes in <strong>Settings / Preference | Editor | Inspections</strong>. By default, most inspections work on-the-fly and suggest quick-fixes to be applied right away.
     </p>
   </div>
-  <div class="item_col1_3">
+  <!--div class="item_col1_3">
     <p>Type check errors</p>
     <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
          src="/assets/features/code_analysis/type_cast_2.png" data-gif="/assets/features/code_analysis/type_cast_2.gif" alt="type cast quick-fix"/>
-  </div>
-  <div class="item_col2_3">
+  </div-->
+  <div class="item_col1">
     <p><i>No such field</i> annotation</p>
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="max-width: 300px" style="max-height: 175px"
          src="/assets/features/code_analysis/nosuch_field.png" data-gif="/assets/features/code_analysis/nosuch_field.gif" alt="no such field quick-fix"/>
   </div>
-  <div class="item_col3_3">
+  <div class="item_col2">
     <p>Accessing private items</p>
-    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: auto"
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="max-width: 300px" style="max-height: 175px"
          src="/assets/features/code_analysis/make_public.png" data-gif="/assets/features/code_analysis/make_public.gif" alt="make public quick-fix"/>
   </div>
-  <div class="item_bottomtext_col3">
+  <div class="item_bottomtext">
     <p>You can also run the inspections on demand by calling <strong>Code | Inspect Code</strong>. The results will be shown in a separate window, from which you can apply quick-fixes to a single case or to several cases at a time:</p>
     <img src="/assets/features/code_analysis/inspections_batch.png" alt="inspections in batch mode" width="800"/>
   </div>
-  <div class="item_bottomtext2_col3">
+  <div class="item_bottomtext2">
     <p>In addition to the built-in set of inspections, you can run <strong>Cargo Check</strong> or <a href="https://github.com/rust-lang/rust-clippy">Clippy</a> without leaving the IDE. Select the linter in <strong>Settings / Preference | Languages & Frameworks | Rust | Cargo</strong>, and run it from the Cargo tool window.</p>
   </div>
 </div>
@@ -404,7 +406,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext2">
     <p>The <strong>Run Anything</strong> popup includes Cargo commands: press <code>Ctrl</code> twice and start typing the command that you want to run.</p>
-    <img class="gif" data-wait="true" data-scope="gif-scope"
+    <img class="gif" data-wait="true" data-scope="gif-scope" style="width: fit-content"
       src="/assets/features/cargo/cargo_run_anything.png" data-gif="/assets/features/cargo/cargo_run_anything.gif" alt="running cargo commands"/>
   </div>
   <div class="item_bottomtext3">
@@ -422,7 +424,7 @@ $grey-color-darker:  #3B3E43;-->
   </div>
   <div class="item_bottomtext">
     <p>When you run tests using gutter icons or by calling <code>cargo test</code>, IntelliJ Rust employs the IDE's built-in test runner to help you explore the results. It shows the status and duration of each test, and you can sort, save, or import/export the results, as well as jump to the corresponding code:</p>
-    <img src="/assets/features/testing/test_runner.png" width="470" align="center" alt="test runner"/>
+    <img src="/assets/features/testing/test_runner.png" width="800" align="center" alt="test runner"/>
   </div>
 </div>
 
