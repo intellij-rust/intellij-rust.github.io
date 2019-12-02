@@ -1,0 +1,100 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #111"
+date: 2019-12-02 09:24:06 +0300
+---
+
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4635 -->
+* Extend `cfg` attributes support.
+Now the plugin takes into account [features](https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section) declared in `Cargo.toml` of external dependencies.
+Note, features declared in your workspace and stdlib are still ignored.
+The corresponding support includes highlighting of "disabled" code with gray foreground and
+ignoring code that shouldn't be compiled with the current feature set while code analysis.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4643  -->
+* Equip paths in `Cargo.toml` with completion, navigation, and certain refactorings (for example, rename).
+Note, it requires the latest Toml plugin version
+
+    {% include gif-img.html path="/assets/posts/changelog-111/cargo-toml-code-insight" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4670 -->
+* Detect invalid usages of default type parameters (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4673 -->
+* Move support of [`Grazie`](https://plugins.jetbrains.com/plugin/12175-grazie/) plugin to IntelliJ Rust.
+This integration provides spelling and grammar checks for texts inside your Rust code, for example, in comments and strings literals.
+Due to some technical reasons, you need to install the latest versions of both plugins to make it work
+
+    {% include gif-img.html path="/assets/posts/changelog-111/grazie-support" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4661 -->
+* Don't show default generic types in inlay type hints.
+Note, this behavior can be configured via `Preferences | Editor | Inlay Hints | Rust | Type Hints | Show obvious types` option
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4332 -->
+* Add `Put struct literal fields on separate lines/one line` intention (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4676 -->
+* Display info about `impl` block in `Go to Implementations` dialog (by [@rrevenantt])
+
+## Fixes
+
+* Macros support improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4659 -->
+    * Parse macro calls with unbalanced braces better
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4665 -->
+    * Fix endless progress bar of macro expansion process
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4669 -->
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4656 -->
+    * Make some optimizations of macro expansion processing with experimental expansion engine.
+    In should improve IDE responsiveness while typing and speed up completion inside macro calls
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4642 -->
+    * Trigger highlighting update after changes in macro call.
+    Previously, in some rare cases it was required additional changes in editor
+    to rerun highlighting with new macro expansion engine
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4653 -->
+    * Avoid unnecessary parens around expressions in macro call expansions
+
+* Type inferences fixes and improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4688 -->
+    * Skip impls with [`rustc_reservation_impl`](https://github.com/rust-lang/rust/issues/64631) attribute while type inference.
+    It should fix some weird type inference results related to `From` trait
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4622 -->
+    * Correctly infer type of empty array. It fixes unexpected `Type mismatch` error annotations with `[]` literal
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4684 -->
+* Fix false positive `Unresolved reference` error annotations for `Self` reference
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4667 -->
+* Parse disambiguator `::` in type references like `Vec::<[i32; 8]>` correctly.
+Also, mark `::` as useless in such cases and provide quick fix to remove it
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4655 -->
+* Consider `test` option is disabled inside `cfg` attributes in stdlib.
+It allows the plugin to ignore such items while name resolution
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4649 -->
+* Fix incorrect highlighting of selected item introduced in some previous version
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4644 -->
+* Do not throw exception on `Complete Current Statement` action
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4634 -->
+* Apply `Convert to type using 'From' trait` quick fix for unnamed types like `(i32, i32)` properly
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4580 -->
+* Provide `Cannot assign twice to immutable variable` error annotations
+for secondary assignments to immutable variable with compound operators like `+=`
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/19?closed=1)
+
+
+
+[@Kobzol]: https://github.com/Kobzol
+[@rrevenantt]: https://github.com/rrevenantt
