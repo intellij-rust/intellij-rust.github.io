@@ -1,0 +1,83 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #112"
+date: 2019-12-16 17:14:13 +0300
+---
+
+
+## New Features
+
+* Improve `Use of moved value` inspection:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4690 -->
+    * Take into account macro expansions while analysis
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4687 -->
+    * Detect `Use of moved value` error in loops, lambdas and `if` expressions better
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4615 -->
+* Make initial REPL integration. You can try it in `Rust Console` tool window.
+The current implementation includes syntax highlighting, basic completion and command history.
+Under the hood, it uses [`evcxr`](https://github.com/google/evcxr) util, so the integration requires this util to be installed.
+If you don't have it yet, the plugin suggests installing it in one click after the first usage of `Rust Console` tool window.
+For now, it's disabled by default. To turn it on, you need to enable `org.rust.ide.repl.tool.window` option in `Experimental Features` dialog (by [@dima74])
+
+    {% include gif-img.html path="/assets/posts/changelog-112/rust-repl" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4415 -->
+* Provide detection of importing items with same names
+(see [E0252](https://doc.rust-lang.org/error-index.html#E0252)) (by [@rrevenantt])
+
+    <img src="/assets/posts/changelog-112/duplicate-import-error.png" alt="report duplicate imported names" width="700px"/>
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4619 -->
+* Allow to manually choose arguments in `Extract Function` dialog (<kbd>Ctrl+Alt+M</kbd>/<kbd>Cmd+Alt+M</kbd>) (by [@Stzx])
+
+
+## Fixes
+
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4698 -->
+* Show cached compilation warnings in `Build` tool window.
+Note, `Build` tool window is experimental at this moment.
+To turn it on, you can enable `org.rust.cargo.build.tool.window` option in `Experimental Features` dialog
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4696 -->
+* Pass `--edition=2018` to `rustfmt` if needed.
+It should fix the issue when code with keywords from 2018 edition (like `async` or `await`)
+is not formatted by `Reformat File with Rustfmt` action
+
+* Macro support improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4694 -->
+    * Fix matching `$($ e:expr,)+` group in macros
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4695 -->
+    * Produce less unnecessary parens around exprs while macro expansion
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4689 -->
+    * Don't make full revalidate of macro expansions after `Show single step/recursive macro expansion` actions
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4671 -->
+* Process default type parameters by `Move type constraint to parameter list` and `Move type constraint to where clause` intentions properly.
+Previously, these intentions removed default type parameters (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4701 -->
+* Fix exception produced by `Reformat Code` action (<kbd>Ctrl+Atl+L</kbd>/<kbd>Cmd+Atl+L</kbd>) while indexing
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4715 -->
+* Do not suggest `Put parameters/arguments/fields/variants on separate lines/one line` intentions
+for code with comments to avoid generation of broken code (by [@t-kameyama])
+
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4704 -->
+* Make 2019.3 platform default for development
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/20?closed=1)
+
+
+
+
+[@Stzx]: https://github.com/Stzx
+[@dima74]: https://github.com/dima74
+[@rrevenantt]: https://github.com/rrevenantt
+[@t-kameyama]: https://github.com/t-kameyama
