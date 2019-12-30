@@ -1,6 +1,6 @@
 ---
 title: FAQ
-order: 999999
+order: 3
 ---
 
 {% include h title="Where is the Rust SDK?" tag="sdk" %}
