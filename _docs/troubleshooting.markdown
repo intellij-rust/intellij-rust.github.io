@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting
+order: 4
 ---
 
 {% include doc-shortcut-tip.html %}

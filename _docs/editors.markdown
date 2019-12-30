@@ -1,5 +1,6 @@
 ---
-title: Migrating from other editors
+title: Migrating from editors
+order: 2
 ---
 
 {% include doc-shortcut-tip.html %}
