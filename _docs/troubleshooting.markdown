@@ -15,7 +15,7 @@ Previous versions of the plugin are availabe at the
 
 {% include h title="Toolchain setup" %}
 
-To check whether your toolchain is set up correctly, 
+To make sure your toolchain is set up correctly, 
 go to `Settings / Preferences | Languages & Frameworks | Rust` and check the `Toolchain location` 
 and `Standard library` paths.
 
@@ -26,7 +26,7 @@ Check the Cargo tool window to make sure your project is imported properly.
 
 To force the project structure update, click **Refresh** in the Cargo tool window 
 (or call **Refresh Cargo project** using `Help | Find Action`).
- You should see a notification about a successful update.
+ You should see a notification about the successful update.
 
 
 {% include h title="Macro expansion" %}
@@ -39,7 +39,7 @@ If your code includes macros and you experience problems with name resolve, high
 {% include h title="Filing a bug" %}
 
 If neither of these tips help, feel free to file an [issue] 
-(use the `Help | Create New Issue` action to quickly fill the form) or ping us in [gitter].
+(use the `Help | Create New Issue` action to quickly fill the form in) or ping us in [gitter].
 
 
 [issue]: https://github.com/intellij-rust/intellij-rust/issues
