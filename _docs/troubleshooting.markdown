@@ -38,7 +38,8 @@ If your code includes macros and you experience problems with name resolve, high
 
 {% include h title="Filing a bug" %}
 
-If neither of these tips help, feel free to file an [issue] or ping us in [gitter].
+If neither of these tips help, feel free to file an [issue] 
+(use the `Help | Create New Issue` action to quickly fill the form) or ping us in [gitter].
 
 
 [issue]: https://github.com/intellij-rust/intellij-rust/issues
