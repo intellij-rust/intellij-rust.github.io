@@ -1,0 +1,76 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #114"
+date: 2020-01-21 16:42:56 +0300
+---
+
+
+This is the last release that supports the 2019.2 platform. To receive plugin updates further, please upgrade your IDE to 2019.3.
+
+## New Features
+
+<!-- TODO -->
+* Support coming 2020.1 EAPs
+
+* Improve Rust debugger support with LLDB bundled into CLion 2020.1:
+    * Render enums properly
+    * Render primitive types properly (e.g. `i32` instead of C-style `int`)
+    * Unmangle names inside call stack
+
+    <img src="/assets/posts/changelog-114/lldb-improvement.png" alt="Rust debugger support with LLDB" width="700px"/>
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4825 -->
+* Handle `pub` uses properly in `Nest use statements` intention (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4785 -->
+* Fix type inference for `Fn` type parameters with multiple bounds.
+It fixes the lack of code completion inside a closure call when multiple trait bounds (like `Send + FnOnce`) are used (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4818 -->
+* Take into account the builtin implementation of `Clone` and `Copy` traits for array types during type inference.
+It fixes type inference of array usages like `[0; 4].clone()` as well as some false-positive error highlightings
+related to arrays
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4805 -->
+* Do not suggest `Lift return out` intention on `else if` branch which previously led to invalid code (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4799 -->
+* Improve `Edit | Extend Selection` action for Rust and Toml string literals.
+Now it's possible to select separate escape symbols and whole string literal without quotes.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4798 -->
+* Correctly handle single and triple quotes and support escapes symbols in TOML
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4776 -->
+* Fix false-positive [E0277](https://doc.rust-lang.org/error-index.html#E0277) in case of non-default trait method with non-sized arguments
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4721 -->
+* Do not indent braces on their own line (by [@srjek])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4834 -->
+* Provide help page about Cargo Command run configuration in IDEA and CLion
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4823 -->
+* Remove CLion dependencies from `debugger` module.
+Previously, `debugger` module used some CLion-related code. Now all such code has been moved into `clion` module,
+and `debugger` module only contains native debugger related code.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4784 -->
+* Rename code fragments consistently.
+Plugin build used to fail sometimes due to two different classes named `RsReplCodeFragment`.
+So now the generated one will be `*CodeFragmentElement.java`.
+
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/22?closed=1)
+
+[@rrevenantt]: https://github.com/rrevenantt
+[@srjek]: https://github.com/srjek
+[@t-kameyama]: https://github.com/t-kameyama
+
+
+
+
