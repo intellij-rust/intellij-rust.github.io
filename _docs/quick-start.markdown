@@ -1,6 +1,6 @@
 ---
 title: Quick Start Guide
-order: 10
+order: 1
 ---
 
 Below you can find general instructions on how to install the plugin and work with Rust projects in [IDEA](https://www.jetbrains.com/idea/), [CLion](https://www.jetbrains.com/clion/), and other IntelliJ-based IDEs. Menu paths and dialog appearance may slightly vary depending on a particular IDE.
