@@ -11,8 +11,7 @@ configured per project in `Settings / Preferences | Languages & Frameworks | Rus
 
 
 {% include h title="What are the compatible IDEs? Is there any difference?" tag="compatible-ides" %}
-The plugin works with all IntelliJ-based IDEs of the version 2019.2 and newer. 
-Debugger and profiler are currently available in CLion only. See our
+The plugin works with all IntelliJ-based IDEs. Debugger and profiler are currently available in CLion only. See our
 [Readme](https://github.com/intellij-rust/intellij-rust#compatible-ides) 
 for a complete list of the features that differ depending on the particular IDE.
 

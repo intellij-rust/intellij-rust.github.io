@@ -22,9 +22,9 @@ and `Standard library` paths.
 
 {% include h title="Cargo project structure" %}
 
-Check the Cargo tool window to make sure your project is imported properly. 
+*Currently, the plugin supports only the Cargo-based Rust projects.*
 
-To force the project structure update, click **Refresh** in the Cargo tool window 
+Check the Cargo tool window to make sure your project is imported properly. To force the project structure update, click **Refresh** in the Cargo tool window 
 (or call **Refresh Cargo project** using `Help | Find Action`).
  You should see a notification about the successful update.
 
@@ -32,7 +32,7 @@ To force the project structure update, click **Refresh** in the Cargo tool windo
 {% include h title="Macro expansion" %}
 
 If your code includes macros and you experience problems with name resolve, highlighting, or some analysis features,
- try switching the macro expansion engine in `Settings / Preferences | Languages & Frameworks | Rust`, 
+ try switching to the experimental macro expansion engine in `Settings / Preferences | Languages & Frameworks | Rust`, 
  **Expand declarative macros**. 
 
 
