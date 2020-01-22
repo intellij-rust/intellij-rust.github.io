@@ -31,7 +31,7 @@ Check the Cargo tool window to make sure your project is imported properly. To f
 
 {% include h title="Macro expansion" %}
 
-If your code includes macros and you experience problems with name resolve, highlighting, or some analysis features,
+If your code includes macros or you experience problems with name resolve, highlighting, or some analysis features (especially related to methods of primitive types),
  try switching to the experimental macro expansion engine in `Settings / Preferences | Languages & Frameworks | Rust`, 
  **Expand declarative macros**. 
 
