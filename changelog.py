@@ -41,6 +41,7 @@ class Changelog:
     features: List[ChangelogItem] = []
     fixes: List[ChangelogItem] = []
     internals: List[ChangelogItem] = []
+    contributors: Set[str] = set()
     milestone_id: Optional[int] = None
 
     def __init__(self, milestone_id=None):
@@ -50,13 +51,18 @@ class Changelog:
         return "features:\n{}\n\nfixes:\n{}\n\ninternals:\n{}\n".format(self.features, self.fixes, self.internals)
 
     def add_feature(self, feature: ChangelogItem):
-        self.features.append(feature)
+        self.__add_item(self.features, feature)
 
     def add_fix(self, fix: ChangelogItem):
-        self.fixes.append(fix)
+        self.__add_item(self.fixes, fix)
 
     def add_internal(self, internal: ChangelogItem):
-        self.internals.append(internal)
+        self.__add_item(self.internals, internal)
+
+    def __add_item(self, container: List[ChangelogItem], item: ChangelogItem):
+        container.append(item)
+        if item.username not in MAINTAINERS:
+            self.contributors.add(item.username)
 
 
 def collect_changelog(post_number: int, login_or_token: str, password: str = None):
@@ -146,6 +152,13 @@ date: {}
                     "(https://github.com/intellij-rust/intellij-rust/milestone/{}?closed=1)\n"
                     .format(changelog.milestone_id))
 
+        if len(changelog.contributors) > 0:
+            f.write("\n")
+            sorted_contributors = sorted(changelog.contributors)
+            for name in sorted_contributors:
+                url = contributor_url(name)
+                f.write(url)
+
 
 def contributors():
     last_post = "_posts/" + sorted(os.listdir("_posts"))[-1]
@@ -161,15 +174,20 @@ def contributors():
     with open(last_post, 'a') as f:
         f.write("\n")
         for name in names:
-            url = "https://github.com/" + name
-            print("checking " + url)
-            req = urllib.request.Request(url, method="HEAD")
-            with urllib.request.urlopen(req) as _:
-                pass  # will thrown on 404
-
-            line = "[@{}]: {}\n".format(name, url)
+            line = contributor_url(name)
             if line not in old_text:
                 f.write(line)
+
+
+def contributor_url(username: str):
+    url = "https://github.com/" + username
+    print("checking " + url)
+    req = urllib.request.Request(url, method="HEAD")
+    with urllib.request.urlopen(req) as _:
+        pass  # will thrown on 404
+
+    line = "[@{}]: {}\n".format(username, url)
+    return line
 
 
 if __name__ == '__main__':
