@@ -5,7 +5,7 @@ import os
 import re
 import urllib.request
 from dataclasses import dataclass
-from typing import Set, List, Optional
+from typing import Set, List, Optional, Dict, TextIO
 
 # https://github.com/PyGithub/PyGithub
 from github import Github
@@ -37,32 +37,63 @@ class ChangelogItem:
                 .format(self.pull_request_id, self.title, self.username)
 
 
-class Changelog:
-    features: List[ChangelogItem] = []
-    fixes: List[ChangelogItem] = []
-    internals: List[ChangelogItem] = []
-    contributors: Set[str] = set()
-    milestone_id: Optional[int] = None
+class ChangelogSection(object):
+    header: str
+    items: List[ChangelogItem]
+
+    def __init__(self, header: str):
+        self.header = header
+        self.items = []
+
+    def add_item(self, item: ChangelogItem):
+        self.items.append(item)
+
+    def display(self):
+        return """## {}\n\n""".format(self.header) + "\n\n".join(map(lambda l: l.display(), self.items))
+
+
+class Changelog(object):
+    labels: List[str]
+    sections: Dict[str, ChangelogSection]
+    contributors: Set[str]
+    milestone_id: Optional[int]
 
     def __init__(self, milestone_id=None):
         self.milestone_id = milestone_id
+        self.labels = []
+        self.sections = {}
+        self.contributors = set()
+        self.__add_section("feature", ChangelogSection("New Features"))
+        self.__add_section("performance", ChangelogSection("Performance Improvements"))
+        self.__add_section("fix", ChangelogSection("Fixes"))
+        self.__add_section("internal", ChangelogSection("Internal Improvements"))
 
-    def __repr__(self):
-        return "features:\n{}\n\nfixes:\n{}\n\ninternals:\n{}\n".format(self.features, self.fixes, self.internals)
+    def __add_section(self, label: str, section: ChangelogSection):
+        self.labels.append(label)
+        self.sections[label] = section
 
-    def add_feature(self, feature: ChangelogItem):
-        self.__add_item(self.features, feature)
+    def add_item(self, label: str, item: ChangelogItem):
+        section = self.sections[label]
+        if section is not None:
+            section.add_item(item)
+            if item.username not in MAINTAINERS:
+                self.contributors.add(item.username)
 
-    def add_fix(self, fix: ChangelogItem):
-        self.__add_item(self.fixes, fix)
+    def write(self, f: TextIO):
+        for label in self.labels:
+            f.write(self.sections[label].display())
+            f.write("\n\n")
+        if self.milestone_id is not None:
+            f.write("Full set of changes can be found [here]"
+                    "(https://github.com/intellij-rust/intellij-rust/milestone/{}?closed=1)\n"
+                    .format(self.milestone_id))
 
-    def add_internal(self, internal: ChangelogItem):
-        self.__add_item(self.internals, internal)
-
-    def __add_item(self, container: List[ChangelogItem], item: ChangelogItem):
-        container.append(item)
-        if item.username not in MAINTAINERS:
-            self.contributors.add(item.username)
+        if len(self.contributors) > 0:
+            f.write("\n")
+            sorted_contributors = sorted(self.contributors)
+            for name in sorted_contributors:
+                url = contributor_url(name)
+                f.write(url)
 
 
 def collect_changelog(post_number: int, login_or_token: str, password: str = None):
@@ -87,12 +118,8 @@ def collect_changelog(post_number: int, login_or_token: str, password: str = Non
             continue
         labels: Set[str] = set(map(lambda l: l.name, issue.labels))
         changelog_item = ChangelogItem(issue.number, issue.title, issue.user.login)
-        if "feature" in labels:
-            changelog.add_feature(changelog_item)
-        if "fix" in labels:
-            changelog.add_fix(changelog_item)
-        if "internal" in labels:
-            changelog.add_internal(changelog_item)
+        for label in labels:
+            changelog.add_item(label, changelog_item)
 
     return changelog
 
@@ -138,26 +165,7 @@ date: {}
 
 """.format(next_post, now))
 
-        f.write("""## New Features\n\n""")
-        for feature in changelog.features:
-            f.write("{}\n\n".format(feature.display()))
-        f.write("""## Fixes\n\n""")
-        for fix in changelog.fixes:
-            f.write("{}\n\n".format(fix.display()))
-        f.write("""## Internal Improvements\n\n""")
-        for internal in changelog.internals:
-            f.write("{}\n\n".format(internal.display()))
-        if changelog.milestone_id is not None:
-            f.write("Full set of changes can be found [here]"
-                    "(https://github.com/intellij-rust/intellij-rust/milestone/{}?closed=1)\n"
-                    .format(changelog.milestone_id))
-
-        if len(changelog.contributors) > 0:
-            f.write("\n")
-            sorted_contributors = sorted(changelog.contributors)
-            for name in sorted_contributors:
-                url = contributor_url(name)
-                f.write(url)
+        changelog.write(f)
 
 
 def contributors():
