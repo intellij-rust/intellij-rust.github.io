@@ -1,0 +1,61 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #115"
+date: 2020-02-04 11:41:41 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4836 -->
+* Simplify attaching a new cargo project to the plugin project model.
+Now it’s possible to invoke `Attach Cargo Project` action for your cargo project from the context menu in the project view.
+Also, there is `Attach` action for `Cargo.toml` files in an editor if the corresponding crate is not in the plugin project model.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4812 -->
+* Suggest the proper type of braces while a macro call completion.
+For example, now the plugin suggests `{}` for `thread_local` macro instead of parenthesis
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4807 -->
+* Support `Show import statements` option in `Find usages` dialog.
+The option allows including/excluding `use` items from the results of `Find usages` action.
+Note, this feature is missing in CLion
+
+    {% include gif-img.html path="/assets/posts/changelog-115/show-import-statements" w="700px" %}
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4877 -->
+* Don’t reparse the whole file while typing inside macro calls. This should speed up completion in macro calls in large files
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4875 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4782 -->
+* Slightly improve indexing and type inference performance
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4904 -->
+* Fix compatibility issues with latest 2020.1 EAPs
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4874 -->
+* Fix LLDB pretty-printers for `Rc`/`Arc` structs on 2020.1
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4816 -->
+* Drop `Remove parentheses from expression` intention and make the corresponding quick fix available only for valid cases (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4102 -->
+* Now the Cargo Tool Window is not shown for non-Rust projects
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4886 -->
+* Now TOML plugin is [dynamic](https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/dynamic_plugins.html).
+In the future, it will allow you to install, uninstall and update the plugin without restarting the IDE
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4863 -->
+* Drop support of 2019.2 platform
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/23?closed=1)
+
+[@t-kameyama]: https://github.com/t-kameyama
+
