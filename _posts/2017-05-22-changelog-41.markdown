@@ -21,7 +21,7 @@ date: 2017-05-22 22:36:39 +0300
 
 ## Fixes
 
-* Restore optimistic trait matching in presence of partially infered
+* Restore optimistic trait matching in presence of partially inferred
   types.
 
 * Don't jump over `>` in comments.

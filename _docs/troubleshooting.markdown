@@ -9,7 +9,7 @@ Normally, the plugin update should go seamlessly. In case of any issues,
  try refreshing the project (click **Refresh** in the Cargo tool window) or rebuilding indices (
 **File | Invalidate caches / Restart** from the main menu).
  
-Previous versions of the plugin are availabe at the
+Previous versions of the plugin are available at the
 [JetBrains plugin repo](https://plugins.jetbrains.com/plugin/8182).
 
 
