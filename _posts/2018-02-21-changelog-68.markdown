@@ -33,7 +33,7 @@ date: 2018-02-21 14:59:46 +0300
 
 * Various fixes of auto import
 
-* Don't allow using `Specify type explicitly` intention if variable type isn't fully infered
+* Don't allow using `Specify type explicitly` intention if variable type isn't fully inferred
 
 * Don't drop `unsafe` keyword while `Join Lines` action (by [@pcholakov])
 
