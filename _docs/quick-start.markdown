@@ -112,3 +112,23 @@ Name your configuration and provide the command. You can switch Cargo channels (
 To view stack traces, use the **Backtrace** option, which corresponds to `RUST_BACKTRACE`:
 
 ![backtrace](/assets/quick-start/qsg_backtrace.png){:width="600px"}
+
+{% include h title="Run with Code Coverage" tag="coverage" %}
+1. Switch to the nightly toolchain in `Settings/Preferences | Languages & Frameworks | Rust`.
+
+2. Run with Code Coverage using one of the options:
+
+    - Select the configuration in the switcher and call **Run with Coverage** from the 
+    **Run** menu or press <img src="/assets/quick-start/icons._coverage.png" width="16" alr="coverage icon"/>.
+    
+    - Use the **Run with Coverage** option from the gutter menu
+    ![coverage-gutter](/assets/quick-start/qsg_coverage_gutter.png){:width="400px""}
+
+3. Explore the results in the Coverage tool window and in the editor:
+![coverage-results](/assets/quick-start/qsg_coverage_results.png){:width="875px""}
+
+4. For several coverage sessions, you can choose how to view the suites in the `Run | Show Code Coverage Data` dialog.
+
+5. *(Not available for IDEA Community)* To save the results to a file, click 
+<img src="/assets/quick-start/icons_coverage_export.png" width="16" alt="coverage results export icon"/> in the Coverage tool window 
+or select `Run | Generate Coverage Report` from the main menu.
