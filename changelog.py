@@ -18,7 +18,9 @@ MAINTAINERS = [
     "vlad20012",
     "mchernyavsky",
     "ortem",
-    "amakeev"
+    "amakeev",
+    "MarinaKalashina",
+    "dima74"
 ]
 
 
