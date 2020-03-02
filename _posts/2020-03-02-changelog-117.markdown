@@ -1,0 +1,68 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #117"
+date: 2020-03-02 10:51:39 +0300
+---
+
+
+## New Features
+
+* Improve support of `cfg` attributes:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4990 -->
+    * Now `cfg` attributes are taken into account while name resolution of macros
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4992 -->
+    * Evaluate `cfg` attribute condition while looking for parent module.
+    It should fix some unexpected error annotations like `Module is private`
+
+* REPL integration improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4881 -->
+    * Provide more actions for REPL console interaction like `Stop Console`, `Toggle Soft Wrap`,
+    `Toggle Scroll To End` and `Print Console Content`
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4971 -->
+    * Suggest macros in completion list
+
+    Note, you can open Rust REPL console via `Tools | Rust REPL` action
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/3869 -->
+* Provide basic highlighting of format string literal in macros like `println`, `write`, `format`, etc.
+Also, make some preliminary work to detect errors inside format macros in the future (by [@rrevenantt])
+
+    <img src="/assets/posts/changelog-117/format-macros-highlighting.png" alt="Format macros highlighting" width="700px"/>
+
+
+## Fixes
+
+* Improve name resolution and type inference:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4961 -->
+    * Support trait bounds for assoicated type parameters better
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4953 -->
+    * Improve type inference for trait-relative paths with type parameters like `Foo::<Bar>::baz`
+    * Take into account blanket impls (`impl<T> for T`) while looking for methods of trait objects
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4977 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4900 -->
+* Support [raw identifiers](https://github.com/rust-lang/rfcs/blob/master/text/2151-raw-identifiers.md) better.
+Now they are correctly handled by `Implement Members` and `Add missing fields` quick fixes (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5004 -->
+* Fix gutter icons blinking in `Cargo.toml` while typing
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4958 -->
+* Render type arguments of type aliases in inlay hints in proper way.
+Previously, the plugin shows type arguments from base type
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5003 -->
+* Try to publish plugin nightly builds by GitHub workflow
+
+* Rust parser improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4994 -->
+    * Improve syntax error messages
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4956 -->
+    * Parse `default` keyword after visibility. It should unify parser rules for items
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/25?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@rrevenantt]: https://github.com/rrevenantt
