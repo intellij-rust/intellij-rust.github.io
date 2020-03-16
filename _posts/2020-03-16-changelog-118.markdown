@@ -1,0 +1,64 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #118"
+date: 2020-03-16 16:00:04 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4242 -->
+* Implement initial type inference for [const generics](https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5050 -->
+* Parser improvements:
+  * Parse incomplete reference types. Now `a` in `fn foo(a: &)` has some reference type
+  * Process lifetime and type parameters in any order while parsing.
+  Now the plugin can correctly parse `fn foo<T, 'a>() {}`, and provide error message about wrong order of parameters.
+  * Unify plugin grammar rules for items inside blocks, `extern` blocks and `impl` blocks.
+  Now you can write any item in any type of block without syntax errors,
+  and the plugin highlights those of them that are not allowed in the particular block.
+  * Optimize plugin parser and speed up the parsing phase up to 20%. From user side, it should decrease indexing time
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5033 -->
+* Collapse field initialization in struct literal into shorthand form after rename if possible (by [@t-kameyama])
+
+    {% include gif-img.html path="/assets/posts/changelog-118/rename-field-initializer" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4944 -->
+* Provide `Generate Constructor` action (`Code | Generate`) inside `impl` block (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-118/generate-constructor" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4978 -->
+* Generate default values for constants by `Implement Members` quick fix instead of `unimplemented!()` (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4996 -->
+* Add `Browse Console History` action for Rust REPL.
+You can open Rust REPL console via `Tools | Rust REPL` action
+
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4872 -->
+* Store macro expansion results produced by experimental macro expansion engine into compressed binary files.
+It should significantly decrease occupied disk space and
+slightly speed up macro expansion process because of less interaction with the filesystem.
+You can enable new experimental macro expansion engine via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5079 -->
+* Disambiguate inherent/trait methods and associated items while type inference
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5019 -->
+* Do not change associated functions while `Convert to struct` refactoring (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5065 -->
+* Provide missing versions for indexers. It should prevent sporadic errors in different subsystems after lexer/parser changes
+
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/26?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@t-kameyama]: https://github.com/t-kameyama
