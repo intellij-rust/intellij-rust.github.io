@@ -1,0 +1,72 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #119"
+date: 2020-03-30 16:08:00 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4936 -->
+* Provide name resolution of items declared in `impl` blocks for type aliases. Taking performance into account, this feature is only enabled for types with a limited number of aliases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5087 -->
+* Provide the quick fix for `Mismatched types` error annotation to change a function's return type. Note, it doesn’t work inside trait `impl` blocks for now
+
+    {% include gif-img.html path="/assets/posts/changelog-119/change-return-type" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5124 -->
+* Now "Unresolved reference" inspection highlights code more precisely
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5120 -->
+* Detect [E0451](https://doc.rust-lang.org/error-index.html#E0451) compiler error
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5114 -->
+* Annotate [slice patterns](https://github.com/rust-lang/rfcs/blob/master/text/2359-subslice-pattern-syntax.md) as an experimental feature for toolchains before 1.42
+
+* Parser improvements:
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/5115 -->
+  * Support [const trait impls](https://github.com/oli-obk/rfcs/blob/const_generic_const_fn_bounds/text/0000-const-generic-const-fn-bounds.md) syntax
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/5099 -->
+  * Parse paths in attributes correctly
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/5081 -->
+  * Correctly parse [`&raw`](https://github.com/rust-lang/rfcs/blob/master/text/2582-raw-reference-mir-operator.md) operator. Note, type inference for the operator is not implemented yet
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/5009 -->
+  * Fix parsing of lifetime bounds in `Fn` trait types (by [@rrevenantt])
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5101 -->
+* Slightly speeds up macro expansion process when the [experimental engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support) is enabled
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5085 -->
+* Slightly speeds up `cfg` attributes processing
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5084 -->
+* Prevent an infinite recursion while analyzing a control flow inside macros
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5082 -->
+* Now some inspections (e.g., `Liveness Analysis`) correctly process macro calls. It should fix some false positive annotations
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5057 -->
+* Now formatter adds a new line between items inside a function's body
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5053 -->
+* Fix "Introduce Variable" intention in case if the first expression is inside a nested block
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5020 -->
+* Handle type aliases in "Destructure" intention (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5012 -->
+* Handle async functions in "Extract Function" refactoring (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5103 -->
+* Generates external documentation link for a public item from `impl` block even if it is located in a private module
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/27?closed=1)
+
+[@Exidex]: https://github.com/Exidex
+[@Kobzol]: https://github.com/Kobzol
+[@rrevenantt]: https://github.com/rrevenantt
