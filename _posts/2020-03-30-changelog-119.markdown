@@ -16,7 +16,7 @@ date: 2020-03-30 16:08:00 +0300
     {% include gif-img.html path="/assets/posts/changelog-119/change-return-type" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5124 -->
-* Now "Unresolved reference" inspection highlights code more precisely
+* Now "Unresolved reference" inspection highlights code more precisely (by [@Exidex])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5120 -->
 * Detect [E0451](https://doc.rust-lang.org/error-index.html#E0451) compiler error
