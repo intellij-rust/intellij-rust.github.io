@@ -1,0 +1,82 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #120"
+date: 2020-04-13 13:24:50 +0300
+---
+
+
+## New Features
+
+* REPL integration improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4998 -->
+    * Add variables view.
+    Now you can see all your local declarations including variables, functions, and structs
+    in a special view on the right of the REPL window. The view can be hidden by the special button on the left panel.
+    
+        {% include gif-img.html path="/assets/posts/changelog-120/repl_variables_view" w="700px" %}
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5168 -->
+    * Show icon in REPL console
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5204 -->
+* Highlight exit points inside tail loop expressions. Previously, the whole loop was highlighted  (by [@rrevenantt])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5131 -->
+* Add Toml plugin icons
+
+
+## Fixes
+
+* Completion improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5156 -->
+    * Prefer `Display` over `Debug` in `.println` postfix template.
+    Now `42.println<Enter>` creates `println!("{}", 42)` instead of `println!("{:?}", 42)` (by [@Kobzol])
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5149 -->
+    * Fix `.println` postfix template for string variables and byte strings.
+    Now it inserts a proper `{}` or `{:?}` marker into `println!` call (by [@Kobzol])
+        
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5139 -->
+    * Provide completion for `union` keyword
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5143 -->
+* Insert trailing comma into `match` arms by `Complete current statement` action (by [@Stzx])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5229 -->
+* Fix file type mapping for Rust file in IDEA 2020.1. This should fix cases when all Rust files are not highlighted
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4972 -->
+* Do not generate useless `match` arm for [irrefutable patterns](https://doc.rust-lang.org/book/ch18-02-refutability.html) by `Convert if let statement to match` intention (by [@Kobzol])
+  
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5199 -->
+* Recognize irrefutable constant patterns.
+Now `Convert if let statement to match` intention does not add useless `_` arm when matching a struct or single-element enum (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5144 -->
+* Do not import inner types of type aliases by `Implement members` intention (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5187 -->
+* Fix editor notifications blinking during project opening
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5179 -->
+* Fix [local history](https://www.jetbrains.com/help/idea/local-history.html) broken due to our macro expansion
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5174 -->
+* Fix NPE on Rust code with unclosed paren like `let a = (`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5135 -->
+* Do not add a directory as as [source/excluded](https://www.jetbrains.com/help/idea/content-roots.html) entries if it does not exist
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5076 -->
+* Set `TERM` variable and terminal's width if terminal emulation is enabled
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5137 -->
+* Make 2020.1 main platform for development
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/28?closed=1)
+
+[@rrevenantt]: https://github.com/rrevenantt
+[@Kobzol]: https://github.com/Kobzol
+[@Stzx]: https://github.com/Stzx
