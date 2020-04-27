@@ -55,7 +55,7 @@ Now you can extract enum variant into a separate struct and replace all usages b
 * Do not show false positive `Struct pattern does not mention field_name` error annotation for unions (by [@Stzx])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5133 -->
-* Now `Add _ pattern` and` Add remaining patterns` quick fixes insert `,` after last match arm if needed to produce valid code (by [@Stzx])
+* Now `Add _ pattern` and `Add remaining patterns` quick fixes insert `,` after last match arm if needed to produce valid code (by [@Stzx])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5220 -->
 * Fix stdlib detection for [rust-lang/rust](https://github.com/rust-lang/rust) project
