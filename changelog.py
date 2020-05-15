@@ -75,7 +75,7 @@ class Changelog(object):
         self.sections[label] = section
 
     def add_item(self, label: str, item: ChangelogItem):
-        section = self.sections[label]
+        section = self.sections.get(label)
         if section is not None:
             section.add_item(item)
             if item.username not in MAINTAINERS:
