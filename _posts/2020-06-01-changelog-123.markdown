@@ -1,0 +1,97 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #123"
+date: 2020-06-01 11:44:04 +0300
+---
+
+This is the last release that supports the 2019.3 platform. To receive plugin updates further, please upgrade your IDE to 2020.1.
+
+## New Features
+
+* Debugger support outside of CLion: 
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5409 -->
+    * Do not interrupt debugging session if debugger is not loaded.
+        Now, if your debugger is not loaded or should be updated, the corresponding dialog and debugger loading don't interrupt debugger session and it continues after successful loading.
+        Also, there is option to download/update debugger automatically
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5393 -->
+    * Suggest user to install [Native Debugging Support plugin](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
+    when start debugging in IntelliJ IDEA Ultimate    
+
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5399 -->
+* Add `Replace with block/EOL comment` intentions (by [@Jezza])
+    
+    {% include gif-img.html path="/assets/posts/changelog-123/5399" w="700px" %}
+
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5310 -->
+* Highlight never (`!`) type as exit points (by [@Kobzol])
+
+    <img src="/assets/posts/changelog-123/5310.png" alt="Never type exit points highlighting" width="400px"/>
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5273 -->
+* Show breadcrumbs for control flow constructions like `if`, `match`, `loop`, etc.
+You may configure editor breadcrumbs via `Preferences | Editor | General | Breadcrumbs` settings (by [@Stzx])
+
+    {% include gif-img.html path="/assets/posts/changelog-123/5273" w="700px" %}
+
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5438 -->
+* Optimize module declaration name resolution
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5437 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5362 -->
+* Slightly speed up macro expansion
+
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5218 -->
+* Add use declarations to [Rust REPL](https://blog.jetbrains.com/clion/2020/05/whats-new-in-intellij-rust/#rust_repl) commands context.
+It enables completion of imported names
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5358 -->
+* Fix false positive `Redundant else` error for slice patterns
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5405 -->
+* Fix struct field name resolution.
+Now [`Go to declaration`](https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_declaration)
+works for destructured fields when using type alias
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5445 -->
+* Fix inlay type hints for type placeholders. Previously, they were wrong in some complex cases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5383 -->
+* Fix control flow analysis of paren expressions.
+Previously, unclosed paren expression led to `IllegalStateException`,
+and there were false-positive move errors on paren expressions inside struct literals
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5359 -->
+* Use the proper grammar for path fragments in `macro_rules!`.
+Now macro calls with type-like paths (i.e. paths without `::` token before `<`) like `foo!(Foo<u32>)` are expanded properly (by [@mrobakowski])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5356 -->
+* Fix environment variables for [Coverage runner](https://intellij-rust.github.io/docs/quick-start.html#coverage)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5382 -->
+* Fix `clippy` and `rustfmt` installation check.
+They can be used for [linting and reformatting code](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5408 -->
+* Fix debugging when terminal emulation is enabled
+
+## Internal Improvements
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5470 -->
+* Improve release actions script
+
+
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/31?closed=1)
+
+[@Jezza]: https://github.com/Jezza
+[@Kobzol]: https://github.com/Kobzol
+[@Stzx]: https://github.com/Stzx
+[@mrobakowski]: https://github.com/mrobakowski
