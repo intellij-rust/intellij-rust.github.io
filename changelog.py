@@ -20,7 +20,8 @@ MAINTAINERS = [
     "ortem",
     "amakeev",
     "MarinaKalashina",
-    "dima74"
+    "dima74",
+    "avrong"
 ]
 
 
