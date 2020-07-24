@@ -1,0 +1,98 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #127"
+date: 2020-07-27 10:26:15 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5386 -->
+* Support Rust documentation rendering in an editor.
+Just click to the corresponding icon on gutter to look at rendered version of a particular comment.
+Also, you can enable it by default via `Render documentation comments` option in `Preferences / Settings | Editor | General | Appearance` settings.
+Note, there are some restrictions in 2020.1 IDEs. See [here](https://github.com/intellij-rust/intellij-rust/pull/5386) for more details
+
+    {% include gif-img.html path="/assets/posts/changelog-127/rendered-doc-comments" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5536 -->
+* Provide initial formatter for TOML. Currently, it affects only spacing and indentation.
+You can adjust settings via `Preferences / Settings | Editor | Code Style | TOML` panel (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-127/toml-formatting" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5647 -->
+* Add quick fix for `Mismatched types` error annotation to change type of local variable (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-127/change-type-quick-fix" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5717 -->
+* Make `Go to Type Declaration` <kbd>Ctrl+Shift+B</kbd> action work properly with macro-generated items
+
+    {% include gif-img.html path="/assets/posts/changelog-127/go-to-type-declaration" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5688 -->
+* Keep existing reference style while `Move` <kbd>F6</kbd> refactoring,
+i.e. absolute paths stay absolute, one segment paths stay one segment, etc.
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5723 -->
+* Slightly speed up indexing.
+Now, the plugin correctly handle new experimental [`raw`](https://github.com/rust-lang/rfcs/blob/master/text/2582-raw-reference-mir-operator.md) syntax
+and doesn't parse blocks with it while indexing that decreases duration of the corresponding phase
+
+## Fixes
+
+* Test tool window improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5700 -->
+    * Show whole Cargo output in Test tool window
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/4848 -->
+    * Navigate to proper line from doc test item in test tree
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5648 -->
+    * Use `Left`/`Right` labels instead of `Expected`/`Actual` (by [@Kobzol])
+
+* Name resolution fixes:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5762 -->
+    * Properly handle `crate::macro_name!` calls while name resolution.
+    Previously, such calls couldn't be resolved and as a result, the plugin couldn't expand the corresponding macro call
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5690 -->
+    * Do not resolve project dependencies in [build scripts](https://doc.rust-lang.org/cargo/reference/build-scripts.html) and
+    [build dependencies](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#build-dependencies) inside common project code
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5757 -->
+* Handle module re-exports with aliases while path collection for auto import.
+Previously, the plugin didn't take into account module aliases that led to the absence of `Import` quick fix in some cases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5658 -->
+* Do not offer `let` and `return` keywords inside struct literals and struct patterns while completion (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5539 -->
+* Improve `Add unsafe to block` quick fix to find the closest enclosing block (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5517 -->
+* Improve documentation links for dependencies in `Cargo.toml`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5710 -->
+* Fix `IndexOutOfBoundsException` because of invalid rustc annotation
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5744 -->
+* Fix exception while [Valgrind](https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html) launch in CLion (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5708 -->
+* Fix `Synchronous execution on EDT` exception while new Rust project creation
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5718 -->
+* Fix possible `PsiInvalidAccessException` and wrong name resolution in some cases
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5690 -->
+* Introduce `Crate` and `Crate Graph` abstractions. Previously, the plugin operated with raw Cargo targets.
+Now, most of the target usages replaced with Cargo-independent Crate API.
+It should isolate knowledge about build system from common language code like name resolution, completion, etc.
+Which in turn makes the existent code clearer and should simplify support for new build tools in the future
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/35?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
