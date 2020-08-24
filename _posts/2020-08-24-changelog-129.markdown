@@ -1,0 +1,96 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #129"
+date: 2020-08-24 04:01:13 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5745 -->
+* Implement [`wasm-pack`](https://rustwasm.github.io/docs/wasm-pack/) run configuration.
+  So now you can run any `wasm-pack` command just from the IDE
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5645 -->
+* Support the `Complete Current Statement` (<kbd>Ctrl+Shift+Enter</kbd>) action for function and structs (by [@Stzx])
+
+    {% include gif-img.html path="/assets/posts/changelog-129/complete-current-statement" w="700px" %}
+
+* Project creation improvements:
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5845 -->
+    * Provide support for custom project templates in the `New Project` dialog
+    
+        <img src="/assets/posts/changelog-129/cargo-generate.png" alt="custom user template screenshot" width="646px"/>
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5910 -->
+    * Create default run configuration for a new project
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5919 -->
+    * Improve package name validation during the new project creation
+
+* Lints & inspections improvements:
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5889 -->
+    * Move all `rustc`-related lints to the newly created separate `Lints` group.
+      You can find the corresponding inspection settings in `Preferences | Editor | Inspections | Rust` panel.
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5891 -->
+    * Support the `nonstandard_style` attribute for naming inspections
+    
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5890 -->
+    * Now the `While true loop` inspection takes into account the `while_true` lint [level](https://doc.rust-lang.org/rustc/lints/levels.html#lint-levels)
+      and has the suppression quick fix to add `#[allow(while_true)]` attribute
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5865 -->
+    * Check if the `derive` attribute is placed on a supported item (by [@Stzx])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5940 -->
+* Suggest the run configuration name from its command
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5828 -->
+* Allow folding of consecutive `impl Iterator<Item=X>`s in a method chain hints (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5760 -->
+* Code coverage integration improvements:
+    * Allow using any nightly toolchain to run code with coverage
+    * Show the error message if a user tries to launch code with coverage without nightly toolchain
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5885 -->
+* Update Cargo-related icons
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5926 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5912 -->
+* Slightly optimize name resolution in some cases
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5877 -->
+* Don't insert double parentheses for functions and methods after completion
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5870 -->
+* Don't provide the `Change return type` quick fix in a lambda with an implicit return type (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5937 -->
+* Now the `Attach file to a module` quick fix takes into account existing `mod` items, comments and attributes when inserting the new `mod` item (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5873 -->
+* Improve autocompletion of the `cargo` command in the [Run Anything](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support) popup
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5641 -->
+* Don't annotate user-defined attribute macros that override built-in ones (by [@Stzx])
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5932 -->
+* Initial regression testing. It should help to catch false-positive errors in new changes automatically
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5946 -->
+* Create a release branch on a schedule from CI
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/37?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@Stzx]: https://github.com/Stzx
