@@ -1,0 +1,128 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #130"
+date: 2020-09-07 11:00:00 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5459 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6038 -->
+* Provide `inline variable` refactoring (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>N</kbd>) (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-130/inline" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5352 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6037 -->
+* Provide `generate getters` and `generate setters` actions for struct fields
+(Can be invoked with <kbd>Alt</kbd> + <kbd>Insert</kbd>) (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-130/generate_getter_setter" w="700px" %}
+
+* `Move` refactoring (<kbd>F6</kbd>) improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5664 -->
+    * Move related `impl`s together with moved items
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5663 -->
+    * Handle editor selection in move top-level items refactoring
+
+        {% include gif-img.html path="/assets/posts/changelog-130/move" w="700px" %}
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5920 -->
+    * Support reexports
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/5979 -->
+    * Check visibility conflicts
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5505 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6019 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6050 -->
+* Provide intention to create a function from an unresolved function call (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-130/create_function" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6001 -->
+* Add project template for procedural macro. [Recently](/2020/08/10/changelog-128.html) we
+improved `New project` dialog to support `cargo-generate` templates. In this release we add
+[@eupn's template](https://github.com/eupn/rust-procmacro-quickstart-template) that makes it
+easy to create a procedural macro project.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5846 -->
+* Command completion for `wasm-pack` Run Configurations (that was added in the [previous release](/2020/08/24/changelog-129.html))
+and `Run Anything` (Double <kbd>Ctrl</kbd>)
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5989 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6012 -->
+* Don't expand macros disabled by `#[cfg]` attributes. This reduces overall macro expansion time
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5949 -->
+* Don't unescape backslashes in Rust test output. Fixes many issues with incorrect test output
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6028 -->
+* Show "missing toolchain" notification in `Cargo.toml` if Rust toolchain is not configured.
+Previously this notification was shown only in Rust `.rs` files
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6031 -->
+* Fix [bug](https://github.com/intellij-rust/intellij-rust/issues/5961) in name resolution:
+`crate`-relative paths re-exports could be resolved incorrectly
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5864 -->
+* Fix macro name resolution: macros from local import should shadow macros from crate root
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6024 -->
+* Don't check names of `static`s in `extern` blocks
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6008 -->
+* Exclude "build" directory from the index in [rustc](https://github.com/rust-lang/rust) project.
+Rustc stores build artifacts in "build" directory instead of usual "target"
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5998 -->
+* Fix [false-positive](https://github.com/intellij-rust/intellij-rust/issues/5994) in
+`format string` analysis (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5993 -->
+* Add `stdarch` and `backtrace` stdlib parts to the index. This enables search in these parts, also
+this improves analysis performance for code that uses `stdarch`.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5986 -->
+* Fix name resolution of nested modules in modules linked to a project with a `#[path = ""]`
+attributes from other directories. This fixes name resolution in `backtrace` stdlib part on nightly
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5990 -->
+* Improve documentation rendering. Fix multiple bugs including possible
+[exceptions](https://github.com/intellij-rust/intellij-rust/issues/5984)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5929 -->
+* Use `project name` instead of `root directory name` in IDEA when creating new project
+(see [the issue](https://github.com/intellij-rust/intellij-rust/issues/5922))
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5980 -->
+* Display Cargo package name instead of `project directory name` in `Cargo toolwindow` and run configurations
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5966 -->
+* Fix [false positive](https://github.com/intellij-rust/intellij-rust/issues/5965) unresolved reference error
+if you call trait method via UFCS and trait is not in the scope
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5959 -->
+* Fix project creation via `cargo-generate` template when project name contains underscores `_`.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6032 -->
+* Disable `Substitute associated type` intention for type aliases (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5945 -->
+* Fix possible [exception](https://github.com/intellij-rust/intellij-rust/pull/5945) on build cancel
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5874 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5999 -->
+* [Fix](https://github.com/intellij-rust/intellij-rust/pull/5999) a possible bug: if rust toolchain
+ is not configured, the IDE could open with 2 windows (!), each of them with some part of the interface
+
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/38?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
