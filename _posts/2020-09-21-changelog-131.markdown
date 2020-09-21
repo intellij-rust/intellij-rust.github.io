@@ -24,7 +24,7 @@ This is the last release that supports the 2020.1 platform. To receive plugin up
     {% include gif-img.html path="/assets/posts/changelog-131/empty_match_add_remaining_patterns" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5369 -->
-* Place methods with `&mut self` at the end of completion list for non-mutable variables
+* Place methods with `&mut self` at the end of completion list for non-mutable variables (by [@Kobzol])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5657 -->
 * Handle name conflicts after renaming local variables (by [@Kobzol])
@@ -79,14 +79,11 @@ This is the last release that supports the 2020.1 platform. To receive plugin up
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6051 -->
 * Set pull request milestone automatically
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6047 -->
-<!-- * TY: relax `expectedType` fallback -->
-
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6042 -->
 * Check that intentions have description and example (by [@Kobzol])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6017 -->
-* Use kotlin 1.4
+* Use Kotlin 1.4
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/39?closed=1)
 
