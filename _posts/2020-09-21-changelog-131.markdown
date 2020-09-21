@@ -15,9 +15,6 @@ This is the last release that supports the 2020.1 platform. To receive plugin up
 
     {% include gif-img.html path="/assets/posts/changelog-131/create_method" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5928 -->
-* Add initial parsing of the new [asm! macro](https://github.com/rust-lang/rfcs/blob/master/text/2873-inline-asm.md) syntax (by [@Kobzol])
-
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5720 -->
 * Supersede `Fill match arms` intention with `Add remaining patterns` quick fix which supports empty `match` expressions now
 
@@ -69,6 +66,9 @@ This is the last release that supports the 2020.1 platform. To receive plugin up
 * Fix benches flag in `cargo` command completion
 
 ## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5928 -->
+* Add initial parsing of the new [asm! macro](https://github.com/rust-lang/rfcs/blob/master/text/2873-inline-asm.md) syntax (by [@Kobzol])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6080 -->
 * Use the same processor for move files and move items refactoring. It allows adding features to both refactorings simultaneously
