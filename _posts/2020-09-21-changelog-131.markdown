@@ -1,0 +1,92 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #131"
+date: 2020-09-21 12:00:00 +0300
+---
+
+
+This is the last release that supports the 2020.1 platform. To receive plugin updates further, please upgrade your IDE to 2020.2.
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6039 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6102 -->
+* Provide intention to create a method from an unresolved method call (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-131/create_method" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5928 -->
+* Add initial parsing of the new [asm! macro](https://github.com/rust-lang/rfcs/blob/master/text/2873-inline-asm.md) syntax (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5720 -->
+* Supersede `Fill match arms` intention with `Add remaining patterns` quick fix which supports empty `match` expressions now
+
+    {% include gif-img.html path="/assets/posts/changelog-131/empty_match_add_remaining_patterns" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5369 -->
+* Place methods with `&mut self` at the end of completion list for non-mutable variables (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5657 -->
+* Handle name conflicts after renaming local variables (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5956 -->
+* Add `dbgr` postfix completion (by [@mgrachev])
+
+    {% include gif-img.html path="/assets/posts/changelog-131/dbgr" w="700px" %}
+
+* Improvements of `Move` refactoring for top-level items (`Refactor | Move` or <kbd>F6</kbd>):
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6010 -->
+    * Make moved items public if needed
+
+        {% include gif-img.html path="/assets/posts/changelog-131/move_make_items_public" w="746px" %}
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6078 -->
+    * Support finding visibility conflicts in more cases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6057 -->
+* Introduce a quick fix to add `..` to struct pattern that has missing fields (by [@t-kameyama])
+
+    {% include gif-img.html path="/assets/posts/changelog-131/pat_rest" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5995 -->
+* Rename "Cargo Command" run configuration to "Cargo"
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6075 -->
+* Fix "File is not included in module tree" warnings for a project under a symlinked directory
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6033 -->
+* Don't resolve macros from `std` with `no_std` attribute (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6041 -->
+* Fix highlighting inside macro calls in some cases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6049 -->
+* Fix flattening nested `use` statements intention (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6056 -->
+* Fix benches flag in `cargo` command completion
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6080 -->
+* Use the same processor for move files and move items refactoring. It allows adding features to both refactorings simultaneously
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6069 -->
+* Reduce duration of CI checks on Linux by caching `evcxr` executable (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6051 -->
+* Set pull request milestone automatically
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6042 -->
+* Check that intentions have description and example (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6017 -->
+* Use Kotlin 1.4
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/39?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@mgrachev]: https://github.com/mgrachev
+[@t-kameyama]: https://github.com/t-kameyama
