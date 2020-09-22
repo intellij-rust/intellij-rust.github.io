@@ -84,8 +84,10 @@ class Changelog(object):
 
     def write(self, f: TextIO):
         for label in self.labels:
-            f.write(self.sections[label].display())
-            f.write("\n\n")
+            section = self.sections[label]
+            if section.items:
+                f.write(section.display())
+                f.write("\n\n")
         if self.milestone_id is not None:
             f.write("Full set of changes can be found [here]"
                     "(https://github.com/intellij-rust/intellij-rust/milestone/{}?closed=1)\n"
@@ -177,7 +179,7 @@ def contributors():
     with open(last_post) as f:
         text = f.read()
 
-    names = sorted({n[2:-1] for n in re.findall(r"\[@[^\]]+\]", text)})
+    names = sorted({n[2:-1] for n in re.findall(r"\[@[^]]+]", text)})
 
     with open(last_post) as f:
         old_text = f.read()
