@@ -8,7 +8,7 @@ date: 2020-10-05 11:31:51 +0300
 ## New Features
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5704 -->
-* Now [`rustfmt`](https://github.com/rust-lang/rustfmt) can be used instead of build-in formatter.
+* Now [`rustfmt`](https://github.com/rust-lang/rustfmt) can be used instead of built-in formatter.
 To turn this feature on, enable `Use rustfmt instead of built-in formatter` option in `Preferences | Languages & Frameworks | Rust | Rustfmt` settings.
 Note, only whole file can be formatted with `rustfmt` for now.
 If you select some range inside Rust file,
