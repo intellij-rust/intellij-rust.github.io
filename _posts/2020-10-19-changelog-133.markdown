@@ -1,0 +1,85 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #133"
+date: 2020-10-19 12:00:00 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5189 -->
+* Support configuring workspace features in `Cargo.toml`.
+  Now it is possible to enable or disable any specific workspace [feature](https://doc.rust-lang.org/cargo/reference/features.html) in the `Cargo.toml` file, and `Go to Declaration` and other code insight features will take them into account.
+  See more details in the [corresponding](https://github.com/intellij-rust/intellij-rust/pull/5189) issue
+  
+  {% include gif-img.html path="/assets/posts/changelog-133/5189" w="700px" %}
+
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5444 -->
+* Resolve stdlib and Cargo source code paths in backtrace (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-133/5444" w="700px" %}
+
+## Fixes
+
+* UI improvements:
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/6172 -->
+  * Use recommended guidelines for settings UI
+  
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/6179 -->
+  * Get rid of scrollbar inside project creation dialog in minor IDEs like CLion
+  
+* Parser improvements:
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/6177 -->
+  * Properly parse `tuple.0.0` as tuple indexing supported in [Rust 1.46](https://github.com/rust-lang/rust/blob/master/RELEASES.md#language-1)
+
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/6202 -->
+  * Improve parsing of TOML arrays with syntax errors
+  
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/6143 -->
+  * Properly parse special macro calls with fully qualified names like `std::include`. Now code insight features work as expected for code included using `std::include` or `std::concat`
+  
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6163 -->
+* [Grazie plugin](https://plugins.jetbrains.com/plugin/12175-grazie) integration improvements:
+  * Fix incorrect proofreading annotations on raw and binary string literals
+  * Support `String literals`, `Comments` and `Documentation` options in `Preferences | Editor | Proofreading | Grammar` for Rust language
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6184 -->
+* Fix ``Make `self` mutable`` quick-fix of [E0594](https://doc.rust-lang.org/error-index.html#E0594) compiler error (by [@ondralukes])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6196 -->
+* Do not remove required parentheses by `Remove dbg!` intention (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6176 -->
+* Show test results in the gutter via red and green icons to differ passed and failed tests
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6178 -->
+* Use public visibility when creating function in other crate by `Create function` intention
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6258 -->
+* Update debugger pretty-printers to fix rendering of `HashMap` and `HashSet` in IDE debugger
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6048 -->
+* Fix running code with coverage on [proc-macro](https://doc.rust-lang.org/reference/procedural-macros.html) libs
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6223 -->
+* Fix compatibility issues with latest 2020.3 EAPs
+
+## Internal Improvements
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6163 -->
+* Provide source code of Grazie plugin while development when `baseIDE` in `gradle.properties` is `idea`. Previously, IDE always showed only class files
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6221 -->
+* Introduce tests for intention scope. Now it is possible to check that an intention is available only inside some text range and unavailable outside.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6188 -->
+* Improve presentation of regression test results:
+  * Use 1-based indices for line/column to be compatible with editor UI and `Go to Line/Column` action
+  * Sort regression annotations
+
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/41?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@ondralukes]: https://github.com/ondralukes
+[@t-kameyama]: https://github.com/t-kameyama
