@@ -23,7 +23,7 @@ date: 2020-11-02 12:00:00 +0300
     {% include gif-img.html path="/assets/posts/changelog-134/lint-attrs-completion" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6204 -->
-* Support `Go to Declaration` for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in `Cargo.toml` https://github.com/intellij-rust/intellij-rust/pull/6280 -->
+* Support `Go to Declaration` for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in `Cargo.toml`
 
     {% include gif-img.html path="/assets/posts/changelog-134/goto-cargo-features" w="700px" %}
 
