@@ -28,16 +28,16 @@ MAINTAINERS = [
 @dataclass
 class ChangelogItem:
     pull_request_id: int
-    title: str
+    description: str
     username: str
 
     def display(self):
         if self.username in MAINTAINERS:
             return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {}"\
-                .format(self.pull_request_id, self.title)
+                .format(self.pull_request_id, self.description)
         else:
             return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {} (by [@{}])"\
-                .format(self.pull_request_id, self.title, self.username)
+                .format(self.pull_request_id, self.description, self.username)
 
 
 class ChangelogSection(object):
@@ -118,11 +118,20 @@ def collect_changelog(post_number: int, login_or_token: str, password: str = Non
 
     changelog = Changelog(milestone.number)
     issues = repo.get_issues(milestone=milestone, state="all")
+
+    changelog_description_pattern = re.compile("changelog:(?P<description>([^\n]+\n?)*)")
     for issue in issues:
         if issue.pull_request is None:
             continue
         labels: Set[str] = set(map(lambda l: l.name, issue.labels))
-        changelog_item = ChangelogItem(issue.number, issue.title, issue.user.login)
+        if len(labels) == 0:
+            continue
+        result = re.search(changelog_description_pattern, issue.body.replace("\r\n", "\n"))
+        if result is not None:
+            description = result.group("description").strip()
+        else:
+            description = issue.title
+        changelog_item = ChangelogItem(issue.number, description, issue.user.login)
         for label in labels:
             changelog.add_item(label, changelog_item)
 
