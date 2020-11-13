@@ -119,6 +119,7 @@ def collect_changelog(post_number: int, login_or_token: str, password: str = Non
     changelog = Changelog(milestone.number)
     issues = repo.get_issues(milestone=milestone, state="all")
 
+    comment_pattern = re.compile("<!--.*-->", re.RegexFlag.DOTALL)
     changelog_description_pattern = re.compile("changelog:(?P<description>([^\n]+\n?)*)")
     for issue in issues:
         if issue.pull_request is None:
@@ -126,7 +127,9 @@ def collect_changelog(post_number: int, login_or_token: str, password: str = Non
         labels: Set[str] = set(map(lambda l: l.name, issue.labels))
         if len(labels) == 0:
             continue
-        result = re.search(changelog_description_pattern, issue.body.replace("\r\n", "\n"))
+
+        issue_text = re.sub(comment_pattern, "", issue.body).replace("\r\n", "\n")
+        result = re.search(changelog_description_pattern, issue_text)
         if result is not None:
             description = result.group("description").strip()
         else:
