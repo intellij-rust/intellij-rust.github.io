@@ -101,20 +101,8 @@ class Changelog(object):
                 f.write(url)
 
 
-def collect_changelog(post_number: int, login_or_token: str, password: str = None):
-    expected_milestone_title = f"v{post_number}"
-    print(f"Collecting changelog issues for `{expected_milestone_title}` milestone")
-    g = Github(login_or_token, password)
-    repo: Repository = g.get_repo("intellij-rust/intellij-rust")
-
-    milestone: Optional[Milestone] = None
-    for m in repo.get_milestones():
-        if m.title == expected_milestone_title:
-            milestone = m
-            break
-
-    if milestone is None:
-        raise RuntimeError(f"Milestone `{expected_milestone_title}` is not found")
+def collect_changelog(repo: Repository, milestone: Milestone):
+    print(f"Collecting changelog issues for `{milestone.title}` milestone")
 
     changelog = Changelog(milestone.number)
     issues = repo.get_issues(milestone=milestone, state="all")
@@ -159,9 +147,7 @@ def main():
 
 def new_post(args: argparse.Namespace):
     next_post = len(os.listdir("_posts"))
-    today = datetime.date.today().isoformat()
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S +0300")
-    name = "_posts/{}-changelog-{}.markdown".format(today, next_post)
+    date = datetime.datetime.now()
 
     changelog = Changelog()
     if not args.offline:
@@ -171,7 +157,27 @@ def new_post(args: argparse.Namespace):
         else:
             login_or_token = args.login
             password = args.password
-        changelog = collect_changelog(next_post, login_or_token, password)
+
+        expected_milestone_title = f"v{next_post}"
+        g = Github(login_or_token, password)
+        repo: Repository = g.get_repo("intellij-rust/intellij-rust")
+
+        milestone: Optional[Milestone] = None
+        for m in repo.get_milestones():
+            if m.title == expected_milestone_title:
+                milestone = m
+                break
+
+        if milestone is None:
+            raise RuntimeError(f"Milestone `{expected_milestone_title}` is not found")
+
+        due_on = milestone.due_on
+        if due_on is not None:
+            date = due_on.replace(hour=17, minute=0, second=0)  # 17:00 is our usual release time
+        changelog = collect_changelog(repo, milestone)
+
+    name = "_posts/{}-changelog-{}.markdown".format(date.date().isoformat(), next_post)
+
     with open(name, 'w') as f:
         f.write("""---
 layout: post
@@ -180,7 +186,7 @@ date: {}
 ---
 
 
-""".format(next_post, now))
+""".format(next_post, date.strftime("%Y-%m-%d %H:%M:%S +0300")))
 
         changelog.write(f)
 
