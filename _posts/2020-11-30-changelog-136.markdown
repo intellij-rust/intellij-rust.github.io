@@ -33,15 +33,15 @@ date: 2020-11-30 10:00:00 +0300
 * Compiler errors detection improvements:
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6352 -->
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6413 -->
-    * Detect attributes that require parentheses but haven't them, and suggest `Add parentheses`
-      quick-fix (by [@zeroeightysix])
+  * Detect attributes that require parentheses but haven't them, and suggest `Add parentheses`
+    quick-fix (by [@zeroeightysix])
 
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6372 -->
-    * Detect the missing type of `const` and `static` items as a semantic error and produce a user-friendly error message.
-      Also, provide a quick-fix to add explicit type in such cases (by [@Kobzol])
+  * Detect the missing type of `const` and `static` items as a semantic error and produce a user-friendly error message.
+    Also, provide a quick-fix to add explicit type in such cases (by [@Kobzol])
 
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6319 -->
-    * Detect [E0057](https://doc.rust-lang.org/error-index.html#E0057) in some cases (by [@zeroeightysix])
+  * Detect [E0057](https://doc.rust-lang.org/error-index.html#E0057) in some cases (by [@zeroeightysix])
 
 ## Performance Improvements
 
