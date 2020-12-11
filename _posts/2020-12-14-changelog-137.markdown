@@ -1,0 +1,108 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #137"
+date: 2020-12-14 17:00:00 +0300
+---
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6423 -->
+* Support `Find Usages` action (`Edit | Find Usages` or <kbd>Alt</kbd>+<kbd>F7</kbd>) for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html).
+Note, in order to make this feature work, you need to update your [TOML](https://plugins.jetbrains.com/plugin/8195-toml) plugin to the latest version as well
+
+  {% include gif-img.html path="/assets/posts/changelog-137/cargo-features-find-usages" w="700px" %}
+
+* [`cfg`](https://doc.rust-lang.org/reference/conditional-compilation.html#the-cfg-attribute) attribute support improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6436 -->
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6444 -->
+    * Provide completion for `feature` argument of `cfg` attribute
+      as well as completion for values of Cargo feature themselves
+
+      {% include gif-img.html path="/assets/posts/changelog-137/cfg-feature-completion" w="700px" %}
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6467 -->
+    * Gray out `cfg`-disabled items in structure view
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6432 -->
+    * Provide name resolution for Cargo features in [`doc(cfg())`](https://doc.rust-lang.org/beta/unstable-book/language-features/doc-cfg.html) attributes
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6466 -->
+    * Handle function arguments under `cfg` attribute during type inference and analyses
+
+
+* Support [`cfg_attr`](https://doc.rust-lang.org/reference/conditional-compilation.html#the-cfg_attr-attribute) attribute in some cases during name resolution and completion.
+  In general, the plugin now knows that `cfg_attr` can be expanded to other attributes, and the following stuff was adapted to use this knowledge:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6462 -->
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6460 -->
+    * Resolve and complete paths of `path` attribute and traits in `derive` attributes under `cfg_attr`
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6448 -->
+    * Take into account `cfg_attr` attribute during attribute and lint attribute completion
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6461 -->
+    * Resolve procedural macro [attributes](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) under `cfg_attr`
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6445 -->
+    * Add completion for conditional compilation options and operators inside `cfg_attr()` and `doc(cfg())` attributes
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6434 -->
+    * Provide name resolution for Cargo features in conditional attributes like `cfg_attr(docsrs, doc(cfg(feature = "macros")))`
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6440 -->
+    * Extend `Attribute without parentheses` inspection scope to highlight attributes under `cfg_attr`
+
+  Note, the plugin can't evaluate predicates of `cfg_attr` attribute yet
+
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6417 -->
+* Provide a way to fetch actual info about stdlib packages like dependencies,
+  [edition](https://doc.rust-lang.org/edition-guide/editions/index.html), Cargo features.
+  It should help the plugin understand stdlib structure better.
+  For example, the feature allows providing proper completion and navigation for items defined in `std::os` module.
+  Note, the corresponding feature works since Rust 1.41 and is disabled by default for now.
+  You can enable it via `org.rust.cargo.fetch.actual.stdlib.metadata` option in `Experimental Feature` dialog
+  (`Help | Find Action` and type `Experimental features` to open the dialog)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6332 -->
+* Add `Redirect input` option for `Cargo` run configuration to provide stdin from the desired file
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6428 -->
+* Remove empty `use` groups by `Optimize Imports` action (`Code | Optimize Imports` or <kbd>Alt</kbd>+<kbd>Cmd</kbd>+<kbd>O</kbd>)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6421 -->
+* Provide `Make public` quick-fix for items with
+  [restricted visibility](https://doc.rust-lang.org/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) like `pub(crate)`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6458 -->
+* Provide completion for `type_length_limit`, `windows_subsystem`, `panic_handler`, `must_use` `ignore`, `used`, `global_allocator` attributes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5939 -->
+* Show `Build` tool window for `wasm-pack` run configurations if `org.rust.cargo.build.tool.window` experimental feature is enabled
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6426 -->
+* Reduce memory consumption with [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine.
+Note, you can enable the new engine via `Use experimental name resolution engine` option in `Preferences | Languages & Frameworks | Rust` settings
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6465 -->
+* Fix `cfg` attributes support in [E0023](https://doc.rust-lang.org/error-index.html#E0023) detection and the corresponding quick-fix.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6464 -->
+* `Create method` intention is no longer offered for types from external or stdlib crates (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6453 -->
+* Take into account inner attributes like `#![allow(deprecated)]` in trait items during `cfg` attribute evaluation, lint suppression, etc.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6435 -->
+* Exclude private items from completion when using [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6430 -->
+* Fix wrong name resolution of Cargo features in `cfg_attr`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6429 -->
+* Use unqualified paths for references to target mod by `Move` (`Refactor | Move` or <kbd>F6</kbd>) refactoring
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6427 -->
+* Properly validate DTrace settings before running [CPU profiler](https://www.jetbrains.com/help/clion/cpu-profiler.html) on macOS
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6421 -->
+* Make `Item is private` error highlighting range more precise
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/45?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
