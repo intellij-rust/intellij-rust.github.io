@@ -1,0 +1,118 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #139"
+date: 2021-01-18 17:00:00 +0300
+---
+
+
+## New Features
+
+* Cargo features and `cfg` support improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6497 -->
+    * Take into account attributes under [`cfg_attr`](https://doc.rust-lang.org/reference/conditional-compilation.html#the-cfg_attr-attribute) attribute
+      during type inference, name resolution, and other analysis.
+      Now the corresponding features work as expected with code containing attributes like `cfg_attr(..., derive(...))`, `cfg_attr(..., path="...")`, etc.
+
+      {% include gif-img.html path="/assets/posts/changelog-139/6497" w="700px" %}
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6549 -->
+    * Fairly evaluate unknown `cfg` options to `false` if there is no custom [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) (`build.rs`) in the package.
+      Previously, in order to avoid wrongly disabling the actual code, unknown `cfg` options and unknown Cargo features were considered _enabled_ and _disabled_ simultaneously.
+      Note, you can turn on the new logic for packages containing `build.rs` as well by enabling the experimental build script evaluation:
+      just enable `org.rust.cargo.evaluate.build.scripts` in `Help | Find Action | Experimental Features` dialog
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6507 -->
+    * Improve `cfg(test)` processing for external dependencies by providing a new heuristic.
+      Now `cfg(test)` is treated as _disabled_ if there is a `cfg(not(test))` condition in the project.
+      Previously, `test` option was considered _enabled_ and _disabled_ simultaneously, i.e. code under `cfg(test)` and `cfg(not(test)` was both enabled.
+      Such test attributes are quite complex to handle in the IDE: the tests should not be [conditionally](https://doc.rust-lang.org/reference/conditional-compilation.html) disabled since you might want to read and edit them at any time;
+      but only mock objects should be disabled and excluded from code analysis.
+      So the current logic behind that is to disable "test" code only when "mocking", i.e. when there is a `cfg(not(test))` somewhere in the code.
+      Note, this new logic currently affects the external dependencies only, excluding your workspace, in order not to break down the code insight for your tests.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5913 -->
+* Introduce rename refactoring suggestions for local variables.
+  Now you will see a special hint to rename all usages when changing a local variable name in the editor (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-139/5913" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6582 -->
+* Add basic support for [overridden](https://rust-lang.github.io/rustup/overrides.html) toolchains.
+  Note, multiple overridden toolchains in a single IDE project are still unsupported
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6553 -->
+* Resolve URLs in `Cargo.toml` (e.g. in dependency `git` links).
+  Now you can open URL specified in `git`, `homepage`, `repository`, and `documentation` fields (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6084 -->
+* Provide folding for TOML files. Currently, it supports tables, arrays, and custom folding regions (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-139/6084" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6120 -->
+* Highlight [string-formatting](https://doc.rust-lang.org/rust-by-example/hello/print/fmt.html) arguments of `panic!` macro
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6439 -->
+* Incrementally update experimental [local crates index](https://github.com/intellij-rust/intellij-rust/pull/6390).
+  This speeds up the experimental `Cargo.toml` dependency completion. In the future, this would affect other new code insight based on the local crates index as well.
+  Note, the corresponding feature is disabled by default for now.
+  You can enable it via `org.rust.crates.local.index` option in `Experimental Feature` dialog (`Help | Find Action` and type `Experimental features` to open the dialog)
+
+## Fixes
+
+* [New name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6576 -->
+    * Support `#![macro_use]` attribute at file level
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6543 -->
+    * Consider [textual scoping](https://doc.rust-lang.org/reference/macros-by-example.html#textual-scope) when resolving macros
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6568 -->
+    * Properly process items with restricted visibility that contains an absolute path, e.g. `pub(in crate::inner1)`
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6566 -->
+    * Fix name resolution of qualified macro calls inside items in some cases
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6545 -->
+    * Properly handle renaming of enum variants
+
+  Note, you can enable the new engine via `Use experimental name resolution engine` option in `Preferences | Languages & Frameworks | Rust` settings
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6606 -->
+* Fix name resolution and completion of `Self` keyword for nested structs, enums, and `impl` blocks
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6613 -->
+* Improve the new `Fill function arguments` quick-fix (by [@Kobzol])
+    * Support filling arguments of a closure call
+    * Take actual types into account when constructing default values of generic types
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6515 -->
+* `Remove parameter` quick-fix no longer removes references to the modified function (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6574 -->
+* Fix resolution of Cargo features for aliased packages like `foo_alias = { package = "foo", path = "../foo"}`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6588 -->
+* Fix `Trait implementation` inspection on `impl` blocks containing macro-expanded members
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6541 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6542 -->
+* Improve parser recovery and syntax error messages for incomplete paths
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6578 -->
+* Introduce `TomlVisitor`. This class can be used to implement inspections in TOML files in a simple and efficient way (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6555 -->
+* Introduce message bundle to collect user-visible string literals and localize them in the future
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6538 -->
+* Set milestones automatically for pull requests from forks. Previously, it worked only for pull requests in the original repository
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6534 -->
+* Provide regression testing on CI for stdlib packages
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/47?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
