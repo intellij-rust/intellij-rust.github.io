@@ -4,7 +4,12 @@ title: "IntelliJ Rust Changelog #140"
 date: 2021-02-01 17:00:00 +0300
 ---
 
-This is the last release that supports the 2020.2 platform. To receive plugin updates further, please upgrade your IDE to 2020.3.
+Please welcome our new [documentation](https://plugins.jetbrains.com/plugin/8182-rust/docs/welcome-to-rust.html) 🥳<br/>
+It covers almost everything about the plugin, from basic how-to-s to detailed feature descriptions ✍️.
+And we'll do our best to keep it up-to-date as the plugin evolves!
+Hope you find it helpful!
+
+Also, this is the last release that supports the 2020.2 platform. To receive plugin updates further, please upgrade your IDE to 2020.3.
 
 ## New Features
 
