@@ -1,0 +1,133 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #140"
+date: 2021-02-01 17:00:00 +0300
+---
+
+This is the last release that supports the 2020.2 platform. To receive plugin updates further, please upgrade your IDE to 2020.3.
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5944 -->
+* Add `Change Signature` refactoring (`Refactor | Change Signature` or <kbd>Ctrl</kbd>+<kbd>F6</kbd>)
+  for functions and methods (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-140/5944" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6563 -->
+* Introduce `Share in Playground` action to share your code on [play.rust-lang.org](https://play.rust-lang.org/).
+  You can invoke it via `Tools | Rust | Share in Playground` or via context menu
+
+  {% include gif-img.html path="/assets/posts/changelog-140/6563" w="700px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5552 -->
+* Annotate wrong return type of an empty function (by [@Kobzol])
+
+  <img src="/assets/posts/changelog-140/5552.png" alt="empty function screenshot" width="700px"/>
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6602 -->
+* Gray out disabled [`cfg_attr`](https://doc.rust-lang.org/reference/conditional-compilation.html#the-cfg_attr-attribute)
+  attributes
+
+  <img src="/assets/posts/changelog-140/6602.png" alt="disabled attributes screenshot" width="700px"/>
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6590 -->
+* Support `Build` tool window for `cargo check` and `clippy` commands
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6535 -->
+* Add an inspection to check whether a Cargo feature has a cyclic dependency on itself
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6471 -->
+* `Create Function` intention now supports associated functions (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6324 -->
+* Pass [`required-features`](https://doc.rust-lang.org/cargo/reference/cargo-targets.html#the-required-features-field)
+  implicitly to a run configuration
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6364 -->
+* Support [`min_const_generics`](https://without.boats/blog/shipping-const-generics/)
+  feature (will be stabilized in Rust `1.51.0`)
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6662 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6659 -->
+* Slightly speed up name resolution & type inference
+
+## Fixes
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/5475 -->
+* Show type names in inlay parameter hints for generic enum variants (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6650 -->
+* Show all re-exports of the same item in completion list.
+  Previously, the plugin showed only one suggestion per item which led to hiding
+  alternative ways of importing the item
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6501 -->
+* `Import` quick-fix sorts items now: workspace items go first, then stdlib ones,
+  and then the rest (by [@gfreezy])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6643 -->
+* Adjust type inference to infer type of allocator type parameter for `Box` and `Vec` items.
+  See the corresponding [RFC](https://rust-lang.github.io/rfcs/1398-kinds-of-allocators.html)
+  about allocator API
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6636 -->
+* Take into account `cfg_attr` attribute during experimental compiler features annotation like
+  `#![cfg_attr(feature = "nightly", feature(generators))]`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6691 -->
+* Improve dependency completion in `Cargo.toml` (by [@Pzixel])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6668 -->
+* Fix `Join Lines` action (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd>)
+  in case there is no whitespace between parameters (by [@t-kameyama])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6684 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6678 -->
+* Extract only selected statements in `Extract function` refactoring (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6609 -->
+* Download stdlib dependencies into IDE system directory instead of `src`
+  directory in toolchain location to avoid unexpected behavior like read-only directory.
+  Note, stdlib dependencies are downloaded by the plugin only when
+  `org.rust.cargo.fetch.actual.stdlib.metadata` experimental feature is enabled,
+  otherwise the plugin uses hardcoded stdlib structure
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6580 -->
+* Do not suggest `Change item visibility` intention in trait impl blocks (by [@Kobzol])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6685 -->
+* Correctly resolve method calls (private method in inherent impl vs public trait impl)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6504 -->
+* Fix working directory when run `cargo test` in debug mode
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/4550 -->
+* Don't activate `Build` tool window if `Activate tool window` option of the corresponding
+  run configuration is disabled
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6702 -->
+* Allow building different Cargo projects simultaneously
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6750 -->
+* Fix `Build` action in CLion 2020.3.2
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6671 -->
+* Fix endless `Go To Declaration` for invalid self-containing structs
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6658 -->
+* Add `proc-macro-expander` source (see [#6658](https://github.com/intellij-rust/intellij-rust/pull/6658))
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6623 -->
+* Unify TOML key parsing (see [#6623](https://github.com/intellij-rust/intellij-rust/pull/6623))
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/48?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@Pzixel]: https://github.com/Pzixel
+[@gfreezy]: https://github.com/gfreezy
+[@t-kameyama]: https://github.com/t-kameyama
