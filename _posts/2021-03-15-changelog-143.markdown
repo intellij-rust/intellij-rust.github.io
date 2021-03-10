@@ -1,0 +1,88 @@
+---
+layout: post title: "IntelliJ Rust Changelog #143"
+date: 2021-03-15 17:00:00 +0300
+---
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6564 -->
+* Provide initial support for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros.
+  Now the plugin can expand such procedural macro calls and as a result they
+  automatically get a bunch of some features available for declarative macros:
+  highlighting, name resolution, restricted completion, `Show macro expansion` intentions and others.
+  Note, it's only initial implementation, so it may work in unexpected way in some cases.
+  The feature is disabled for default for now, to turn if on,
+  you should enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` experimental features.
+  See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for more
+  details and current status of procedural macros support.
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6933 -->
+* Auto-indent line when typing <kbd>Enter</kbd> inside an array literal
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6901 -->
+* TOML syntax highlighting is now available in `Cargo.toml.orig` files
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6941 -->
+* Provide new plugin icon
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6917 -->
+* Prevent a possible deadlock during project structure setup
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6861 -->
+* Slightly optimize name resolution
+  with [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6899 -->
+* Exclude more stdlib parts from indexing. Slightly speed up index process
+
+## Fixes
+
+* [New name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine improvements:
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6872 -->
+    * Find all possible impls for type aliases regardless type aliases number for particular type.
+      Previously, the plugin processed impl blocks for type aliases only
+      when their number for particular type were less than some threshold (10 by default).
+      It should fix name resolution for crates that heavily use type aliases like [nalgebra](https://crates.io/crates/nalgebra) or [winapi](https://crates.io/crates/winapi)
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6889 -->
+    * Cfg-enabled glob import overrides cfg-disabled named import
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6900 -->
+* Fix cargo features state inference for [renamed packages](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6897 -->
+* Omit unchanged default type parameters of return type by `Extract Function` (`Refactor | Extract Method` or
+  <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) refactoring
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6894 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6892 -->
+* Fix false-positive [E0252](https://doc.rust-lang.org/error-index.html#E0252) error annotations in some cases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6891 -->
+* Show proper console output on client when running binary with [Code With Me](https://plugins.jetbrains.com/plugin/14896-code-with-me) plugin (by [@akozlova])
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6876 -->
+* Do not expand invocations of builtin macros into `{}`
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6717 -->
+* Take into account [const generics](https://rust-lang.github.io/rfcs/2000-const-generics.html) by inspections which checks generic parameters/arguments ordering.
+  It fixes false positive `Type arguments must be declared prior to const arguments` error annotations
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6887 -->
+* Don't throw an exception on changing name of local variable during indexing
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6930 -->
+* Use 2021.1 platform as a default for development
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6876 -->
+* Add initial infrastructure for builtin macro expansion
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6881 -->
+* Simplify bit flags creation
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/51?closed=1)
+
+[@akozlova]: https://github.com/akozlova
