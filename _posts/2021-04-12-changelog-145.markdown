@@ -1,0 +1,100 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #145"
+date: 2021-04-12 17:00:00 +0300
+---
+
+
+## New Features
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6829 -->
+* Add `Unreachable code` inspection and quick-fix to remove unreachable code
+
+  {% include gif-img.html path="/assets/posts/changelog-145/unreachable-code" w="600px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6457 -->
+* Add `Unresolved reference` inspection for `Cargo.toml` files. The inspection highlights unresolved references
+  in `TOML` string literals and provides a quick-fix to create a new file for the corresponding unresolved path.
+
+  Note, the plugin provides such references for local dependencies, build scripts, workspace paths, and Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html).
+  The set of analyzed references can be extended by other plugins (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-145/toml-unresolved-reference" w="600px" %}
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7033 -->
+* Basic support of resolving to multiple targets at module scope in new [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7005 -->
+* Annotate wrong order of [const generic](https://rust-lang.github.io/rfcs/2000-const-generics.html) parameters without `const_generics` feature
+
+    <img src="/assets/posts/changelog-145/const-generics-order.png" alt="wrong order of generic arguments" width="700px"/>
+
+## Performance Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7038 -->
+* Speedup a `proc-macro` expansion result serialization/deserialization in the macro expansion engine
+
+## Fixes
+
+* Improvements in [crates local index](https://github.com/intellij-rust/intellij-rust/issues/6463):
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/6969 -->
+    * Make dependencies completion in `Cargo.toml` more intuitive and faster when using crates local index.
+      Note, this feature is disabled by default for now.
+      To use it, enable `org.rust.crates.local.index` experimental feature
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7035 -->
+    * Fix loading crates local index on a nightly Rust toolchain
+
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7031 -->
+    * Fix unnecessary reload of crates local index after IDE restart
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6890 -->
+* Don't show separate nodes for stdlib dependencies when `org.rust.cargo.fetch.actual.stdlib.metadata` experimental feature is enabled
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7012 -->
+* Don't import default type parameters by `Extract Function` refactoring (`Refactor | Extract | Method` or <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd>)
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7026 -->
+* Omit default type parameters in a `Convert to type` quick-fix text
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6945 -->
+* Fix exception in `Move` refactoring (`Refactor | Move` or <kbd>F6</kbd>) when it was first cancelled and then invoked again
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/6968 -->
+* Don't suggest [postfix templates](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#postfix-completion) inside string literals
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7013 -->
+* Fix type inference for array index operator in Rust 1.50
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7007 -->
+* Fix unification with the [never type](https://doc.rust-lang.org/std/primitive.never.html) `!` in `match` arms
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7053 -->
+* Fix name resolution of stdlib items with `cfg` attributes in some cases
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7051 -->
+* Fix expansion of procedural macros with non-ASCII literals
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7018 -->
+* Fix processing of `break`/`continue` expanded from a macro during control-flow analysis
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7059 -->
+* Update LLDB/GDB pretty-printers to render `HashMap`/`HashSet` in Rust 1.52 or higher
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7036 -->
+* Update GDB pretty-printers to render `BTreeMap`/`BTreeSet` in Rust 1.50 or higher
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7019 -->
+* Improve parser recovery in function arguments
+
+## Internal Improvements
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7042 -->
+* Now it's possible to use stdlib API appeared in Kotlin 1.4
+
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7014 -->
+<!-- * RES: Refactor handling `$crate` when expanding macros in new resolve -->
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/53?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
