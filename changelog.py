@@ -33,11 +33,11 @@ class ChangelogItem:
 
     def display(self):
         if self.username in MAINTAINERS:
-            return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {}"\
-                .format(self.pull_request_id, self.description)
+            return "* {}\n  <!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->"\
+                .format(self.description, self.pull_request_id)
         else:
-            return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {} (by [@{}])"\
-                .format(self.pull_request_id, self.description, self.username)
+            return "* {} (by [@{}])\n  <!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->"\
+                .format(self.description, self.username, self.pull_request_id)
 
 
 class ChangelogSection(object):
