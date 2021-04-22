@@ -15,33 +15,34 @@ date: 2021-04-26 17:00:00 +0300
   Note, it’s only an initial implementation,
   so it may work in an unexpected way in some cases. The feature is disabled by default for now.To turn it on, you
   should enable `Use experimental name resolution engine` option in `Preferences | Languages & Frameworks | Rust`
-  settings and enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` experimental features.
+  settings and enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` experimental features
+  (see instructions [here][experimental features]).
   Don’t forget to reload a project structure after enabling the corresponding features via `Refresh Cargo Projects`
   action on Cargo tool window. See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for
   more details and the current status of procedural macros support
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/custom-derive" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/7093 -->
 * Now the plugin takes [Cargo config](https://doc.rust-lang.org/cargo/reference/config.html) into account during
   evaluation of `cfg` conditions. Note, it works since Rust 1.52.0
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6581 -->
-* Introduce navigation bar breadcrumbs. (by [@Kobzol])
-
-TODO gif
+<!-- * Introduce navigation bar breadcrumbs. (by [@Kobzol]) -->
+<!-- disabled in https://github.com/intellij-rust/intellij-rust/pull/7154 -->
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6845 -->
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7115 -->
 * Add intention that toggles feature state from a cfg attribute (by [@Kobzol])
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/7071 -->
 * provide `Share in Playground` intention to share selected Rust code on [Rust Playground](https://play.rust-lang.org)
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-playground" w="600px" %}
 
 * Improve code folding:
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7112 -->
@@ -52,19 +53,19 @@ TODO gif
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7111 -->
   * Support fold `where` (by [@Stzx])
 
-  TODO gif
+    {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6960 -->
 * Add intention to expand dependency specification in `Cargo.toml`
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6837 -->
 * Add an intention to create a struct from an unresolved struct literal usage. (by [@Kobzol])
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-struct" w="600px" %}
 
-* Improve crate-local index (TODO note about experimental feature):
+* Improve experimental crate-local index (TODO note about experimental feature):
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6801 -->
   * Add inspection that checks crate dependency version requirements in Cargo.toml that do not match any known crate version. (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6599 -->
@@ -80,10 +81,12 @@ TODO gif
 <!-- https://github.com/intellij-rust/intellij-rust/pull/5650 -->
 * INT: replace usages in DestructureIntention (by [@Kobzol])
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6986 -->
 * Allow explicitly stating the function return type in CreateFunctionIntention if the inferred return type was unknown. (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-create-function" w="600px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6013 -->
 * Don't run inspections on files outside a valid project
@@ -103,9 +106,6 @@ TODO gif
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/7119 -->
 * correctly resolve qualified attribute proc macro paths (like `#[foo::bar]`)
-
-<!-- https://github.com/intellij-rust/intellij-rust/pull/7115 -->
-* should not be mentioned in the changelog if placed in the same release as #6845
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/7108 -->
 * Fix auto import in the case of a renamed cargo package
@@ -140,6 +140,9 @@ TODO gif
 <!-- https://github.com/intellij-rust/intellij-rust/pull/7004 -->
 * INSP&COMP: Use exceptions to check whether index is updating
 
+<!-- https://github.com/intellij-rust/intellij-rust/pull/7150 -->
+* Fix `Can't find process starter` error when running DTrace profiler with CLion 2021.1
+
 <!-- https://github.com/intellij-rust/intellij-rust/pull/6201 -->
 * Deduplicate cargo projects
 
@@ -162,3 +165,5 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@Kobzol]: https://github.com/Kobzol
 [@Stzx]: https://github.com/Stzx
 [@abn]: https://github.com/abn
+
+[experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
