@@ -7,12 +7,11 @@ date: 2021-04-26 17:00:00 +0300
 
 ## New Features
 
-* Provide initial support for [custom derive](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros)
+* Provide initial experimental support for [custom derive]
   procedural macros. Now the plugin can expand such procedural macro calls and take into account expanded `impl` items
-  in type inference and name resolution (other types of items are ignored).
-
+  in type inference and name resolution (other types of items are ignored for now).<br/>
   Note, it’s only an initial implementation,
-  so it may work in an unexpected way in some cases. The feature is disabled by default for now.To turn it on, you
+  so it may work in an unexpected way in some cases. The feature is disabled by default for now. To turn it on, you
   should enable `Use experimental name resolution engine` option in `Preferences | Languages & Frameworks | Rust`
   settings and enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` experimental features
   (see instructions [here][experimental features]).
@@ -23,47 +22,54 @@ date: 2021-04-26 17:00:00 +0300
   {% include gif-img.html path="/assets/posts/changelog-146/custom-derive" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6992 -->
 
-* Now the plugin takes [Cargo config](https://doc.rust-lang.org/cargo/reference/config.html) into account during
-  evaluation of `cfg` conditions. Note, it works since Rust 1.52.0
+* Now the plugin takes [Cargo config] into account during evaluation of [`cfg` conditions][cfg].
+  Note, it works since Rust 1.52.0 (currently in beta)
 
   {% include gif-img.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7093 -->
 
-* Add intention that toggles feature state from a cfg attribute (by [@Kobzol])
+* Provide an intention action that toggles feature state from a `cfg` attribute (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" %}
+  By the way, we have a [blogpost][cargo features blogpost] about cargo features support
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6845 -->
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7115 -->
 
-* provide `Share in Playground` intention to share selected Rust code on [Rust Playground](https://play.rust-lang.org)
+* Provide `Share in Playground` intention action to share a selected Rust code on [Rust Playground](https://play.rust-lang.org).
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-playground" w="600px" %}
+  Previously, this feature was only available as an action in right-click menu.
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7071 -->
 
-* Improve code folding:
-  * Support for `imports` and `method bodies` options in `Code Folding - General` settings (by [@Stzx])
+* Improve [code folding]:
+
+    * Support folding `where` clauses (by [@Stzx])
+
+      {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
+      <!-- https://github.com/intellij-rust/intellij-rust/pull/7111 -->
+
+  * Support folding by default for series of use items and function bodies.
+    `imports` (actually use items) and `method bodies` (actually function bodies)
+    options in `Settings | Editor | General | Code Folding - General` settings (by [@Stzx])
     <!-- https://github.com/intellij-rust/intellij-rust/pull/7112 -->
 
     TODO gif
 
-  * Support fold `where` (by [@Stzx])
-
-    {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/7111 -->
-
-* Add intention to expand dependency specification in `Cargo.toml`
+* Provide an intention action to expand dependency specification in `Cargo.toml`
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6960 -->
 
-* Add an intention to create a struct from an unresolved struct literal usage. (by [@Kobzol])
+* Provide an intention action to create a struct from an unresolved struct literal (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-struct" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6837 -->
 
 * Improve experimental crate-local index (TODO note about experimental feature):
-  * Add inspection that checks crate dependency version requirements in Cargo.toml that do not match any known crate version. (by [@Kobzol])
+
+  * Add inspection that checks crate dependency version requirements in Cargo.toml that do not match any known crate version (by [@Kobzol])
     <!-- https://github.com/intellij-rust/intellij-rust/pull/6801 -->
+
   * Use semantic versioning to improve version sorting in dependencies when using experimental local crates index
     <!-- https://github.com/intellij-rust/intellij-rust/pull/6599 -->
 
@@ -78,87 +84,86 @@ date: 2021-04-26 17:00:00 +0300
 
 ## Fixes
 
-* INT: replace usages in DestructureIntention (by [@Kobzol])
+* Improve `Use destructuring declaration` intention action: replace usages of destructured variable (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/5650 -->
 
-* Allow explicitly stating the function return type in CreateFunctionIntention if the inferred return type was unknown. (by [@Kobzol])
+* Allow explicitly stating the function return type in `Create function` if the inferred return type was unknown. (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-create-function" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6986 -->
 
-* Don't run inspections on files outside a valid project
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6013 -->
-
-* FMT: add line break after opening brace in struct blocks (by [@Kobzol])
+* Improve built-in formatter: add line break after opening brace in struct blocks (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/5491 -->
 
-* fix name resolution of field shorthand to a local variable in the case of unresolved struct literal
+* Fix name resolution: correctly resolve qualified attribute proc macro paths (like `#[foo::bar]`)
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7119 -->
+
+* Fix name resolution: resolve field shorthand to a local variable in the case of unresolved struct literal
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7132 -->
+
+* Fix name resolution: correctly resolve macros with absolute paths (like `::foo::bar!()`) with new name resolution engine
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7089 -->
 
 * Fix false-positive proofreading warnings for sentences written in several sequential Rust comments.
   Note, you can enable/disable proofreading in Rust files in `Preferences | Editor | Proofreading | Grammar` settings
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7131 -->
 
-* Refresh Cargo project when workspace `Cargo.toml` is changed
+* Refresh Cargo project automatically when workspace-root `Cargo.toml` file is changed (and saved).
+  Previously it was work only for package `Cargo.toml` files.
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7121 -->
 
-* correctly resolve qualified attribute proc macro paths (like `#[foo::bar]`)
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7119 -->
-
-* Fix auto import in the case of a renamed cargo package
+* Fix auto-import: insert correct import in the case of a renamed cargo package
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7108 -->
 
-* Remove false positive in RsNeedlessLifetimesInspection when the lifetime is used in where clause. (by [@Kobzol])
+* Fix false positive in `Needless lifetimes` inspection when the lifetime is used in where clause. (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7101 -->
 
-* Fix resolve of macros with absolute paths with new name resolution engine
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7089 -->
-
-* Fix some false positives in name conflict detection in ChangeSignature refactoring. (by [@Kobzol])
+* Fix some false positives in name conflict detection in `Change Signature` refactoring. (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7081 -->
 
-* Do not needlessly import default type arguments in ChangeSignature refactoring (by [@Kobzol])
+* Do not needlessly import default type arguments in `Change Signature` refactoring (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7080 -->
 
-* MACRO: fix expansion if proc macro is added as separate cargo project
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7079 -->
-
-* Correctly place function visibility after attributes in Change signature refactoring. (by [@Kobzol])
+* Correctly place function visibility after attributes in `Change Signature` refactoring. (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7076 -->
 
-* place `Show the result of macro expansion` intention lower in the intention list
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7072 -->
+* Fix proc macro expansion if proc macro crate is added as separate cargo project in `Cargo` toolwindow
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7079 -->
 
-* ANN: If no `crate` exists, no check is performed (by [@Stzx])
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7070 -->
+* Place `Show the result of macro expansion` intention lower in the intention list
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7072 -->
 
 * Exclude some cfg-disabled items from completion when using new name resolution engine
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7057 -->
 
-* INSP&COMP: Use exceptions to check whether index is updating
+* Don't run inspections on Rust files outside a valid Cargo project
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/6013 -->
+
+* Don't show errors related to Rust edition if we don't known the edition (by [@Stzx])
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7070 -->
+
+* Fix crate-local index: don't perform code completion and run inspections if the index is not ready
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7004 -->
 
 * Fix `Can't find process starter` error when running DTrace profiler with CLion 2021.1
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7150 -->
 
-* Deduplicate cargo projects
+* Avoid Cargo project duplication in the project model. This fixes some issues related to such duplications
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6201 -->
 
 ## Internal Improvements
 
-* Don't show "Tip of the Day" at startup in internal IDEs
+* Don't show "Tip of the Day" at startup in internal IDEs (for the plugin developers)
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7114 -->
 
-* Enable Gradle Build Cache (see [#7094](https://github.com/intellij-rust/intellij-rust/pull/7094)) for more info
+* Enable Gradle Build Cache for local builds
+  (see [#7094](https://github.com/intellij-rust/intellij-rust/pull/7094)) for more info
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7094 -->
 
 * Introduce `2021` edition variant in the plugin and adjust the corresponding code
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6903 -->
-
-* Implement stub-only `QueryAttributes` API
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7046 -->
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/54?closed=1)
 
@@ -166,4 +171,9 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@Stzx]: https://github.com/Stzx
 [@abn]: https://github.com/abn
 
+[custom derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
 [experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+[Cargo config]: https://doc.rust-lang.org/cargo/reference/config.html
+[cfg]: https://doc.rust-lang.org/reference/conditional-compilation.html
+[cargo features blogpost]: https://blog.jetbrains.com/clion/2020/10/intellij-rust-new-functionality-for-cargo-features/
+[code folding]: https://www.jetbrains.com/help/idea/working-with-source-code.html#code_folding
