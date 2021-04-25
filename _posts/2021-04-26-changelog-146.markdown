@@ -43,17 +43,21 @@ date: 2021-04-26 17:00:00 +0300
 
 * Improve [code folding]:
 
-    * Support folding `where` clauses (by [@Stzx])
+  * Support folding for multiline `where` clauses (by [@Stzx])
 
-      {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
-      <!-- https://github.com/intellij-rust/intellij-rust/pull/7111 -->
+    {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7111 -->
 
-  * Support folding by default for series of use items and function bodies.
-    `imports` (actually use items) and `method bodies` (actually function bodies)
-    options in `Settings | Editor | General | Code Folding - General` settings (by [@Stzx])
+  * Support folding by default for series of use items (by [@Stzx])<br>
+    The option is **enabled** by default.
+    You can disable it in `Settings | Editor | General | Code Folding | General | imports`
     <!-- https://github.com/intellij-rust/intellij-rust/pull/7112 -->
 
-    TODO gif
+  * Support folding by default for function bodies (by [@Stzx])<br>
+    The option is **disabled** by default.
+    `imports` (actually use items) and `method bodies` (actually function bodies)
+    You can enable it in `Settings | Editor | General | Code Folding | General | method bodies`
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7112 -->
 
 * Provide an intention action to expand dependency specification in `Cargo.toml`
 
@@ -65,13 +69,16 @@ date: 2021-04-26 17:00:00 +0300
   {% include gif-img.html path="/assets/posts/changelog-146/intention-struct" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6837 -->
 
-* Improve experimental crate-local index (TODO note about experimental feature):
+* Improve experimental crate-local index:
 
-  * Add inspection that checks crate dependency version requirements in Cargo.toml that do not match any known crate version (by [@Kobzol])
+  * Add `Cargo.toml` inspection that checks crate dependency version requirements that do not match any known crate version (by [@Kobzol])
     <!-- https://github.com/intellij-rust/intellij-rust/pull/6801 -->
 
-  * Use semantic versioning to improve version sorting in dependencies when using experimental local crates index
+  * Use semantic versioning to improve version sorting in dependency completion
     <!-- https://github.com/intellij-rust/intellij-rust/pull/6599 -->
+
+  Note, the corresponding feature is disabled by default for now. To use it, enable
+  `org.rust.crates.local.index` experimental feature (see instructions [here][experimental features])
 
 * Drop support of `org.rust.cargo.evaluate.build.scripts` experimental feature.
   Use `org.rust.cargo.evaluate.build.scripts` instead if you need to evaluate
@@ -94,17 +101,41 @@ date: 2021-04-26 17:00:00 +0300
   {% include gif-img.html path="/assets/posts/changelog-146/intention-create-function" w="600px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6986 -->
 
+* Name resolution fixes:
+
+  * Fix name resolution: correctly resolve qualified attribute proc macro paths (like `#[foo::bar]`)
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7119 -->
+
+  * Fix name resolution: resolve field shorthand to a local variable in the case of unresolved struct literal
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7132 -->
+
+* New name resolution fixes
+
+  * Fix name resolution: correctly resolve macros with absolute paths (like `::foo::bar!()`) with new name resolution engine
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7089 -->
+
+  * Exclude some cfg-disabled items from completion when using new name resolution engine
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7057 -->
+
+* `Change Signature` refactoring fixes:
+
+  * Fix some false positives in name conflict detection (by [@Kobzol])
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7081 -->
+
+  * Do not needlessly import default type arguments (by [@Kobzol])
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7080 -->
+
+  * Correctly place function visibility after attributes (by [@Kobzol])
+    <!-- https://github.com/intellij-rust/intellij-rust/pull/7076 -->
+
+* Fix auto-import: insert correct import in the case of a renamed cargo package
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7108 -->
+
+* Fix false positive in `Needless lifetimes` inspection when the lifetime is used in where clause. (by [@Kobzol])
+  <!-- https://github.com/intellij-rust/intellij-rust/pull/7101 -->
+
 * Improve built-in formatter: add line break after opening brace in struct blocks (by [@Kobzol])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/5491 -->
-
-* Fix name resolution: correctly resolve qualified attribute proc macro paths (like `#[foo::bar]`)
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7119 -->
-
-* Fix name resolution: resolve field shorthand to a local variable in the case of unresolved struct literal
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7132 -->
-
-* Fix name resolution: correctly resolve macros with absolute paths (like `::foo::bar!()`) with new name resolution engine
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7089 -->
 
 * Fix false-positive proofreading warnings for sentences written in several sequential Rust comments.
   Note, you can enable/disable proofreading in Rust files in `Preferences | Editor | Proofreading | Grammar` settings
@@ -114,29 +145,11 @@ date: 2021-04-26 17:00:00 +0300
   Previously it was work only for package `Cargo.toml` files.
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7121 -->
 
-* Fix auto-import: insert correct import in the case of a renamed cargo package
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7108 -->
-
-* Fix false positive in `Needless lifetimes` inspection when the lifetime is used in where clause. (by [@Kobzol])
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7101 -->
-
-* Fix some false positives in name conflict detection in `Change Signature` refactoring. (by [@Kobzol])
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7081 -->
-
-* Do not needlessly import default type arguments in `Change Signature` refactoring (by [@Kobzol])
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7080 -->
-
-* Correctly place function visibility after attributes in `Change Signature` refactoring. (by [@Kobzol])
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7076 -->
-
 * Fix proc macro expansion if proc macro crate is added as separate cargo project in `Cargo` toolwindow
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7079 -->
 
 * Place `Show the result of macro expansion` intention lower in the intention list
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7072 -->
-
-* Exclude some cfg-disabled items from completion when using new name resolution engine
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/7057 -->
 
 * Don't run inspections on Rust files outside a valid Cargo project
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6013 -->
@@ -144,7 +157,7 @@ date: 2021-04-26 17:00:00 +0300
 * Don't show errors related to Rust edition if we don't known the edition (by [@Stzx])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7070 -->
 
-* Fix crate-local index: don't perform code completion and run inspections if the index is not ready
+* Fix experimental crate-local index: don't perform code completion and run inspections if the index is not ready
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7004 -->
 
 * Fix `Can't find process starter` error when running DTrace profiler with CLion 2021.1
@@ -159,7 +172,7 @@ date: 2021-04-26 17:00:00 +0300
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7114 -->
 
 * Enable Gradle Build Cache for local builds
-  (see [#7094](https://github.com/intellij-rust/intellij-rust/pull/7094)) for more info
+  (see [#7094](https://github.com/intellij-rust/intellij-rust/pull/7094) for more details)
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7094 -->
 
 * Introduce `2021` edition variant in the plugin and adjust the corresponding code
