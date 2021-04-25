@@ -30,7 +30,7 @@ date: 2021-04-26 17:00:00 +0300
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" h="300px" %}
   By the way, we have a [blog post][cargo features blogpost] about cargo features support
 
-* [#7071] Provide `Share in Playground` intention action to share a selected Rust code on [Rust Playground](https://play.rust-lang.org).
+* [#7071] Provide `Share in Playground` intention action to share a selected Rust code on [Rust Playground](https://play.rust-lang.org)
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-playground" w="600px" %}
   Previously, this feature was only available as `Rust | Share in Playground` action in `Tools` and context menus
@@ -103,7 +103,7 @@ date: 2021-04-26 17:00:00 +0300
 
 * [#7108] Fix auto-import: insert correct import in the case of a renamed cargo package
 
-* [#7101] Fix false positive in `Needless lifetimes` inspection when the lifetime is used in `where` clause. (by [@Kobzol])
+* [#7101] Fix false positive in `Needless lifetimes` inspection when the lifetime is used in `where` clause (by [@Kobzol])
 
 * [#5491] Improve built-in formatter: add line break after opening brace in struct blocks (by [@Kobzol])
 
@@ -111,7 +111,7 @@ date: 2021-04-26 17:00:00 +0300
   Note, you can enable/disable proofreading in Rust files in `Preferences | Editor | Proofreading | Grammar` settings
 
 * [#7121] Reload project model automatically when workspace-root `Cargo.toml` file is changed (and saved).
-  Previously it was work only for package `Cargo.toml` files.
+  Previously it was work only for package `Cargo.toml` files
 
 * [#7079] Fix proc macro expansion if proc macro crate is added as separate cargo project in `Cargo` toolwindow
 
@@ -140,46 +140,45 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 
 [@Kobzol]: https://github.com/Kobzol
 [@Stzx]: https://github.com/Stzx
-[@abn]: https://github.com/abn
 
-[#7142]: https://github.com/intellij-rust/intellij-rust/pull/7142
-[#7112]: https://github.com/intellij-rust/intellij-rust/pull/7112
-[#7111]: https://github.com/intellij-rust/intellij-rust/pull/7111
-[#7100]: https://github.com/intellij-rust/intellij-rust/pull/7100
-[#7093]: https://github.com/intellij-rust/intellij-rust/pull/7093
-[#7071]: https://github.com/intellij-rust/intellij-rust/pull/7071
-[#6992]: https://github.com/intellij-rust/intellij-rust/pull/6992
-[#6986]: https://github.com/intellij-rust/intellij-rust/pull/6986
-[#6960]: https://github.com/intellij-rust/intellij-rust/pull/6960
-[#6845]: https://github.com/intellij-rust/intellij-rust/pull/6845
-[#6837]: https://github.com/intellij-rust/intellij-rust/pull/6837
-[#6801]: https://github.com/intellij-rust/intellij-rust/pull/6801
-[#6599]: https://github.com/intellij-rust/intellij-rust/pull/6599
-[#6013]: https://github.com/intellij-rust/intellij-rust/pull/6013
-[#5650]: https://github.com/intellij-rust/intellij-rust/pull/5650
 [#5491]: https://github.com/intellij-rust/intellij-rust/pull/5491
-[#7150]: https://github.com/intellij-rust/intellij-rust/pull/7150
-[#7132]: https://github.com/intellij-rust/intellij-rust/pull/7132
-[#7131]: https://github.com/intellij-rust/intellij-rust/pull/7131
-[#7121]: https://github.com/intellij-rust/intellij-rust/pull/7121
-[#7119]: https://github.com/intellij-rust/intellij-rust/pull/7119
-[#7115]: https://github.com/intellij-rust/intellij-rust/pull/7115
-[#7108]: https://github.com/intellij-rust/intellij-rust/pull/7108
-[#7101]: https://github.com/intellij-rust/intellij-rust/pull/7101
-[#7089]: https://github.com/intellij-rust/intellij-rust/pull/7089
-[#7081]: https://github.com/intellij-rust/intellij-rust/pull/7081
-[#7080]: https://github.com/intellij-rust/intellij-rust/pull/7080
-[#7079]: https://github.com/intellij-rust/intellij-rust/pull/7079
-[#7076]: https://github.com/intellij-rust/intellij-rust/pull/7076
-[#7072]: https://github.com/intellij-rust/intellij-rust/pull/7072
-[#7070]: https://github.com/intellij-rust/intellij-rust/pull/7070
-[#7057]: https://github.com/intellij-rust/intellij-rust/pull/7057
-[#7004]: https://github.com/intellij-rust/intellij-rust/pull/7004
+[#5650]: https://github.com/intellij-rust/intellij-rust/pull/5650
+[#6013]: https://github.com/intellij-rust/intellij-rust/pull/6013
 [#6201]: https://github.com/intellij-rust/intellij-rust/pull/6201
-[#7114]: https://github.com/intellij-rust/intellij-rust/pull/7114
-[#7094]: https://github.com/intellij-rust/intellij-rust/pull/7094
-[#7046]: https://github.com/intellij-rust/intellij-rust/pull/7046
+[#6599]: https://github.com/intellij-rust/intellij-rust/pull/6599
+[#6801]: https://github.com/intellij-rust/intellij-rust/pull/6801
+[#6837]: https://github.com/intellij-rust/intellij-rust/pull/6837
+[#6845]: https://github.com/intellij-rust/intellij-rust/pull/6845
 [#6903]: https://github.com/intellij-rust/intellij-rust/pull/6903
+[#6960]: https://github.com/intellij-rust/intellij-rust/pull/6960
+[#6986]: https://github.com/intellij-rust/intellij-rust/pull/6986
+[#6992]: https://github.com/intellij-rust/intellij-rust/pull/6992
+[#7004]: https://github.com/intellij-rust/intellij-rust/pull/7004
+[#7046]: https://github.com/intellij-rust/intellij-rust/pull/7046
+[#7057]: https://github.com/intellij-rust/intellij-rust/pull/7057
+[#7070]: https://github.com/intellij-rust/intellij-rust/pull/7070
+[#7071]: https://github.com/intellij-rust/intellij-rust/pull/7071
+[#7072]: https://github.com/intellij-rust/intellij-rust/pull/7072
+[#7076]: https://github.com/intellij-rust/intellij-rust/pull/7076
+[#7079]: https://github.com/intellij-rust/intellij-rust/pull/7079
+[#7080]: https://github.com/intellij-rust/intellij-rust/pull/7080
+[#7081]: https://github.com/intellij-rust/intellij-rust/pull/7081
+[#7089]: https://github.com/intellij-rust/intellij-rust/pull/7089
+[#7093]: https://github.com/intellij-rust/intellij-rust/pull/7093
+[#7094]: https://github.com/intellij-rust/intellij-rust/pull/7094
+[#7100]: https://github.com/intellij-rust/intellij-rust/pull/7100
+[#7101]: https://github.com/intellij-rust/intellij-rust/pull/7101
+[#7108]: https://github.com/intellij-rust/intellij-rust/pull/7108
+[#7111]: https://github.com/intellij-rust/intellij-rust/pull/7111
+[#7112]: https://github.com/intellij-rust/intellij-rust/pull/7112
+[#7114]: https://github.com/intellij-rust/intellij-rust/pull/7114
+[#7115]: https://github.com/intellij-rust/intellij-rust/pull/7115
+[#7119]: https://github.com/intellij-rust/intellij-rust/pull/7119
+[#7121]: https://github.com/intellij-rust/intellij-rust/pull/7121
+[#7131]: https://github.com/intellij-rust/intellij-rust/pull/7131
+[#7132]: https://github.com/intellij-rust/intellij-rust/pull/7132
+[#7142]: https://github.com/intellij-rust/intellij-rust/pull/7142
+[#7150]: https://github.com/intellij-rust/intellij-rust/pull/7150
 
 [custom derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
 [experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
