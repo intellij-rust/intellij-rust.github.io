@@ -19,18 +19,18 @@ date: 2021-04-26 17:00:00 +0300
   action on Cargo tool window. See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for
   more details and the current status of procedural macros support
 
-  {% include gif-img.html path="/assets/posts/changelog-146/custom-derive" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/custom-derive" w="600px" h="300px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6992 -->
 
 * Now the plugin takes [Cargo config] into account during evaluation of [`cfg` conditions][cfg].
   Note, it works since Rust 1.52.0 (currently in beta)
 
-  {% include gif-img.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" h="300px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7093 -->
 
 * Provide an intention action that toggles feature state from a `cfg` attribute (by [@Kobzol])
 
-  {% include gif-img.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" h="300px" %}
   By the way, we have a [blogpost][cargo features blogpost] about cargo features support
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6845 -->
   <!-- https://github.com/intellij-rust/intellij-rust/pull/7115 -->
@@ -45,7 +45,7 @@ date: 2021-04-26 17:00:00 +0300
 
   * Support folding for multiline `where` clauses (by [@Stzx])
 
-    {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
+    {% include gif-img-wh.html path="/assets/posts/changelog-146/fold-where" w="600px" h="300px" %}
     <!-- https://github.com/intellij-rust/intellij-rust/pull/7111 -->
 
   * Support folding by default for series of use items (by [@Stzx])<br>
@@ -61,12 +61,12 @@ date: 2021-04-26 17:00:00 +0300
 
 * Provide an intention action to expand dependency specification in `Cargo.toml`
 
-  {% include gif-img.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" h="300px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6960 -->
 
 * Provide an intention action to create a struct from an unresolved struct literal (by [@Kobzol])
 
-  {% include gif-img.html path="/assets/posts/changelog-146/intention-struct" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-struct" w="600px" h="300px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6837 -->
 
 * Improve experimental crate-local index:
@@ -93,12 +93,12 @@ date: 2021-04-26 17:00:00 +0300
 
 * Improve `Use destructuring declaration` intention action: replace usages of destructured variable (by [@Kobzol])
 
-  {% include gif-img.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/5650 -->
 
 * Allow explicitly stating the function return type in `Create function` if the inferred return type was unknown. (by [@Kobzol])
 
-  {% include gif-img.html path="/assets/posts/changelog-146/intention-create-function" w="600px" %}
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-create-function" w="600px" h="300px" %}
   <!-- https://github.com/intellij-rust/intellij-rust/pull/6986 -->
 
 * Name resolution fixes:
