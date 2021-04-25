@@ -13,8 +13,7 @@ date: 2021-04-26 17:00:00 +0300
   Note, it’s only an initial implementation,
   so it may work in an unexpected way in some cases. The feature is disabled by default for now. To turn it on, you
   should enable `Use experimental name resolution engine` option in `Preferences | Languages & Frameworks | Rust`
-  settings and enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` experimental features
-  (see instructions [here][experimental features]).
+  settings and enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features][experimental features].
   Don’t forget to reload a project structure after enabling the corresponding features via `Refresh Cargo Projects`
   action on Cargo tool window. See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for
   more details and the current status of procedural macros support
@@ -29,12 +28,12 @@ date: 2021-04-26 17:00:00 +0300
 * [#6845], [#7115] Provide an intention action that toggles feature state from a `cfg` attribute (by [@Kobzol])
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" h="300px" %}
-  By the way, we have a [blogpost][cargo features blogpost] about cargo features support
+  By the way, we have a [blog post][cargo features blogpost] about cargo features support
 
 * [#7071] Provide `Share in Playground` intention action to share a selected Rust code on [Rust Playground](https://play.rust-lang.org).
 
   {% include gif-img.html path="/assets/posts/changelog-146/intention-playground" w="600px" %}
-  Previously, this feature was only available as an action in right-click menu.
+  Previously, this feature was only available as `Rust | Share in Playground` action in `Tools` and context menus
 
 * Improve [code folding]:
 
@@ -66,9 +65,9 @@ date: 2021-04-26 17:00:00 +0300
   * [#6599] Use semantic versioning to improve version sorting in dependency completion
 
   Note, the corresponding feature is disabled by default for now. To use it, enable
-  `org.rust.crates.local.index` experimental feature (see instructions [here][experimental features])
+  `org.rust.crates.local.index` [experimental feature][experimental features]
 
-* [#7142] Drop support of `org.rust.cargo.evaluate.build.scripts` experimental feature.
+* [#7142] Drop support of `org.rust.cargo.fetch.out.dir` experimental feature.
   Use `org.rust.cargo.evaluate.build.scripts` instead if you need to evaluate
   `env!("OUT_DIR")` in your `include!` macro calls
 
@@ -78,21 +77,21 @@ date: 2021-04-26 17:00:00 +0300
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
 
-* [#6986] Allow explicitly stating the function return type in `Create function` if the inferred return type was unknown. (by [@Kobzol])
+* [#6986] Allow specifying the function return type in `Create function` intention action if the inferred return type is unknown (by [@Kobzol])
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-create-function" w="600px" h="300px" %}
 
 * Name resolution fixes:
 
-  * [#7119] Fix name resolution: correctly resolve qualified attribute proc macro paths (like `#[foo::bar]`)
+  * [#7119] Correctly resolve qualified [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro paths (like `#[foo::bar]`)
 
-  * [#7132] Fix name resolution: resolve field shorthand to a local variable in the case of unresolved struct literal
+  * [#7132] Resolve [field shorthand](https://doc.rust-lang.org/edition-guide/rust-2018/data-types/field-init-shorthand.html) to a local variable in the case of unresolved struct literal
 
-* New name resolution fixes
+* Improvements of [new name resultion](https://github.com/intellij-rust/intellij-rust/issues/6217) engine:
 
-  * [#7089] Fix name resolution: correctly resolve macros with absolute paths (like `::foo::bar!()`) with new name resolution engine
+  * [#7089] Correctly resolve macros with absolute paths (like `::foo::bar!()`)
 
-  * [#7057] Exclude some cfg-disabled items from completion when using new name resolution engine
+  * [#7057] Exclude some cfg-disabled items from completion
 
 * `Change Signature` refactoring fixes:
 
@@ -104,27 +103,27 @@ date: 2021-04-26 17:00:00 +0300
 
 * [#7108] Fix auto-import: insert correct import in the case of a renamed cargo package
 
-* [#7101] Fix false positive in `Needless lifetimes` inspection when the lifetime is used in where clause. (by [@Kobzol])
+* [#7101] Fix false positive in `Needless lifetimes` inspection when the lifetime is used in `where` clause. (by [@Kobzol])
 
 * [#5491] Improve built-in formatter: add line break after opening brace in struct blocks (by [@Kobzol])
 
 * [#7131] Fix false-positive proofreading warnings for sentences written in several sequential Rust comments.
   Note, you can enable/disable proofreading in Rust files in `Preferences | Editor | Proofreading | Grammar` settings
 
-* [#7121] Refresh Cargo project automatically when workspace-root `Cargo.toml` file is changed (and saved).
+* [#7121] Reload project model automatically when workspace-root `Cargo.toml` file is changed (and saved).
   Previously it was work only for package `Cargo.toml` files.
 
 * [#7079] Fix proc macro expansion if proc macro crate is added as separate cargo project in `Cargo` toolwindow
 
 * [#7072] Place `Show the result of macro expansion` intention lower in the intention list
 
-* [#6013] Don't run inspections on Rust files outside a valid Cargo project
+* [#6013] Don't run some inspections on Rust files outside a valid Cargo project to avoid expected false positive errors
 
 * [#7070] Don't show errors related to Rust edition if we don't known the edition (by [@Stzx])
 
 * [#7004] Fix experimental crate-local index: don't perform code completion and run inspections if the index is not ready
 
-* [#7150] Fix `Can't find process starter` error when running DTrace profiler with CLion 2021.1
+* [#7150] Fix `Can't find process starter` error when running DTrace [profiler](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) with CLion 2021.1
 
 * [#6201] Avoid Cargo project duplication in the project model. This fixes some issues related to such duplications
 
