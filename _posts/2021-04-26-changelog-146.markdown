@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "IntelliJ Rust Changelog #146"
-date: 2021-04-26 17:00:00 +0300
+date: 2021-04-26 14:00:00 +0300
 ---
 
 
@@ -45,7 +45,7 @@ date: 2021-04-26 17:00:00 +0300
 
     {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-struct" w="600px" h="300px" %}
 
-* [#5650] Improve `Use destructuring declaration` intention action: replace usages of destructured variable (by [@Kobzol])
+* [#5650] Now `Use destructuring declaration` intention action replaces usages of destructured variable (by [@Kobzol])
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
 
@@ -100,11 +100,11 @@ date: 2021-04-26 17:00:00 +0300
 
   * [#7076] Correctly place function visibility after attributes (by [@Kobzol])
 
-* [#7108] Fix auto-import: insert correct import in the case of a renamed cargo package
+* [#7108] Insert correct `use` item by auto-import feature in the case of a [renamed](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml) Cargo package
 
 * [#7101] Fix false positive in `Needless lifetimes` inspection when the lifetime is used in `where` clause (by [@Kobzol])
 
-* [#5491] Improve built-in formatter: add line break after opening brace in struct blocks (by [@Kobzol])
+* [#5491] Add line break after opening brace in struct blocks by built-in formatter (by [@Kobzol])
 
 * [#7131] Fix false-positive proofreading warnings for sentences written in several sequential Rust comments.
   Note, you can enable/disable proofreading in Rust files in `Preferences | Editor | Proofreading | Grammar` settings
@@ -120,7 +120,7 @@ date: 2021-04-26 17:00:00 +0300
 
 * [#7070] Don't show errors related to Rust edition if we don't known the edition (by [@Stzx])
 
-* [#7004] Fix experimental crate-local index: don't perform code completion and run inspections if the index is not ready
+* [#7004] Don't perform code completion and run inspections if the index is not ready
 
 * [#7150] Fix `Can't find process starter` error when running DTrace [profiler](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) with CLion 2021.1
 
