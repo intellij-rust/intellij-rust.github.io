@@ -136,7 +136,7 @@ def collect_changelog(repo: Repository, milestone: Milestone):
             issue_text = ""
         result = re.search(changelog_description_pattern, issue_text)
         if result is not None:
-            description = result.group("description").strip()
+            description = result.group("description").strip().rstrip(".")
         else:
             description = issue.title
         changelog_item = ChangelogItem(issue.number, description, issue.user.login)
