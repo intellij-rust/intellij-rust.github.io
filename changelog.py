@@ -33,10 +33,10 @@ class ChangelogItem:
 
     def display(self):
         if self.username in MAINTAINERS:
-            return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {}"\
+            return "* [#{}] {}"\
                 .format(self.pull_request_id, self.description)
         else:
-            return "<!-- https://github.com/intellij-rust/intellij-rust/pull/{} -->\n* {} (by [@{}])"\
+            return "* [#{}] {} (by [@{}])"\
                 .format(self.pull_request_id, self.description, self.username)
 
 
@@ -99,6 +99,18 @@ class Changelog(object):
             for name in sorted_contributors:
                 url = contributor_url(name)
                 f.write(url)
+
+        if len(self.labels) > 0:
+            pull_request_ids = set()
+            for label in self.labels:
+                section = self.sections[label]
+                for item in section.items:
+                    pull_request_ids.add(item.pull_request_id)
+
+            f.write("\n")
+            for pull_request_id in sorted(pull_request_ids):
+                f.write("[#{0}]: https://github.com/intellij-rust/intellij-rust/pull/{0}\n"
+                        .format(pull_request_id))
 
 
 def collect_changelog(repo: Repository, milestone: Milestone):
