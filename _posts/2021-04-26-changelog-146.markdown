@@ -65,11 +65,13 @@ date: 2021-04-26 14:00:00 +0300
   * [#7112] Support `Method bodies` option of `Settings | Editor | General | Code Folding - General` settings
     to fold function/method bodies by default (by [@Stzx])
 
-* Improve experimental crate-local index:
+* Improve experimental [crate-local index](https://github.com/intellij-rust/intellij-rust/issues/6463):
 
   * [#6801] Add `Cargo.toml` inspection that checks crate dependency version requirements that do not match any known crate version (by [@Kobzol])
 
   * [#6599] Use semantic versioning to improve version sorting in dependency completion
+
+  * [#7004] Don't perform code completion and run inspections if the index is not ready
 
   Note, the corresponding feature is disabled by default for now. To use it, enable
   `org.rust.crates.local.index` [experimental feature][experimental features]
@@ -119,8 +121,6 @@ date: 2021-04-26 14:00:00 +0300
 * [#6013] Don't run some inspections on Rust files outside a valid Cargo project to avoid expected false positive errors
 
 * [#7070] Don't show errors related to Rust edition if we don't known the edition (by [@Stzx])
-
-* [#7004] Don't perform code completion and run inspections if the index is not ready
 
 * [#7150] Fix `Can't find process starter` error when running DTrace [profiler](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) with CLion 2021.1
 
