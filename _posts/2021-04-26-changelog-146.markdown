@@ -25,15 +25,33 @@ date: 2021-04-26 17:00:00 +0300
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" h="300px" %}
 
-* [#6845], [#7115] Provide an intention action that toggles feature state from a `cfg` attribute (by [@Kobzol])
+* Introduce new intention actions:
 
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" h="300px" %}
-  By the way, we have a [blog post][cargo features blogpost] about cargo features support
+  * [#6845], [#7115] `Enable/Disable feature state` to toggles feature state from a `cfg` attribute (by [@Kobzol])
 
-* [#7071] Provide `Share in Playground` intention action to share a selected Rust code on [Rust Playground](https://play.rust-lang.org)
+    {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" h="300px" %}
+    By the way, we have a [blog post][cargo features blogpost] about cargo features support
 
-  {% include gif-img.html path="/assets/posts/changelog-146/intention-playground" w="600px" %}
-  Previously, this feature was only available as `Rust | Share in Playground` action in `Tools` and context menus
+  * [#7071] `Share in Playground` to share a selected Rust code on [Rust Playground](https://play.rust-lang.org)
+
+    {% include gif-img.html path="/assets/posts/changelog-146/intention-playground" w="600px" %}
+    Previously, this feature was only available as `Rust | Share in Playground` action in `Tools` and context menus
+
+  * [#6960] `Expand dependency specification` for `Cargo.toml`
+
+    {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" h="300px" %}
+
+  * [#6837] `Create struct` to create a struct from an unresolved struct literal (by [@Kobzol])
+
+    {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-struct" w="600px" h="300px" %}
+
+* [#5650] Improve `Use destructuring declaration` intention action: replace usages of destructured variable (by [@Kobzol])
+
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
+
+* [#6986] Allow specifying the function return type in `Create function` intention action if the inferred return type is unknown (by [@Kobzol])
+
+  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-create-function" w="600px" h="300px" %}
 
 * Improve [code folding]:
 
@@ -50,14 +68,6 @@ date: 2021-04-26 17:00:00 +0300
     `imports` (actually use items) and `method bodies` (actually function bodies)
     You can enable it in `Settings | Editor | General | Code Folding | General | method bodies`
 
-* [#6960] Provide an intention action to expand dependency specification in `Cargo.toml`
-
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" h="300px" %}
-
-* [#6837] Provide an intention action to create a struct from an unresolved struct literal (by [@Kobzol])
-
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-struct" w="600px" h="300px" %}
-
 * Improve experimental crate-local index:
 
   * [#6801] Add `Cargo.toml` inspection that checks crate dependency version requirements that do not match any known crate version (by [@Kobzol])
@@ -73,14 +83,6 @@ date: 2021-04-26 17:00:00 +0300
 
 ## Fixes
 
-* [#5650] Improve `Use destructuring declaration` intention action: replace usages of destructured variable (by [@Kobzol])
-
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
-
-* [#6986] Allow specifying the function return type in `Create function` intention action if the inferred return type is unknown (by [@Kobzol])
-
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-create-function" w="600px" h="300px" %}
-
 * Name resolution fixes:
 
   * [#7119] Correctly resolve qualified [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro paths (like `#[foo::bar]`)
@@ -93,7 +95,7 @@ date: 2021-04-26 17:00:00 +0300
 
   * [#7057] Exclude some cfg-disabled items from completion
 
-* `Change Signature` refactoring fixes:
+* `Change Signature` refactoring (`Refactor | Change Signature` or <kbd>Ctrl</kbd>+<kbd>F6</kbd>) fixes:
 
   * [#7081] Fix some false positives in name conflict detection (by [@Kobzol])
 
@@ -113,7 +115,7 @@ date: 2021-04-26 17:00:00 +0300
 * [#7121] Reload project model automatically when workspace-root `Cargo.toml` file is changed (and saved).
   Previously it was work only for package `Cargo.toml` files
 
-* [#7079] Fix proc macro expansion if proc macro crate is added as separate cargo project in `Cargo` toolwindow
+* [#7079] Fix proc macro expansion if proc macro crate is added as separate cargo project in `Cargo` tool window
 
 * [#7072] Place `Show the result of macro expansion` intention lower in the intention list
 
