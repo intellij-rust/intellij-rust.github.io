@@ -49,7 +49,8 @@ date: 2021-04-26 14:00:00 +0300
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
 
-* [#6986] Allow specifying the function return type in `Create function` intention action if the inferred return type is unknown (by [@Kobzol])
+* [#6986] Allow specifying the function return type in `Create function` intention action if the inferred return type
+  is unknown (by [@Kobzol])
 
   {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-create-function" w="600px" h="300px" %}
 
@@ -67,7 +68,8 @@ date: 2021-04-26 14:00:00 +0300
 
 * Improve experimental [crate-local index](https://github.com/intellij-rust/intellij-rust/issues/6463):
 
-  * [#6801] Add `Cargo.toml` inspection that checks crate dependency version requirements that do not match any known crate version (by [@Kobzol])
+  * [#6801] Add `Cargo.toml` inspection that checks crate dependency version requirements that do not match any known
+    crate version (by [@Kobzol])
 
   * [#6599] Use semantic versioning to improve version sorting in dependency completion
 
@@ -84,11 +86,13 @@ date: 2021-04-26 14:00:00 +0300
 
 * Name resolution fixes:
 
-  * [#7119] Correctly resolve qualified [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro paths (like `#[foo::bar]`)
+  * [#7119] Correctly resolve qualified [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
+    procedural macro paths (like `#[foo::bar]`)
 
-  * [#7132] Resolve [field shorthand](https://doc.rust-lang.org/edition-guide/rust-2018/data-types/field-init-shorthand.html) to a local variable in the case of unresolved struct literal
+  * [#7132] Resolve [field shorthand](https://doc.rust-lang.org/edition-guide/rust-2018/data-types/field-init-shorthand.html)
+    to a local variable in the case of unresolved struct literal
 
-* Improvements of [new name resultion](https://github.com/intellij-rust/intellij-rust/issues/6217) engine:
+* Improvements of [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine:
 
   * [#7089] Correctly resolve macros with absolute paths (like `::foo::bar!()`)
 
@@ -102,7 +106,9 @@ date: 2021-04-26 14:00:00 +0300
 
   * [#7076] Correctly place function visibility after attributes (by [@Kobzol])
 
-* [#7108] Insert correct `use` item by auto-import feature in the case of a [renamed](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml) Cargo package
+* [#7108] Insert correct `use` item by auto-import feature in the case of a
+  [renamed](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml)
+  Cargo package
 
 * [#7101] Fix false positive in `Needless lifetimes` inspection when the lifetime is used in `where` clause (by [@Kobzol])
 
@@ -122,7 +128,8 @@ date: 2021-04-26 14:00:00 +0300
 
 * [#7070] Don't show errors related to Rust edition if we don't known the edition (by [@Stzx])
 
-* [#7150] Fix `Can't find process starter` error when running DTrace [profiler](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) with CLion 2021.1
+* [#7150] Fix `Can't find process starter` error when running DTrace
+  [profiler](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) with CLion 2021.1
 
 * [#6201] Avoid Cargo project duplication in the project model. This fixes some issues related to such duplications
 
