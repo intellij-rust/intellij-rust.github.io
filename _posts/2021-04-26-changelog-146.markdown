@@ -18,18 +18,18 @@ date: 2021-04-26 14:00:00 +0300
   action on Cargo tool window. See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for
   more details and the current status of procedural macros support
 
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/custom-derive" w="600px" h="300px" %}
+  {% include gif-img.html path="/assets/posts/changelog-146/custom-derive" w="600px" %}
 
 * [#7093] Now the plugin takes [Cargo config] into account during evaluation of [`cfg` conditions][cfg].
   Note, it works since Rust 1.52.0 (currently in beta)
 
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" h="300px" %}
+  {% include gif-img.html path="/assets/posts/changelog-146/cfg-cargo-config" w="600px" %}
 
 * Introduce new intention actions:
 
   * [#6845], [#7115] `Enable/Disable feature state` to toggles feature state from a `cfg` attribute (by [@Kobzol])
 
-    {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" h="300px" %}
+    {% include gif-img.html path="/assets/posts/changelog-146/intention-cargo-feature" w="600px" %}
     By the way, we have a [blog post][cargo features blogpost] about cargo features support
 
   * [#7071] `Share in Playground` to share a selected Rust code on [Rust Playground](https://play.rust-lang.org)
@@ -39,26 +39,26 @@ date: 2021-04-26 14:00:00 +0300
 
   * [#6960] `Expand dependency specification` for `Cargo.toml`
 
-    {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" h="300px" %}
+    {% include gif-img.html path="/assets/posts/changelog-146/intention-expand-dependency" w="600px" %}
 
   * [#6837] `Create struct` to create a struct from an unresolved struct literal (by [@Kobzol])
 
-    {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-struct" w="600px" h="300px" %}
+    {% include gif-img.html path="/assets/posts/changelog-146/intention-struct" w="600px" %}
 
 * [#5650] Now `Use destructuring declaration` intention action replaces usages of destructured variable (by [@Kobzol])
 
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" h="150px" %}
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-destructure-decl" w="600px" %}
 
 * [#6986] Allow specifying the function return type in `Create function` intention action if the inferred return type
   is unknown (by [@Kobzol])
 
-  {% include gif-img-wh.html path="/assets/posts/changelog-146/intention-create-function" w="600px" h="300px" %}
+  {% include gif-img.html path="/assets/posts/changelog-146/intention-create-function" w="600px" %}
 
 * Improve [code folding]:
 
   * [#7111] Support folding for multiline `where` clauses (by [@Stzx])
 
-    {% include gif-img-wh.html path="/assets/posts/changelog-146/fold-where" w="600px" h="300px" %}
+    {% include gif-img.html path="/assets/posts/changelog-146/fold-where" w="600px" %}
 
   * [#7112] Enable folding for series of use items by default (by [@Stzx])<br>
     You can disable it via `Imports` option in `Settings | Editor | General | Code Folding` settings
