@@ -1,0 +1,80 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #147"
+date: 2021-05-18 10:00:00 +0300
+---
+
+
+In this release, we enable the new name resolution engine by default. Since this fundamental change has been made, we decided to increase the version of our plugin from `0.3` to `0.4`. So, meet the `IntelliJ Rust 0.4`!
+
+## New Features
+
+* [#7140] Enable [new name resolution engine](https://blog.jetbrains.com/clion/2020/12/intellij-rust-updates-for-2020-3/#new-resolve) by default. Our new algorithm uses the fixed-point iteration approach and aims to provide better support for complex glob imports (`use foo::*`) and re-exports (`use foo as bar`). Here is list of improvements offered by new engine:
+
+    * Properly support [textual scoping](https://doc.rust-lang.org/reference/macros-by-example.html#textual-scope) when resolving macros
+    * Resolve of multi-segment macro paths and macro calls inside files included by `include!`
+    * Resolve of [macros 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md)
+    * Support file-level `#![macro_use]` and `cfg` attributes
+    * Find all possible `impl` blocks for a type alias. Previously, for performance reasons, they were processed only when the number of aliases for the corresponding type didn’t exceed 10. Now the crates that heavily use type aliases, such as [nalgebra](https://crates.io/crates/nalgebra) or [winapi](https://crates.io/crates/winapi), can be resolved properly
+
+  Note that the new algorithm works for top-level items only, so local variables and type inference functionality won’t be affected. If you run into an issue with the new engine, you can switch it back to the old one via `Use new name resolution engine` option in `Settings | Languages & Frameworks | Rust` settings
+
+* [#6456] Add initial [Windows Subsystem for Linux (WSL)](https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html) support. It is available since 2021.1, and can be enabled using `org.rust.wsl` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features). Note that if there are both local Windows and WSL toolchains, the local one will be selected automatically. You can manually specify desired WSL toolchain location with `\\wsl$` path in `Settings | Languages & Frameworks | Rust` settings. We plan to improve toolchain selection in the future
+
+* [#7102], [#7165] Annotate unknown `cfg` operators and provide a quick-fix to use a proper one. This corresponds to the [E0537](https://doc.rust-lang.org/error-index.html#E0537) compiler error (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-147/unknown_cfg_predicate" w="700px" %}
+
+* [#6832] Complete target triples in [Cargo run configuration](https://plugins.jetbrains.com/plugin/8182-rust/docs/cargo-command-configuration.html#cargo-command-config) and [Run Anything](https://plugins.jetbrains.com/plugin/8182-rust/docs/cargo-command-configuration.html#run-command) dialog. Suggest installing the target if it is not yet installed
+
+    <img src="/assets/posts/changelog-147/suggest_target_triple.png" alt="Target triple completion in cargo run configuration" width="700px"/>
+
+* [#7098] Support basic name resolution of [macros 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) (`pub macro name() { ... }`)
+
+## Performance Improvements
+
+* [#7181] Slightly optimize project model update when using new name resolution engine
+
+## Fixes
+
+* [#7174] Cancel [external linter](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#call-external-linter) process immediately when some file is changed. Previously, in some cases, the process might hang
+
+* New name resolution fixes:
+
+    * [#7184] Resolve procedural macros through `#[macro_use]` on extern crates
+
+    * [#7167] Fix exception when removing a crate from the workspace
+
+    * [#7152] Fix unexpected name resolution after crate rename
+
+* [#7178] Take into account enum's lifetimes in `Needless Lifetimes` inspection
+
+* [#7063] Now `Can't find crate` annotation highlights only unknown identifiers and can be [suppressed](https://www.jetbrains.com/help/idea/disabling-and-enabling-inspections.html#suppress-in-editor). Also, its highlighting style was changed to `unknown symbol` (instead of `error`)
+
+## Internal Improvements
+
+* [#7162] Speed up check workflow on CI
+
+* [#7160] Simplify writing proc macro tests
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/55?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#6456]: https://github.com/intellij-rust/intellij-rust/pull/6456
+[#6832]: https://github.com/intellij-rust/intellij-rust/pull/6832
+[#7063]: https://github.com/intellij-rust/intellij-rust/pull/7063
+[#7098]: https://github.com/intellij-rust/intellij-rust/pull/7098
+[#7102]: https://github.com/intellij-rust/intellij-rust/pull/7102
+[#7140]: https://github.com/intellij-rust/intellij-rust/pull/7140
+[#7152]: https://github.com/intellij-rust/intellij-rust/pull/7152
+[#7160]: https://github.com/intellij-rust/intellij-rust/pull/7160
+[#7162]: https://github.com/intellij-rust/intellij-rust/pull/7162
+[#7165]: https://github.com/intellij-rust/intellij-rust/pull/7165
+[#7167]: https://github.com/intellij-rust/intellij-rust/pull/7167
+[#7174]: https://github.com/intellij-rust/intellij-rust/pull/7174
+[#7178]: https://github.com/intellij-rust/intellij-rust/pull/7178
+[#7181]: https://github.com/intellij-rust/intellij-rust/pull/7181
+[#7184]: https://github.com/intellij-rust/intellij-rust/pull/7184
+[#7187]: https://github.com/intellij-rust/intellij-rust/pull/7187
+[#7188]: https://github.com/intellij-rust/intellij-rust/pull/7188
