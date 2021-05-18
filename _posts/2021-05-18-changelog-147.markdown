@@ -21,7 +21,7 @@ In this release, we enable the new name resolution engine by default. Since this
 
 * [#6456] Add initial [Windows Subsystem for Linux (WSL)](https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html) support. It is available since 2021.1, and can be enabled using `org.rust.wsl` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features). Note that if there are both local Windows and WSL toolchains, the local one will be selected automatically. You can manually specify desired WSL toolchain location with `\\wsl$` path in `Settings | Languages & Frameworks | Rust` settings. We plan to improve toolchain selection in the future
 
-* [#7102], [#7165] Annotate unknown `cfg` operators and provide a quick-fix to use a proper one. This corresponds to the [E0537](https://doc.rust-lang.org/error-index.html#E0537) compiler error (by [@Kobzol])
+* [#7102], [#7165] Annotate unknown `cfg` predicates and provide a quick-fix to use a proper one. This corresponds to the [E0537](https://doc.rust-lang.org/error-index.html#E0537) compiler error (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-147/unknown_cfg_predicate" w="700px" %}
 
