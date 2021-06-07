@@ -1,0 +1,88 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #148"
+date: 2021-06-07 12:00:00 +0300
+---
+
+This is the last release that supports the 2020.3 IDEs. To receive plugin updates further, please upgrade
+your IDE to 2021.1.
+
+## New Features
+
+* [#7259], [#7310] Support 2021.2 EAPs
+
+* Refactoring improvements:
+
+    * [#7135], [#7255] Suggested refactoring for changing function signatures (by [@Kobzol])
+
+      {% include gif-img.html path="/assets/posts/changelog-148/suggested_refactoring_function_signature" w="700px" %}
+
+    * [#6957] Create target file when moving items (<kbd>F6</kbd> or `Refactor | Move`) if it doesn't exist
+
+* [#6825] `match` postfix template now generates all missing match arms by default (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-148/all_arms_match_postfix" w="700px" %}
+
+* [#6673] Complete `continue` and `break` statements inside expression contexts in loops (by [@Kobzol])
+
+* [#7239] Check for missing input file when using redirect input in `Cargo command` run configuration
+
+* [#7237] Update experimental code completion ranking for Rust based on machine learning. The ranking is disabled by
+  default for now. You can enable it via `Editor | General | Code Completion | Machine Learning-Assisted Completion`
+  [settings](https://www.jetbrains.com/help/idea/auto-completing-code.html#ml_completion).
+
+## Fixes
+
+* Windows Subsystem for Linux (WSL) fixes. It can be enabled using `org.rust.wsl`
+  [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features):
+
+    * [#7284] Fix fetching of cfg-options
+
+    * [#7268] Fix toolchain validation
+
+* [#7271] Don't throw exceptions on illegal paths in `PATH` environment variable during toolchain detection
+
+* [#7253] `Add remaining arms` intention now prints enum names and variants correctly if they are escaped rust keywords
+  (by [@shocoman])
+
+* [#7248] Try to recover corrupted stdlib dependencies when `org.rust.cargo.fetch.actual.stdlib.metadata`
+  [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) is
+  enabled
+
+* [#7244] Don't annotate `async` as a reserved keyword in attributes
+
+* [#7236] Change the completion context of path string literals to the containing workspace root (by [@Kobzol])
+
+## Internal Improvements
+
+* [#7274] Improve cancellation of outdated CI runs
+
+* [#7265] Provide Cargo commands logging when `#org.rust.cargo.runconfig` is present in
+  `Help | Diagnostic Tools | Debug Log Settings`
+
+* [#7105] Fix some type annotations in python pretty printers
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/56?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@shocoman]: https://github.com/shocoman
+
+[#6673]: https://github.com/intellij-rust/intellij-rust/pull/6673
+[#6825]: https://github.com/intellij-rust/intellij-rust/pull/6825
+[#6957]: https://github.com/intellij-rust/intellij-rust/pull/6957
+[#7105]: https://github.com/intellij-rust/intellij-rust/pull/7105
+[#7135]: https://github.com/intellij-rust/intellij-rust/pull/7135
+[#7236]: https://github.com/intellij-rust/intellij-rust/pull/7236
+[#7237]: https://github.com/intellij-rust/intellij-rust/pull/7237
+[#7239]: https://github.com/intellij-rust/intellij-rust/pull/7239
+[#7244]: https://github.com/intellij-rust/intellij-rust/pull/7244
+[#7248]: https://github.com/intellij-rust/intellij-rust/pull/7248
+[#7253]: https://github.com/intellij-rust/intellij-rust/pull/7253
+[#7255]: https://github.com/intellij-rust/intellij-rust/pull/7255
+[#7259]: https://github.com/intellij-rust/intellij-rust/pull/7259
+[#7265]: https://github.com/intellij-rust/intellij-rust/pull/7265
+[#7268]: https://github.com/intellij-rust/intellij-rust/pull/7268
+[#7271]: https://github.com/intellij-rust/intellij-rust/pull/7271
+[#7274]: https://github.com/intellij-rust/intellij-rust/pull/7274
+[#7284]: https://github.com/intellij-rust/intellij-rust/pull/7284
+[#7310]: https://github.com/intellij-rust/intellij-rust/pull/7310
