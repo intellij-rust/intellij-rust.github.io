@@ -1,0 +1,107 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #149"
+date: 2021-06-21 12:00:00 +0300
+---
+
+
+## New Features
+
+* [#7113] Add `Run with root privileges`/`Run with Administrator privileges` option for [Cargo run configurations](https://plugins.jetbrains.com/plugin/8182-rust/docs/cargo-command-configuration.html),
+  so now it's possible to run them with root/Administrator privileges.
+  Current restrictions:
+    * Requires `Build` tool window, which is enabled by default (can be turned off via `org.rust.cargo.build.window` [experimental feature])
+    * Does not work with `cargo test` configurations
+
+  {% include gif-img.html path="/assets/posts/changelog-149/run-debug-as-root" w="700px" %}
+
+* [#6745] Provide quick-fix to add a parameter to a function/method from its call (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-149/add-function-parameter" w="700px" %}
+
+* [#7003] Add intention to extract dependency specification in a separate table in `Cargo.toml`
+
+  {% include gif-img.html path="/assets/posts/changelog-149/extract-dependency-spec" w="700px" %}
+
+* [#7279] Auto-select Windows Subsystem for Linux (WSL) based toolchain when opening a project inside WSL filesystem.
+  Note, WSL support is still disabled by default. To turn it on, enable `org.rust.wsl` [experimental feature]
+
+* [#7217] Show all detected toolchains in Rust toolchain settings (including project creation dialog).
+  Allows choosing necessary toolchain if you have several ones, for example, local and WSL-based
+
+    <img src="/assets/posts/changelog-149/toolchain-combobox.png" alt="Toolchain combobox" width="700px">
+
+* [#7068] Complete table dependency specifications using crates local index.
+  Note, currently this feature is experimental and can be enabled via `org.rust.crates.local.index` [experimental feature]
+
+* [#7065] Render `&str` string slices content when debugging using MSVC toolchain on Windows.
+  See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/5632) if you are interested in current status of MSVC LLDB support.
+  Note, debugging is available in [CLion] and in [IntelliJ IDEA Ultimate], [GoLand] and [PyCharm Pro] with [Native Debugging Support] plugin
+
+* [#7229] Add local macro definitions to `symbol search`
+
+* [#7303] Add inspection to detect `unknown_crate_type` compiler lint
+
+    <img src="/assets/posts/changelog-149/unknown-crate-type.png" alt="Unknown crate type inspection" width="700px">
+
+* [#6455] Improve `Extend selection` and `Shrink selection` actions inside Rust doc comments
+
+## Fixes
+
+* [#7278] Don't reset custom project toolchain after project creation in minor IDEs like CLion, PyCharm, GoLand, etc.
+
+* [#7301] Don't show the same suggestion during method completion
+
+* [#7315] Fix [Rust REPL](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-repl-console.html) for latest [evcxr](https://github.com/google/evcxr) version 0.10.0.
+Note, now 0.10.0 is minimal supported version
+
+* [#7337] Fix exception in debugger advertiser in 2021.2 versions of [IntelliJ IDEA Ultimate], [GoLand] and [PyCharm Pro]
+
+* [#7335] Fix `<enter>` typing between braces in doctests
+
+* [#7333] Fix weird highlighting of doctests if [rainbow-brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) plugin is installed
+
+* [#7293] Properly construct external links for [`unions`](https://doc.rust-lang.org/reference/items/unions.html)
+  and [`trait aliases`](https://rust-lang.github.io/rfcs/1733-trait-alias.html) in [quick documentation](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#quick-docs)
+
+* [#7273] Improve validation of input file in [Cargo run configurations](https://plugins.jetbrains.com/plugin/8182-rust/docs/cargo-command-configuration.html).
+Previously, the validation threw exception if path contained non-allowed symbols
+
+* [#7229] Fix flaky false positives around local macro calls
+
+## Internal Improvements
+
+* [#7318] Drop support for 2020.3 IDEs
+
+* [#6455] Introduce initial PSI for Markdown inside Rust doc comments
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/57?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[experimental feature]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+[IntelliJ IDEA Ultimate]: https://www.jetbrains.com/idea/
+[CLion]: https://www.jetbrains.com/clion/
+[PyCharm Pro]: https://www.jetbrains.com/pycharm/
+[GoLand]: https://www.jetbrains.com/go/
+[Native Debugging Support]: https://plugins.jetbrains.com/plugin/12775-native-debugging-support
+
+[#6455]: https://github.com/intellij-rust/intellij-rust/pull/6455
+[#6745]: https://github.com/intellij-rust/intellij-rust/pull/6745
+[#7003]: https://github.com/intellij-rust/intellij-rust/pull/7003
+[#7065]: https://github.com/intellij-rust/intellij-rust/pull/7065
+[#7068]: https://github.com/intellij-rust/intellij-rust/pull/7068
+[#7113]: https://github.com/intellij-rust/intellij-rust/pull/7113
+[#7217]: https://github.com/intellij-rust/intellij-rust/pull/7217
+[#7229]: https://github.com/intellij-rust/intellij-rust/pull/7229
+[#7273]: https://github.com/intellij-rust/intellij-rust/pull/7273
+[#7278]: https://github.com/intellij-rust/intellij-rust/pull/7278
+[#7279]: https://github.com/intellij-rust/intellij-rust/pull/7279
+[#7293]: https://github.com/intellij-rust/intellij-rust/pull/7293
+[#7301]: https://github.com/intellij-rust/intellij-rust/pull/7301
+[#7303]: https://github.com/intellij-rust/intellij-rust/pull/7303
+[#7315]: https://github.com/intellij-rust/intellij-rust/pull/7315
+[#7318]: https://github.com/intellij-rust/intellij-rust/pull/7318
+[#7333]: https://github.com/intellij-rust/intellij-rust/pull/7333
+[#7335]: https://github.com/intellij-rust/intellij-rust/pull/7335
+[#7337]: https://github.com/intellij-rust/intellij-rust/pull/7337
