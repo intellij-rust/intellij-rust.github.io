@@ -1,0 +1,112 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #150"
+date: 2021-07-05 17:00:00 +0300
+---
+
+
+## New Features
+
+* [#7373] FEATURE: Support [`:pat_param`](https://blog.rust-lang.org/2021/05/11/edition-2021.html#or-patterns-in-macro_rules) `macro_rules!` matcher (from Rust 1.53.0), FIX: Fix `:pat` matcher - now it should not parse `or patterns`
+
+* [#7362] ANN: introduce a color for `std::fmt` format specifiers
+
+* [#7356] Provide highlighting of [format string literals](https://doc.rust-lang.org/std/fmt/) in any macros that expand to macros like println, write, format, etc
+
+* [#7347] highlight *\*emphasis\** and **\*\*strong emphasis\*\*** text in rustdocs
+
+* [#7307] Support [procedural macro](https://doc.rust-lang.org/reference/procedural-macros.html) expansion on Apple Silicon machines. Note:
+- you should use `aarch64-apple-darwin` toolchain to make procedural macro expansion work
+- the proc macro expansion is still disabled by default. To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+
+* [#7211] Allow users to create their own postfix templates (by [@shocoman])
+
+* [#7171] TYPE: highlight all 'await' when under the caret (by [@t-kameyama])
+
+* [#7137] Add an intention to create a tuple struct from an unresolved function call. (by [@Kobzol])
+
+* [#7060] Added an editor intention that generates a documentation stub as demonstrated in: https://doc.rust-lang.org/beta/rust-by-example/meta/doc.html and https://github.com/rust-lang/rust/issues/57525 (by [@0x7CA])
+
+* [#6842] Extend RsSelfConvention inspection with new method prefixes (get, set and with). (by [@Kobzol])
+
+## Fixes
+
+* [#7412] Do not expand type aliases when generating getters and setters. (by [@Kobzol])
+
+* [#7407] Parenthesize inlined expressions in Inline Value refactoring if they could produce invalid or semantically different code after performing the refactoring. (by [@Kobzol])
+
+* [#7397] The intention to flatten use imports now works properly on all places inside a use group. (by [@Kobzol])
+
+* [#7395] Properly escape crate urls produced by line markers in Cargo.toml. should fix exception by clicking on the corresponding icon if you use [IntelliJ Projector](https://blog.jetbrains.com/blog/2021/03/11/projector-is-out/) with IntelliJ Rust plugin on backend
+
+* [#7393] 
+
+* [#7390] Support modules named after Rust keywords in `cargo test` configurations. (by [@Kobzol])
+
+* [#7384] Don't allow sharing/exporting data of crate local index
+
+* [#7374] TYPE: highlight chained 'await' (by [@t-kameyama])
+
+* [#7373] FEATURE: Support [`:pat_param`](https://blog.rust-lang.org/2021/05/11/edition-2021.html#or-patterns-in-macro_rules) `macro_rules!` matcher (from Rust 1.53.0), FIX: Fix `:pat` matcher - now it should not parse `or patterns`
+
+* [#7369] Support [doctests](https://doc.rust-lang.org/rustdoc/documentation-tests.html) in code fences wrapped in different number of backticks or tildes
+
+* [#7349] Fix rustdoc undecoration
+
+* [#7339] Keep existing comments when using `Nest use statements` intention. (by [@Kobzol])
+
+* [#7316] Fix pretty printers if WSL toolchain is used
+
+* [#7300] Fix links to Clippy lints in documentation
+
+* [#7288] Fix false-positive `Use of possibly uninitialized variable` [E0381](https://doc.rust-lang.org/error-index.html#E0381) errors and infinite analysis when a function contains [`asm!()`](https://github.com/rust-lang/rfcs/blob/master/text/2873-inline-asm.md) macro calls
+
+* [#7267] The type of custom macros that have log-like names (like `error!`, `warn!` or `debug!`) is now correctly inferred. (by [@Kobzol])
+
+* [#7243] rename syntax highlighting option "variables -> default" to "identifier" since that's what the option has been doing the whole time (the actual option for default variables has yet to be implemented) (by [@LastExceed])
+
+* [#6663] ANN: substitute generic method arguments in FillFunctionArgumentsFix (by [@Kobzol])
+
+## Internal Improvements
+
+* [#7401] Add API to get inferred method type and substitution
+
+* [#7358] Remove special handling of log macros in the parser. Log macros can now be resolved via the macro expansion machinery. (by [@Kobzol])
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/58?closed=1)
+
+[@0x7CA]: https://github.com/0x7CA
+[@Kobzol]: https://github.com/Kobzol
+[@LastExceed]: https://github.com/LastExceed
+[@shocoman]: https://github.com/shocoman
+[@t-kameyama]: https://github.com/t-kameyama
+
+[#6663]: https://github.com/intellij-rust/intellij-rust/pull/6663
+[#6842]: https://github.com/intellij-rust/intellij-rust/pull/6842
+[#7060]: https://github.com/intellij-rust/intellij-rust/pull/7060
+[#7137]: https://github.com/intellij-rust/intellij-rust/pull/7137
+[#7171]: https://github.com/intellij-rust/intellij-rust/pull/7171
+[#7211]: https://github.com/intellij-rust/intellij-rust/pull/7211
+[#7243]: https://github.com/intellij-rust/intellij-rust/pull/7243
+[#7267]: https://github.com/intellij-rust/intellij-rust/pull/7267
+[#7288]: https://github.com/intellij-rust/intellij-rust/pull/7288
+[#7300]: https://github.com/intellij-rust/intellij-rust/pull/7300
+[#7307]: https://github.com/intellij-rust/intellij-rust/pull/7307
+[#7316]: https://github.com/intellij-rust/intellij-rust/pull/7316
+[#7339]: https://github.com/intellij-rust/intellij-rust/pull/7339
+[#7347]: https://github.com/intellij-rust/intellij-rust/pull/7347
+[#7349]: https://github.com/intellij-rust/intellij-rust/pull/7349
+[#7356]: https://github.com/intellij-rust/intellij-rust/pull/7356
+[#7358]: https://github.com/intellij-rust/intellij-rust/pull/7358
+[#7362]: https://github.com/intellij-rust/intellij-rust/pull/7362
+[#7369]: https://github.com/intellij-rust/intellij-rust/pull/7369
+[#7373]: https://github.com/intellij-rust/intellij-rust/pull/7373
+[#7374]: https://github.com/intellij-rust/intellij-rust/pull/7374
+[#7384]: https://github.com/intellij-rust/intellij-rust/pull/7384
+[#7390]: https://github.com/intellij-rust/intellij-rust/pull/7390
+[#7393]: https://github.com/intellij-rust/intellij-rust/pull/7393
+[#7395]: https://github.com/intellij-rust/intellij-rust/pull/7395
+[#7397]: https://github.com/intellij-rust/intellij-rust/pull/7397
+[#7401]: https://github.com/intellij-rust/intellij-rust/pull/7401
+[#7407]: https://github.com/intellij-rust/intellij-rust/pull/7407
+[#7412]: https://github.com/intellij-rust/intellij-rust/pull/7412
