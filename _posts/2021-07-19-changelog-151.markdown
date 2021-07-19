@@ -1,0 +1,147 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #151"
+date: 2021-07-19 12:00:00 +0300
+---
+
+
+## New Features
+
+* [#7432] Confirm loading untrusted Cargo project. Now when you try to open a Cargo project from an unknown source for the first time,
+  IDE displays a warning to ensure that a project is safe to invoke potentially unsafe tasks:
+  * Run external Rust tools (`cargo`, `rustc`, `rustfmt`) that might be overridden to execute arbitrary code
+  * Execute build scripts and procedural macros that also can contain arbitrary code
+
+  For more information, follow [Project security](https://www.jetbrains.com/help/idea/project-security.html) help page.
+
+    <img src="/assets/posts/changelog-151/trust-new-project.png" alt="Open a project for the first time" width="700px">
+    <img src="/assets/posts/changelog-151/trust-existing-project.png" alt="Open an existing project" width="700px">
+
+* [#4109] Provide LLDB pretty-printers to render `OsStr`, `CString`, `CStr`, `PathBuf`, `Path` std types in IDE debugger
+
+    <img src="/assets/posts/changelog-151/lldb-pretty-printers.png" alt="LLDB pretty-printers" width="700px">
+
+* [#6342] Add completion for trait methods, types, and constants inside `impl` blocks (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-151/trait-methods-completion" w="700px" %}
+
+* [#6392], [#7507], [#7461] Add `Unused import` inspection. The inspection helps you to avoid excessive and duplicating `use` declarations in your project.
+  Current restrictions:
+  * Only checks `use` declarations inside modules without a child module
+  * Disabled by default for now due to possible false-positive warnings. You can enable it via `Preferences | Editor | Inspections` [settings](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#inspection-settings) (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-151/unused-import" w="700px" %}
+  
+* [#6664] Substitute generic parameters in [`Parameter Info`](https://www.jetbrains.com/help/idea/viewing-reference-information.html#view-parameter-info) (by [@Kobzol])
+
+    <img src="/assets/posts/changelog-151/parameter-info.png" alt="Parameter info" width="700px">
+
+* `.match` [postfix template](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#postfix-completion) improvements:
+
+  * [#7476] Always place caret into the first match arm
+
+  * [#7346] Insert `.as_str()` automatically when matching `String` (by [@Kobzol])
+
+  * [#7328] Allow filling patterns after generating match arms (by [@Kobzol])
+
+* [Crates local index](https://github.com/intellij-rust/intellij-rust/issues/6463) improvements:
+
+  * [#7425] Enable crates local index on the nightly plugin channel by default. This index is aimed to improve completion and code insight related to crate dependencies, mainly affecting `Cargo.toml` files.
+    If you face any issues, please feel free to provide us with feedback via `Help | Create New Issue` action right from your IDE
+
+  * [#7148] Add `New crate version available` inspection for `Cargo.toml` files. This inspection warns about possibly outdated dependency versions (by [@Kobzol])
+
+  Note, it requires `org.rust.crates.local.index` [experimental feature]
+
+* [#7457] Add completion for items inside visibility restrictions (`pub(<...>)`) (by [@Kobzol])
+
+* [#7345] Support type aliases in `Substitute associated type` intention (by [@Kobzol])
+
+* [#7456] Annotate trailing commas in TOML inline tables as errors
+
+## Performance Improvements
+
+* [#7437] Optimize creation of crates local index (by [@Kobzol])
+
+## Fixes
+
+* [#7471] Suggest traits in completion only if the path must resolve to a trait (`impl <...> for type` or `T: <...>`) (by [@Kobzol])
+
+* [#7462] Fix parsing of expressions and statements containing block subexpressions (by [@afetisov])
+
+* [#7451] Only complete ancestor mods in visibility restriction paths (`pub(in <...>)`) (by [@Kobzol])
+
+* [#7436] Fix `Create struct` intention behaviour when invoked from inside an `impl` block (by [@Kobzol])
+
+* [#7415] Fix false-positive error on a multi-line array inside TOML inline table
+
+* [#7392] Fix [`Move Statement Up/Down`](https://www.jetbrains.com/help/idea/working-with-source-code.html#move-statements) action (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>) on block expressions inside a comma-separated list (by [@Kobzol])
+
+* [#7473] Fix `Add impl block` intention for structures with const generic parameters (by [@afetisov])
+
+* [#7474] Fix `Create lifetime parameters from usage` quick-fix for items with const generic parameters (by [@afetisov])
+
+* [#6788] Correctly fill empty function call arguments with `Fill missing arguments` intention (by [@Kobzol])
+
+* [#7403] Fix false-positive `Cannot resolve directory` warnings on paths with wildcard glob patterns (`*` or `?`) inside `workspace` section of TOML files (by [@Kobzol])
+
+* [#7449] Correctly handle root modules in `Promote module to directory` refactoring
+
+* [#7189] Use the most recent stdlib in case of multiple libraries in a project containing several Cargo projects
+
+* [#7460] Restore missing icon for TOML files
+
+* [#7427] Reset crates local index state if the index is empty
+
+* [#7513] Temporarily disable proofreading checks from [Grazie plugin](https://plugins.jetbrains.com/plugin/12175-grazie) for Rust language in 2021.2 IDEs
+
+## Internal Improvements
+
+* [#7491] Use Kotlin 1.5 for plugin compilation. So now it's possible to use [sealed interfaces](https://kotlinlang.org/docs/whatsnew15.html#sealed-interfaces) and place subclasses of sealed classes in [different files](https://kotlinlang.org/docs/whatsnew15.html#package-wide-sealed-class-hierarchies). Note, the new stdlib API is still unavailable in the project since the plugin may be launched in IDE with 1.4 runtime
+
+* [#7523] Make 2021.2 platform default for development
+
+* [#7388] Migrate to [gradle-intellij-plugin 1.0](https://lp.jetbrains.com/gradle-intellij-plugin/)
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/59?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@afetisov]: https://github.com/afetisov
+
+[experimental feature]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+
+[#4109]: https://github.com/intellij-rust/intellij-rust/pull/4109
+[#6342]: https://github.com/intellij-rust/intellij-rust/pull/6342
+[#6392]: https://github.com/intellij-rust/intellij-rust/pull/6392
+[#6664]: https://github.com/intellij-rust/intellij-rust/pull/6664
+[#6788]: https://github.com/intellij-rust/intellij-rust/pull/6788
+[#7148]: https://github.com/intellij-rust/intellij-rust/pull/7148
+[#7189]: https://github.com/intellij-rust/intellij-rust/pull/7189
+[#7328]: https://github.com/intellij-rust/intellij-rust/pull/7328
+[#7345]: https://github.com/intellij-rust/intellij-rust/pull/7345
+[#7346]: https://github.com/intellij-rust/intellij-rust/pull/7346
+[#7388]: https://github.com/intellij-rust/intellij-rust/pull/7388
+[#7392]: https://github.com/intellij-rust/intellij-rust/pull/7392
+[#7403]: https://github.com/intellij-rust/intellij-rust/pull/7403
+[#7415]: https://github.com/intellij-rust/intellij-rust/pull/7415
+[#7425]: https://github.com/intellij-rust/intellij-rust/pull/7425
+[#7427]: https://github.com/intellij-rust/intellij-rust/pull/7427
+[#7432]: https://github.com/intellij-rust/intellij-rust/pull/7432
+[#7436]: https://github.com/intellij-rust/intellij-rust/pull/7436
+[#7437]: https://github.com/intellij-rust/intellij-rust/pull/7437
+[#7438]: https://github.com/intellij-rust/intellij-rust/pull/7438
+[#7449]: https://github.com/intellij-rust/intellij-rust/pull/7449
+[#7451]: https://github.com/intellij-rust/intellij-rust/pull/7451
+[#7456]: https://github.com/intellij-rust/intellij-rust/pull/7456
+[#7457]: https://github.com/intellij-rust/intellij-rust/pull/7457
+[#7460]: https://github.com/intellij-rust/intellij-rust/pull/7460
+[#7461]: https://github.com/intellij-rust/intellij-rust/pull/7461
+[#7462]: https://github.com/intellij-rust/intellij-rust/pull/7462
+[#7471]: https://github.com/intellij-rust/intellij-rust/pull/7471
+[#7473]: https://github.com/intellij-rust/intellij-rust/pull/7473
+[#7474]: https://github.com/intellij-rust/intellij-rust/pull/7474
+[#7476]: https://github.com/intellij-rust/intellij-rust/pull/7476
+[#7491]: https://github.com/intellij-rust/intellij-rust/pull/7491
+[#7507]: https://github.com/intellij-rust/intellij-rust/pull/7507
+[#7513]: https://github.com/intellij-rust/intellij-rust/pull/7513
+[#7523]: https://github.com/intellij-rust/intellij-rust/pull/7523
