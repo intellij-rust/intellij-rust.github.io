@@ -7,116 +7,128 @@ date: 2021-08-02 17:00:00 +0300
 
 ## New Features
 
-* [#7563] Add option to enable unused import inspection in doctests
+* Introduce new intention actions:
 
-* [#7559] Suggest simplify dependency specification for inline tables in Cargo.toml dependencies
+  * [#7480] `Implement Trait` to implement a trait for a `struct` or `enum` (by [@Kobzol])
+    TODO gif
+    This intention action simplifies writing of trait impls. It automatically fills in `struct`/`enum`
+    generics, generates implementations of trait members and allows you to replace trait generics.
 
-* [#7551] improve lambda's parameter name suggestion
+  * [#6838] `Convert function to closure` to convert a local named function to closure (by [@nschoellhorn])
+    TODO gif
 
-* [#7536] TYPE: show autocompletion popup when typing `|`
+  * [#6813] `Convert closure to function` to convert a lambda expression to a local named function (by [@nschoellhorn])
+    TODO gif
 
-* [#7532] Add quick fix to implement missing supertrait(s) for a trait impl block. (by [@Kobzol])
+  * [#6414] `Replace successive '_' with '..'` to replace redundant wildcards with a single `..` (by [@zeroeightysix])
+    TODO gif
 
-* [#7519] Add postfix template named `.wrap` that wraps an existing type with another type. (by [@Kobzol])
+  * [#7559] `Simplify dependency specification` to ...TODO inline tables in `Cargo.toml` dependencies
+    TODO gif
 
-* [#7499] added a new filter to the Structure View panel, which toggles whether macro-generated items should be included in the Structure View. (by [@afetisov])
+* Completion improvements:
 
-* [#7495] The import optimizer will now remove unused imports. (by [@Kobzol])
+  * [#7487], [#7551], [#7536] Add completion for lambdas in expression positions that expect a function (by [@Kobzol])
+    TODO gif
 
-* [#7492] Add a quick fix to remove an unused import. (by [@Kobzol])
+  * [#7481] Add completion for `pub(crate)` and `pub()` visibility modifers (by [@Kobzol])
 
-* [#7487] Add completion for lambdas in expression positions that expect a function. (by [@Kobzol])
+  * [#6410] Add completion for layouts in `#[repr()]` attributes (by [@zeroeightysix])
 
-* [#7481] Add completion for `pub(crate)` and `pub()` visibility modifers. (by [@Kobzol])
+  * [#7534], [#7571] Improve completion of items inside impl trait (by [@Kobzol])
+    TODO gif
 
-* [#7480] Add intention to implement a trait for a struct or enum. (by [@Kobzol])
+* [#7532] Add quick fix to implement missing supertrait(s) for a trait impl block (by [@Kobzol])
+  TODO gif
+
+* [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
 
 * [#7479] TY&RES: support const arguments that looks like type arguments
 
-* [#7321] FEATURE: `show macro expansion` actions and intentions now show a reason of the expansion failure. INTERNAL: improve macro expansion error types & error handling
+* [#7519] Add postfix template named `.wrap` that wraps an existing type with another type (by [@Kobzol])
+
+* [#7499] added a new filter to the Structure View panel, which toggles whether macro-generated items
+  should be included in the Structure View (by [@afetisov])
+
+* [#7495] The import optimizer will now remove unused imports (by [@Kobzol])
+
+* [#7321] `show macro expansion` actions and intentions now show a reason of the expansion failure
 
 * [#7308] Provide an experimental feature to add `--nocapture` flag to `cargo test` command
 
-* [#7228] Make links that look like Rust identifiers or paths (e.g., A, A::B, A::B::C) work correctly in quick documentation by prepending `psi_element://` to them. It fixes #7209
-Now clickable links inside stdlib docs should work properly. (by [@shocoman])
+* [#7228] Make links that look like Rust identifiers or paths (e.g., A, A::B, A::B::C) work correctly in
+  quick documentation by prepending `psi_element://` to them. It fixes #7209
+  Now clickable links inside stdlib docs should work properly (by [@shocoman])
 
-* [#6838] Add intention to convert local named functions to lambdas (by [@nschoellhorn])
+* [#6003] Allow inlining functions (using `Inline Function` refactoring) with diverging exit points
+  (like `panic!()`) (by [@SaarYogev])
 
-* [#6813] Added intentions to convert from lambdas to named local functions and vice versa (by [@nschoellhorn])
-
-* [#6414] Add intention to replace redundant wildcards with a single `..` (by [@zeroeightysix])
-
-* [#6410]  (by [@zeroeightysix])
-
-* [#6060] ANN: Check if the asm macro is contained in an unsafe block or function (by [@Stzx])
-
-* [#6003] Allow inlining functions (using `Inline Function` refactoring) with diverging exit points (like `panic!()`). (by [@SaarYogev])
+* [#7563] Add option to enable unused import inspection in doctests
 
 ## Performance Improvements
 
-* [#7576] Slightly optimize "Find usage" inside files with child modules
+* [#7576] Slightly optimize `Find usage` for private items inside files with child modules
 
 ## Fixes
 
-* [#7574] Support usages in derive proc macros in unused imports inspection
+* [#7521], [#7503] TODO-rename Support type aliases for all types (by [@Kobzol])
 
-* [#7571] Fix formatting of completed trait items in trait impls. (by [@Kobzol])
+* [#7120] Take into account `pub(crate)` visibility in auto-import
 
-* [#7567] Render const generics in "Parameter Info"
+* [#6060] Check if the `asm!()` macro is contained in an unsafe block or function (by [@Stzx])
 
-* [#7564] Ignore cfg-disabled imports when removing unused imports
+* `Unused import` inspection improvements:
 
-* [#7555] Fix false-positives related to unresolved method calls in unused imports inspection
+  * [#7574] Take into account usages in custom derive proc macros in `unused import` inspection
+
+  * [#7555] Fix false-positives related to unresolved method calls in `unused import` inspection
+
+  * [#7552] Move `Unused import` inspection into `Rust/Lints` inspection group in settings
+
+  * [#7538] INSP: Disable `unused import` inspection in doctests
+
+  * [#7535] Support method calls using type qualifier in unused import inspection
+
+  * [#7496] Fix handling conditionally disabled (with `#[cfg()]` attributes) code in `unused import` inspection
+
+* [#7567] Render const generics in `Parameter Info` (<kbd>Ctrl</kbd> + <kbd>P</kbd>)
+
+* [#7564] Ignore conditionally disabled (with `#[cfg()]` attributes) imports when removing unused imports
 
 * [#7553] Up/Down mover: add a trailing comma even when there are multiple elements in the last line (by [@t-kameyama])
 
-* [#7552] move `Unused import` inspection into `Rust/Lints` inspection group in settings
+* [#6904] Up/Down mover: move vec macro arguments (by [@t-kameyama])
 
-* [#7547] don't offer live templates (like `p` that inserts `println!()`) in patterns
+* [#7547] Don't offer live templates (like `p` that inserts `println!()`) in patterns
 
 * [#7546] INSP: add comma to match arm if needed in "Lift return out" (by [@t-kameyama])
 
 * [#7540] Filter out existing features in dependency features completion
 
-* [#7538] INSP: Disable unused import inspection in doctests
-
-* [#7535] Support method calls using type qualifier in unused import inspection
-
-* [#7534] Improve completion of items inside impl trait. (by [@Kobzol])
-
-* [#7527] Enable [Go to generated declaration](https://plugins.jetbrains.com/plugin/8182-rust/docs/wasm-projects-support.html#goto-wasm-bindgen) line marker in WASM projects for 2021.2 platform
+* [#7527] Enable [Go to generated declaration] line marker in WASM projects for 2021.2 platform
 
 * [#7516] COMP: fix autoimport-aware completion after completion at empty place
 
-* [#7496] Fix handling cfg-disabled code in unused import inspection
-
 * [#7428] Show crate roots first in the project view
 
-* [#7411] Take into account the CARGO_HOME environment variable when using crates local index
+* [#7411] Take into account the `CARGO_HOME` environment variable when using crates local index
 
-* [#7383] Fix intention to convert an `impl trait` parameter to a generic parameter when the corresponding function already has const parameters. (by [@Kobzol])
+* [#7383] Fix intention to convert an `impl trait` parameter to a generic parameter when the corresponding
+  function already has const parameters (by [@Kobzol])
 
-* [#7334] Do not warn about missing format macro arguments if `format_args_capture` feature is enabled. (by [@Kobzol])
+* [#7334] Do not warn about missing format macro arguments if [`format_args_capture`] unstable feature is
+  enabled (by [@Kobzol])
 
-* [#7168] Fix false-positive [E0603](https://doc.rust-lang.org/error-index.html#E0603) "Module is private" when using new name resolution engine
-
-* [#7120] Take into account `pub(crate)` visibility in auto-import
-
-* [#6904] Up/Down mover: move vec macro arguments (by [@t-kameyama])
+* [#7168] Fix false-positive [E0603](https://doc.rust-lang.org/error-index.html#E0603) "Module is private" when
+  using new name resolution engine
 
 ## Internal Improvements
 
-* [#7521] TY: lift aliasedBy from TyAdt to Ty (by [@Kobzol])
-
 * [#7512] Introduce new `RsTemplateBuilder` API
 
-* [#7503] TY: convert primitive types from object to class (by [@Kobzol])
+* [#7321] Improve macro expansion error types & error handling
 
-* [#7482] COMP: fix RsCompletionTestFixtureBase::checkCompletion (by [@Kobzol])
-
-* [#7452] RUN: Use `FormattingService` on 212
-
-* [#7321] FEATURE: `show macro expansion` actions and intentions now show a reason of the expansion failure. INTERNAL: improve macro expansion error types & error handling
+* [#7452] Use the new `FormattingService` on `2021.2` IDEs
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/60?closed=1)
 
@@ -180,3 +192,6 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#7571]: https://github.com/intellij-rust/intellij-rust/pull/7571
 [#7574]: https://github.com/intellij-rust/intellij-rust/pull/7574
 [#7576]: https://github.com/intellij-rust/intellij-rust/pull/7576
+
+[Go to generated declaration]: https://plugins.jetbrains.com/plugin/8182-rust/docs/wasm-projects-support.html#goto-wasm-bindgen
+[`format_args_capture`]: https://github.com/rust-lang/rust/issues/67984
