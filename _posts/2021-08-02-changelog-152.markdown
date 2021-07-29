@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "IntelliJ Rust Changelog #152"
-date: 2021-08-02 17:00:00 +0300
+date: 2021-07-22 17:00:00 +0300
 ---
 
 
@@ -10,36 +10,45 @@ date: 2021-08-02 17:00:00 +0300
 * Introduce new intention actions:
 
   * [#7480] `Implement Trait` to implement a trait for a `struct` or `enum` (by [@Kobzol])
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/implement-trait" w="600px" %}
+
     This intention action simplifies writing of trait impls. It automatically fills in `struct`/`enum`
     generics, generates implementations of trait members and allows you to replace trait generics.
 
   * [#6838] `Convert function to closure` to convert a local named function to closure (by [@nschoellhorn])
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/convert-function-to-closure" w="600px" %}
 
   * [#6813] `Convert closure to function` to convert a lambda expression to a local named function (by [@nschoellhorn])
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/convert-closure-to-function" w="600px" %}
 
   * [#6414] `Replace successive '_' with '..'` to replace redundant wildcards with a single `..` (by [@zeroeightysix])
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/replace-wildcards" w="600px" %}
 
   * [#7559] `Simplify dependency specification` to ...TODO inline tables in `Cargo.toml` dependencies
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/simplify-dependency-specification" w="600px" %}
 
 * Completion improvements:
 
   * [#7487], [#7551], [#7536] Add completion for lambdas in expression positions that expect a function (by [@Kobzol])
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/lambda-completion" w="600px" %}
 
   * [#7481] Add completion for `pub(crate)` and `pub()` visibility modifers (by [@Kobzol])
 
   * [#6410] Add completion for layouts in `#[repr()]` attributes (by [@zeroeightysix])
 
   * [#7534], [#7571] Improve completion of items inside impl trait (by [@Kobzol])
-    TODO gif
+
+    {% include gif-img.html path="/assets/posts/changelog-152/completion-member" w="600px" %}
 
 * [#7532] Add quick fix to implement missing supertrait(s) for a trait impl block (by [@Kobzol])
-  TODO gif
+
+  {% include gif-img.html path="/assets/posts/changelog-152/implement-supertraits" w="600px" %}
 
 * [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
 
