@@ -150,13 +150,29 @@ def main():
     parser.add_argument("--token", type=str, help="github token")
     parser.add_argument("--login", type=str, help="github login")
     parser.add_argument("--password", type=str, help="github password")
+    parser.add_argument("--list", type=int, nargs=2, metavar=('first', 'last'),
+                        help="collect external contributors for all releases between first and last")
 
     args = parser.parse_args()
 
     if args.c:
         contributors()
+    elif args.list:
+        contributor_list(args)
     else:
         new_post(args)
+
+
+def construct_repo(args: argparse.Namespace) -> Repository:
+    if args.token is not None:
+        login_or_token = args.token
+        password = None
+    else:
+        login_or_token = args.login
+        password = args.password
+
+    g = Github(login_or_token, password)
+    return g.get_repo("intellij-rust/intellij-rust")
 
 
 def new_post(args: argparse.Namespace):
@@ -165,16 +181,8 @@ def new_post(args: argparse.Namespace):
 
     changelog = Changelog()
     if not args.offline:
-        if args.token is not None:
-            login_or_token = args.token
-            password = None
-        else:
-            login_or_token = args.login
-            password = args.password
-
         expected_milestone_title = f"v{next_post}"
-        g = Github(login_or_token, password)
-        repo: Repository = g.get_repo("intellij-rust/intellij-rust")
+        repo: Repository = construct_repo(args)
 
         milestone: Optional[Milestone] = None
         for m in repo.get_milestones():
@@ -233,6 +241,44 @@ def contributor_url(username: str):
 
     line = "[@{}]: {}\n".format(username, url)
     return line
+
+
+def contributor_list(args: argparse.Namespace) -> None:
+    if args.list is None:
+        raise ValueError("list flag should be set")
+
+    first = args.list[0]
+    last = args.list[1]
+    if first >= last:
+        raise ValueError("`first` should be less than `last`")
+
+    repo = construct_repo(args)
+    milestones = repo.get_milestones(state="all", sort="due_on")
+    versions = {f"v{i}" for i in range(first, last + 1)}
+    contributors = set()
+    for milestone in milestones:
+        if milestone.title in versions:
+            milestone_contributors = collect_contributors(repo, milestone)
+            print(f"Milestone {milestone.title}: {len(milestone_contributors)} external contributors")
+            contributors.update(milestone_contributors)
+
+    print()
+    for c in sorted(contributors):
+        print(c)
+
+
+def collect_contributors(repo: Repository, milestone: Milestone) -> set[str]:
+    milestone_contributors = set()
+    issues = repo.get_issues(milestone=milestone, state="all")
+    for issue in issues:
+        user = issue.user
+        login = user.login
+        user_name = user.name
+        if user_name is None:
+            user_name = login
+        if login not in MAINTAINERS:
+            milestone_contributors.add(f"{user_name} (https://github.com/{login})")
+    return milestone_contributors
 
 
 if __name__ == '__main__':
