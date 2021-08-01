@@ -7,24 +7,24 @@ date: 2021-07-22 17:00:00 +0300
 
 ## New Features
 
-* Introduce new intention actions:
+* Introduce new [intention actions]:
 
   * [#7480] `Implement Trait` to implement a trait for a `struct` or `enum` (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-152/implement-trait" w="600px" %}
 
-    This intention action simplifies writing of trait impls. It automatically fills in `struct`/`enum`
+    This intention action simplifies writing of trait `impl`s. It automatically fills in `struct`/`enum`
     generics, generates implementations of trait members and allows you to replace trait generics.
 
-  * [#6838] `Convert function to closure` to convert a local named function to closure (by [@nschoellhorn])
+  * [#6838] `Convert function to closure` to convert a local function to a closure (by [@nschoellhorn])
 
     {% include gif-img.html path="/assets/posts/changelog-152/convert-function-to-closure" w="600px" %}
 
-  * [#6813] `Convert closure to function` to convert a lambda expression to a local named function (by [@nschoellhorn])
+  * [#6813] `Convert closure to function` to convert a closure to a local named function (by [@nschoellhorn])
 
     {% include gif-img.html path="/assets/posts/changelog-152/convert-closure-to-function" w="600px" %}
 
-  * [#6414] `Replace successive '_' with '..'` to replace redundant wildcards with a single `..` (by [@zeroeightysix])
+  * [#6414] `Replace successive '_' with '..'` to replace redundant `_` patterns with a single `..` (by [@zeroeightysix])
 
     {% include gif-img.html path="/assets/posts/changelog-152/replace-wildcards" w="600px" %}
 
@@ -34,83 +34,82 @@ date: 2021-07-22 17:00:00 +0300
 
 * Completion improvements:
 
-  * [#7487], [#7551], [#7536] Add completion for lambdas in expression positions that expect a function (by [@Kobzol])
+  * [#7487], [#7551], [#7536] Complete closure expressions in positions that expect a callable (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-152/lambda-completion" w="600px" %}
 
-  * [#7481] Add completion for `pub(crate)` and `pub()` visibility modifers (by [@Kobzol])
+  * [#7481] Complete `pub(crate)` and `pub()` visibility modifiers (by [@Kobzol])
 
-  * [#6410] Add completion for layouts in `#[repr()]` attributes (by [@zeroeightysix])
+  * [#6410] Complete [layouts] in [`repr`] attributes (by [@zeroeightysix])
 
-  * [#7534], [#7571] Improve completion of items inside impl trait (by [@Kobzol])
+  * [#7534], [#7571] Improve completion for items inside `impl` blocks (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-152/completion-member" w="600px" %}
 
-* [#7532] Add quick fix to implement missing supertrait(s) for a trait impl block (by [@Kobzol])
+* [#7532] Provide quick-fix to implement missing supertraits for `impl` block (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-152/implement-supertraits" w="600px" %}
 
-* [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
+* [#7479] Support const arguments that look like type arguments
 
-* [#7479] TY&RES: support const arguments that looks like type arguments
+* [#7519] Add `.wrap` [postfix template] that wraps an existing type with another type (by [@Kobzol])
+  TODO gif
 
-* [#7519] Add postfix template named `.wrap` that wraps an existing type with another type (by [@Kobzol])
+* [#7499] Add filter to [`Structure View`] panel to hide macro-generated items (by [@afetisov])
+  TODO gif
 
-* [#7499] added a new filter to the Structure View panel, which toggles whether macro-generated items
-  should be included in the Structure View (by [@afetisov])
-
-* [#7495] The import optimizer will now remove unused imports (by [@Kobzol])
-
-* [#7321] `show macro expansion` actions and intentions now show a reason of the expansion failure
+* [#7321] `Show macro expansion` actions and intentions now show the reason for the expansion failure
 
 * [#7308] Provide an experimental feature to add `--nocapture` flag to `cargo test` command
 
-* [#7228] Make links that look like Rust identifiers or paths (e.g., A, A::B, A::B::C) work correctly in
-  quick documentation by prepending `psi_element://` to them. It fixes #7209
-  Now clickable links inside stdlib docs should work properly (by [@shocoman])
+* [#7228] Properly construct links to Rust paths in [quick documentation] (by [@shocoman])
 
-* [#6003] Allow inlining functions (using `Inline Function` refactoring) with diverging exit points
-  (like `panic!()`) (by [@SaarYogev])
+* [#6003] Allow inlining functions with diverging exit points by `Inline Function` refactoring
+  (`Refactor | Inline...` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>) (by [@SaarYogev])
 
-* [#7563] Add option to enable unused import inspection in doctests
+* [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
+
+* [#7495] Remove unused imports by `Optimize Imports` action (`Code | Optimize Imports` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>) (by [@Kobzol])
 
 ## Performance Improvements
 
-* [#7576] Slightly optimize `Find usage` for private items inside files with child modules
+* [#7576] Slightly optimize `Find usages` for non-`pub` items
 
 ## Fixes
 
 * [#7521], [#7503] TODO-rename Support type aliases for all types (by [@Kobzol])
+  TODO screenshot
 
 * [#7120] Take into account `pub(crate)` visibility in auto-import
 
-* [#6060] Check if the `asm!()` macro is contained in an unsafe block or function (by [@Stzx])
+* [#6060] Check if `asm!()` macro is contained in an `unsafe` block or function (by [@Stzx])
 
 * `Unused import` inspection improvements:
 
-  * [#7574] Take into account usages in custom derive proc macros in `unused import` inspection
+  * [#7574] Take into account usages in [custom derive] procedural macros
 
-  * [#7555] Fix false-positives related to unresolved method calls in `unused import` inspection
+  * [#7555] Fix false positives related to unresolved method calls
 
   * [#7552] Move `Unused import` inspection into `Rust/Lints` inspection group in settings
 
-  * [#7538] INSP: Disable `unused import` inspection in doctests
+  * [#7538], [#7563] Disable `Unused import` inspection in doctests,
+    add an option in the inspection settings to enable it
 
-  * [#7535] Support method calls using type qualifier in unused import inspection
+  * [#7535] Take into account method calls with type qualifiers
 
-  * [#7496] Fix handling conditionally disabled (with `#[cfg()]` attributes) code in `unused import` inspection
+  * [#7564], [#7496] Do not remove unused imports disabled by `cfg` attribute
 
 * [#7567] Render const generics in `Parameter Info` (<kbd>Ctrl</kbd> + <kbd>P</kbd>)
 
-* [#7564] Ignore conditionally disabled (with `#[cfg()]` attributes) imports when removing unused imports
+* [#7553] Add a trailing comma by [`Move Statement Up/Down`] action
+  (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>) even when there are multiple elements in
+  the last line (by [@t-kameyama])
 
-* [#7553] Up/Down mover: add a trailing comma even when there are multiple elements in the last line (by [@t-kameyama])
+* [#6904] Fix [`Move Statement Up/Down`] action on `vec!` macro arguments (by [@t-kameyama])
 
-* [#6904] Up/Down mover: move vec macro arguments (by [@t-kameyama])
+* [#7547] Do not offer [live templates] in patterns
 
-* [#7547] Don't offer live templates (like `p` that inserts `println!()`) in patterns
-
-* [#7546] INSP: add comma to match arm if needed in "Lift return out" (by [@t-kameyama])
+* [#7546] Add comma to match arm if needed by `Lift return` quick-fix (by [@t-kameyama])
 
 * [#7540] Filter out existing features in dependency features completion
 
@@ -120,16 +119,15 @@ date: 2021-07-22 17:00:00 +0300
 
 * [#7428] Show crate roots first in the project view
 
-* [#7411] Take into account the `CARGO_HOME` environment variable when using crates local index
+* [#7411] Take into account the [`CARGO_HOME`] environment variable when using [crates local index]
 
-* [#7383] Fix intention to convert an `impl trait` parameter to a generic parameter when the corresponding
-  function already has const parameters (by [@Kobzol])
+* [#7383] Fix `Convert impl Trait` intention when the corresponding function already has const parameters (by [@Kobzol])
 
 * [#7334] Do not warn about missing format macro arguments if [`format_args_capture`] unstable feature is
   enabled (by [@Kobzol])
 
-* [#7168] Fix false-positive [E0603](https://doc.rust-lang.org/error-index.html#E0603) "Module is private" when
-  using new name resolution engine
+* [#7168] [#7168] Fix false-positive `Module is private` ([E0603](https://doc.rust-lang.org/error-index.html#E0603))
+  when using new name resolution engine
 
 ## Internal Improvements
 
@@ -202,5 +200,16 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#7574]: https://github.com/intellij-rust/intellij-rust/pull/7574
 [#7576]: https://github.com/intellij-rust/intellij-rust/pull/7576
 
+[intention actions]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#intention-actions
 [Go to generated declaration]: https://plugins.jetbrains.com/plugin/8182-rust/docs/wasm-projects-support.html#goto-wasm-bindgen
 [`format_args_capture`]: https://github.com/rust-lang/rust/issues/67984
+[layouts]: https://doc.rust-lang.org/reference/type-layout.html#representations
+[`repr`]: https://github.com/rust-lang/rfcs/blob/master/text/1358-repr-align.md
+[postfix template]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#postfix-completion
+[`Structure View`]: https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html
+[quick documentation]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#quick-docs
+[custom derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
+[`Move Statement Up/Down`]: https://www.jetbrains.com/help/idea/working-with-source-code.html#move-statements
+[live templates]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#live-templates
+[`CARGO_HOME`]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
+[crates local index]: https://github.com/intellij-rust/intellij-rust/issues/6463
