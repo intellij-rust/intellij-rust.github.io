@@ -28,7 +28,7 @@ date: 2021-07-22 17:00:00 +0300
 
     {% include gif-img.html path="/assets/posts/changelog-152/replace-wildcards" w="600px" %}
 
-  * [#7559] `Simplify dependency specification` to ...TODO inline tables in `Cargo.toml` dependencies
+  * [#7559] `Simplify dependency specification` for dependencies in `Cargo.toml`
 
     {% include gif-img.html path="/assets/posts/changelog-152/simplify-dependency-specification" w="600px" %}
 
@@ -49,8 +49,6 @@ date: 2021-07-22 17:00:00 +0300
 * [#7532] Provide quick-fix to implement missing supertraits for `impl` block (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-152/implement-supertraits" w="600px" %}
-
-* [#7479] Support const arguments that look like type arguments
 
 * [#7519] Add `.wrap` [postfix template] that wraps an existing type with another type (by [@Kobzol])
 
@@ -79,10 +77,14 @@ date: 2021-07-22 17:00:00 +0300
 
 ## Fixes
 
-* [#7521], [#7503] TODO-rename Support type aliases for all types (by [@Kobzol])
-  TODO screenshot
+* [#7479] Support const arguments that look like type arguments
 
-* [#7120] Take into account `pub(crate)` visibility in auto-import
+* [#7521], [#7503] Support type aliases for all Rust types in inlay hints and code generation.
+  Previously, only aliases for `struct`/`enum` types were accounted (by [@Kobzol])
+
+  <img src="/assets/posts/changelog-152/alias.png" alt="type aliases" width="600px"/>
+
+* [#7120] Don't suggest `pub(crate)` from other crates for auto-import
 
 * [#6060] Check if `asm!()` macro is contained in an `unsafe` block or function (by [@Stzx])
 
@@ -116,9 +118,9 @@ date: 2021-07-22 17:00:00 +0300
 
 * [#7546] Add comma to match arm if needed by `Lift return` quick-fix (by [@t-kameyama])
 
-* [#7540] Filter out existing features in dependency features completion
+* [#7540] Filter out existing features in dependency features completion in `Cargo.toml`
 
-* [#7527] Enable [Go to generated declaration] line marker in WASM projects for 2021.2 platform
+* [#7527] Enable [Go to generated declaration] line marker in WASM projects for 2021.2 IDEs
 
 * [#7516] Fix autoimport-aware completion after completion at empty place
 
