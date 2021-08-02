@@ -60,7 +60,7 @@ date: 2021-07-22 17:00:00 +0300
 
 * [#7321] `Show macro expansion` actions and intentions now show the reason for the expansion failure
 
-* [#7308] Provide an experimental feature to add `--nocapture` flag to `cargo test` command
+* [#7308] Provide a registry option `org.rust.cargo.test.nocapture` to add `--nocapture` flag to `cargo test` commands
 
 * [#7228] Properly construct links to Rust paths in [quick documentation] (by [@shocoman])
 
@@ -93,11 +93,14 @@ date: 2021-07-22 17:00:00 +0300
   * [#7552] Move `Unused import` inspection into `Rust/Lints` inspection group in settings
 
   * [#7538], [#7563] Disable `Unused import` inspection in doctests,
-    add an option in the inspection settings to enable it
+    add an option in the [inspection settings] to enable it
 
   * [#7535] Take into account method calls with type qualifiers
 
   * [#7564], [#7496] Do not remove unused imports disabled by `cfg` attribute
+
+  Note, the inspection is disabled by default for now due to possible false-positive warnings. You can enable it via
+  `Preferences | Editor | Inspections` [settings][inspection settings]
 
 * [#7567] Render const generics in `Parameter Info` (<kbd>Ctrl</kbd> + <kbd>P</kbd>)
 
@@ -115,7 +118,7 @@ date: 2021-07-22 17:00:00 +0300
 
 * [#7527] Enable [Go to generated declaration] line marker in WASM projects for 2021.2 platform
 
-* [#7516] COMP: fix autoimport-aware completion after completion at empty place
+* [#7516] Fix autoimport-aware completion after completion at empty place
 
 * [#7428] Show crate roots first in the project view
 
@@ -213,3 +216,4 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [live templates]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#live-templates
 [`CARGO_HOME`]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
 [crates local index]: https://github.com/intellij-rust/intellij-rust/issues/6463
+[inspection settings]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#inspection-settings
