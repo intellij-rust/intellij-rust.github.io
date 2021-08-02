@@ -67,9 +67,21 @@ date: 2021-08-02 12:00:00 +0300
 * [#6003] Allow inlining functions with diverging exit points by `Inline Function` refactoring
   (`Refactor | Inline...` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>) (by [@SaarYogev])
 
-* [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
-
 * [#7495] Remove unused imports by `Optimize Imports` action (`Code | Optimize Imports` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>) (by [@Kobzol])
+
+* `Unused import` inspection improvements:
+
+  * [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
+
+  * [#7555], [#7535], [#7574] Fix false positives related to unresolved method calls, method calls with type qualifiers
+    and usages in [custom derive] procedural macros
+
+  * [#7552] Move `Unused import` inspection into `Rust/Lints` inspection group in settings
+
+  * [#7538], [#7563] Disable `Unused import` inspection in [doctests],
+    add an option in the [inspection settings] to enable it
+
+  * [#7564], [#7496] Do not remove unused imports disabled by `cfg` attribute
 
 ## Performance Improvements
 
@@ -89,21 +101,6 @@ date: 2021-08-02 12:00:00 +0300
 * [#7120] Don't suggest `pub(crate)` from other crates for auto-import
 
 * [#6060] Check if `asm!()` macro is contained in an `unsafe` block or function (by [@Stzx])
-
-* `Unused import` inspection improvements:
-
-  * [#7574] Take into account usages in [custom derive] procedural macros
-
-  * [#7555] Fix false positives related to unresolved method calls
-
-  * [#7552] Move `Unused import` inspection into `Rust/Lints` inspection group in settings
-
-  * [#7538], [#7563] Disable `Unused import` inspection in doctests,
-    add an option in the [inspection settings] to enable it
-
-  * [#7535] Take into account method calls with type qualifiers
-
-  * [#7564], [#7496] Do not remove unused imports disabled by `cfg` attribute
 
   Note, the inspection is disabled by default for now due to possible false-positive warnings. You can enable it via
   `Preferences | Editor | Inspections` [settings][inspection settings]
@@ -136,7 +133,7 @@ date: 2021-08-02 12:00:00 +0300
   enabled (by [@Kobzol])
 
 * [#7168] [#7168] Fix false-positive `Module is private` ([E0603](https://doc.rust-lang.org/error-index.html#E0603))
-  when using new name resolution engine
+  when using the new name resolution engine
 
 ## Internal Improvements
 
@@ -223,3 +220,4 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [`CARGO_HOME`]: https://doc.rust-lang.org/cargo/guide/cargo-home.html
 [crates local index]: https://github.com/intellij-rust/intellij-rust/issues/6463
 [inspection settings]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#inspection-settings
+[doctests]: https://doc.rust-lang.org/rustdoc/documentation-tests.html
