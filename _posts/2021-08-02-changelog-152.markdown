@@ -70,7 +70,7 @@ date: 2021-08-02 12:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-152/implement-supertraits" w="600px" %}
 
-* [#7519] Add `.wrap` [postfix template] that wraps an existing type it another type (by [@Kobzol])
+* [#7519] Add `.wrap` [postfix template] that wraps an existing type in another type (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-152/wrap" w="600px" %}
 
