@@ -13,8 +13,8 @@ date: 2021-08-02 12:00:00 +0300
 
     {% include gif-img.html path="/assets/posts/changelog-152/implement-trait" w="600px" %}
 
-    This intention action simplifies the writing of trait `impl`s. It automatically fills in `struct` or `enum`
-    generics, generates implementations of trait members and allows you to replace trait generics.
+    This intention action simplifies the writing of trait `impl`s. It automatically fills `struct` or `enum`
+    generics, generates implementations of trait members and allows you to change the concrete types of generics.
 
   * [#6838] `Convert function to closure` to convert a local function to a closure (by [@nschoellhorn])
 
