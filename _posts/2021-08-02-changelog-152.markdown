@@ -40,7 +40,7 @@ date: 2021-08-02 12:00:00 +0300
 
   * [#7481] Complete `pub(crate)` and `pub()` visibility modifiers (by [@Kobzol])
 
-  * [#6410] Complete [layouts] in [`repr`] attributes (by [@zeroeightysix])
+  * [#6410] Complete [layouts] in `#[repr()]` attributes (by [@zeroeightysix])
 
   * [#7534], [#7571] Improve completion for items inside `impl` blocks (by [@Kobzol])
 
@@ -214,7 +214,6 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [Go to generated declaration]: https://plugins.jetbrains.com/plugin/8182-rust/docs/wasm-projects-support.html#goto-wasm-bindgen
 [`format_args_capture`]: https://github.com/rust-lang/rust/issues/67984
 [layouts]: https://doc.rust-lang.org/reference/type-layout.html#representations
-[`repr`]: https://github.com/rust-lang/rfcs/blob/master/text/1358-repr-align.md
 [postfix template]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#postfix-completion
 [`Structure View`]: https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html
 [quick documentation]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#quick-docs
