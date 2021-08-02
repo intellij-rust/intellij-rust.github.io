@@ -67,8 +67,6 @@ date: 2021-08-02 12:00:00 +0300
 * [#6003] Allow inlining functions with diverging exit points by `Inline Function` refactoring
   (`Refactor | Inline...` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>) (by [@SaarYogev])
 
-* [#7495] Remove unused imports by `Optimize Imports` action (`Code | Optimize Imports` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>) (by [@Kobzol])
-
 * `Unused import` inspection improvements:
 
   * [#7492] Add a quick fix to remove an unused import (by [@Kobzol])
@@ -82,6 +80,12 @@ date: 2021-08-02 12:00:00 +0300
     add an option in the [inspection settings] to enable it
 
   * [#7564], [#7496] Do not remove unused imports disabled by `cfg` attribute
+
+  * [#7495] Remove unused imports by `Optimize Imports` action
+    (`Code | Optimize Imports` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>) (by [@Kobzol])
+
+  Note, the inspection is disabled by default for now due to possible false-positive warnings. You can enable it via
+  `Preferences | Editor | Inspections` [settings][inspection settings]
 
 ## Performance Improvements
 
@@ -101,9 +105,6 @@ date: 2021-08-02 12:00:00 +0300
 * [#7120] Don't suggest `pub(crate)` from other crates for auto-import
 
 * [#6060] Check if `asm!()` macro is contained in an `unsafe` block or function (by [@Stzx])
-
-  Note, the inspection is disabled by default for now due to possible false-positive warnings. You can enable it via
-  `Preferences | Editor | Inspections` [settings][inspection settings]
 
 * [#7567] Render const generics in `Parameter Info` (<kbd>Ctrl</kbd> + <kbd>P</kbd>)
 
