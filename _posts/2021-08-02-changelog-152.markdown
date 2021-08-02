@@ -78,6 +78,11 @@ date: 2021-08-02 12:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-152/filter" w="600px" %}
 
+* [#7521], [#7503] Support type aliases for all Rust types in inlay hints and code generation.
+  Previously, only aliases for `struct` or `enum` types were accounted (by [@Kobzol])
+
+  <img src="/assets/posts/changelog-152/alias.png" alt="type aliases" width="600px"/>
+
 * [#7321] [`Show macro expansion`] actions and intentions now show the reason for the expansion failure
 
 * [#7308] Provide an option to add `--nocapture` flag to `cargo test` commands.
@@ -87,11 +92,6 @@ date: 2021-08-02 12:00:00 +0300
 
 * [#6003] Allow inlining functions with diverging exit points by `Inline Function` refactoring
   (`Refactor | Inline...` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>) (by [@SaarYogev])
-
-* [#7521], [#7503] Support type aliases for all Rust types in inlay hints and code generation.
-  Previously, only aliases for `struct` or `enum` types were accounted (by [@Kobzol])
-
-  <img src="/assets/posts/changelog-152/alias.png" alt="type aliases" width="600px"/>
 
 ## Performance Improvements
 
