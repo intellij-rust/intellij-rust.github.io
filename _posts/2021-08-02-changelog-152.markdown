@@ -79,6 +79,8 @@ date: 2021-08-02 12:00:00 +0300
 
 * [#7479] Support const arguments that look like type arguments
 
+* [#7611] Fix experimental procedural macro expansion with Rust 1.54 and Rust nightly
+
 * [#7521], [#7503] Support type aliases for all Rust types in inlay hints and code generation.
   Previously, only aliases for `struct`/`enum` types were accounted (by [@Kobzol])
 
@@ -206,6 +208,7 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#7571]: https://github.com/intellij-rust/intellij-rust/pull/7571
 [#7574]: https://github.com/intellij-rust/intellij-rust/pull/7574
 [#7576]: https://github.com/intellij-rust/intellij-rust/pull/7576
+[#7611]: https://github.com/intellij-rust/intellij-rust/pull/7611
 
 [intention actions]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#intention-actions
 [Go to generated declaration]: https://plugins.jetbrains.com/plugin/8182-rust/docs/wasm-projects-support.html#goto-wasm-bindgen
