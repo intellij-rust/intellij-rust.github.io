@@ -13,7 +13,7 @@ date: 2021-08-02 12:00:00 +0300
 
     {% include gif-img.html path="/assets/posts/changelog-152/implement-trait" w="600px" %}
 
-    This intention action simplifies writing of trait `impl`s. It automatically fills in `struct`/`enum`
+    This intention action simplifies the writing of trait `impl`s. It automatically fills in `struct` or `enum`
     generics, generates implementations of trait members and allows you to replace trait generics.
 
   * [#6838] `Convert function to closure` to convert a local function to a closure (by [@nschoellhorn])
@@ -40,7 +40,7 @@ date: 2021-08-02 12:00:00 +0300
 
   * [#7481] Complete `pub(crate)` and `pub()` visibility modifiers (by [@Kobzol])
 
-  * [#6410] Complete [layouts] in `#[repr()]` attributes (by [@zeroeightysix])
+  * [#6410] Complete [layouts] in `repr` attributes (by [@zeroeightysix])
 
   * [#7534], [#7571] Improve completion for items inside `impl` blocks (by [@Kobzol])
 
@@ -50,7 +50,7 @@ date: 2021-08-02 12:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-152/implement-supertraits" w="600px" %}
 
-* [#7519] Add `.wrap` [postfix template] that wraps an existing type with another type (by [@Kobzol])
+* [#7519] Add `.wrap` [postfix template] that wraps an existing type it another type (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-152/wrap" w="600px" %}
 
@@ -58,9 +58,10 @@ date: 2021-08-02 12:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-152/filter" w="600px" %}
 
-* [#7321] `Show macro expansion` actions and intentions now show the reason for the expansion failure
+* [#7321] [`Show macro expansion`] actions and intentions now show the reason for the expansion failure
 
-* [#7308] Provide a registry option `org.rust.cargo.test.nocapture` to add `--nocapture` flag to `cargo test` commands
+* [#7308] Provide an option to add `--nocapture` flag to `cargo test` commands.
+  You can turn it on via `Registry... | org.rust.cargo.test.nocapture`
 
 * [#7228] Properly construct links to Rust paths in [quick documentation] (by [@shocoman])
 
@@ -122,7 +123,7 @@ date: 2021-08-02 12:00:00 +0300
 
 * [#7527] Enable [Go to generated declaration] line marker in WASM projects for 2021.2 IDEs
 
-* [#7516] Fix autoimport-aware completion after completion at empty place
+* [#7516] Fix auto-import-aware completion when invoked at an empty place
 
 * [#7428] Show crate roots first in the project view
 
@@ -222,3 +223,4 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [crates local index]: https://github.com/intellij-rust/intellij-rust/issues/6463
 [inspection settings]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#inspection-settings
 [doctests]: https://doc.rust-lang.org/rustdoc/documentation-tests.html
+[`Show macro expansion`]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#macro-exansion
