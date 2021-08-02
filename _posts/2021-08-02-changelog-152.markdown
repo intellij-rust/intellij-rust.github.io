@@ -53,10 +53,12 @@ date: 2021-07-22 17:00:00 +0300
 * [#7479] Support const arguments that look like type arguments
 
 * [#7519] Add `.wrap` [postfix template] that wraps an existing type with another type (by [@Kobzol])
-  TODO gif
+
+  {% include gif-img.html path="/assets/posts/changelog-152/wrap" w="600px" %}
 
 * [#7499] Add filter to [`Structure View`] panel to hide macro-generated items (by [@afetisov])
-  TODO gif
+
+  {% include gif-img.html path="/assets/posts/changelog-152/filter" w="600px" %}
 
 * [#7321] `Show macro expansion` actions and intentions now show the reason for the expansion failure
 
