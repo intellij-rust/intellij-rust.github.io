@@ -88,6 +88,11 @@ date: 2021-08-02 12:00:00 +0300
   Note, the inspection is disabled by default for now due to possible false-positive warnings. You can enable it via
   `Preferences | Editor | Inspections` [settings][inspection settings]
 
+* [#7521], [#7503] Support type aliases for all Rust types in inlay hints and code generation.
+  Previously, only aliases for `struct` or `enum` types were accounted (by [@Kobzol])
+
+  <img src="/assets/posts/changelog-152/alias.png" alt="type aliases" width="600px"/>
+
 ## Performance Improvements
 
 * [#7576] Slightly optimize `Find usages` for non-`pub` items
@@ -97,11 +102,6 @@ date: 2021-08-02 12:00:00 +0300
 * [#7479] Support const arguments that look like type arguments
 
 * [#7611] Fix experimental procedural macro expansion with Rust 1.54 and Rust nightly
-
-* [#7521], [#7503] Support type aliases for all Rust types in inlay hints and code generation.
-  Previously, only aliases for `struct`/`enum` types were accounted (by [@Kobzol])
-
-  <img src="/assets/posts/changelog-152/alias.png" alt="type aliases" width="600px"/>
 
 * [#7120] Don't suggest `pub(crate)` from other crates for auto-import
 
