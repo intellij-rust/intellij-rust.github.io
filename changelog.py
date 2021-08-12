@@ -130,7 +130,10 @@ def collect_changelog(repo: Repository, milestone: Milestone):
         if len(labels) == 0:
             continue
 
-        issue_text = re.sub(comment_pattern, "", issue.body).replace("\r\n", "\n")
+        if issue.body is not None:
+            issue_text = re.sub(comment_pattern, "", issue.body).replace("\r\n", "\n")
+        else:
+            issue_text = ""
         result = re.search(changelog_description_pattern, issue_text)
         if result is not None:
             description = result.group("description").strip()
