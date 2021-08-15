@@ -1,0 +1,78 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #153"
+date: 2021-08-16 10:00:00 +0300
+---
+
+
+## New Features
+
+* [#7596] Provide initial support for [macro 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md) (like `std::ptr::addr_of`)
+
+* [#7591] Highlight function or lambda exit points when the caret at `fn` or `->` token
+
+  {% include gif-img.html path="/assets/posts/changelog-153/7591" w="700px" %}
+
+* [#7617] Enable Code Coverage runner on non-nightly toolchains
+
+* [#7568] Introduce setting to navigate to the first error in the editor
+
+* [#7616] Add "Sort by Visibility" option to Structure View (by [@afetisov])
+
+  {% include gif-img.html path="/assets/posts/changelog-153/7616" w="700px" %}
+
+* [#7539] `crate_type` attribute now has completion and quick-fix for typos
+
+* [#7569] Add the value `2021` for autocompletion in the `edition` field of `Cargo.toml` (by [@HTG-YT])
+
+## Fixes
+
+* [#7653] Fix item rendering by popup of `Import` quick-fix on 2021.2 IDEs
+
+* [#7501] Fix WSL support on 2021.2 platform
+
+* [#7627] Respect type aliases in `Extract Function` refactoring (<kbd>Ctrl+Alt+M</kbd>). (by [@Kobzol])
+
+* [#7605] Fix resolving re-exported derive macros by qualified path
+
+* [#7601] Don't try to move non-Rust items in move refactoring
+
+* [#7593] "Add unsafe" quick fix now also supports `impl` items. (by [@Kobzol])
+
+* [#7625] Take into account [`start` feature](https://github.com/rust-lang/rust/issues/29633) in `Main function not found` inspection
+
+* [#7585] Fix importing macro with same name as macro in prelude
+
+* [#7630] Set Cargo environment variables when debug/profile
+
+* [#7650] Fix code generation and type hints related to tuples of size 1 (for example `(i32,)`)
+
+* [#7588] Take into account const generics in `Move type constraint to parameter list` quick fix
+
+* [#7587] Fix overflow when parsing coverage report
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/61?closed=1)
+
+[@HTG-YT]: https://github.com/HTG-YT
+[@Kobzol]: https://github.com/Kobzol
+[@afetisov]: https://github.com/afetisov
+
+[#7501]: https://github.com/intellij-rust/intellij-rust/pull/7501
+[#7539]: https://github.com/intellij-rust/intellij-rust/pull/7539
+[#7568]: https://github.com/intellij-rust/intellij-rust/pull/7568
+[#7569]: https://github.com/intellij-rust/intellij-rust/pull/7569
+[#7585]: https://github.com/intellij-rust/intellij-rust/pull/7585
+[#7587]: https://github.com/intellij-rust/intellij-rust/pull/7587
+[#7588]: https://github.com/intellij-rust/intellij-rust/pull/7588
+[#7591]: https://github.com/intellij-rust/intellij-rust/pull/7591
+[#7593]: https://github.com/intellij-rust/intellij-rust/pull/7593
+[#7596]: https://github.com/intellij-rust/intellij-rust/pull/7596
+[#7601]: https://github.com/intellij-rust/intellij-rust/pull/7601
+[#7605]: https://github.com/intellij-rust/intellij-rust/pull/7605
+[#7616]: https://github.com/intellij-rust/intellij-rust/pull/7616
+[#7617]: https://github.com/intellij-rust/intellij-rust/pull/7617
+[#7625]: https://github.com/intellij-rust/intellij-rust/pull/7625
+[#7627]: https://github.com/intellij-rust/intellij-rust/pull/7627
+[#7630]: https://github.com/intellij-rust/intellij-rust/pull/7630
+[#7650]: https://github.com/intellij-rust/intellij-rust/pull/7650
+[#7653]: https://github.com/intellij-rust/intellij-rust/pull/7653
