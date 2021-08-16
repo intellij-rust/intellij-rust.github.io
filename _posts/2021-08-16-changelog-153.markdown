@@ -15,8 +15,8 @@ date: 2021-08-16 10:00:00 +0300
 
 * [#7617] Enable [Code Coverage](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-coverage.html) runner on non-nightly toolchains
 
-* [#7568] Introduce setting "Automatically show first error in editor after a build failure".
-You can find it in `File | Settings | Languages & Frameworks | Rust | Cargo`
+* [#7568] Introduce `Automatically show first error in editor after a build failure` option.
+You can find it in `File | Settings | Languages & Frameworks | Rust | Cargo` settings
 
 * [#7616] Add `Sort by Visibility` option to [Structure View](https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html) (by [@afetisov])
 
