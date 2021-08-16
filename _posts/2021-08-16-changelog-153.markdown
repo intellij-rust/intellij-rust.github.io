@@ -7,23 +7,24 @@ date: 2021-08-16 10:00:00 +0300
 
 ## New Features
 
-* [#7596] Provide initial support for [macro 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md) (like `std::ptr::addr_of`)
+* [#7596] Provide initial support for [macro 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) (like `std::ptr::addr_of`)
 
 * [#7591] Highlight function or lambda exit points when the caret at `fn` or `->` token
 
   {% include gif-img.html path="/assets/posts/changelog-153/7591" w="700px" %}
 
-* [#7617] Enable Code Coverage runner on non-nightly toolchains
+* [#7617] Enable [Code Coverage](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-coverage.html) runner on non-nightly toolchains
 
-* [#7568] Introduce setting to navigate to the first error in the editor
+* [#7568] Introduce setting "Automatically show first error in editor after a build failure".
+You can find it in `File | Settings | Languages & Frameworks | Rust | Cargo`
 
-* [#7616] Add "Sort by Visibility" option to Structure View (by [@afetisov])
+* [#7616] Add `Sort by Visibility` option to [Structure View](https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html) (by [@afetisov])
 
   {% include gif-img.html path="/assets/posts/changelog-153/7616" w="700px" %}
 
 * [#7539] `crate_type` attribute now has completion and quick-fix for typos
 
-* [#7569] Add the value `2021` for autocompletion in the `edition` field of `Cargo.toml` (by [@HTG-YT])
+* [#7569] Provide the value `2021` for completion in the `edition` field of `Cargo.toml` for the corresponding [2021 edition](https://doc.rust-lang.org/edition-guide/rust-2021/index.html) (by [@HTG-YT])
 
 ## Fixes
 
@@ -31,13 +32,13 @@ date: 2021-08-16 10:00:00 +0300
 
 * [#7501] Fix WSL support on 2021.2 platform
 
-* [#7627] Respect type aliases in `Extract Function` refactoring (<kbd>Ctrl+Alt+M</kbd>). (by [@Kobzol])
+* [#7627] Respect type aliases in `Extract Function` refactoring (<kbd>Ctrl+Alt+M</kbd>) (by [@Kobzol])
 
-* [#7605] Fix resolving re-exported derive macros by qualified path
+* [#7605] Fix resolving re-exported [derive macros](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) by qualified path
 
 * [#7601] Don't try to move non-Rust items in move refactoring
 
-* [#7593] "Add unsafe" quick fix now also supports `impl` items. (by [@Kobzol])
+* [#7593] `Add unsafe` quick-fix now also supports `impl` items (by [@Kobzol])
 
 * [#7625] Take into account [`start` feature](https://github.com/rust-lang/rust/issues/29633) in `Main function not found` inspection
 
@@ -47,7 +48,7 @@ date: 2021-08-16 10:00:00 +0300
 
 * [#7650] Fix code generation and type hints related to tuples of size 1 (for example `(i32,)`)
 
-* [#7588] Take into account const generics in `Move type constraint to parameter list` quick fix
+* [#7588] Take into account const generics in `Move type constraint to parameter list` quick-fix
 
 * [#7587] Fix overflow when parsing coverage report
 
