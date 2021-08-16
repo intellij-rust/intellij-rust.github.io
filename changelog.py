@@ -198,7 +198,7 @@ def new_post(args: argparse.Namespace):
 
         due_on = milestone.due_on
         if due_on is not None:
-            date = due_on.replace(hour=17, minute=0, second=0)  # 17:00 is our usual release time
+            date = due_on.replace(hour=13, minute=0, second=0)  # 13:00 is our desired release time
         changelog = collect_changelog(repo, milestone)
 
     name = "_posts/{}-changelog-{}.markdown".format(date.date().isoformat(), next_post)
