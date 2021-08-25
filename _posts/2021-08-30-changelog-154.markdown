@@ -1,0 +1,88 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #154"
+date: 2021-08-30 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#7640] Improve [external ABI](https://doc.rust-lang.org/reference/items/external-blocks.html#abi) support:
+    - Parse any literal in ABI name position (including raw strings) and annotate non-string literals as invalid (in the same way as `rustc` does)
+
+      <img src="/assets/posts/changelog-154/non-string-abi-literal.png" alt="Non-string abi literal" width="700px">
+    - Annotate [invalid ABI](https://doc.rust-lang.org/error-index.html#E0703) names and experimental ABIs without the corresponding feature attribute
+
+      <img src="/assets/posts/changelog-154/invalid-abi-name.png" alt="Invalid abi name" width="700px">
+    - Provide competition for ABI names
+
+      {% include gif-img.html path="/assets/posts/changelog-154/abi-completion" w="700px" %}
+
+* [#7682] Detect [E0121](https://doc.rust-lang.org/error-index.html#E0121) in structs and enum variants (by [@t-kameyama])
+
+  <img src="/assets/posts/changelog-154/type-placeholder.png" alt="The type placeholder `_` is not allowed within types on item signatures for structs and enum variants" width="700px">
+
+* [#7646] Implement `Expand into separate table` intention to expand an inline TOML table into a full one
+
+  {% include gif-img.html path="/assets/posts/changelog-154/expand-into-separate-table" w="700px" %}
+
+* [#7666] Show [macro 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) items in [Structure View](https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html) (`Ctrl`+`F12`)
+
+* [#7664] Improve parser recovery for [function pointers](https://doc.rust-lang.org/reference/types/function-pointer.html) (by [@afetisov])
+
+## Performance Improvements
+
+* [#7703] Suggest keywords much more quickly during Rust code completion
+
+## Fixes
+
+* [#7635], [#7676] Take into account type aliases in most of [intention actions, quick fixes](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#intention-actions), and [refactorings](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html) (by [@Kobzol])
+
+* [#7557] Reduce the number of false-positive annotations caused by `Self convention` inspection (by [@Kobzol])
+
+* [#7692] Do not substitute type alias names for associated types in inlay hints like `Chained method` (by [@Kobzol])
+
+* [#7690] Import types after invoking `Create function`, `Create struct` and `Create tuple struct` intentions (by [@Kobzol])
+
+* [#7711] Fix some quick-fixes and intentions to make them work with aliased types properly.
+  For example, `` Convert to String using `ToString` trait `` quick-fix now works even when the expected type is an alias for `String` type
+
+* [#7638] `Surround with unsafe` inspection now works identically inside statements and tail expressions
+
+* [#7598] Display [implied shortcut reference links](https://rust-lang.github.io/rfcs/1946-intra-rustdoc-links.html#implied-shortcut-reference-links) in quick documentation (by [@shocoman])
+
+* [#7582] Don't show a completion popup automatically when typing a `let` binding identifier starting with a lowercase letter.
+You still can invoke the completion explicitly (using `Ctrl`+`Space`, for example)
+
+* [#7668] Do not offer the `Make public` quick-fix on method calls from trait impls (by [@Kobzol])
+
+* [#7614] Allow removing `Build` step in Cargo Command configurations
+
+## Internal Improvements
+
+* [#7711] Introduce `Ty.isEquivalentTo(Ty)` for `Ty`s comparison. Unlike `==`, it ignores `aliasedBy` field
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/62?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@afetisov]: https://github.com/afetisov
+[@shocoman]: https://github.com/shocoman
+[@t-kameyama]: https://github.com/t-kameyama
+
+[#7557]: https://github.com/intellij-rust/intellij-rust/pull/7557
+[#7582]: https://github.com/intellij-rust/intellij-rust/pull/7582
+[#7598]: https://github.com/intellij-rust/intellij-rust/pull/7598
+[#7614]: https://github.com/intellij-rust/intellij-rust/pull/7614
+[#7635]: https://github.com/intellij-rust/intellij-rust/pull/7635
+[#7638]: https://github.com/intellij-rust/intellij-rust/pull/7638
+[#7640]: https://github.com/intellij-rust/intellij-rust/pull/7640
+[#7646]: https://github.com/intellij-rust/intellij-rust/pull/7646
+[#7664]: https://github.com/intellij-rust/intellij-rust/pull/7664
+[#7666]: https://github.com/intellij-rust/intellij-rust/pull/7666
+[#7668]: https://github.com/intellij-rust/intellij-rust/pull/7668
+[#7676]: https://github.com/intellij-rust/intellij-rust/pull/7676
+[#7682]: https://github.com/intellij-rust/intellij-rust/pull/7682
+[#7690]: https://github.com/intellij-rust/intellij-rust/pull/7690
+[#7692]: https://github.com/intellij-rust/intellij-rust/pull/7692
+[#7703]: https://github.com/intellij-rust/intellij-rust/pull/7703
+[#7711]: https://github.com/intellij-rust/intellij-rust/pull/7711
