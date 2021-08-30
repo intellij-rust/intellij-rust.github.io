@@ -14,7 +14,7 @@ date: 2021-08-30 13:00:00 +0300
     - Annotate [invalid ABI](https://doc.rust-lang.org/error-index.html#E0703) names and experimental ABIs without the corresponding feature attribute
 
       <img src="/assets/posts/changelog-154/invalid-abi-name.png" alt="Invalid abi name" width="700px">
-    - Provide competition for ABI names
+    - Provide completion for ABI names
 
       {% include gif-img.html path="/assets/posts/changelog-154/abi-completion" w="700px" %}
 
