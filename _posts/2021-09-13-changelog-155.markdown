@@ -1,0 +1,77 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #155"
+date: 2021-09-13 12:00:00 +0300
+---
+
+
+## New Features
+* Actual stdlib info fetching improvements:
+
+  * [#7782] Enable fetching actual info about stdlib packages like dependencies, [edition](https://doc.rust-lang.org/edition-guide/editions/index.html), Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) by default. It should help the plugin better understand stdlib structure, for example, provide proper completion and navigation for items defined in `std::os` module. In case of any issue, you can turn this feature off via `org.rust.cargo.fetch.actual.stdlib.metadata` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+
+  * [#7772] Show warning/errors during fetching stdlib info in [Sync View](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-cargo-tool-window.html)
+
+* [#7777] Enable by default code completion ranking for Rust based on machine learning. Now the completion suggestions are sorted by their relevance based on the rules learned from data we have gathered anonymously during our EAPs. Note that we have not collected any source code, only information about your interactions with the code completion UI. In case of any issues, you can disable the new ranking model via `Editor | General | Code Completion | Machine Learning-Assisted Completion` settings. You can also see completion sorting changes by enabling `Mark position changes in the completion popup` in `Preferences | Editor | General | Code Completion`
+
+  <img src="/assets/posts/changelog-155/ml-completion.png" alt="ML completion sorting" width="550px">
+
+* [#7769], [#7751] Correctly parse `unsafe` keyword in extern blocks and module items, and annotate it as an error
+
+  <img src="/assets/posts/changelog-155/unsafe-extern-mod.png" alt="Parse and annotate unsafe in extern and module blocks" width="550px">
+
+* [#7734] Introduce new icons for macro items, providing `macro_rules!` and `macros 2.0` items with distinctive ones
+
+  <img src="/assets/posts/changelog-155/new-macro-icons.png" alt="New macro items icons" width="550px">
+
+* [#7663] Support `Move Element Left/Right` action for predicates in `where` clause
+
+  {% include gif-img.html path="/assets/posts/changelog-155/where-move" w="550px" %}
+
+* [#7757] Parse and annotate block expressions as default const generic values when using `const_generics_defaults` compiler feature
+
+* [#3790] Deprecated item inspection now correctly handles items that will be deprecated in a future version (by [@mibac138] & [@Kobzol])
+
+## Fixes
+
+* [#7790] Generate [const generics](https://rust-lang.github.io/rfcs/2000-const-generics.html) by `Implement Members` quick-fix properly
+
+* [#7758] Don't fetch stdlib metadata for `rustc` project since it's already fetched during project structure setup
+
+* [#7752] Properly render [negative `impl`](https://doc.rust-lang.org/unstable-book/language-features/negative-impls.html) items in `Go to implementation` popup
+
+* [#7728] Fix DTrace [profiler integration](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) with CLion 2021.2
+
+* [#7726] Correctly print restricted visibility of items in [quick documentation](https://plugins.jetbrains.com/plugin/8182-rust/custom-pages/docs/rust-code-reference-info.html#quick-docs) instead of always printing `pub` (by [@afetisov])
+
+* [#7637] Use existing impl block if possible in `Extract function` refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>)
+
+* [#7506] Fix procedural macros and generated items support for WSL toolchains
+
+## Internal Improvements
+
+* [#7740] Drop CLA requirement. There is no more need to sign it to make a contribution into plugin
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/63?closed=1)
+
+[@afetisov]: https://github.com/afetisov
+[@mibac138]: https://github.com/mibac138
+[@Kobzol]: https://github.com/Kobzol
+
+[#3790]: https://github.com/intellij-rust/intellij-rust/pull/3790
+[#7506]: https://github.com/intellij-rust/intellij-rust/pull/7506
+[#7637]: https://github.com/intellij-rust/intellij-rust/pull/7637
+[#7663]: https://github.com/intellij-rust/intellij-rust/pull/7663
+[#7726]: https://github.com/intellij-rust/intellij-rust/pull/7726
+[#7728]: https://github.com/intellij-rust/intellij-rust/pull/7728
+[#7734]: https://github.com/intellij-rust/intellij-rust/pull/7734
+[#7740]: https://github.com/intellij-rust/intellij-rust/pull/7740
+[#7751]: https://github.com/intellij-rust/intellij-rust/pull/7751
+[#7752]: https://github.com/intellij-rust/intellij-rust/pull/7752
+[#7757]: https://github.com/intellij-rust/intellij-rust/pull/7757
+[#7758]: https://github.com/intellij-rust/intellij-rust/pull/7758
+[#7769]: https://github.com/intellij-rust/intellij-rust/pull/7769
+[#7772]: https://github.com/intellij-rust/intellij-rust/pull/7772
+[#7777]: https://github.com/intellij-rust/intellij-rust/pull/7777
+[#7782]: https://github.com/intellij-rust/intellij-rust/pull/7782
+[#7790]: https://github.com/intellij-rust/intellij-rust/pull/7790
