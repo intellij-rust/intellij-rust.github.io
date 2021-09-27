@@ -9,13 +9,14 @@ your IDE to 2021.2.
 
 ## New Features
 
-* [#7317] Enable WSL support by default. Now you can choose a WSL toolchain during project creation or in `Languages & Frameworks | Rust` settings,
+* [#7317] Enable WSL support by default. Now you can choose a WSL toolchain during project creation or in `Preferences | Languages & Frameworks | Rust` settings,
           which will be used for build and run via `cargo`, code formatting via `rustfmt`, on-the-fly code analysis via `cargo check` or `clippy`, code coverage via `grcov`, etc.
-          Note, we use UNC paths (`\\wsl$\...`) for WSL toolchains, so you need at least version 1903 of Windows 10.
-          Debugging works only in CLion and you need to configure a WSL toolchain in `Build, Execution, Deployment | Toolchains` settings.
-          Also, [Valgring Memcheck](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-valgrind.html) and [Profiling](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) integrations are not supported yet.
+          Debugging works only in CLion and you need to [configure](https://www.jetbrains.com/help/clion/how-to-use-wsl-development-environment-in-product.html#wsl-tooclhain) a WSL toolchain in `Preferences | Build, Execution, Deployment | Toolchains` settings.
+          Also, [Valgring Memcheck](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-valgrind.html) and [Profiling](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) integrations are not supported yet.<br/>
+          Note, we use UNC paths (`\\wsl$\...`) for WSL toolchains, so you need at least version 1903 of Windows 10
 
-* [#7488] Add debugger option to break on panic (`Preferences | Build, Execution, Deployment | Debugger`). This option is enabled by default (by [@Kobzol])
+* [#7488] Add debugger option to break on panic. The option is enabled by default.
+          You can disable it via `Break on panic` option in `Preferences | Build, Execution, Deployment | Debugger` settings in case of any problem (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-156/break-on-panic" w="700px" %}
 
