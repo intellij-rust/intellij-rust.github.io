@@ -1,0 +1,97 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #156"
+date: 2021-09-27 13:00:00 +0300
+---
+
+This is the last release that supports the 2021.1 IDEs. To receive plugin updates further, please upgrade
+your IDE to 2021.2.
+
+## New Features
+
+* [#7317] Enable WSL support by default. Now you can choose a WSL toolchain during project creation or in `Preferences | Languages & Frameworks | Rust` settings,
+          which will be used for build and run via `cargo`, code formatting via `rustfmt`, on-the-fly code analysis via `cargo check` or `clippy`, code coverage via `grcov`, etc.
+          Debugging works only in CLion and you need to [configure](https://www.jetbrains.com/help/clion/how-to-use-wsl-development-environment-in-product.html#wsl-tooclhain) a WSL toolchain in `Preferences | Build, Execution, Deployment | Toolchains` settings.
+          Also, [Valgring Memcheck](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-valgrind.html) and [Profiling](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-profiler.html) integrations are not supported yet.<br/>
+          Note, we use UNC paths (`\\wsl$\...`) for WSL toolchains, so you need at least version 1903 of Windows 10
+
+* [#7488] Add debugger option to break on panic. The option is enabled by default.
+          You can disable it via `Break on panic` option in `Preferences | Build, Execution, Deployment | Debugger` settings in case of any problem (by [@Kobzol])
+
+    {% include gif-img.html path="/assets/posts/changelog-156/break-on-panic" w="700px" %}
+
+* [#7550] Support finding usages in child modules in `Unused import` inspection.
+          Note, the inspection is disabled by default due to some false positives.
+          You can enable it in [inspection settings](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#inspection-settings).
+
+    <img src="/assets/posts/changelog-156/unused-import-child-modules.png" alt="Unused imports child modules" width="700px">
+
+* [#7805] Remove `Extract dependency specification` intention in favor of more generic `Expand into separate table` intention from TOML plugin
+
+## Performance Improvements
+
+* [#7818] Optimize macro expansion — now procedural macros are expanded in parallel
+
+* [#7841] Avoid IDE freeze in certain situations when invoking `Remove` quick-fixes or intentions on elements with syntax errors (by [@Kobzol])
+
+## Fixes
+
+* [#7809] Use correct [prelude](https://doc.rust-lang.org/stable/edition-guide/rust-2021/prelude.html) for [2021 edition](https://doc.rust-lang.org/stable/edition-guide/rust-2021/)
+
+* [#7795] Fix parsing of const generic arguments and const generic defaults
+
+* [#7804] Generate generic bounds and `where` clauses when creating inherent `impl` items in `Extract function` refactoring (by [@Kobzol])
+
+* [#7831] Don't show the [E0046](https://doc.rust-lang.org/error-index.html#E0046) error for negative trait impls (by [@Kobzol])
+
+* [#7806] Insert import at correct location during auto-import
+
+* [#7827] Fix that glob import can override named items in some cases
+
+* [#7819] Fix incorrect name resolution in some cases when there is both `cfg`-disabled and `cfg`-enabled `mod` with the same name
+
+* [#7811] Fix resolving [`asm!`](https://doc.rust-lang.org/beta/unstable-book/library-features/asm.html) macro on nightly Rust
+
+* [#7824] Improve completion of [macro 2.0](https://rust-lang.github.io/rfcs/1584-macros.html), i.e. insert `!` and proper braces (based on documentation) if needed
+
+* [#7823] Improve documentation rendering for [macro 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) as well as external link generation and resolution
+
+* [#7834] Don't highlight string literals in macros as exit points
+
+* [#7810] Fix showing completion autopopup when typing `let mut` with existing ident (`let /*typing mut here*/foo = 1;`)
+
+* [#7876] Fix Rustup availability check on WSL
+
+* [#7869] Reset "Standard library" path on switching on a WSL toolchain in Rust settings
+
+## Internal Improvements
+
+* [#7828] Move development of [TOML](https://plugins.jetbrains.com/plugin/8195-toml) plugin into [intellij-community](https://github.com/JetBrains/intellij-community/tree/master/plugins/toml) repository to simplify integration for other technologies.
+Note, the plugin is still free and open-source
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/64?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#7317]: https://github.com/intellij-rust/intellij-rust/pull/7317
+[#7488]: https://github.com/intellij-rust/intellij-rust/pull/7488
+[#7550]: https://github.com/intellij-rust/intellij-rust/pull/7550
+[#7795]: https://github.com/intellij-rust/intellij-rust/pull/7795
+[#7804]: https://github.com/intellij-rust/intellij-rust/pull/7804
+[#7805]: https://github.com/intellij-rust/intellij-rust/pull/7805
+[#7806]: https://github.com/intellij-rust/intellij-rust/pull/7806
+[#7809]: https://github.com/intellij-rust/intellij-rust/pull/7809
+[#7810]: https://github.com/intellij-rust/intellij-rust/pull/7810
+[#7811]: https://github.com/intellij-rust/intellij-rust/pull/7811
+[#7818]: https://github.com/intellij-rust/intellij-rust/pull/7818
+[#7819]: https://github.com/intellij-rust/intellij-rust/pull/7819
+[#7823]: https://github.com/intellij-rust/intellij-rust/pull/7823
+[#7824]: https://github.com/intellij-rust/intellij-rust/pull/7824
+[#7827]: https://github.com/intellij-rust/intellij-rust/pull/7827
+[#7828]: https://github.com/intellij-rust/intellij-rust/pull/7828
+[#7831]: https://github.com/intellij-rust/intellij-rust/pull/7831
+[#7834]: https://github.com/intellij-rust/intellij-rust/pull/7834
+[#7841]: https://github.com/intellij-rust/intellij-rust/pull/7841
+[#7861]: https://github.com/intellij-rust/intellij-rust/pull/7861
+[#7869]: https://github.com/intellij-rust/intellij-rust/pull/7869
+[#7876]: https://github.com/intellij-rust/intellij-rust/pull/7876
