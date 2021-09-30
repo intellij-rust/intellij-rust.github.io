@@ -122,7 +122,7 @@ def collect_changelog(repo: Repository, milestone: Milestone):
     issues = repo.get_issues(milestone=milestone, state="all")
 
     comment_pattern = re.compile("<!--.*-->", re.RegexFlag.DOTALL)
-    changelog_description_pattern = re.compile("changelog:(?P<description>([^\n]+\n?)*)")
+    changelog_description_pattern = re.compile("[Cc]hangelog:\\s*(?P<description>([^\n]+\n?)*)")
     for issue in issues:
         if issue.pull_request is None:
             continue
