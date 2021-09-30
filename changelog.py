@@ -12,6 +12,8 @@ from github import Github
 from github.Milestone import Milestone
 from github.Repository import Repository
 
+PLUGIN_REPO = "intellij-rust/intellij-rust"
+
 MAINTAINERS = [
     "matklad",
     "Undin",
@@ -92,8 +94,7 @@ class Changelog(object):
                 f.write("\n\n")
         if self.milestone_id is not None:
             f.write("Full set of changes can be found [here]"
-                    "(https://github.com/intellij-rust/intellij-rust/milestone/{}?closed=1)\n"
-                    .format(self.milestone_id))
+                    f"(https://github.com/{PLUGIN_REPO}/milestone/{self.milestone_id}?closed=1)\n")
 
         if len(self.contributors) > 0:
             f.write("\n")
@@ -111,8 +112,7 @@ class Changelog(object):
 
             f.write("\n")
             for pull_request_id in sorted(pull_request_ids):
-                f.write("[#{0}]: https://github.com/intellij-rust/intellij-rust/pull/{0}\n"
-                        .format(pull_request_id))
+                f.write(f"[#{pull_request_id}]: https://github.com/{PLUGIN_REPO}/pull/{pull_request_id}\n")
 
 
 def collect_changelog(repo: Repository, milestone: Milestone):
@@ -175,7 +175,7 @@ def construct_repo(args: argparse.Namespace) -> Repository:
         password = args.password
 
     g = Github(login_or_token, password)
-    return g.get_repo("intellij-rust/intellij-rust")
+    return g.get_repo(PLUGIN_REPO)
 
 
 def new_post(args: argparse.Namespace):
