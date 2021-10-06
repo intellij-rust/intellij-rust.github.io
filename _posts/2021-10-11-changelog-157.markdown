@@ -1,0 +1,87 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #157"
+date: 2021-10-11 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#7922] Support new 2021.3 platform EAPs
+
+* [#7883] Drop support for 2021.1 IDEs. To get new updates of the plugin, upgrade your IDE to 2021.2
+
+* [#7330] Improve the `Change signature` quick-fix. Now you can also change the parameters types and remove extraneous parameters from the end of the signature (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-157/improve-change-signature" w="700px" %}
+
+* [#7905] Show build script evaluation errors in [Sync View](https://plugins.jetbrains.com/plugin/8182-rust/custom-pages/docs/rust-cargo-tool-window.html) when `org.rust.cargo.evaluate.build.scripts` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) is enabled. It should simplify diagnostics why features based on compile-time information don't work as expected
+
+  <img src="/assets/posts/changelog-157/show-build-script-errors.png" alt="Build script errors in Sync View" width="700px">
+
+* [#7839] Support new [`adt_const_params`](https://blog.rust-lang.org/inside-rust/2021/09/06/Splitting-const-generics.html) feature for const generics and get rid of the old `const_generic` feature
+
+* [#7673] `Create (tuple) struct` intentions now allow filling unknown field types (by [@Kobzol])
+
+## Performance Improvements
+
+* [#7938] Temporary disable parallel macro expansion introduced in the previous release because it may break code highlighting
+
+## Fixes
+
+* Name resolution fixes:
+  * [#7860] Fix visibility of publicly reexported item with restricted visibility
+
+  * [#7846] Fix some cases when cfg-disabled glob-import affects cfg-enabled one
+
+  * [#7886] Fixes that some stdlib crates (e.g. `alloc`) can be resolved without corresponding `extern crate` declaration
+
+* [#7903] Generate proper names for run configurations provided by [Cargo tool window](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support) to be consistent with run configurations created from line markers
+
+* [#7879] Fix procedural macro expansion with Rust 1.56 and Rust nightly. Note, procedural macro expansion is still under development.
+  To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+  See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for more details and the current status.
+
+* [#7870] Show error when defaults for const parameters are used in `fn`s or `impl`s
+
+* [#7792] Show build error balloon over `Build` tool window instead of `Messages` one
+
+* [#7766] Make `Show the result of macro expansion (cargo expand)` intention use dark theme for output if IDE is under dark theme
+
+* [#7649] [`Extract function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) refactoring now can be applied when trailing semicolon is selected together with expression
+
+* [Move refactoring](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#move-refactoring) fixes:
+  * [#7837] Add trait imports for UFCS trait method calls in move refactoring if necessary
+
+  * [#7651] Do not offer to move a file to the same directory when using drag and drop in the project view
+
+## Internal Improvements
+
+* [#7844] We gradually deprecate the old name resolution engine. As a first step, `Use new name resolution engine` option was removed from settings. Please fill an issue if you encounter any problems with new resolve engine
+
+* [#7836] Drop special parsing rules for `try!` and `await!` macros
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/65?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#7330]: https://github.com/intellij-rust/intellij-rust/pull/7330
+[#7649]: https://github.com/intellij-rust/intellij-rust/pull/7649
+[#7651]: https://github.com/intellij-rust/intellij-rust/pull/7651
+[#7673]: https://github.com/intellij-rust/intellij-rust/pull/7673
+[#7766]: https://github.com/intellij-rust/intellij-rust/pull/7766
+[#7792]: https://github.com/intellij-rust/intellij-rust/pull/7792
+[#7836]: https://github.com/intellij-rust/intellij-rust/pull/7836
+[#7837]: https://github.com/intellij-rust/intellij-rust/pull/7837
+[#7839]: https://github.com/intellij-rust/intellij-rust/pull/7839
+[#7844]: https://github.com/intellij-rust/intellij-rust/pull/7844
+[#7846]: https://github.com/intellij-rust/intellij-rust/pull/7846
+[#7860]: https://github.com/intellij-rust/intellij-rust/pull/7860
+[#7870]: https://github.com/intellij-rust/intellij-rust/pull/7870
+[#7879]: https://github.com/intellij-rust/intellij-rust/pull/7879
+[#7883]: https://github.com/intellij-rust/intellij-rust/pull/7883
+[#7886]: https://github.com/intellij-rust/intellij-rust/pull/7886
+[#7903]: https://github.com/intellij-rust/intellij-rust/pull/7903
+[#7905]: https://github.com/intellij-rust/intellij-rust/pull/7905
+[#7922]: https://github.com/intellij-rust/intellij-rust/pull/7922
+[#7938]: https://github.com/intellij-rust/intellij-rust/pull/7938
