@@ -1,0 +1,86 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #158"
+date: 2021-10-25 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#7194] Provide initial support for [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macros.
+  Now the plugin can expand such procedural macro calls and take into account all expanded items in type inference and name resolution.
+  Note, it’s only an initial implementation, so it may work in an unexpected way in some cases.
+  The feature is disabled by default for now.
+  To turn it on, you should enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+  Don’t forget to reload a project structure after enabling the corresponding features via `Refresh Cargo Projects` action on Cargo tool window.
+  See [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908) for more details and the current status of procedural macros support
+
+  {% include gif-img.html path="/assets/posts/changelog-158/attribute_macros" w="700px" %}
+
+* [#6840] Add a refactoring and an intention to extract selected struct fields into a separate struct (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-158/extract_struct" w="700px" %}
+
+* [#6328] Add quick fix to fully qualify an unresolved path with an import candidate (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-158/qualify_unresolved" w="700px" %}
+
+* [#7899] Allow extracting expressions containing references to constants in [Introduce constant](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractconst-refactoring) refactoring (`Refactor | Extract | Constant` or <kbd>Ctrl+Alt+C</kbd>) (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-158/extract_constant" w="700px" %}
+
+* [#7945] Use `Self::` instead of fully qualified name for method call when extracting static method
+
+* [#7897] Annotate non-structural-match types in const generic parameters ([E0741](https://doc.rust-lang.org/error-index.html#E0741))
+
+* [#7778] Use `cargo-generate 0.9` and add detailed information in `Add Custom Template` dialog
+
+* [#7888] Support completion inside not expanded macro calls (in incomplete code) for [macros 2.0](https://rust-lang.github.io/rfcs/1584-macros.html)
+
+## Fixes
+
+* [#7931] Fixes code insight inside projects which have very large macro expansions
+
+* [#7969] Show proper error message in [Test](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-testing.html) tool window if no tests were found
+
+* [#7965] Show error message if unable to run debugger because no / multiple artifacts were produced
+
+* [#7954] Fix font colors mapping in a console under dark themes for Windows
+
+* [#7842] Fix some cases when named import should shadow glob-import
+
+* [#7853] Don't reorder existing imports in [Move](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#move-refactoring) refactoring (`Refactor | Move` or <kbd>F6</kbd>)
+
+* [#7776] Specify `wasm32-unknown-unknown` target when creating new `WebAssembly Lib` project. This fixes expansion of macros with `wasm` related cfg attributes (e.g. in [`reqwest`](https://github.com/seanmonstar/reqwest) crate)
+
+* [#7950] Fix false positive extra fields error in tuple struct pattern when using rest pattern (by [@mibac138])
+
+* [#7939] Fix loading [compiler's renderers](https://plugins.jetbrains.com/plugin/8182-rust/docs/switching-debuggers-and-renderers.html#renderers) when they are chosen in `Preferences | Build, Execution, Deployment | Debugger | Data Views | Rust` settings. Note that bundled renderers (enabled by default) are still preferable in most cases. So consider switching to them if you use compiler's renderers for some reason
+
+## Internal Improvements
+
+* [#7399] Test LLDB pretty-printers on Windows
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/66?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@mibac138]: https://github.com/mibac138
+
+[#6328]: https://github.com/intellij-rust/intellij-rust/pull/6328
+[#6840]: https://github.com/intellij-rust/intellij-rust/pull/6840
+[#7194]: https://github.com/intellij-rust/intellij-rust/pull/7194
+[#7399]: https://github.com/intellij-rust/intellij-rust/pull/7399
+[#7776]: https://github.com/intellij-rust/intellij-rust/pull/7776
+[#7778]: https://github.com/intellij-rust/intellij-rust/pull/7778
+[#7842]: https://github.com/intellij-rust/intellij-rust/pull/7842
+[#7853]: https://github.com/intellij-rust/intellij-rust/pull/7853
+[#7888]: https://github.com/intellij-rust/intellij-rust/pull/7888
+[#7897]: https://github.com/intellij-rust/intellij-rust/pull/7897
+[#7899]: https://github.com/intellij-rust/intellij-rust/pull/7899
+[#7931]: https://github.com/intellij-rust/intellij-rust/pull/7931
+[#7939]: https://github.com/intellij-rust/intellij-rust/pull/7939
+[#7945]: https://github.com/intellij-rust/intellij-rust/pull/7945
+[#7950]: https://github.com/intellij-rust/intellij-rust/pull/7950
+[#7954]: https://github.com/intellij-rust/intellij-rust/pull/7954
+[#7965]: https://github.com/intellij-rust/intellij-rust/pull/7965
+[#7969]: https://github.com/intellij-rust/intellij-rust/pull/7969
