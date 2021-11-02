@@ -1,0 +1,79 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #159"
+date: 2021-11-08 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#7914], [#8029] Use info calculated by new name resolution engine for `Import` quick-fix and completion of out-of-scope items. It brings:
+    - Better processing of complex re-exports, including proper visibility handling
+    - Significant performance improvement
+    - Auto-import for macros
+
+      {% include gif-img.html path="/assets/posts/changelog-159/auto_import" w="550px" %}
+
+
+* [#7798] Support [let else](https://rust-lang.github.io/rfcs/3137-let-else.html) syntax
+
+  {% include gif-img.html path="/assets/posts/changelog-159/let_else" w="550px" %}
+
+* [#7898] Provide completion of the [`rust-version`](https://doc.rust-lang.org/cargo/reference/manifest.html#the-rust-version-field) field in the `[package]` table of the `Cargo.toml` manifest (by [@HTG-YT])
+
+  <img src="/assets/posts/changelog-159/rust_version.png" alt="rust_version completion" width="550px">
+
+* [#7928] Enable `Unresolved reference` inspection for attribute macros if `org.rust.macros.proc` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) is enabled
+
+## Performance Improvements
+
+* [#7944] Slightly optimize `Find usages` for public items in binary crates
+
+* [#7936] Slightly optimize memory consumption of name resolution internal structures
+
+## Fixes
+
+* [#8033] Fix name resolution of explicit type-qualified associated types in type aliases (like `type Alias<T> = <T as Trait>::Item;`). Particularly, this fixes type inference in [`hecs`](https://crates.io/crates/hecs) library
+
+* [#8025] Fix type inference for breaks out of the loop nested within expression blocks (by [@afetisov])
+
+* [#8022] Fix expansion of procedural macros that contain `_` in the macro body
+
+* [#8006] Simplify negation of boolean literal (e.g. in `Invert if condition` intention)
+
+* [#8004] Allow deeper path nesting in parser. This fixes deep nested type qualifiers and fixes code insight in projects like [`diesel`](https://github.com/diesel-rs/diesel)
+
+* [#7993] Don't try to detect procedural macros in stdlib to avoid attempts to expand unstable built-in attributes
+
+* [#7989] Highlight errors in single string literal argument of `panic!` macro according [new rules](https://doc.rust-lang.org/stable/edition-guide/rust-2021/panic-macro-consistency.html) in 2021 edition
+
+* [#7987] Take into account type aliases in `Add safe cast` quick fix
+
+* [#7963] Fix parsing of const generic arguments and defaults
+
+* [#7933] Show the `Import` quick fix higher in intention list (by [@Kobzol])
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/67?closed=1)
+
+[@HTG-YT]: https://github.com/HTG-YT
+[@Kobzol]: https://github.com/Kobzol
+[@afetisov]: https://github.com/afetisov
+
+[#7798]: https://github.com/intellij-rust/intellij-rust/pull/7798
+[#7898]: https://github.com/intellij-rust/intellij-rust/pull/7898
+[#7914]: https://github.com/intellij-rust/intellij-rust/pull/7914
+[#7928]: https://github.com/intellij-rust/intellij-rust/pull/7928
+[#7933]: https://github.com/intellij-rust/intellij-rust/pull/7933
+[#7936]: https://github.com/intellij-rust/intellij-rust/pull/7936
+[#7944]: https://github.com/intellij-rust/intellij-rust/pull/7944
+[#7963]: https://github.com/intellij-rust/intellij-rust/pull/7963
+[#7987]: https://github.com/intellij-rust/intellij-rust/pull/7987
+[#7989]: https://github.com/intellij-rust/intellij-rust/pull/7989
+[#7993]: https://github.com/intellij-rust/intellij-rust/pull/7993
+[#8004]: https://github.com/intellij-rust/intellij-rust/pull/8004
+[#8006]: https://github.com/intellij-rust/intellij-rust/pull/8006
+[#8012]: https://github.com/intellij-rust/intellij-rust/pull/8012
+[#8022]: https://github.com/intellij-rust/intellij-rust/pull/8022
+[#8025]: https://github.com/intellij-rust/intellij-rust/pull/8025
+[#8029]: https://github.com/intellij-rust/intellij-rust/pull/8029
+[#8033]: https://github.com/intellij-rust/intellij-rust/pull/8033
