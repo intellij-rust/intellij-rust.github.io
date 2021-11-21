@@ -8,7 +8,7 @@ You will probably need GCC, Make, AutoConf and NodeJS installed.
 
 ```bash
 $ bundle install
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve --future
 ```
 
 ### Windows
