@@ -25,7 +25,9 @@ MAINTAINERS = [
     "dima74",
     "avrong",
     "lancelote",
-    "ozkriff"
+    "ozkriff",
+    "intellij-rust-bot",
+    "dependabot[bot]"
 ]
 
 
