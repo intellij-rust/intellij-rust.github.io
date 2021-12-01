@@ -1,0 +1,122 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #161"
+date: 2021-12-06 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8005] Provide `Invert if condition` intention for `if` statement without `else` branch
+
+  {% include gif-img.html path="/assets/posts/changelog-161/invert_if_without_else" w="700px" %}
+
+* [#8126] Annotate labels with invalid names (by [@t-kameyama])
+
+  <img src="/assets/posts/changelog-161/invalid_label_names.png" width="700px"/>
+
+* [#8115] Annotate [macro 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) definitions as experimental and provide quick-fix to add `decl_macro` feature on nightly toolchain
+
+* [#8054], [#8083] Better process complex re-exports by auto import for unresolved [UFCS] method calls as well as
+  during other refactorings and inspection quick-fixes
+
+* [#7978] Adapt new name resolution engine to use it inside files without crate root (for example, standalone rust files).
+  It allows resolving [macros 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) and improve processing of complex re-exports in such files
+
+* [#7976] Improve annotations of type aliases and associated types. Now the plugin doesn't show outdated [E0202](https://doc.rust-lang.org/1.51.0/error-index.html#E0202) error,
+  provides error messages similar to recent stable compiler and check usages of the following nightly features:
+  [generic_associated_types](https://rust-lang.github.io/rfcs/1598-generic_associated_types.html),
+  [inherent_associated_types](https://rust-lang.github.io/rfcs/0195-associated-items.html#inherent-associated-items),
+  [associated_type_defaults](https://rust-lang.github.io/rfcs/2532-associated-type-defaults.html) and
+  [extern_types](https://rust-lang.github.io/rfcs/1861-extern-types.html)
+
+* [#8138] Take into account const generic parameters while `<>` completion
+
+* [#7298] Provide enabled experimental features by `Help | Create New Issue` action which allows opening issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/) right from your IDE
+
+## Fixes
+
+* Name resolution improvements:
+
+  * [#8176] Prefer enum variant over associated items with the same name
+
+  * [#8173] Fix exception during preparation phase of name resolution.
+    In particular, it should fix analysis in [`sixtyfps`](https://github.com/sixtyfpsui/sixtyfps) crate
+
+  * [#8153] Correctly disambiguate constants/const parameters and unit structs during name resolution
+
+  * [#8135] Properly invalidate name resolution caches on adding or removing `#![no_std]` and `#![no_core]` attributes
+
+  * [#8186] Fix name resolution of some procedural macro calls. For example, `yew::html!` from [`yew`](https://docs.rs/yew/latest/yew/) crate
+
+* Procedural macro expansion fixes:
+
+  * [#8183] Do not expand `async_trait` procedural macro from [async-trait](https://crates.io/crates/async-trait) crate.
+    It should fix some code insight issues related to `async_trait`
+
+  * [#8155] Fix procedural macro expansion with nightly toolchain
+
+  Note, procedural macro expansion is still under development, and it's disabled by default for now.
+  To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+
+* [#8100] Fix [Extract variable](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractvar-refactoring) refactoring on expression statements and return values (by [@afetisov])
+
+* [#8163] Correctly process enum and structs with the same names as primitive types like `u32`.
+  It should help to infer proper types for such items and
+  not to produce false positive `Use of moved value` error annotations, for example, in [bevy](https://crates.io/crates/bevy) crate
+
+* [#8166] Fix false-positive unresolved reference for [UFCS] path inside trait impl when using unnamed trait import
+
+* [#8157] Remove `set`, `get` and `with` name patterns from the `Self convention` inspection.
+  This should reduce the number of false positive warnings produced by the inspection.
+  It also moves the inspection closer to the corresponding `wrong_self_convention` inspection from `Clippy` (by [@Kobzol])
+
+* [#8112] Use absolute path during auto importing when the scope has child module with the same name as extern crate
+
+* [#8052] Take into account code generated with attribute procedural macros by `Unused imports` inspection
+
+* [#8195] Fix Rust code completion settings layout
+
+## Internal Improvements
+
+* [#8159] Make 2021.3 platform default for development
+
+* [#8152] Setup [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates) for updating `ra_ap_proc_macro_srv`.
+  It should help to keep procedural macro expansion engine up-to-date and quicker support changes related to procedural macros in nightly compiler
+
+* [#8167] Prepare plugin for upcoming changes in untrusted editor notification
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/69?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@afetisov]: https://github.com/afetisov
+[@t-kameyama]: https://github.com/t-kameyama
+
+[#7298]: https://github.com/intellij-rust/intellij-rust/pull/7298
+[#7976]: https://github.com/intellij-rust/intellij-rust/pull/7976
+[#7978]: https://github.com/intellij-rust/intellij-rust/pull/7978
+[#8005]: https://github.com/intellij-rust/intellij-rust/pull/8005
+[#8052]: https://github.com/intellij-rust/intellij-rust/pull/8052
+[#8054]: https://github.com/intellij-rust/intellij-rust/pull/8054
+[#8083]: https://github.com/intellij-rust/intellij-rust/pull/8083
+[#8100]: https://github.com/intellij-rust/intellij-rust/pull/8100
+[#8112]: https://github.com/intellij-rust/intellij-rust/pull/8112
+[#8115]: https://github.com/intellij-rust/intellij-rust/pull/8115
+[#8126]: https://github.com/intellij-rust/intellij-rust/pull/8126
+[#8135]: https://github.com/intellij-rust/intellij-rust/pull/8135
+[#8138]: https://github.com/intellij-rust/intellij-rust/pull/8138
+[#8152]: https://github.com/intellij-rust/intellij-rust/pull/8152
+[#8153]: https://github.com/intellij-rust/intellij-rust/pull/8153
+[#8155]: https://github.com/intellij-rust/intellij-rust/pull/8155
+[#8157]: https://github.com/intellij-rust/intellij-rust/pull/8157
+[#8159]: https://github.com/intellij-rust/intellij-rust/pull/8159
+[#8163]: https://github.com/intellij-rust/intellij-rust/pull/8163
+[#8166]: https://github.com/intellij-rust/intellij-rust/pull/8166
+[#8167]: https://github.com/intellij-rust/intellij-rust/pull/8167
+[#8173]: https://github.com/intellij-rust/intellij-rust/pull/8173
+[#8176]: https://github.com/intellij-rust/intellij-rust/pull/8176
+[#8183]: https://github.com/intellij-rust/intellij-rust/pull/8183
+[#8186]: https://github.com/intellij-rust/intellij-rust/pull/8186
+[#8195]: https://github.com/intellij-rust/intellij-rust/pull/8195
+
+[UFCS]: https://doc.rust-lang.org/reference/expressions/call-expr.html#disambiguating-function-calls
