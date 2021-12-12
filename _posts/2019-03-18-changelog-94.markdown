@@ -7,9 +7,11 @@ date: 2019-03-18 20:43:09 +0300
 
 ## New Features
 
-* Highlight non-exhaustive `match` expressions and useless patterns in match arms [gif1](https://user-images.githubusercontent.com/4854600/52786843-07169600-306d-11e9-870c-9c7c67d4aa46.gif)
-[gif2](https://user-images.githubusercontent.com/2539310/54551008-31d27200-49be-11e9-914e-ec0ab66d30b8.gif).
+* Highlight non-exhaustive `match` expressions and useless patterns in match arms .
 Note, it's initial version so it doesn't cover all possible cases at this moment (by [@Leidenn2509] & [@ortem])
+
+  {% include gif-img.html path="/assets/posts/changelog-94/non-exhaustive-match" w="700px" %}
+  {% include gif-img.html path="/assets/posts/changelog-94/remove-useless-arm-fix" w="700px" %}
 
 * Make some improvements of `cargo check` external annotator:
   * Introduce `External linter` options instead of `cargo check` ones. It generalizes settings related to `cargo check`
@@ -22,12 +24,18 @@ Note, it's initial version so it doesn't cover all possible cases at this moment
 You can enable it via `Preferences | Languages & Frameworks | Rust | Rustfmt | Run rustfmt on Save` option.
 Note, it can affect UI responsiveness in some cases
 
-* Support completion of primitive types [gif](https://user-images.githubusercontent.com/4854600/54525536-78f04100-4985-11e9-8a7c-fcba9467a706.gif)
+* Support completion of primitive types
 
-* Add `Initialize with a default value` quick fix for `Use of possibly uninitialized variable` error annotation [gif](https://user-images.githubusercontent.com/4854600/54525534-78f04100-4985-11e9-9283-b5f331f7d568.gif).
-Note, it just initializes a local variable, so it doesn't make code valid in all cases 
+  {% include gif-img.html path="/assets/posts/changelog-94/primitives-completion" w="700px" %}
 
-* Implement `Invert If` intention [gif](https://user-images.githubusercontent.com/4854600/54525535-78f04100-4985-11e9-8d53-887c73afe465.gif) (by [@zinoviy23])
+* Add `Initialize with a default value` quick fix for `Use of possibly uninitialized variable` error annotation.
+Note, it just initializes a local variable, so it doesn't make code valid in all cases
+
+  {% include gif-img.html path="/assets/posts/changelog-94/initialize-with-default-value-fix" w="700px" %}
+
+* Implement `Invert If` intention (by [@zinoviy23])
+
+  {% include gif-img.html path="/assets/posts/changelog-94/invert-if-intention" w="700px" %}
 
 * Improve `Simplify boolean expression`. Now it can convert `!(expr1 == expr2)` to `expr1 != expr2`
 
@@ -42,12 +50,16 @@ Now the plugin correctly annotate usage of items with such visibility in wrong p
 * Correctly parse underscore imports.
 See the corresponding [RFC](https://github.com/rust-lang/rfcs/pull/2166) for more details (by [@Kobzol])
 
-* Provide `Make mutable` quick fix for parameters with reference types [gif](https://user-images.githubusercontent.com/4854600/54526259-41829400-4987-11e9-8a0c-9c9fd1af3761.gif) (by [@snpefk])
+* Provide `Make mutable` quick fix for parameters with reference types (by [@snpefk])
+
+  {% include gif-img.html path="/assets/posts/changelog-94/make-parameter-mutable-fix" w="700px" %}
 
 * Support `?` operator in macro definition.
 See the corresponding [RFC](https://github.com/rust-lang/rfcs/pull/2298) for more details
 
-* Show variable's value by hovering while debugging [gif](https://user-images.githubusercontent.com/4854600/54526928-5eb86200-4989-11e9-9583-fd9301119fa9.gif). Delay time is configurable via `Preferences | Build, Execution, Deployment | Debugger | Data Views | Value tooltip delay`
+* Show variable's value by hovering while debugging. Delay time is configurable via `Preferences | Build, Execution, Deployment | Debugger | Data Views | Value tooltip delay`
+
+  {% include gif-img.html path="/assets/posts/changelog-94/show-value-on-hover" w="700px" %}
 
 ## Fixes
 

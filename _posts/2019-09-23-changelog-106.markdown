@@ -15,9 +15,8 @@ This is the last release that supports the 2019.1 platform. To receive plugin up
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4353 -->
 * Implement `Navigation | Implementation(s)` action (<kbd>Ctrl+Alt+B</kbd>/<kbd>Cmd+Alt+B</kbd>) for trait members (by [@rrevenantt])
-<img class="gif" data-wait="true" data-scope="gif-scope" width="90%"
-     src="https://user-images.githubusercontent.com/2539310/65417074-ec29b280-de01-11e9-957b-85713faf5c1a.png"
-     data-gif="https://user-images.githubusercontent.com/2539310/65417036-d87e4c00-de01-11e9-82a4-57a4f7193951.gif"/>
+
+  {% include gif-img.html path="/assets/posts/changelog-106/trait-member-implementations" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4293 -->
 * Support [`--offline`](https://github.com/rust-lang/cargo/pull/6934/) Cargo option stabilized in 1.36.
@@ -60,7 +59,7 @@ Previously, it prevented correct project metadata updates with custom builds of 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4357 -->
 * Support lazy parsing for macros. In general, it reduces parsing time while indexing
 but this improvement is not visible to users (in comparison with the previous version).
-So it's more a proof of concept to make further similar improvements easier 
+So it's more a proof of concept to make further similar improvements easier
 
 [@rrevenantt]: https://github.com/rrevenantt
 [@t-kameyama]: https://github.com/t-kameyama

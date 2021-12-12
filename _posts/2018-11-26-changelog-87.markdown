@@ -7,22 +7,25 @@ date: 2018-11-26 11:32:38 +0300
 
 ## New Features
 
-* Initial support of raw identifiers. 
+* Initial support of raw identifiers.
 See the corresponding [RFC](https://github.com/rust-lang/rfcs/blob/master/text/2151-raw-identifiers.md)
 
 * Improve completion performance
 
-* Implement `Replace .unwrap() with match` intention 
-[gif](/assets/posts/changelog-87/unwrap-to-match.gif) (by [@sohich])
+* Implement `Replace .unwrap() with match` intention (by [@sohich])
 
-* Support custom folding regions [gif](/assets/posts/changelog-87/custom-folding-regions.gif) (by [@garyttierney])
+  {% include gif-img.html path="/assets/posts/changelog-87/unwrap-to-match" w="700px" %}
+
+* Support custom folding regions (by [@garyttierney])
+
+  {% include gif-img.html path="/assets/posts/changelog-87/custom-folding-regions" w="700px" %}
 
 * Improve extend selection for function, struct and trait bodies
 
 * Implement lldb formatters for `Rc`, `Arc`, `Cell`, `RefCell` and `Ref` structs.
 
 * Render enums and tuples better by bundled lldb formatters.
-Note, in some cases, enum values can be shown incorrectly because of 
+Note, in some cases, enum values can be shown incorrectly because of
 wrong debug info provided by the compiler
 
 * Infer type of some built-in macros like `env`, `stringify`, `include_str`, etc. (by [@kumbayo])
@@ -35,12 +38,12 @@ wrong debug info provided by the compiler
 
 * Run single test in debug properly
 
-* Fix running integration test in debug. 
+* Fix running integration test in debug.
 
 * Take into account params of run configuration template during a creation of cargo run configuration
 
-* Make `Use all features in test` option of `Cargo Command` run configuration disabled by default. 
-In case if you would like to make it enabled by default, you should change the corresponding option in  
+* Make `Use all features in test` option of `Cargo Command` run configuration disabled by default.
+In case if you would like to make it enabled by default, you should change the corresponding option in
 `Cargo Command` [template](https://www.jetbrains.com/help/idea/changing-default-run-debug-configurations.html)
 
 * Do not take into account extern functions and constants while type name resolution
@@ -53,7 +56,7 @@ In case if you would like to make it enabled by default, you should change the c
 
 * Identify type mismatch errors for tuples better
 
-* Do not show `Remove parentheses from expression` warning 
+* Do not show `Remove parentheses from expression` warning
 for struct literals in for loop iterator (by [@t-kameyama])
 
 * Show `Build` action on MacBook touch bar in CLion

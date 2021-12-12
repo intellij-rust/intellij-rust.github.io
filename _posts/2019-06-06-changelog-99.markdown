@@ -17,13 +17,19 @@ receive plugin updates, please upgrade your IDE to 2019.1.
   * Suggest `await` during the code completion if receiver's type is `impl Future`
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3833  -->
-* Introduce `Make public` quick fix for `Item is private` error annotation [gif](https://user-images.githubusercontent.com/2539310/59028063-4a3a8600-8863-11e9-83b0-97add7c43d48.gif) (by [@shevtsiv])
+* Introduce `Make public` quick fix for `Item is private` error annotation (by [@shevtsiv])
+
+  {% include gif-img.html path="/assets/posts/changelog-99/make-public-fix" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3725 -->
-* Add `Add format string argument` intention to insert arguments into formating macros like `println` easier [gif](https://user-images.githubusercontent.com/4854600/56230729-90564300-6085-11e9-8682-722e073e9539.gif)
+* Add `Add format string argument` intention to insert arguments into formating macros like `println` easier
+
+  {% include gif-img.html path="/assets/posts/changelog-99/add-format-string-argument-intention" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3920 -->
-* Add `Convert to tuple` refactoring to convert tuple struct into block one [gif](https://user-images.githubusercontent.com/2539310/59028827-37c14c00-8865-11e9-8afe-7e74c3156677.gif) (by [@rrevenantt])
+* Add `Convert to tuple` refactoring to convert tuple struct into block one (by [@rrevenantt])
+
+  {% include gif-img.html path="/assets/posts/changelog-99/convert-to-tuple-refactoring" w="700px" %}
 
 * Detection of the new compiler errors: [E0084](https://doc.rust-lang.org/error-index.html#E0084),
 [E0118](https://doc.rust-lang.org/error-index.html#E0118) and
@@ -34,7 +40,7 @@ receive plugin updates, please upgrade your IDE to 2019.1.
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3929 -->
 * Improve `Fill match arms` intention. Now it supports [match ergonomics](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md).
-Also, it respects imports and doesn't add enum prefix for imported enum variants. Previously, it worked only for `Option` and `Result` enums  
+Also, it respects imports and doesn't add enum prefix for imported enum variants. Previously, it worked only for `Option` and `Result` enums
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3188 -->
 * Provide line marker to run tests or benches in a module from the module declaration
@@ -69,16 +75,16 @@ You can launch it via `Code | Reformat Cargo Project with Rustfmt` or `Cargo` to
   * Make unification of never (`!`) type properly
    <!-- https://github.com/intellij-rust/intellij-rust/pull/3930 -->
   * Fix closure type inference with `impl Trait Fn*` type
-  
+
 * New macro expansion improvements:
    <!-- https://github.com/intellij-rust/intellij-rust/pull/3945 -->
   * Make macro expansion progress more precise
    <!-- https://github.com/intellij-rust/intellij-rust/pull/3967 -->
   * Fix some exceptions on 2019.2
-  
+
 * Completion improvements:
    <!-- https://github.com/intellij-rust/intellij-rust/pull/3878 -->
-  * Speed up trait method completion 
+  * Speed up trait method completion
    <!-- https://github.com/intellij-rust/intellij-rust/pull/3881 -->
   * Fix angle brace completion before brace (by [@rrevenantt])
 

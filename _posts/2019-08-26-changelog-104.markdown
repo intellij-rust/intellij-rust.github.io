@@ -10,33 +10,31 @@ date: 2019-08-26 14:08:06 +0300
 * Completion improvements:
   <!-- https://github.com/intellij-rust/intellij-rust/pull/4207 -->
   * Substitute types for generic items in completion suggestions
-  ![img](https://user-images.githubusercontent.com/2539310/63688221-6e2cb880-c80f-11e9-912e-9d9f6ea40b49.png)
+  ![img](/assets/posts/changelog-104/type-substitution-in-completion-items.png)
   <!-- https://github.com/intellij-rust/intellij-rust/pull/4270 -->
   * Provide keyword completion inside trait and `impl` blocks (by [@t-kameyama])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/4255 -->
   * Make text of all keyword completion element bold to be consistent with all similar completion variants
   <!-- https://github.com/intellij-rust/intellij-rust/pull/4250 -->
   * Correctly move caret inside parentheses after method completion in [UFCS](https://github.com/rust-lang/rfcs/blob/master/text/0132-ufcs.md) form (by [@t-kameyama])
-  
+
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4094 -->
-* Take into account arbitrary macros while type inference. 
+* Take into account arbitrary macros while type inference.
 Previously the plugin considered only top-level generated items and some commonly used macros from stdlib.
 Also, if you have experimental macro expansion enabled (you can enable it via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option),
 it provides correct navigation to local variables from macro calls
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3996 -->
-* Detect [E0023](https://doc.rust-lang.org/error-index.html#E0023), 
-[E0026](https://doc.rust-lang.org/error-index.html#E0026), 
-[E0027](https://doc.rust-lang.org/error-index.html#E0027) compiler errors and provide quick fixes for them (by [@shevtsiv]) 
-<img class="gif" data-wait="true" data-scope="gif-scope"
-     src="https://user-images.githubusercontent.com/2539310/63687663-d37faa00-c80d-11e9-81ac-34dd35c28768.png"
-     data-gif="https://user-images.githubusercontent.com/2539310/63687597-adf2a080-c80d-11e9-9806-fe97cc484f7f.gif"/>
+* Detect [E0023](https://doc.rust-lang.org/error-index.html#E0023),
+[E0026](https://doc.rust-lang.org/error-index.html#E0026),
+[E0027](https://doc.rust-lang.org/error-index.html#E0027) compiler errors and provide quick fixes for them (by [@shevtsiv])
+
+  {% include gif-img.html path="/assets/posts/changelog-104/detect-pattern-errors" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3996 -->
 * Add intention to replace `..` pattern with actual fields (by [@shevtsiv])
-<img class="gif" data-wait="true" data-scope="gif-scope"
-     src="https://user-images.githubusercontent.com/2539310/63687664-d37faa00-c80d-11e9-9acf-f798d860cf00.png"
-     data-gif="https://user-images.githubusercontent.com/2539310/63687598-ae8b3700-c80d-11e9-8ad6-354640669004.gif"/>
+
+  {% include gif-img.html path="/assets/posts/changelog-104/replace-rest-pattern-intention" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4244 -->
 * Parse [parameter attributes](https://github.com/rust-lang/rfcs/blob/master/text/2565-formal-function-parameter-attributes.md) properly
@@ -49,7 +47,7 @@ it provides correct navigation to local variables from macro calls
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4197 -->
 * Load Rust debugger formatters and rustc sources for any CLion debugger process.
-It should provide tree-view visualization of variable values and step into action for rust code for any run configuration (not only for `Cargo Command` ones)  
+It should provide tree-view visualization of variable values and step into action for rust code for any run configuration (not only for `Cargo Command` ones)
 Note, it works only since CLion 2019.2
 
 ## Fixes

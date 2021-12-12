@@ -7,38 +7,52 @@ date: 2019-03-04 17:31:10 +0300
 
 ## New Features
 
-* Provide common IDE features (highlighting, name resolution, completion, linting, fixes, etc.) 
-for Rust code snippets in documentation comments [gif](https://user-images.githubusercontent.com/2539310/53703846-6a534700-3e27-11e9-8e22-01b42d06d989.gif).
-It should make writing documentation more convenient. 
+* Provide common IDE features (highlighting, name resolution, completion, linting, fixes, etc.)
+for Rust code snippets in documentation comments.
+It should make writing documentation more convenient.
 You can disable it via `Preferences | Languages & Frameworks | Rust | Inject Rust language to documentation comments` option
-  
+
+  {% include gif-img.html path="/assets/posts/changelog-93/doc-comment-injection" w="700px" %}
+
 * Improve rename refactoring:
-  * Correctly handle trait items renaming. Now when you rename trait item 
-  the corresponding items in trait impls are also renamed and vice versa [gif](https://user-images.githubusercontent.com/2539310/53702982-98338e00-3e1d-11e9-961e-53216de1d78c.gif) 
-  * Support in-place mode. Previously, it was available only for local variables. 
-  Now renaming of all Rust items supports this mode [gif](https://user-images.githubusercontent.com/2539310/53703105-12b0dd80-3e1f-11e9-8910-d834241b0df8.gif).  
-  You can enable/disable it via `Preferences | Editor | General | Refactorings | Enable in-place mode` 
+  * Correctly handle trait items renaming. Now when you rename trait item
+  the corresponding items in trait impls are also renamed and vice versa
+
+    {% include gif-img.html path="/assets/posts/changelog-93/rename-trait-item" w="700px" %}
+
+  * Support in-place mode. Previously, it was available only for local variables.
+  Now renaming of all Rust items supports this mode.
+  You can enable/disable it via `Preferences | Editor | General | Refactorings | Enable in-place mode`
+
+    {% include gif-img.html path="/assets/posts/changelog-93/inplace-rename" w="700px" %}
 
 * Auto import improvements:
-  * Automatically add trait import while trait method completion [gif](https://user-images.githubusercontent.com/2539310/53703357-332e6700-3e22-11e9-8411-31642769c7f6.gif). 
+  * Automatically add trait import while trait method completion.
 You can disable it via `Preferences | Editor | General | Auto Import | Rust | Import out of scope items while completion` option
-  * Group auto-inserted `use` item with existing ones by the last component when auto import [gif](https://user-images.githubusercontent.com/2539310/53703462-5c032c00-3e23-11e9-880a-db555198499e.gif)
-  
+
+    {% include gif-img.html path="/assets/posts/changelog-93/trait-auto-import" w="700px" %}
+
+  * Group auto-inserted `use` item with existing ones by the last component when auto import
+
+    {% include gif-img.html path="/assets/posts/changelog-93/group-use-items" w="700px" %}
+
 * Make some improvements of `cargo check` external annotator:
-  * Run the annotator in parallel with other analysis. 
+  * Run the annotator in parallel with other analysis.
   Now it should show the corresponding error and warning annotation much faster
   * Add ability to pass arguments to the annotator
-  
-* Support multiple patterns in `if let` and `while let` expressions. 
-See the corresponding [issue](https://github.com/rust-lang/rust/pull/57532) for more details 
 
-* Extract expected and actual results for failed comparison tests, 
+* Support multiple patterns in `if let` and `while let` expressions.
+See the corresponding [issue](https://github.com/rust-lang/rust/pull/57532) for more details
+
+* Extract expected and actual results for failed comparison tests,
 so now you can see the difference in a separate window for such tests
 
-* Handle 8-bit and 24-bit ANSI color escapes in console properly. 
+* Handle 8-bit and 24-bit ANSI color escapes in console properly.
 Primarily it affects cargo console output at Windows, so now it should be colored as expected
 
-* Provide `ref` and `refm` postfix completions [gif](https://user-images.githubusercontent.com/2539310/53703177-e0ec4680-3e1f-11e9-8cb5-5c2708c4c8be.gif) (by [@t-kameyama])
+* Provide `ref` and `refm` postfix completions (by [@t-kameyama])
+
+  {% include gif-img.html path="/assets/posts/changelog-93/ref-postfix-completion" w="700px" %}
 
 * Move some error annotation like `Missing members`, `Unknown member`, etc. into separate `Trait implementation` inspection.
 So now it's possible to change attributes (severity, scope, etc.) of these annotations or even disable them via the inspection settings (`Preferences | Editor | Inspections`)
@@ -59,7 +73,7 @@ So now it's possible to change attributes (severity, scope, etc.) of these annot
 
 * Fix false positive error annotation `irrefutable let pattern is experimental` for const patterns
 
-* Correctly invalidate caches for injected Rust code. 
+* Correctly invalidate caches for injected Rust code.
 It should fix weird bugs with name resolution and type inference in injected Rust code
 
 ## Internal Improvements

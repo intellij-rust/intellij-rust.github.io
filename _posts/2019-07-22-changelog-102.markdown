@@ -9,19 +9,25 @@ date: 2019-07-22 22:10:38 +0300
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3618 -->
 * Support code coverage for Rust. Implementation is based on [grcov](https://github.com/mozilla/grcov) utility.
-If the utility is not installed on your machine, the plugin will suggest installing it [gif](https://user-images.githubusercontent.com/2539310/61651954-a5afbe80-acbf-11e9-97ad-87cdb51e4585.gif).
-Note, it requires nightly toolchain to instrument code properly. 
+If the utility is not installed on your machine, the plugin will suggest installing it.
+Note, it requires nightly toolchain to instrument code properly.
 Also, this feature doesn't work in CLion for now (see the corresponding [issue](https://youtrack.jetbrains.com/issue/CPP-9678)
 for more details).
 
+  {% include gif-img.html path="/assets/posts/changelog-102/code-coverage" w="700px" %}
+
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4108 -->
-* Add intention to convert `impl Trait` to type parameter [gif](https://user-images.githubusercontent.com/6079006/61620233-23041080-ac79-11e9-8a2e-502ed26ccb1b.gif) (by [@rrevenantt])
+* Add intention to convert `impl Trait` to type parameter (by [@rrevenantt])
+
+  {% include gif-img.html path="/assets/posts/changelog-102/convert-impl-trait-intention" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4022 -->
-* Add `Implicit trait objects are deprecated` inspection that highlights trait objects declaration without explicit `dyn` keyword in edition 2018 [gif](https://user-images.githubusercontent.com/2539310/61616016-0adbc380-ac70-11e9-968e-8d5f2058f15f.gif) (by [@rrevenantt])
+* Add `Implicit trait objects are deprecated` inspection that highlights trait objects declaration without explicit `dyn` keyword in edition 2018 (by [@rrevenantt])
+
+  {% include gif-img.html path="/assets/posts/changelog-102/implicit-trait-objects-deprecated-inspection" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4090 -->
-* Add option to emulate the terminal while running `Cargo Command` run configuration. 
+* Add option to emulate the terminal while running `Cargo Command` run configuration.
 It may be useful with crates like [color-backtrace](https://crates.io/crates/color-backtrace) that have different behavior when a process is run under TTY.
 The option is available only on Unix.
 
@@ -32,14 +38,14 @@ The option is available only on Unix.
 * Correctly parse [trait aliases](https://github.com/rust-lang/rfcs/blob/master/text/1733-trait-alias.md).
 Note, type inference and name resolution have not been implemented yet (by [@lundibundi])
 
-* Add detection of the new compiler errors: 
+* Add detection of the new compiler errors:
   <!-- https://github.com/intellij-rust/intellij-rust/pull/3979 -->
   * Usage of `break` and `continue` outside of a loop [E0267](https://doc.rust-lang.org/error-index.html#E0267)
   and [E0268](https://doc.rust-lang.org/error-index.html#E0268) (by [@mibac138])
   <!-- https://github.com/intellij-rust/intellij-rust/pull/4140 -->
-  * Invalid usages of `impl Trait` [E0562](https://doc.rust-lang.org/error-index.html#E0562), 
+  * Invalid usages of `impl Trait` [E0562](https://doc.rust-lang.org/error-index.html#E0562),
   [E0666](https://doc.rust-lang.org/error-index.html#E0666) and [E0667](https://doc.rust-lang.org/error-index.html#E0667) (by [@rrevenantt])
-  
+
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4128 -->
 * Add separate color for `union`s (by [@fan-tom])
 
@@ -57,21 +63,21 @@ Note, type inference and name resolution have not been implemented yet (by [@lun
     * Do not show false positive `Use of moved value` error annotation for slice destructing like `let [a, b , c] = array;`
     <!-- https://github.com/intellij-rust/intellij-rust/pull/4047 -->
     * Produce missing `Use of moved value` annotation for struct patterns
-    
+
 * Performance improvements:
     <!-- https://github.com/intellij-rust/intellij-rust/pull/4151 -->
-    * Fix IDE hang while `rustfmt` formatting on 2019.2  
+    * Fix IDE hang while `rustfmt` formatting on 2019.2
     <!-- https://github.com/intellij-rust/intellij-rust/pull/4114 -->
     * Fix an infinite recursion while type inference that led to IDE freeze sometimes
-    
+
 * Type inference fixes:
     <!-- https://github.com/intellij-rust/intellij-rust/pull/4162 -->
-    * Fix exception while type inference when project contains several packages 
+    * Fix exception while type inference when project contains several packages
     <!-- https://github.com/intellij-rust/intellij-rust/pull/4124 -->
     * Don't throw exception on unbounded inclusive range like `a = ..=;`
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4107 -->
-* Fix LLDB and GDB formatters for HashMap and HashSet. They were broken because of the new implementation in stdlib since 1.36 
+* Fix LLDB and GDB formatters for HashMap and HashSet. They were broken because of the new implementation in stdlib since 1.36
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4160 -->
 * Perform `Move Line` action correctly if line ended with comment
@@ -81,7 +87,7 @@ Note, type inference and name resolution have not been implemented yet (by [@lun
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4099 -->
 * Expand macros properly if it produces new macro definition. It should support the new implementation of `iterator` macros in nightly stdlib.
-Note, it works only when an invocation of the new macro is at least on the same expansion step (or deeper) in term of macro expansion engine   
+Note, it works only when an invocation of the new macro is at least on the same expansion step (or deeper) in term of macro expansion engine
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4119 -->
 * Fold block doc comments (like `/** */`) properly
@@ -99,7 +105,7 @@ Note, it works only when an invocation of the new macro is at least on the same 
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4154 -->
 * Improve `MinRustcVersion` annotation. Now it's possible to define a minimal version of stdlib in inheritors of `RsTestBase`.
-Should be useful for checking new stdlib features  
+Should be useful for checking new stdlib features
 
 
 

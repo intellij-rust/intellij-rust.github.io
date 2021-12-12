@@ -7,11 +7,14 @@ date: 2018-12-10 12:51:55 +0300
 
 ## New Features
 
-* Implement `Run Anything` action for Cargo [gif](https://user-images.githubusercontent.com/2539310/49729305-2b797f00-fc86-11e8-9881-78fdd72acba8.gif). 
-Note, the action is available since 2018.3
+* Implement `Run Anything` action for Cargo. Note, the action is available since 2018.3
 
-* Support `Copyright` plugin [gif](https://user-images.githubusercontent.com/2539310/49729454-93c86080-fc86-11e8-9c4d-9712ba0504b9.gif).
+  {% include gif-img.html path="/assets/posts/changelog-88/run-anything" w="700px" %}
+
+* Support `Copyright` plugin.
 Note, the plugin is not available in CLion (see the corresponding [issue](https://youtrack.jetbrains.com/issue/CPP-10423))
+
+  {% include gif-img.html path="/assets/posts/changelog-88/copyright-plugin" w="700px" %}
 
 * Highlight code blocks in quick documentation
 
@@ -27,8 +30,8 @@ Note, the plugin is not available in CLion (see the corresponding [issue](https:
 
 * Handle method defined by macros better
 
-* Improve `lldb` formatters: correctly print empty `&str`, values of `Ref` and `RefMut` structs, 
-as well as `weak` property of `Rc` and `Arc`
+* Improve `lldb` formatters: correctly print empty `&str`, values of `Ref` and `RefMut` structs,
+  as well as `weak` property of `Rc` and `Arc`
 
 * Fix lifetime completion (by [@Dimonchik0036])
 
@@ -38,7 +41,7 @@ as well as `weak` property of `Rc` and `Arc`
 
 * Update IDEA & CLion. Now 2018.3 platform is default for development
 
-* Correctly invalidate caches for Rust language injections 
+* Correctly invalidate caches for Rust language injections
 
 
 

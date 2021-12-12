@@ -23,25 +23,33 @@ please file an issue in our [tracker](https://github.com/intellij-rust/intellij-
 
 * Debugger improvements:
   * Provide LLDB formatters for [`HashMap`](https://user-images.githubusercontent.com/4854600/55416553-a89f6b80-5577-11e9-9e90-63de75ab4987.png) and [`HashSet`](https://user-images.githubusercontent.com/4854600/55416566-ae954c80-5577-11e9-9a84-38fd072e4ad3.png) collections. Note, these formatters require Rust 1.33 or above to work properly
-  * Now `Step Over`, `Step Into`, and other debugger actions correctly work with stdlib code [gif](https://user-images.githubusercontent.com/4854600/55635499-843acd80-57c9-11e9-8d1b-1eb4ab6de529.gif).
+  * Now `Step Over`, `Step Into`, and other debugger actions correctly work with stdlib code.
+
+    {% include gif-img.html path="/assets/posts/changelog-96/support-stdlib-during-debugging-stepping" w="700px" %}
 
 * External tools integration improvements:
   * Initial Valgrind Memcheck support in CLion since 2019.1. At this moment it's available only on Linux and macOS.
    You can read more about Valgrind configuring [here](https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html#start)
   * You don't need to install `rustfilt` to get human readable function names and `Jump to Source` action in macOS profiler.
    Now the plugin provides these features out-of-the-box
-  
-* Add `Use destructuring declaration` intention [gif](https://user-images.githubusercontent.com/4854600/55883196-8e384400-5bae-11e9-808a-3be656a5b1d0.gif)
+
+* Add `Use destructuring declaration` intention
+
+  {% include gif-img.html path="/assets/posts/changelog-96/use-destructuring-declaration-intention" w="700px" %}
 
 * Completion improvements:
   * Reorder completion list. Now local items have higher priority and should be placed at the top of the completion list
-  * Highlight deprecated items and move them at the bottom while completion (by [@isamborskiy])  
-  
+  * Highlight deprecated items and move them at the bottom while completion (by [@isamborskiy])
+
 * Show documentation of the corresponding trait item if element documentation is empty
 
-* Add `Remove dbg!` intention [gif](https://user-images.githubusercontent.com/4854600/55881151-ce95c300-5baa-11e9-9184-95c850d324ba.gif) (by [@gfreezy])
+* Add `Remove dbg!` intention (by [@gfreezy])
 
-* Add `impl` and `implt` live templates [gif](https://user-images.githubusercontent.com/3221931/54836510-6b182400-4cd5-11e9-9760-a22cb031ceb5.gif)
+  {% include gif-img.html path="/assets/posts/changelog-96/remove-dbg-intention" w="700px" %}
+
+* Add `impl` and `implt` live templates
+
+  {% include gif-img.html path="/assets/posts/changelog-96/impl-live-template" w="700px" %}
 
 * Provide name resolution and completion for builtin macros like `assert`, `include`, etc.
 

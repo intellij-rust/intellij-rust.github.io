@@ -10,9 +10,11 @@ date: 2019-02-14 13:40:37 +0300
 * Suggest items that are not in scope while completion.
 Now you don't need to remember where the necessary item is located and even the precise name of this item.
 You just need to start typing item’s name and then select it from a suggested list.
-The corresponding `extern crate` and `use` items will be inserted automatically [gif](https://user-images.githubusercontent.com/2539310/52750735-20342e00-2ffe-11e9-9caa-8b38209ceb36.gif).
+The corresponding `extern crate` and `use` items will be inserted automatically.
 Special thanks to [@Riateche] for trying a nightly version of this feature and the corresponding feedback.
 It helped us to find out and fix some bugs before this release
+
+  {% include gif-img.html path="/assets/posts/changelog-92/out-of-scope-item-completion" w="700px" %}
 
 * Show `Use of possibly uninitialized variable` annotation
 
@@ -23,15 +25,21 @@ It helped us to find out and fix some bugs before this release
   * Take into account `Offline mode` setting
 
 * Add new formatters for GDB. They support rendering of `Rc`, `Arc`, `Cell` and `RefCell` structs
-in addition to standard formatters provided by `rustup`. Also, they should fix some bugs in string displaying [gif](https://user-images.githubusercontent.com/2539310/52784755-39bd9000-3067-11e9-91c9-87536cd510a1.gif).
+in addition to standard formatters provided by `rustup`. Also, they should fix some bugs in string displaying.
 You can disable them or switch to default ones in
 `Preferences | Build, Execution, Deployment | Debugger | Data Views | Rust`
 
+  {% include gif-img.html path="/assets/posts/changelog-92/rc-arc-cell-debugger-formatters" w="700px" %}
+
 * Support type inference for `async` blocks, functions and lambdas
 
-* Add quick fix to create lifetime parameter from usage [gif](https://user-images.githubusercontent.com/2539310/52750616-d1869400-2ffd-11e9-85c7-ee3a382cded4.gif) (by [@sirgl])
+* Add quick fix to create lifetime parameter from usage (by [@sirgl])
 
-* Provide `dbg` postfix completion [gif](https://user-images.githubusercontent.com/2539310/52471629-63c40d80-2ba2-11e9-9227-a47da53e29bb.gif)
+  {% include gif-img.html path="/assets/posts/changelog-92/create-lifetime-parameter-fix" w="700px" %}
+
+* Provide `dbg` postfix completion
+
+  {% include gif-img.html path="/assets/posts/changelog-92/dbg-postfix-completion" w="700px" %}
 
 * Allow installing `clippy` from IDE if it's not installed.
 In case if you don’t have `clippy`, the plugin will suggest to install it in one click, when you launch `Run clippy` action
@@ -54,12 +62,12 @@ Now they can be correctly resolved and suggested in `derive` attribute.
 * Various `Auto Import` quick fix improvements:
   * Do not provide the quick fix for names which are already in scope. It's mostly helpful
    when an item is already imported but cannot be resolved because code is incomplete (like `let map = HashMap`)
-  * Correctly import items re-exported via `use` item with a wildcard like `pub use core::future::*` 
+  * Correctly import items re-exported via `use` item with a wildcard like `pub use core::future::*`
   * Make the quick fix works for paths with type params like `let map = HashMap::<i32, i32>`
   * Do not suggest to import the same trait several times when the quick fix is available for trait method.
    It also improves name resolution of trait methods in cases when the corresponding trait is not in scope.
-  
-* Slightly improve completion performance   
+
+* Slightly improve completion performance
 
 * Improve type inference of patterns in `for`, `while let` and `if let` expressions
 

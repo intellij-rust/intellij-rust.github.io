@@ -7,9 +7,9 @@ date: 2019-04-24 16:46:19 +0300
 
 ## New Features
 
-* Support integer const expression evaluation in `Match Check` inspection. 
-Now this inspection can analyze complex constant arithmetic expressions and hexadecimal, octal or binary forms of integer literals. 
-Should also fix false positive `Unreachable pattern` warnings when constants are used   
+* Support integer const expression evaluation in `Match Check` inspection.
+Now this inspection can analyze complex constant arithmetic expressions and hexadecimal, octal or binary forms of integer literals.
+Should also fix false positive `Unreachable pattern` warnings when constants are used
 
 * Test runner improvements:
   * Provide run configuration to launch all tests/benches in the whole directory
@@ -17,18 +17,22 @@ Should also fix false positive `Unreachable pattern` warnings when constants are
   * Correctly handle multiple targets with the same names
   * Better navigation from test tool window to the corresponding test
 
-* `Add missing fields` quick fix allows defining field values interactively [gif](https://user-images.githubusercontent.com/2539310/56668224-d62f8e80-66b7-11e9-9466-cffadf3321f5.gif)
+* `Add missing fields` quick fix allows defining field values interactively
+
+  {% include gif-img.html path="/assets/posts/changelog-97/add-missing-fields-fix" w="700px" %}
 
 * Allow taking into account the corresponding trait items by `Find usages` action
 
-* Add `Cargo Crate` action to create a new Cargo crate in existing project (by [@Kobzol]) 
+* Add `Cargo Crate` action to create a new Cargo crate in existing project (by [@Kobzol])
 
-* Support `label_break_value` syntax. 
+* Support `label_break_value` syntax.
 See the corresponding [RFC](https://github.com/rust-lang/rfcs/blob/master/text/2046-label-break-value.md) for more details
 
-* Improve inspection suppression. 
+* Improve inspection suppression.
 Now `Naming conventions` and `Deprecation` inspections provide quick fixes to suppress the corresponding
-warning via `allow(lint)` attribute insertion [gif](https://user-images.githubusercontent.com/2539310/56668281-ee9fa900-66b7-11e9-811c-e2c1cdf1712f.gif)
+warning via `allow(lint)` attribute insertion
+
+  {% include gif-img.html path="/assets/posts/changelog-97/suppress-lint-inspections" w="700px" %}
 
 ## Fixes
 
@@ -36,16 +40,16 @@ warning via `allow(lint)` attribute insertion [gif](https://user-images.githubus
   * Disable highlighting, inspections and other analysis while macro expansion to speed up the whole expansion process
   * Fix progress bar hangs while macro expansion
   * Fix performance regression of name resolution. Now new macro expansion engine shouldn't affect name resolution performance
-  
-* Slightly optimize name resolution performance  
-  
+
+* Slightly optimize name resolution performance
+
 * Mark workspace `target` dir as excluded
 
-* Don't show false positive `Unresolved reference` errors inside trait implementation 
+* Don't show false positive `Unresolved reference` errors inside trait implementation
 
 * Don't show parameter hints for unnamed fields (by [@tuxxi])
 
-* Filter out redundant auto import candidates better. 
+* Filter out redundant auto import candidates better.
 Now auto import quick fix provides a single variant to import for `HashMap`, `HashSet` and similar structs
 
 * Fix false positive `Module is private` error annotations when module have restricted visibility like `pub(self)`

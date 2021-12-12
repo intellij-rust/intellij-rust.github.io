@@ -8,23 +8,30 @@ date: 2019-07-08 17:21:29 +0300
 ## New Features
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4001 -->
-* Add initial completion inside macro calls [gif](https://user-images.githubusercontent.com/4854600/59201649-90fde800-8ba3-11e9-8088-e90d013882cc.gif)
+* Add initial completion inside macro calls
+
+  {% include gif-img.html path="/assets/posts/changelog-101/completion-in-macro-call" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3792 -->
-* Navigation works inside macro calls now [gif](https://user-images.githubusercontent.com/2539310/60794662-e6152580-a172-11e9-8b72-cd395144c9fa.gif).
+* Navigation works inside macro calls now.
 Note, it works only when the new experimental macro expansion engine is enabled.
-You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option 
+You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option
+
+  {% include gif-img.html path="/assets/posts/changelog-101/navigation-in-macro-call" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4002 -->
-* Support [`Duplicated code fragment`](https://www.jetbrains.com/help/idea/analyzing-duplicates.html#dup) inspection for Rust [gif](https://user-images.githubusercontent.com/2539310/60805989-790d8a00-a18a-11e9-875a-d56ea2abba6c.gif).
+* Support [`Duplicated code fragment`](https://www.jetbrains.com/help/idea/analyzing-duplicates.html#dup) inspection for Rust.
 The inspection can detect duplicates even with different names of local variables, functions and fields, and values of literals.
-By default, only anonymization of local variable names is enabled. 
-You may change default settings via `Preferences | Editor | Duplicates | Rust`. 
+By default, only anonymization of local variable names is enabled.
+You may change default settings via `Preferences | Editor | Duplicates | Rust`.
 Note, this inspection is available since 2019.2 and not available in free IDEs like IDEA Community or PyCharm Community
 
+  {% include gif-img.html path="/assets/posts/changelog-101/duplicate-inspection" w="700px" %}
+
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4064 -->
-* Add `Create field` quick fix for `No such field` error annotation
-[gif](https://user-images.githubusercontent.com/6079006/60605854-f029d380-9dc2-11e9-975c-9a6a1259dcb4.gif) (by [@t-kameyama])
+* Add `Create field` quick fix for `No such field` error annotation (by [@t-kameyama])
+
+  {% include gif-img.html path="/assets/posts/changelog-101/create-field-fix" w="700px" %}
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3991 -->
 * Add `Convert to struct` and `Convert to tuple` intentions to invoke the corresponding refactorings via <kbd>Alt + Enter</kbd> (by [@rrevenantt])
@@ -33,7 +40,7 @@ Note, this inspection is available since 2019.2 and not available in free IDEs l
 * Provide proper navigation from `derive` arguments and custom attributes to the corresponding definition of procedural macros (by [@fedochet])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/3946 -->
-* Add quick fix to create a subdirectory with the corresponding `mod.rs` for unresolved module declaration (by [@mibac138]) 
+* Add quick fix to create a subdirectory with the corresponding `mod.rs` for unresolved module declaration (by [@mibac138])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4069 -->
 * Support [arbitrary enum discriminants](https://github.com/rust-lang/rfcs/blob/master/text/2363-arbitrary-enum-discriminant.md) (by [@mibac138])
@@ -61,8 +68,8 @@ Note, this inspection is available since 2019.2 and not available in free IDEs l
 * Make lexer incremental (by [@rrevenantt])
 
 <!-- https://github.com/intellij-rust/intellij-rust/pull/4113 -->
-* Add `Create New Issue` action. Now it’s possible to open issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE. 
-The action automatically collects environment information about IDE, plugin, Rust versions, etc. 
+* Add `Create New Issue` action. Now it’s possible to open issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE.
+The action automatically collects environment information about IDE, plugin, Rust versions, etc.
 Also, selected code is added into `Steps to reproduce` issue section
 
 
