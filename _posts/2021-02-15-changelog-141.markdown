@@ -7,97 +7,99 @@ date: 2021-02-15 12:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6741 -->
-* Support 2021.1 EAPs
+* [#6741] Support 2021.1 EAPs
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6622 -->
-* Add a quick-fix to remove redundant function call arguments (by [@Kobzol])
+* [#6622] Add a quick-fix to remove redundant function call arguments (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-141/6622" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6777 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6776 -->
-* Detect [E0116](https://doc.rust-lang.org/error-index.html#E0116) and [E0117](https://doc.rust-lang.org/error-index.html#E0117) compiler errors
+* [#6777], [#6776] Detect [E0116](https://doc.rust-lang.org/error-index.html#E0116) and [E0117](https://doc.rust-lang.org/error-index.html#E0117) compiler errors
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6267 -->
-* Support debugging in [GoLand](https://www.jetbrains.com/go/) 2021.1.
+* [#6267] Support debugging in [GoLand](https://www.jetbrains.com/go/) 2021.1.
   Note, it requires [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support) plugin and supports only LLDB.
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6716 -->
-* Support async function by `Create function` intention (by [@Stzx])
+* [#6716] Support async function by `Create function` intention (by [@Stzx])
 
   {% include gif-img.html path="/assets/posts/changelog-141/6716" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6591 -->
-* Add `Crate not found` inspection to check non-existent crates in `Cargo.toml`.
+* [#6591] Add `Crate not found` inspection to check non-existent crates in `Cargo.toml`.
   Note, the corresponding feature is disabled by default for now.
   To use it, enable `org.rust.crates.local.index` experimental feature (by [@Kobzol])
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6719 -->
-* Fix performance regression in name resolution for large modules
+* [#6719] Fix performance regression in name resolution for large modules
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6768 -->
-* Improve `File | Open` action to set up project structure of Cargo project if a project is opened via directory with `Cargo.toml`
+* [#6768] Improve `File | Open` action to set up project structure of Cargo project if a project is opened via directory with `Cargo.toml`
 
 * [New name resolution engine](https://github.com/intellij-rust/intellij-rust/issues/6217) improvements:
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6731 -->
-    * Enable new name resolution engine on the nightly plugin channel by default
+    * [#6731] Enable new name resolution engine on the nightly plugin channel by default
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6733 -->
-    * Support resolve multi-segment macro paths
+    * [#6733] Support resolve multi-segment macro paths
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6692 -->
-    * Fix completion of unqualified macro calls in some cases
+    * [#6692] Fix completion of unqualified macro calls in some cases
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6723 -->
-    * Fix freeze during rendering of failed test backtrace
+    * [#6723] Fix freeze during rendering of failed test backtrace
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6782 -->
-* Fix processing of `break`/`continue` inside block expressions during control-flow analysis
+* [#6782] Fix processing of `break`/`continue` inside block expressions during control-flow analysis
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6804 -->
-* Fix enum rendering during debugging on Linux with GDB in CLion 2021.1
+* [#6804] Fix enum rendering during debugging on Linux with GDB in CLion 2021.1
 
 * Improvements of `Change signature` refactoring (`Refactor | Change Signature` or <kbd>Ctrl</kbd>+<kbd>F6</kbd>):
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6795 -->
-    * Apply the refactoring to the called function when invoked on function and method calls (by [@Kobzol])
+    * [#6795] Apply the refactoring to the called function when invoked on function and method calls (by [@Kobzol])
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6724 -->
-    * Fix auto-import in dialog when using new resolve
+    * [#6724] Fix auto-import in dialog when using new resolve
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6725 -->
-* Fix resolve of methods from super trait in some cases
+* [#6725] Fix resolve of methods from super trait in some cases
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6688 -->
-* Fix some false-positive [E0277](https://doc.rust-lang.org/error-index.html#E0277) errors
+* [#6688] Fix some false-positive [E0277](https://doc.rust-lang.org/error-index.html#E0277) errors
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6767 -->
-* Fix exception during loading structure of Cargo workspace with several IDE modules
+* [#6767] Fix exception during loading structure of Cargo workspace with several IDE modules
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6805 -->
-* Fix launching Cargo run configurations with arguments for running binary (i.e. arguments after `--`)
+* [#6805] Fix launching Cargo run configurations with arguments for running binary (i.e. arguments after `--`)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6738 -->
-* Show test hierarchy tree on the client when using [Code With Me](https://plugins.jetbrains.com/plugin/14896-code-with-me) plugin
+* [#6738] Show test hierarchy tree on the client when using [Code With Me](https://plugins.jetbrains.com/plugin/14896-code-with-me) plugin
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6810 -->
-* Show missing Rust block in `Preferences | Build, Execution, Deployment | Debugger` settings on Windows in IntelliJ IDEA
+* [#6810] Show missing Rust block in `Preferences | Build, Execution, Deployment | Debugger` settings on Windows in IntelliJ IDEA
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6739 -->
-* Fix false-positive [E0404](https://doc.rust-lang.org/error-index.html#E0404) "Expected trait, found trait alias"
+* [#6739] Fix false-positive [E0404](https://doc.rust-lang.org/error-index.html#E0404) "Expected trait, found trait alias"
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6764 -->
-* Create new milestone automatically during new branch creation
+* [#6764] Create new milestone automatically during new branch creation
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/49?closed=1)
 
 [@Kobzol]: https://github.com/Kobzol
 [@Stzx]: https://github.com/Stzx
+
+
+[#6267]: https://github.com/intellij-rust/intellij-rust/pull/6267
+[#6591]: https://github.com/intellij-rust/intellij-rust/pull/6591
+[#6622]: https://github.com/intellij-rust/intellij-rust/pull/6622
+[#6688]: https://github.com/intellij-rust/intellij-rust/pull/6688
+[#6692]: https://github.com/intellij-rust/intellij-rust/pull/6692
+[#6716]: https://github.com/intellij-rust/intellij-rust/pull/6716
+[#6719]: https://github.com/intellij-rust/intellij-rust/pull/6719
+[#6723]: https://github.com/intellij-rust/intellij-rust/pull/6723
+[#6724]: https://github.com/intellij-rust/intellij-rust/pull/6724
+[#6725]: https://github.com/intellij-rust/intellij-rust/pull/6725
+[#6731]: https://github.com/intellij-rust/intellij-rust/pull/6731
+[#6733]: https://github.com/intellij-rust/intellij-rust/pull/6733
+[#6738]: https://github.com/intellij-rust/intellij-rust/pull/6738
+[#6739]: https://github.com/intellij-rust/intellij-rust/pull/6739
+[#6741]: https://github.com/intellij-rust/intellij-rust/pull/6741
+[#6764]: https://github.com/intellij-rust/intellij-rust/pull/6764
+[#6767]: https://github.com/intellij-rust/intellij-rust/pull/6767
+[#6768]: https://github.com/intellij-rust/intellij-rust/pull/6768
+[#6776]: https://github.com/intellij-rust/intellij-rust/pull/6776
+[#6777]: https://github.com/intellij-rust/intellij-rust/pull/6777
+[#6782]: https://github.com/intellij-rust/intellij-rust/pull/6782
+[#6795]: https://github.com/intellij-rust/intellij-rust/pull/6795
+[#6804]: https://github.com/intellij-rust/intellij-rust/pull/6804
+[#6805]: https://github.com/intellij-rust/intellij-rust/pull/6805
+[#6810]: https://github.com/intellij-rust/intellij-rust/pull/6810

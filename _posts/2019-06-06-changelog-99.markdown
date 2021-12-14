@@ -11,93 +11,73 @@ receive plugin updates, please upgrade your IDE to 2019.1.
 ## New Features
 
 * Improve postfix `await` syntax support:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3893 -->
-  * Highlight postfix `await` as a keyword
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3895 -->
-  * Suggest `await` during the code completion if receiver's type is `impl Future`
+  * [#3893] Highlight postfix `await` as a keyword
+  * [#3895] Suggest `await` during the code completion if receiver's type is `impl Future`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3833  -->
-* Introduce `Make public` quick fix for `Item is private` error annotation [gif](https://user-images.githubusercontent.com/2539310/59028063-4a3a8600-8863-11e9-83b0-97add7c43d48.gif) (by [@shevtsiv])
+* [#3833] Introduce `Make public` quick fix for `Item is private` error annotation (by [@shevtsiv])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3725 -->
-* Add `Add format string argument` intention to insert arguments into formating macros like `println` easier [gif](https://user-images.githubusercontent.com/4854600/56230729-90564300-6085-11e9-8682-722e073e9539.gif)
+  {% include gif-img.html path="/assets/posts/changelog-99/make-public-fix" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3920 -->
-* Add `Convert to tuple` refactoring to convert tuple struct into block one [gif](https://user-images.githubusercontent.com/2539310/59028827-37c14c00-8865-11e9-8afe-7e74c3156677.gif) (by [@rrevenantt])
+* [#3725] Add `Add format string argument` intention to insert arguments into formating macros like `println` easier
+
+  {% include gif-img.html path="/assets/posts/changelog-99/add-format-string-argument-intention" w="700px" %}
+
+* [#3920] Add `Convert to tuple` refactoring to convert tuple struct into block one (by [@rrevenantt])
+
+  {% include gif-img.html path="/assets/posts/changelog-99/convert-to-tuple-refactoring" w="700px" %}
 
 * Detection of the new compiler errors: [E0084](https://doc.rust-lang.org/error-index.html#E0084),
 [E0118](https://doc.rust-lang.org/error-index.html#E0118) and
 [E0518](https://doc.rust-lang.org/error-index.html#E0518) (by [@mibac138])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3947 -->
-* Support [dotted keys](https://github.com/toml-lang/toml#user-content-keys) like `a.b.c` in Toml plugin (by [@mibac138])
+* [#3947] Support [dotted keys](https://github.com/toml-lang/toml#user-content-keys) like `a.b.c` in Toml plugin (by [@mibac138])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3929 -->
-* Improve `Fill match arms` intention. Now it supports [match ergonomics](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md).
-Also, it respects imports and doesn't add enum prefix for imported enum variants. Previously, it worked only for `Option` and `Result` enums  
+* [#3929] Improve `Fill match arms` intention. Now it supports [match ergonomics](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md).
+Also, it respects imports and doesn't add enum prefix for imported enum variants. Previously, it worked only for `Option` and `Result` enums
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3188 -->
-* Provide line marker to run tests or benches in a module from the module declaration
+* [#3188] Provide line marker to run tests or benches in a module from the module declaration
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3509 -->
-* Implement `Reformat Cargo Project with Rustfmt` action to reformat whole cargo project with `rustfmt`.
+* [#3509] Implement `Reformat Cargo Project with Rustfmt` action to reformat whole cargo project with `rustfmt`.
 You can launch it via `Code | Reformat Cargo Project with Rustfmt` or `Cargo` tool window
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3907 -->
-* Now `Run Cargo command` action opens `Run Anything` dialog starting with 2019.2
+* [#3907] Now `Run Cargo command` action opens `Run Anything` dialog starting with 2019.2
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3876 -->
-* Support more cases by `Match Check` inspection
+* [#3876] Support more cases by `Match Check` inspection
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3917 -->
-* Fix freezes during parameter hints rendering and avoid annoying `Preparing parameter info...` popup while typing
+* [#3917] Fix freezes during parameter hints rendering and avoid annoying `Preparing parameter info...` popup while typing
 
 * Fix `Auto import` quick fix regression introduced while adding support of paths in 2018 edition. Now it’s correctly suggested in project crates
 
 * Name resolution fixes:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3913 -->
-  * Process wildcard imports in 2018 edition correctly
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3714 -->
-  * Improve name resolution for items declared inside a function body
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3932 -->
-  * Correctly resolve method calls to default trait methods for type params
+  * [#3913] Process wildcard imports in 2018 edition correctly
+  * [#3714] Improve name resolution for items declared inside a function body
+  * [#3932] Correctly resolve method calls to default trait methods for type params
 
 * Type inference fixes:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3933 -->
-  * Make unification of never (`!`) type properly
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3930 -->
-  * Fix closure type inference with `impl Trait Fn*` type
-  
+  * [#3933] Make unification of never (`!`) type properly
+  * [#3930] Fix closure type inference with `impl Trait Fn*` type
+
 * New macro expansion improvements:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3945 -->
-  * Make macro expansion progress more precise
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3967 -->
-  * Fix some exceptions on 2019.2
-  
+  * [#3945] Make macro expansion progress more precise
+  * [#3967] Fix some exceptions on 2019.2
+
 * Completion improvements:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3878 -->
-  * Speed up trait method completion 
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/3881 -->
-  * Fix angle brace completion before brace (by [@rrevenantt])
+  * [#3878] Speed up trait method completion
+  * [#3881] Fix angle brace completion before brace (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3922 -->
-* Do not show error annotations related to mutability if the plugin failed to infer expression type
+* [#3922] Do not show error annotations related to mutability if the plugin failed to infer expression type
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3951 -->
-* Fix false positive error annotation of [E0603](https://doc.rust-lang.org/error-index.html#E0603) error for trait members
+* [#3951] Fix false positive error annotation of [E0603](https://doc.rust-lang.org/error-index.html#E0603) error for trait members
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3797 -->
-* Correctly highlight block doc comments without `*` prefix on each line (by [@rrevenantt])
+* [#3797] Correctly highlight block doc comments without `*` prefix on each line (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3931 -->
-* Provide correct access type for struct literals in `Find Usages` dialog
+* [#3931] Provide correct access type for struct literals in `Find Usages` dialog
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3880 -->
-* Identify plugin in requests to [crates.io](https://crates.io/) during completion in `Cargo.toml` properly (by [@sgrif])
+* [#3880] Identify plugin in requests to [crates.io](https://crates.io/) during completion in `Cargo.toml` properly (by [@sgrif])
 
 
 
@@ -106,3 +86,31 @@ You can launch it via `Code | Reformat Cargo Project with Rustfmt` or `Cargo` to
 [@sgrif]: https://github.com/sgrif
 [@shevtsiv]: https://github.com/shevtsiv
 
+
+
+[#3188]: https://github.com/intellij-rust/intellij-rust/pull/3188
+[#3509]: https://github.com/intellij-rust/intellij-rust/pull/3509
+[#3714]: https://github.com/intellij-rust/intellij-rust/pull/3714
+[#3725]: https://github.com/intellij-rust/intellij-rust/pull/3725
+[#3797]: https://github.com/intellij-rust/intellij-rust/pull/3797
+[#3833]: https://github.com/intellij-rust/intellij-rust/pull/3833
+[#3876]: https://github.com/intellij-rust/intellij-rust/pull/3876
+[#3878]: https://github.com/intellij-rust/intellij-rust/pull/3878
+[#3880]: https://github.com/intellij-rust/intellij-rust/pull/3880
+[#3881]: https://github.com/intellij-rust/intellij-rust/pull/3881
+[#3893]: https://github.com/intellij-rust/intellij-rust/pull/3893
+[#3895]: https://github.com/intellij-rust/intellij-rust/pull/3895
+[#3907]: https://github.com/intellij-rust/intellij-rust/pull/3907
+[#3913]: https://github.com/intellij-rust/intellij-rust/pull/3913
+[#3917]: https://github.com/intellij-rust/intellij-rust/pull/3917
+[#3920]: https://github.com/intellij-rust/intellij-rust/pull/3920
+[#3922]: https://github.com/intellij-rust/intellij-rust/pull/3922
+[#3929]: https://github.com/intellij-rust/intellij-rust/pull/3929
+[#3930]: https://github.com/intellij-rust/intellij-rust/pull/3930
+[#3931]: https://github.com/intellij-rust/intellij-rust/pull/3931
+[#3932]: https://github.com/intellij-rust/intellij-rust/pull/3932
+[#3933]: https://github.com/intellij-rust/intellij-rust/pull/3933
+[#3945]: https://github.com/intellij-rust/intellij-rust/pull/3945
+[#3947]: https://github.com/intellij-rust/intellij-rust/pull/3947
+[#3951]: https://github.com/intellij-rust/intellij-rust/pull/3951
+[#3967]: https://github.com/intellij-rust/intellij-rust/pull/3967

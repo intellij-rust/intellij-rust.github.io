@@ -6,8 +6,7 @@ date: 2021-03-16 10:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6564 -->
-* Provide initial support for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros.
+* [#6564] Provide initial support for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros.
   Now the plugin can expand such procedural macro calls; as a result, they
   automatically get some features already available for declarative macros:
   highlighting, name resolution, limited code completion, `Show macro expansion` intentions and others.  
@@ -20,70 +19,72 @@ date: 2021-03-16 10:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-143/function-like-proc-macro-support" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6872 -->
-* Find all possible `impl` blocks for a type alias regardless of the number of aliases defined for the corresponding type
+* [#6872] Find all possible `impl` blocks for a type alias regardless of the number of aliases defined for the corresponding type
   when [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine is enabled.
   Previously, the plugin processed `impl` blocks for a type alias only
   when the number of aliases for the corresponding type does not exceed the given threshold (10 by default).
   It should fix name resolution for crates that heavily use type aliases, e.g. [nalgebra](https://crates.io/crates/nalgebra) or [winapi](https://crates.io/crates/winapi)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6933 -->
-* Auto-indent line when typing <kbd>Enter</kbd> inside an array literal
+* [#6933] Auto-indent line when typing <kbd>Enter</kbd> inside an array literal
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6901 -->
-* TOML syntax highlighting is now available in `Cargo.toml.orig` files
+* [#6901] TOML syntax highlighting is now available in `Cargo.toml.orig` files
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6941 -->
-* Provide new plugin icon
+* [#6941] Provide new plugin icon
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6917 -->
-* Prevent a possible deadlock during project structure setup
+* [#6917] Prevent a possible deadlock during project structure setup
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6899 -->
-* Exclude more stdlib parts from indexing. Slightly speed up index process
+* [#6899] Exclude more stdlib parts from indexing. Slightly speed up index process
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6889 -->
-* Properly process when cfg-enabled glob import is overridden by cfg-disabled named one with [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine
+* [#6889] Properly process when cfg-enabled glob import is overridden by cfg-disabled named one with [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6900 -->
-* Fix cargo features state inference for [renamed packages](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml)
+* [#6900] Fix cargo features state inference for [renamed packages](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6897 -->
-* Omit unchanged default type parameters of return type by `Extract Function` (`Refactor | Extract Method` or
+* [#6897] Omit unchanged default type parameters of return type by `Extract Function` (`Refactor | Extract Method` or
   <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) refactoring
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6894 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6892 -->
-* Fix false-positive [E0252](https://doc.rust-lang.org/error-index.html#E0252) error annotations in some cases
+* [#6894], [#6892] Fix false-positive [E0252](https://doc.rust-lang.org/error-index.html#E0252) error annotations in some cases
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6891 -->
-* Show proper console output on the client side when running a binary with [Code With Me](https://plugins.jetbrains.com/plugin/14896-code-with-me) plugin (by [@akozlova])
+* [#6891] Show proper console output on the client side when running a binary with [Code With Me](https://plugins.jetbrains.com/plugin/14896-code-with-me) plugin (by [@akozlova])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6876 -->
-* Do not expand invocations of builtin macros into `{}`
+* [#6876] Do not expand invocations of builtin macros into `{}`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6717 -->
-* Take into account [const generics](https://rust-lang.github.io/rfcs/2000-const-generics.html) by inspections that check generic parameters/arguments ordering.
+* [#6717] Take into account [const generics](https://rust-lang.github.io/rfcs/2000-const-generics.html) by inspections that check generic parameters/arguments ordering.
   It fixes false positive `Type arguments must be declared prior to const arguments` error annotations
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6887 -->
-* Don't throw an exception on changing name of a local variable during indexing
+* [#6887] Don't throw an exception on changing name of a local variable during indexing
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6930 -->
-* Use 2021.1 platform as a default for development
+* [#6930] Use 2021.1 platform as a default for development
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6876 -->
-* Add initial infrastructure for builtin macro expansion
+* [#6876] Add initial infrastructure for builtin macro expansion
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6881 -->
-* Simplify bit flags creation
+* [#6881] Simplify bit flags creation
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/51?closed=1)
 
 [@akozlova]: https://github.com/akozlova
+
+
+[#6564]: https://github.com/intellij-rust/intellij-rust/pull/6564
+[#6717]: https://github.com/intellij-rust/intellij-rust/pull/6717
+[#6872]: https://github.com/intellij-rust/intellij-rust/pull/6872
+[#6876]: https://github.com/intellij-rust/intellij-rust/pull/6876
+[#6881]: https://github.com/intellij-rust/intellij-rust/pull/6881
+[#6887]: https://github.com/intellij-rust/intellij-rust/pull/6887
+[#6889]: https://github.com/intellij-rust/intellij-rust/pull/6889
+[#6891]: https://github.com/intellij-rust/intellij-rust/pull/6891
+[#6892]: https://github.com/intellij-rust/intellij-rust/pull/6892
+[#6894]: https://github.com/intellij-rust/intellij-rust/pull/6894
+[#6897]: https://github.com/intellij-rust/intellij-rust/pull/6897
+[#6899]: https://github.com/intellij-rust/intellij-rust/pull/6899
+[#6900]: https://github.com/intellij-rust/intellij-rust/pull/6900
+[#6901]: https://github.com/intellij-rust/intellij-rust/pull/6901
+[#6917]: https://github.com/intellij-rust/intellij-rust/pull/6917
+[#6930]: https://github.com/intellij-rust/intellij-rust/pull/6930
+[#6933]: https://github.com/intellij-rust/intellij-rust/pull/6933
+[#6941]: https://github.com/intellij-rust/intellij-rust/pull/6941

@@ -5,7 +5,7 @@ date:   2016-06-27 14:34:00 +0200
 ---
 ## New Features
 
-* :tada: First alpha is published. :tada:
+* 🎉 First alpha is published. 🎉
 * Completion contributor for `#[derive()]` clause (contributed by [@bgourlie]).
 * Stubs and _Goto Symbol_ for fields.
 * Resolve and completion for static methods.

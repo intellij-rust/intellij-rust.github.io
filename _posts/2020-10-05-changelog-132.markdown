@@ -7,70 +7,71 @@ date: 2020-10-05 11:31:51 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5704 -->
-* Now [`rustfmt`](https://github.com/rust-lang/rustfmt) can be used instead of built-in formatter.
+* [#5704] Now [`rustfmt`](https://github.com/rust-lang/rustfmt) can be used instead of built-in formatter.
 To turn this feature on, enable `Use rustfmt instead of built-in formatter` option in `Preferences | Languages & Frameworks | Rust | Rustfmt` settings.
 Note, only whole file can be formatted with `rustfmt` for now.
 If you select some range inside Rust file,
 it will be formatted with built-in formatter regardless if the option is enabled or not
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6152 -->
-* Support 2020.3 EAPs
+* [#6152] Support 2020.3 EAPs
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6167 -->
-* `Implicit trait objects are deprecated` inspection supports [lint](https://doc.rust-lang.org/rustc/lints/levels.html) attributes now.
+* [#6167] `Implicit trait objects are deprecated` inspection supports [lint](https://doc.rust-lang.org/rustc/lints/levels.html) attributes now.
 I.e. the inspection takes these attributes into account while highlighting and
 `#[allow(bare_trait_objects)]` attribute can be inserted by suppression quick fix
 
     {% include gif-img.html path="/assets/posts/changelog-132/bare-trait-objects-suppression" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3829 -->
-* Now `Un-elide lifetimes` intention supports generic types (by [@Kobzol])
+* [#3829] Now `Un-elide lifetimes` intention supports generic types (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-132/unelide-lifetime-for-generics" w="700px" %}
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6113 -->
-* Properly update debugger binaries after [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support) plugin update.
+* [#6113] Properly update debugger binaries after [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support) plugin update.
 Note, `Native Debugging Support` plugin provides debugging support in IntelliJ IDEA Ultimate
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6170 -->
-* Fix `Run with Coverage` with the latest nightly toolchain
+* [#6170] Fix `Run with Coverage` with the latest nightly toolchain
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6071 -->
-* Add missing options of Cargo commands in completion while run configuration editing and in `Run Anything` (double <kbd>Ctrl</kbd>) dialog
+* [#6071] Add missing options of Cargo commands in completion while run configuration editing and in `Run Anything` (double <kbd>Ctrl</kbd>) dialog
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6126 -->
-* Fix exception after variable inlining
+* [#6126] Fix exception after variable inlining
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5456 -->
-* Use fully qualified names for types to avoid ambiguity in some cases (by [@Kobzol])
+* [#5456] Use fully qualified names for types to avoid ambiguity in some cases (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6156 -->
-* Now the plugin tries to find stdlib sources in `$(rustc --print sysroot)/lib/rustlib/src/rust` directory even if a user doesn't use [`rustup`](https://rustup.rs/)
+* [#6156] Now the plugin tries to find stdlib sources in `$(rustc --print sysroot)/lib/rustlib/src/rust` directory even if a user doesn't use [`rustup`](https://rustup.rs/)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6122 -->
-* Get rid of `Don't reformat child modules` option in `Preferences | Languages & Frameworks | Rust | Rustfmt` settings
+* [#6122] Get rid of `Don't reformat child modules` option in `Preferences | Languages & Frameworks | Rust | Rustfmt` settings
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6118 -->
-* Don't rename `src` directory while `Rename` (<kbd>Shift</kbd> + <kbd>F6</kbd>) refactoring
+* [#6118] Don't rename `src` directory while `Rename` (<kbd>Shift</kbd> + <kbd>F6</kbd>) refactoring
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6127 -->
-* Fix "Incorrect CachedValue use" exception
+* [#6127] Fix "Incorrect CachedValue use" exception
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6125 -->
-* Fix exception while initialization of the Cargo tool window
+* [#6125] Fix exception while initialization of the Cargo tool window
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6153 -->
-* Use Java 11 to build and develop the plugin
+* [#6153] Use Java 11 to build and develop the plugin
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6071 -->
-* Provide `updateCargoOptions` gradle task to update options of Cargo commands automatically.
+* [#6071] Provide `updateCargoOptions` gradle task to update options of Cargo commands automatically.
 These options are used to provide proper completion while run configuration editing and inside `Run Anything` (double <kbd>Ctrl</kbd>) dialog
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/40?closed=1)
 
 [@Kobzol]: https://github.com/Kobzol
+
+
+[#3829]: https://github.com/intellij-rust/intellij-rust/pull/3829
+[#5456]: https://github.com/intellij-rust/intellij-rust/pull/5456
+[#5704]: https://github.com/intellij-rust/intellij-rust/pull/5704
+[#6071]: https://github.com/intellij-rust/intellij-rust/pull/6071
+[#6113]: https://github.com/intellij-rust/intellij-rust/pull/6113
+[#6118]: https://github.com/intellij-rust/intellij-rust/pull/6118
+[#6122]: https://github.com/intellij-rust/intellij-rust/pull/6122
+[#6125]: https://github.com/intellij-rust/intellij-rust/pull/6125
+[#6126]: https://github.com/intellij-rust/intellij-rust/pull/6126
+[#6127]: https://github.com/intellij-rust/intellij-rust/pull/6127
+[#6152]: https://github.com/intellij-rust/intellij-rust/pull/6152
+[#6153]: https://github.com/intellij-rust/intellij-rust/pull/6153
+[#6156]: https://github.com/intellij-rust/intellij-rust/pull/6156
+[#6167]: https://github.com/intellij-rust/intellij-rust/pull/6167
+[#6170]: https://github.com/intellij-rust/intellij-rust/pull/6170

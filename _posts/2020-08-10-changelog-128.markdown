@@ -7,167 +7,124 @@ date: 2020-08-10 12:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5715 -->
-* Improve `New project` dialog to support `cargo-generate` templates.
+* [#5715] Improve `New project` dialog to support `cargo-generate` templates.
 Now a WebAssembly project can be created using the corresponding template (by [@avrong])
 
     {% include gif-img.html path="/assets/posts/changelog-128/cargo-generate" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5451 -->
-* Add intention to import a qualified path.
+* [#5451] Add intention to import a qualified path.
 Now you can add `use` item for any part of a complex path under the caret (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-128/import-path" w="500px" %}
 
 * `Move` refactoring (<kbd>F6</kbd>) improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5736 -->
-    * Search and update changed references when moving a top-level item.
+    * [#5736] Search and update changed references when moving a top-level item.
     Previously, [`Search for references`](https://www.jetbrains.com/help/idea/move-file-dialog.html) checkbox did not work
     and all the references remained the same after refactoring
         
         {% include gif-img.html path="/assets/posts/changelog-128/move-update-references" w="600px" %}
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5484 -->
-    * Take re-exports into account when moving a single file
+    * [#5484] Take re-exports into account when moving a single file
 
         {% include gif-img.html path="/assets/posts/changelog-128/move-reexports" w="600px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5758 -->
-* Provide `true`/`false` completion for boolean values (by [@ozkriff])
+* [#5758] Provide `true`/`false` completion for boolean values (by [@ozkriff])
 
     {% include gif-img.html path="/assets/posts/changelog-128/bool-completion" w="400px" %}
 
 * Improve `Wrong number of type arguments` inspection
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5811 -->
-    * Support `dyn Trait` and `impl Trait` (by [@Kobzol])
+    * [#5811] Support `dyn Trait` and `impl Trait` (by [@Kobzol])
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5306 -->
-    * Provide `Add missing type arguments` fix (by [@Kobzol]).
+    * [#5306] Provide `Add missing type arguments` fix (by [@Kobzol]).
     Currently, the fix adds only type parameters and ignores lifetimes and associated types
 
         {% include gif-img.html path="/assets/posts/changelog-128/missing-type-arg" w="400px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5643 -->
-* Add `Substitute associated type` intention (by [@Kobzol])
+* [#5643] Add `Substitute associated type` intention (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-128/subst-assoc-type" w="700px" %}
 
 * Improve struct patterns completion:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5660 -->
-    * Suggest only struct fields while completion in struct patterns (by [@Kobzol])
+    * [#5660] Suggest only struct fields while completion in struct patterns (by [@Kobzol])
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5825 -->
-    * Completion for `..` syntax in struct patterns (by [@Kobzol])
+    * [#5825] Completion for `..` syntax in struct patterns (by [@Kobzol])
 
 * Type inference improvements:    
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5808 -->
-    * Infer types for [`associated_type_bounds`](https://github.com/rust-lang/rfcs/blob/master/text/2289-associated-type-bounds.md) rustc nightly feature
+    * [#5808] Infer types for [`associated_type_bounds`](https://github.com/rust-lang/rfcs/blob/master/text/2289-associated-type-bounds.md) rustc nightly feature
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5733 -->
-    * Infer type for types implementing the `Try` trait when using question mark operator (by [@Kobzol])
+    * [#5733] Infer type for types implementing the `Try` trait when using question mark operator (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5798 -->
-* Add `Main function not found in crate` ([E0601](https://doc.rust-lang.org/error-index.html#E0601)) inspection for build scripts
+* [#5798] Add `Main function not found in crate` ([E0601](https://doc.rust-lang.org/error-index.html#E0601)) inspection for build scripts
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5747 -->
-* Fold external (non-project related) parts of backtraces (by [@Kobzol])
+* [#5747] Fold external (non-project related) parts of backtraces (by [@Kobzol])
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5790 -->
-* Avoid name resolution while checking if an item is public or not. It should slightly improve performance of code insight
+* [#5790] Avoid name resolution while checking if an item is public or not. It should slightly improve performance of code insight
 
 ## Fixes
 
 * Type inference improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5841 -->
-    * Infer type parameters from associated type bindings
+    * [#5841] Infer type parameters from associated type bindings
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5837 -->
-    * Infer types of complex `?` expressions
+    * [#5837] Infer types of complex `?` expressions
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5824 -->
-    * Ignore currently unsupported negative `impl` blocks during type inference.
+    * [#5824] Ignore currently unsupported negative `impl` blocks during type inference.
     Fixes some `Mismatched types` false-positives related to negative `impl`s in stdlib
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5812 -->
-    * Fix `Self` type substitution in bounds. This fixes some `The trait bound is not satisfied` false-positives
+    * [#5812] Fix `Self` type substitution in bounds. This fixes some `The trait bound is not satisfied` false-positives
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5809 -->
-    * Process nested projections during normalization. Fixes type inference of `Pin<&impl Future<...>>` awaiting
+    * [#5809] Process nested projections during normalization. Fixes type inference of `Pin<&impl Future<...>>` awaiting
     
 * Macro expansion improvements:    
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5862 -->
-    * Fix `ArrayIndexOutOfBoundsException` during macro call arguments completion
+    * [#5862] Fix `ArrayIndexOutOfBoundsException` during macro call arguments completion
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5810 -->
-    * Replace `IntellijRustDollarCrate` with a crate name in `Show macro expansion` action
+    * [#5810] Replace `IntellijRustDollarCrate` with a crate name in `Show macro expansion` action
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5796 -->
-    * Fix name resolution of `$crate` expanded from transitive dependencies
+    * [#5796] Fix name resolution of `$crate` expanded from transitive dependencies
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5855 -->
-    * Don't skip doc comments provided via macro definition
+    * [#5855] Don't skip doc comments provided via macro definition
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/5777 -->
-    * Fix groups substitution in macro expansion
+    * [#5777] Fix groups substitution in macro expansion
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5857 -->
-* Find and replace occurrences located outside a function in `Introduce constant/variable` refactoring (by [@Kobzol])
+* [#5857] Find and replace occurrences located outside a function in `Introduce constant/variable` refactoring (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5856 -->
-* Properly check spelling in lifetimes. Now `'static` is not reported as a typo
+* [#5856] Properly check spelling in lifetimes. Now `'static` is not reported as a typo
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5853 -->
-* Fix name resolution of private reexport with `crate::` path
+* [#5853] Fix name resolution of private reexport with `crate::` path
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5849 -->
-* Include `RUSTC` in environment when executing Cargo (by [@tamird])
+* [#5849] Include `RUSTC` in environment when executing Cargo (by [@tamird])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5842 -->
-* Don't show parameter hints for single-parameter closures.
+* [#5842] Don't show parameter hints for single-parameter closures.
 This hint can be returned back by disabling `Show only smart hints` in `Preferences | Editor | Inlay Hints | Rust | Parameter hints`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5838 -->
-* Fix stdlib source paths on nightly. This fixes `Cargo project update failed` error.
+* [#5838] Fix stdlib source paths on nightly. This fixes `Cargo project update failed` error.
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5822 -->
-* Don't provide color highlighting while batch code inspection via `Analyze | Inspect Code` action and similar ones. It prevents empty items in `Inspection Result` tool window
+* [#5822] Don't provide color highlighting while batch code inspection via `Analyze | Inspect Code` action and similar ones. It prevents empty items in `Inspection Result` tool window
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5820 -->
-* Suppress `snake_case` naming lint for `#[no_mangle]` extern functions (by [@Kobzol])
+* [#5820] Suppress `snake_case` naming lint for `#[no_mangle]` extern functions (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5819 -->
-* Add `unsafe` modifier to functions [extracted](https://www.jetbrains.com/help/idea/extract-method.html) from unsafe functions (by [@Kobzol])
+* [#5819] Add `unsafe` modifier to functions [extracted](https://www.jetbrains.com/help/idea/extract-method.html) from unsafe functions (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5801 -->
-* Fix navigation to derive items in 2020.2
+* [#5801] Fix navigation to derive items in 2020.2
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5661 -->
-* Prefer trait methods before private inherent methods in completion (by [@Kobzol])
+* [#5661] Prefer trait methods before private inherent methods in completion (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5779 -->
-* Fix mod declarations with `#[path = "mod.rs"]` attribute
+* [#5779] Fix mod declarations with `#[path = "mod.rs"]` attribute
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5766 -->
-* Attach module without a parent to a parent module in `Attach file to module` fix (by [@Kobzol])
+* [#5766] Attach module without a parent to a parent module in `Attach file to module` fix (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5799 -->
-* Use correct language name for TOML color settings configurable
+* [#5799] Use correct language name for TOML color settings configurable
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5789 -->
-* Render inlay hint settings properly using standard layout
+* [#5789] Render inlay hint settings properly using standard layout
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5840 -->
-* Allow triggering project GitHub workflows from UI
+* [#5840] Allow triggering project GitHub workflows from UI
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5793 -->
-* Enable GitHub actions to merge PRs
+* [#5793] Enable GitHub actions to merge PRs
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5782 -->
-* Get rid of `PackageOrigin.TRANSITIVE_DEPENDENCY`
+* [#5782] Get rid of `PackageOrigin.TRANSITIVE_DEPENDENCY`
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/36?closed=1)
 
@@ -175,3 +132,48 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@Kobzol]: https://github.com/Kobzol
 [@ozkriff]: https://github.com/ozkriff
 [@tamird]: https://github.com/tamird
+
+
+[#5306]: https://github.com/intellij-rust/intellij-rust/pull/5306
+[#5451]: https://github.com/intellij-rust/intellij-rust/pull/5451
+[#5484]: https://github.com/intellij-rust/intellij-rust/pull/5484
+[#5643]: https://github.com/intellij-rust/intellij-rust/pull/5643
+[#5660]: https://github.com/intellij-rust/intellij-rust/pull/5660
+[#5661]: https://github.com/intellij-rust/intellij-rust/pull/5661
+[#5715]: https://github.com/intellij-rust/intellij-rust/pull/5715
+[#5733]: https://github.com/intellij-rust/intellij-rust/pull/5733
+[#5736]: https://github.com/intellij-rust/intellij-rust/pull/5736
+[#5747]: https://github.com/intellij-rust/intellij-rust/pull/5747
+[#5758]: https://github.com/intellij-rust/intellij-rust/pull/5758
+[#5766]: https://github.com/intellij-rust/intellij-rust/pull/5766
+[#5777]: https://github.com/intellij-rust/intellij-rust/pull/5777
+[#5779]: https://github.com/intellij-rust/intellij-rust/pull/5779
+[#5782]: https://github.com/intellij-rust/intellij-rust/pull/5782
+[#5789]: https://github.com/intellij-rust/intellij-rust/pull/5789
+[#5790]: https://github.com/intellij-rust/intellij-rust/pull/5790
+[#5793]: https://github.com/intellij-rust/intellij-rust/pull/5793
+[#5796]: https://github.com/intellij-rust/intellij-rust/pull/5796
+[#5798]: https://github.com/intellij-rust/intellij-rust/pull/5798
+[#5799]: https://github.com/intellij-rust/intellij-rust/pull/5799
+[#5801]: https://github.com/intellij-rust/intellij-rust/pull/5801
+[#5808]: https://github.com/intellij-rust/intellij-rust/pull/5808
+[#5809]: https://github.com/intellij-rust/intellij-rust/pull/5809
+[#5810]: https://github.com/intellij-rust/intellij-rust/pull/5810
+[#5811]: https://github.com/intellij-rust/intellij-rust/pull/5811
+[#5812]: https://github.com/intellij-rust/intellij-rust/pull/5812
+[#5819]: https://github.com/intellij-rust/intellij-rust/pull/5819
+[#5820]: https://github.com/intellij-rust/intellij-rust/pull/5820
+[#5822]: https://github.com/intellij-rust/intellij-rust/pull/5822
+[#5824]: https://github.com/intellij-rust/intellij-rust/pull/5824
+[#5825]: https://github.com/intellij-rust/intellij-rust/pull/5825
+[#5837]: https://github.com/intellij-rust/intellij-rust/pull/5837
+[#5838]: https://github.com/intellij-rust/intellij-rust/pull/5838
+[#5840]: https://github.com/intellij-rust/intellij-rust/pull/5840
+[#5841]: https://github.com/intellij-rust/intellij-rust/pull/5841
+[#5842]: https://github.com/intellij-rust/intellij-rust/pull/5842
+[#5849]: https://github.com/intellij-rust/intellij-rust/pull/5849
+[#5853]: https://github.com/intellij-rust/intellij-rust/pull/5853
+[#5855]: https://github.com/intellij-rust/intellij-rust/pull/5855
+[#5856]: https://github.com/intellij-rust/intellij-rust/pull/5856
+[#5857]: https://github.com/intellij-rust/intellij-rust/pull/5857
+[#5862]: https://github.com/intellij-rust/intellij-rust/pull/5862

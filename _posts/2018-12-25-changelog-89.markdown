@@ -4,37 +4,39 @@ title: "IntelliJ Rust Changelog #89"
 date: 2018-12-25 21:41:58 +0300
 ---
 
-This is the latest release in this year. 
+This is the latest release in this year.
 
-We are very happy that the number of our users is constantly growing. 
-Also great thanks for our contributors - 
+We are very happy that the number of our users is constantly growing.
+Also great thanks for our contributors -
 now more than one hundred people participated in the improvement of intellij-rust. Thank you!
 Hope that next year will be even better than this one!
 
-Happy New Year! :christmas_tree: :santa: :bell: :sparkles: :star2: :fireworks:
+Happy New Year! 🎄 🎅 🔔 ✨ 🌟 🎆
 
 ## New Features
 
 * Implement name resolution for module declaration [without `mod.rs`](https://rust-lang-nursery.github.io/edition-guide/rust-2018/module-system/path-clarity.html#no-more-modrs)
 
-* Support import of macros with `use` items and new macro call syntax. 
+* Support import of macros with `use` items and new macro call syntax.
 See [tracking issue](https://github.com/rust-lang/rust/pull/50911/) for more details
 
 * Correctly parse `async` and `try` keywords
 
 * Provide support of multiline todo comments for Rust and Toml
 
-* Highlight usages of unsafe code. It should allow you to correctly understand 
-what piece of code in `unsafe` function or block is really unsafe [gif](https://user-images.githubusercontent.com/2539310/50443734-b9f03080-0915-11e9-9a41-c178c91d0d18.gif) (by [@garyttierney])
+* Highlight usages of unsafe code. It should allow you to correctly understand
+what piece of code in `unsafe` function or block is really unsafe (by [@garyttierney])
+
+  {% include gif-img.html path="/assets/posts/changelog-89/highlight-unsafe-code" w="700px" %}
 
 * Support positional fields in struct literals
 
 * Allow expanding `Command` input field in `Cargo Command` run configuration
 
-* Improve `Add missing fields` quick fix: support more types which can be automatically substituted, 
+* Improve `Add missing fields` quick fix: support more types which can be automatically substituted,
 and use more convenient for changes default values for `Vec` and `String` types (by [@vlad20012] & [@webdesus])
 
-* Rework name resolution for field shorthand in struct literals. 
+* Rework name resolution for field shorthand in struct literals.
 Now it refers to both: variable and struct’s field
 
 ## Fixes

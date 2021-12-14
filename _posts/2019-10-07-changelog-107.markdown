@@ -7,54 +7,56 @@ date: 2019-10-07 18:03:21 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3712 -->
-* Import unresolved items automatically while code generation by most of common intentions and quick fixes like
+* [#3712] Import unresolved items automatically while code generation by most of common intentions and quick fixes like
 `Implement members`, `Specify type explicitly`, `Add remaining patterns`.
 Previously, such items were marked as unresolved and had to be imported manually
 {% include gif-img.html path="/assets/posts/changelog-107/generated-item-auto-import" w="90%" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4405 -->
-* Improve `Find Usages` action for pattern bindings (by [@rrevenantt])
+* [#4405] Improve `Find Usages` action for pattern bindings (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4403 -->
-* Take into account type aliases in `Specify type explicitly` intention (by [@t-kameyama])
+* [#4403] Take into account type aliases in `Specify type explicitly` intention (by [@t-kameyama])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4466 -->
-* Now `Create New Issue` action can be found in `Help` menu
+* [#4466] Now `Create New Issue` action can be found in `Help` menu
 
 ## Fixes
 
 * Rename refactoring improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4127 -->
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4077 -->
-    * Fix renaming of [field init](https://github.com/rust-lang/rfcs/blob/master/text/1682-field-init-shorthand.md) and struct field shorthands (by [@rrevenantt] & [@fan-tom])
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4012 -->
-    * Now module rename refactoring correctly applies on all corresponding items: declaration, file, and directory (by [@rrevenantt])
+    * [#4127], [#4077] Fix renaming of [field init](https://github.com/rust-lang/rfcs/blob/master/text/1682-field-init-shorthand.md) and struct field shorthands (by [@rrevenantt] & [@fan-tom])
+    * [#4012] Now module rename refactoring correctly applies on all corresponding items: declaration, file, and directory (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4493 -->
-* Improve performance of file type detection in TOML plugin. Note, optimization works since 2019.3 (by [@valich])
+* [#4493] Improve performance of file type detection in TOML plugin. Note, optimization works since 2019.3 (by [@valich])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4416 -->
-* Do not show some plugin notifications like `File does not belong to any known Cargo project`,
+* [#4416] Do not show some plugin notifications like `File does not belong to any known Cargo project`,
 `No Cargo projects found`, etc. while whole indexing process
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4458 -->
-* Fix `Debug` trait name resolution with nightly toolchain.
+* [#4458] Fix `Debug` trait name resolution with nightly toolchain.
 All plugin features that rely on `Debug` trait like `println` postfix completion also work as expected now
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4454 -->
-* Update parsing of [macro 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md) according with latest changes in nightly compiler
+* [#4454] Update parsing of [macro 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md) according with latest changes in nightly compiler
 
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4418 -->
-* Drop support of 2019.1 platform
+* [#4418] Drop support of 2019.1 platform
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4178 -->
-* Add paragraph about plugin project module to [ARCHITECTURE.md](https://github.com/intellij-rust/intellij-rust/blob/master/ARCHITECTURE.md#project-model)
+* [#4178] Add paragraph about plugin project module to [ARCHITECTURE.md](https://github.com/intellij-rust/intellij-rust/blob/master/ARCHITECTURE.md#project-model)
 
 [@fan-tom]: https://github.com/fan-tom
 [@rrevenantt]: https://github.com/rrevenantt
 [@t-kameyama]: https://github.com/t-kameyama
 [@valich]: https://github.com/valich
+
+
+[#3712]: https://github.com/intellij-rust/intellij-rust/pull/3712
+[#4012]: https://github.com/intellij-rust/intellij-rust/pull/4012
+[#4077]: https://github.com/intellij-rust/intellij-rust/pull/4077
+[#4127]: https://github.com/intellij-rust/intellij-rust/pull/4127
+[#4178]: https://github.com/intellij-rust/intellij-rust/pull/4178
+[#4403]: https://github.com/intellij-rust/intellij-rust/pull/4403
+[#4405]: https://github.com/intellij-rust/intellij-rust/pull/4405
+[#4416]: https://github.com/intellij-rust/intellij-rust/pull/4416
+[#4418]: https://github.com/intellij-rust/intellij-rust/pull/4418
+[#4454]: https://github.com/intellij-rust/intellij-rust/pull/4454
+[#4458]: https://github.com/intellij-rust/intellij-rust/pull/4458
+[#4466]: https://github.com/intellij-rust/intellij-rust/pull/4466
+[#4493]: https://github.com/intellij-rust/intellij-rust/pull/4493

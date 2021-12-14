@@ -13,56 +13,60 @@ date: 2019-05-23 19:08:53 +0300
   * Support postfix `await` syntax
   * Parse `static` keyword in generator expressions correctly
 
-* Detection of new compiler errors: [E0040](https://doc.rust-lang.org/error-index.html#E0040), 
-[E0081](https://doc.rust-lang.org/error-index.html#E0081), 
+* Detection of new compiler errors: [E0040](https://doc.rust-lang.org/error-index.html#E0040),
+[E0081](https://doc.rust-lang.org/error-index.html#E0081),
 [E0120](https://doc.rust-lang.org/error-index.html#E0120)
 and [E0184](https://doc.rust-lang.org/error-index.html#E0184) (by [@mibac138])
 
 * Completion improvements:
-  * Take into account type information to sort suggested items while completion [gif](https://user-images.githubusercontent.com/4854600/58242981-7da3ed80-7d58-11e9-9550-dbe629f512d1.gif)
-  * Implement `deref` postfix completion to add `*` before selected expression [gif](https://user-images.githubusercontent.com/4854600/58247348-1ee37180-7d62-11e9-8a90-bb38ed059d05.gif) (by [@mibac138])
+  * Take into account type information to sort suggested items while completion
+
+    {% include gif-img.html path="/assets/posts/changelog-98/sort-completion-variants-by-type" w="700px" %}
+
+  * Implement `deref` postfix completion to add `*` before selected expression (by [@mibac138])
+
+    {% include gif-img.html path="/assets/posts/changelog-98/deref-postfix-completion" w="700px" %}
+
   * Add completion for `deprecated` attribute
-  
+
 * Debugger improvements:
   * Provide GDB formatters for [`HashMap`](https://user-images.githubusercontent.com/4854600/55983010-cd47c180-5ca2-11e9-987d-b2ce38af9149.png) and [`HashSet`](https://user-images.githubusercontent.com/4854600/55983092-fc5e3300-5ca2-11e9-818c-5ecbd09025c0.png) collections. Note, these formatters require Rust 1.33 or above to work properly
   * Display enum values correctly while debugging with GDB
-  * Provide common IDE features (e.g. name resolution and completion) in `Evaluate Expression` and `New Watch` fields [gif](https://user-images.githubusercontent.com/4854600/58243896-37e82480-7d5a-11e9-9903-267caf1b79ab.gif).
+  * Provide common IDE features (e.g. name resolution and completion) in `Evaluate Expression` and `New Watch` fields.
   Note, `Evaluate Expression` feature is not fully supported and works in certain cases only
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3738 -->
-* Improve `Convert to named fields` refactoring. 
-Now it allows converting all usages of the struct to the corresponding representation [gif](https://user-images.githubusercontent.com/4854600/58244990-6c5ce000-7d5c-11e9-836b-4d02ff5907d3.gif) (by [@rrevenantt])
+    {% include gif-img.html path="/assets/posts/changelog-98/code-insight-in-evaluate-expression" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3779 -->
-* Automatically detect stdlib sources in `rustc` sysroot even if rustup is absent
+* [#3738] Improve `Convert to named fields` refactoring.
+Now it allows converting all usages of the struct to the corresponding representation (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3796 -->
-* Take into account constants of primitive types: `bool`, `f32/64`, `char` and `&str` in `Match Check` inspection. 
+  {% include gif-img.html path="/assets/posts/changelog-98/improve-convert-to-named-fields-refactoring" w="700px" %}
+
+* [#3779] Automatically detect stdlib sources in `rustc` sysroot even if rustup is absent
+
+* [#3796] Take into account constants of primitive types: `bool`, `f32/64`, `char` and `&str` in `Match Check` inspection.
 In addition, the inspection can evaluate constant boolean expressions while analysis (constant functions are not supported)
 like it has already implemented for integer expressions
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3819 -->
-* Now it’s possible to filter usage of variables and fields by read/write access [png](https://user-images.githubusercontent.com/4854600/58246480-d5922280-7d5f-11e9-9200-802b9ac87f08.png)
+* [#3819] Now it’s possible to filter usage of variables and fields by read/write access [png](https://user-images.githubusercontent.com/4854600/58246480-d5922280-7d5f-11e9-9200-802b9ac87f08.png)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3520  -->
-* Support more types from stdlib, like `Rc`, `Arc`, `Cell`, `RefCell`, etc., in `Add missing fields` quick fix [gif](https://user-images.githubusercontent.com/4854600/58246805-b647c500-7d60-11e9-8ba6-ac58e414a3e1.gif) (by [@Kobzol])
+* [#3520] Support more types from stdlib, like `Rc`, `Arc`, `Cell`, `RefCell`, etc., in `Add missing fields` quick fix (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3826 -->
-* Notify a user when a file is not included in the project structure. 
+  {% include gif-img.html path="/assets/posts/changelog-98/arc-in-add-missing-fields-refactoring" w="700px" %}
+
+* [#3826] Notify a user when a file is not included in the project structure.
 It should simplify to find out the reason why common IDE features (e.g., name resolution, completion, etc.) don't work properly in the file (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3778 -->
-* Add `Flatten use statements` intention [gif](https://user-images.githubusercontent.com/4854600/58247063-687f8c80-7d61-11e9-9217-fbd1d1c4d498.gif) (by [@mibac138])
+* [#3778] Add `Flatten use statements` intention (by [@mibac138])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3745 -->
-* Allow folding of macros and macro expansion branches (by [@ice1000])
+  {% include gif-img.html path="/assets/posts/changelog-98/flatten-use-statements-intention" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3736 -->
-* Add `Show the result of macro expansion` intention to invoke `cargo expand` command.
+* [#3745] Allow folding of macros and macro expansion branches (by [@ice1000])
+
+* [#3736] Add `Show the result of macro expansion` intention to invoke `cargo expand` command.
 If you don't have the corresponding package, the plugin shows a notification to install `cargo-expand` binary in one click
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3827 -->
-* Update `Extract function` dialog. Now it allows changing parameter names.
+* [#3827] Update `Extract function` dialog. Now it allows changing parameter names.
 Also, it validates creating function name (by [@Kobzol])
 
 ## Fixes
@@ -78,7 +82,7 @@ Also, it validates creating function name (by [@Kobzol])
 
 * Performance improvements:
   * Significantly speed up `Find usages` action especially for private and local items
-  * Fix possible UI freezes caused by parameter info popup 
+  * Fix possible UI freezes caused by parameter info popup
   * Show large macro expansions faster
 
 * False positive annotation fixes:
@@ -99,8 +103,7 @@ This feature has been working for 2015 edition crates for a long time but was br
 
 * More precise code highlighting in doc tests
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3800 -->
-* Parse 4 slashes in doc comments properly (by [@rrevenantt])
+* [#3800] Parse 4 slashes in doc comments properly (by [@rrevenantt])
 
 ## Internal Improvements
 
@@ -113,3 +116,16 @@ This feature has been working for 2015 edition crates for a long time but was br
 [@mibac138]: https://github.com/mibac138
 [@rrevenantt]: https://github.com/rrevenantt
 [@vlad20012]: https://github.com/vlad20012
+
+
+[#3520]: https://github.com/intellij-rust/intellij-rust/pull/3520
+[#3736]: https://github.com/intellij-rust/intellij-rust/pull/3736
+[#3738]: https://github.com/intellij-rust/intellij-rust/pull/3738
+[#3745]: https://github.com/intellij-rust/intellij-rust/pull/3745
+[#3778]: https://github.com/intellij-rust/intellij-rust/pull/3778
+[#3779]: https://github.com/intellij-rust/intellij-rust/pull/3779
+[#3796]: https://github.com/intellij-rust/intellij-rust/pull/3796
+[#3800]: https://github.com/intellij-rust/intellij-rust/pull/3800
+[#3819]: https://github.com/intellij-rust/intellij-rust/pull/3819
+[#3826]: https://github.com/intellij-rust/intellij-rust/pull/3826
+[#3827]: https://github.com/intellij-rust/intellij-rust/pull/3827

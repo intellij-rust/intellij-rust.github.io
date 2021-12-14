@@ -7,64 +7,65 @@ date: 2019-12-30 18:37:55 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4172 -->
-* Add `Lift return` inspection.
+* [#4172] Add `Lift return` inspection.
 Now the plugin highlights `if` and `match` expressions where `return` can be lifted out of branches of the expression.
 
     {% include gif-img.html path="/assets/posts/changelog-113/lift-inspection" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4742 -->
-* Treat [`todo`](https://doc.rust-lang.org/std/macro.todo.html) macro calls as todo items,
+* [#4742] Treat [`todo`](https://doc.rust-lang.org/std/macro.todo.html) macro calls as todo items,
 i.e they have the corresponding highlighting and can be found in [TODO](https://www.jetbrains.com/help/idea/todo-tool-window.html) tool window
 
     <img src="/assets/posts/changelog-113/todo.png" alt="highlight todo macro" width="700px"/>
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4748 -->
-* Provide completion for fields of builtin tuple types
+* [#4748] Provide completion for fields of builtin tuple types
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4677 -->
-* Check type mismatch errors in [`const generic`](https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md) arguments in some cases
+* [#4677] Check type mismatch errors in [`const generic`](https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md) arguments in some cases
 
     <img src="/assets/posts/changelog-113/const-generic-type-mismatch.png" alt="const generic type mismatch" width="700px"/>
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4482 -->
-* Support `unstable` attribute for items.
+* [#4482] Support `unstable` attribute for items.
 Now if you use item marked with `unstable` attribute without the corresponding `feature`,
 the plugin highlights the usage as an error and suggest quick fix in case of nightly toolchain
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4735 -->
-* Make `Specify type explicitly` intention work with complex patterns like `let (a, b) = some_expr`
+* [#4735] Make `Specify type explicitly` intention work with complex patterns like `let (a, b) = some_expr`
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4757 -->
-* Optimize `Show Usages` (<kbd>Ctrl+Alt+F7</kbd>/<kbd>Cmd+Alt+F7</kbd>) for associated items.
+* [#4757] Optimize `Show Usages` (<kbd>Ctrl+Alt+F7</kbd>/<kbd>Cmd+Alt+F7</kbd>) for associated items.
 It should significantly speed up search of associated items with commonly used names like `new`
 
 * Improve patterns support:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4778 -->
-    * Fix parser rule for range patterns. Now it should correctly process patterns like `X..=Y` where `X` is some variable.
+    * [#4778] Fix parser rule for range patterns. Now it should correctly process patterns like `X..=Y` where `X` is some variable.
     Previously, it leads to syntax error
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4769 -->
-    * Fix name resolution in struct and tuple struct patterns.
+    * [#4769] Fix name resolution in struct and tuple struct patterns.
     It should prevent unexpected multiple name resolution results in some cases
 
 * Type inference improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4741 -->
-    * Take into account builtin implementation of `Clone` and `Copy` traits for tuple types while type inference.
+    * [#4741] Take into account builtin implementation of `Clone` and `Copy` traits for tuple types while type inference.
     Also, consider that generic types with `#[derive(Copy)]` implements `Copy` traits only when all type components implement `Copy`.
     It should fix various bugs in type inference, type mismatch and borrow checker inspections for the corresponding types
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4778 -->
-    * Fix type inference inside tuple and struct tuple patterns after `..`
+    * [#4778] Fix type inference inside tuple and struct tuple patterns after `..`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4759 -->
-* Fix false positive `Duplicate definitions` ([E0428](https://doc.rust-lang.org/error-index.html#E0428)) errors
+* [#4759] Fix false positive `Duplicate definitions` ([E0428](https://doc.rust-lang.org/error-index.html#E0428)) errors
 for [macros 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4724 -->
-* Parse `_` as constant name properly
+* [#4724] Parse `_` as constant name properly
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/21?closed=1)
 
 
 
+
+
+[#4172]: https://github.com/intellij-rust/intellij-rust/pull/4172
+[#4482]: https://github.com/intellij-rust/intellij-rust/pull/4482
+[#4677]: https://github.com/intellij-rust/intellij-rust/pull/4677
+[#4724]: https://github.com/intellij-rust/intellij-rust/pull/4724
+[#4735]: https://github.com/intellij-rust/intellij-rust/pull/4735
+[#4741]: https://github.com/intellij-rust/intellij-rust/pull/4741
+[#4742]: https://github.com/intellij-rust/intellij-rust/pull/4742
+[#4748]: https://github.com/intellij-rust/intellij-rust/pull/4748
+[#4757]: https://github.com/intellij-rust/intellij-rust/pull/4757
+[#4759]: https://github.com/intellij-rust/intellij-rust/pull/4759
+[#4769]: https://github.com/intellij-rust/intellij-rust/pull/4769
+[#4778]: https://github.com/intellij-rust/intellij-rust/pull/4778

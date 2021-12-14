@@ -10,19 +10,22 @@ receive plugin updates, please upgrade your IDE to 2018.3.
 
 ## New Features
 
-* Introduce `Put parameters on one line` intention 
-[gif](https://user-images.githubusercontent.com/2539310/51148535-ac243000-186f-11e9-92de-5bba88e80950.gif)
+* Introduce `Put parameters on one line` intention
 
-* Support extern crate 
+  {% include gif-img.html path="/assets/posts/changelog-90/put-parameters-on-one-line" w="700px" %}
+
+* Support extern crate
 [renaming](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml) via `Cargo.toml`
 
-* Provide completion for `edition` property in `Cargo.toml` 
-[gif](https://user-images.githubusercontent.com/2539310/51148538-adedf380-186f-11e9-980e-d8f25f9d3ac9.gif) (by [@SomeoneToIgnore])
+* Provide completion for `edition` property in `Cargo.toml` (by [@SomeoneToIgnore])
 
-* Implement `Denote infinite loops with 'loop { ... }'` inspection and the corresponding quick fix 
-[gif](https://user-images.githubusercontent.com/2539310/51148539-b0504d80-186f-11e9-87f1-fd025c3dd303.gif) (by [@dimonchik0036])
+  {% include gif-img.html path="/assets/posts/changelog-90/complete-edition" w="700px" %}
 
-* Support [`lifetime`](https://github.com/rust-lang/rfcs/blob/master/text/1590-macro-lifetimes.md) and 
+* Implement `Denote infinite loops with 'loop { ... }'` inspection and the corresponding quick fix (by [@dimonchik0036])
+
+  {% include gif-img.html path="/assets/posts/changelog-90/detect-while-true" w="700px" %}
+
+* Support [`lifetime`](https://github.com/rust-lang/rfcs/blob/master/text/1590-macro-lifetimes.md) and
 [`literal`](https://github.com/rust-lang/rfcs/blob/master/text/1576-macros-literal-matcher.md) macro matchers  (by [@Jezza])
 
 
@@ -32,7 +35,7 @@ receive plugin updates, please upgrade your IDE to 2018.3.
 
 * Correctly highlight modules, extern crates, and their references
 
-* Improve `Add mut` quick fix. 
+* Improve `Add mut` quick fix.
 Now it retains the reference's declared lifetime and can be applied for more cases (by [@Jezza] & [@gfreezy])
 
 * Improve `match to if let` and `if let to match` intentions (by [@dimonchik0036])

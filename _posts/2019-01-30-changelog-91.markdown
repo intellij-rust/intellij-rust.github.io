@@ -10,9 +10,13 @@ date: 2019-01-30 16:34:55 +0300
 * Infer types for [`try`](https://github.com/rust-lang/rfcs/blob/master/text/2388-try-expr.md) blocks
 and [generators](https://doc.rust-lang.org/std/ops/trait.Generator.html)
 
-* Support `Introduce Parameter` refactoring [gif](https://user-images.githubusercontent.com/2539310/51984317-13ff8b00-24ac-11e9-987f-839f04f3bfbf.gif) (by [@DaryaShirokova])
+* Support `Introduce Parameter` refactoring (by [@DaryaShirokova])
 
-* Provide `Make mutable` quick fix for `Assign to immutable` inspection [gif](https://user-images.githubusercontent.com/4854600/51183691-0e6a4880-18e3-11e9-8520-78f4d5008a01.gif)
+  {% include gif-img.html path="/assets/posts/changelog-91/introduce-parameter-refactoring" w="700px" %}
+
+* Provide `Make mutable` quick fix for `Assign to immutable` inspection
+
+  {% include gif-img.html path="/assets/posts/changelog-91/make-mutable-fix" w="700px" %}
 
 * Support [`dbg!`](https://doc.rust-lang.org/std/macro.dbg.html) macro introduced in rust 1.32.
 Now all common IDE features work for expressions inside this macro
@@ -20,9 +24,13 @@ Now all common IDE features work for expressions inside this macro
 * Show type hints for local variables provided by bindings
 in `if let`, `while let`, `match` and struct destructure patterns
 
-* Add `Put arguments on separate lines` and `Put arguments on one line` intentions [gif](https://user-images.githubusercontent.com/2539310/51984313-1235c780-24ac-11e9-9f8f-1580626bb918.gif) (by [@t-kameyama])
+* Add `Put arguments on separate lines` and `Put arguments on one line` intentions (by [@t-kameyama])
 
-* Add `println` postfix template [gif](https://user-images.githubusercontent.com/2539310/51984309-106c0400-24ac-11e9-85a8-e5130cd20618.gif) (by [@SomeoneToIgnore])
+  {% include gif-img.html path="/assets/posts/changelog-91/put-arguments-on-one-line" w="700px" %}
+
+* Add `println` postfix template (by [@SomeoneToIgnore])
+
+  {% include gif-img.html path="/assets/posts/changelog-91/println-postfix-template" w="700px" %}
 
 * Initial support of [macro 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md) syntax.
 Note, all other features like name resolution, completion, etc. are not supported yet

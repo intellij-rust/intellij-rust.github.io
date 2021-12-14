@@ -7,112 +7,114 @@ date: 2020-11-16 12:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6289 -->
-* Provide completion for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in `Cargo.toml`
+* [#6289] Provide completion for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in `Cargo.toml`
 
   {% include gif-img.html path="/assets/posts/changelog-135/6289" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5933 -->
-* Introduce `Go to generated declaration` line marker for [`wasm_bindgen`](https://rustwasm.github.io/docs/wasm-bindgen/reference/attributes/index.html) attribute.
+* [#5933] Introduce `Go to generated declaration` line marker for [`wasm_bindgen`](https://rustwasm.github.io/docs/wasm-bindgen/reference/attributes/index.html) attribute.
 Now you can navigate to the generated TypeScript code right from the Rust code when working on WebAssembly projects
 
   {% include gif-img.html path="/assets/posts/changelog-135/5933" w="700px" %}
 
 * Move refactoring (`Refactor | Move` or <kbd>F6</kbd>) improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6011 -->
-    * Group items with related impls in `Move items` dialog
+    * [#6011] Group items with related impls in `Move items` dialog
 
       {% include gif-img.html path="/assets/posts/changelog-135/6011" w="700px" %}
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6301 -->
-    * Add trait imports if necessary
+    * [#6301] Add trait imports if necessary
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6306 -->
-    * Handle generic items properly
+    * [#6306] Handle generic items properly
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6308 -->
-    * Detect [E0116](https://doc.rust-lang.org/error-index.html#E0116) and [E0117](https://doc.rust-lang.org/error-index.html#E0117) compiler errors when moving items to other crate
+    * [#6308] Detect [E0116](https://doc.rust-lang.org/error-index.html#E0116) and [E0117](https://doc.rust-lang.org/error-index.html#E0117) compiler errors when moving items to other crate
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6307 -->
-    * Check if the target module has an item with the same name when moving items
+    * [#6307] Check if the target module has an item with the same name when moving items
 
 * Completion improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6335 -->
-    * Add completion for [`non_exhaustive`](https://github.com/rust-lang/rfcs/blob/master/text/2008-non-exhaustive.md) attribute (by [@Kobzol])
+    * [#6335] Add completion for [`non_exhaustive`](https://github.com/rust-lang/rfcs/blob/master/text/2008-non-exhaustive.md) attribute (by [@Kobzol])
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6346 -->
-    * Add completion for [`track_caller`](https://github.com/rust-lang/rfcs/blob/master/text/2091-inline-semantic.md) attribute
+    * [#6346] Add completion for [`track_caller`](https://github.com/rust-lang/rfcs/blob/master/text/2091-inline-semantic.md) attribute
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6338 -->
-    * Complete parenthesis for [`repr`](https://github.com/rust-lang/rfcs/blob/master/text/1358-repr-align.md) attribute
+    * [#6338] Complete parenthesis for [`repr`](https://github.com/rust-lang/rfcs/blob/master/text/1358-repr-align.md) attribute
 
 * Compiler errors detection improvements:
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6318 -->
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6330 -->
-    * Detect [E0054](https://doc.rust-lang.org/error-index.html#E0054) compiler error and suggest `Compare with zero` quick-fix (by [@zeroeightysix])
+    * [#6318], [#6330] Detect [E0054](https://doc.rust-lang.org/error-index.html#E0054) compiler error and suggest `Compare with zero` quick-fix (by [@zeroeightysix])
 
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5791 -->
-    * Detect [E0364](https://doc.rust-lang.org/error-index.html#E0364) and [E0365](https://doc.rust-lang.org/error-index.html#E0365) compiler errors and suggest `Make public` quick-fix (by [@Kobzol])
+    * [#5791] Detect [E0364](https://doc.rust-lang.org/error-index.html#E0364) and [E0365](https://doc.rust-lang.org/error-index.html#E0365) compiler errors and suggest `Make public` quick-fix (by [@Kobzol])
 
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6304 -->
-    * Detect [E0449](https://doc.rust-lang.org/error-index.html#E0449) for enum variants and suggest `Remove visibility qualifier` quick-fix
+    * [#6304] Detect [E0449](https://doc.rust-lang.org/error-index.html#E0449) for enum variants and suggest `Remove visibility qualifier` quick-fix
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6326 -->
-* Take execution context into account in the [Run Anything](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support) popup.
+* [#6326] Take execution context into account in the [Run Anything](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support) popup.
 Now you can specify an execution context by holding down `Alt` key or by manually choosing a directory
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6368 -->
-* Introduce new macro expansion cache shared between different projects.
+* [#6368] Introduce new macro expansion cache shared between different projects.
 It brings slightly speedup if you open several projects that use the same stdlib or library version.
 Note, you can turn it off via `Registry... | org.rust.lang.macros.persistentCache` option
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6369 -->
-* Allow [language injections](https://www.jetbrains.com/help/clion/using-language-injections.html#cancel-injections) in string literals inside macro calls
+* [#6369] Allow [language injections](https://www.jetbrains.com/help/clion/using-language-injections.html#cancel-injections) in string literals inside macro calls
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6298 -->
-* Fix false positive `Unused variable` warning in Rust code containing `async` blocks
+* [#6298] Fix false positive `Unused variable` warning in Rust code containing `async` blocks
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6238 -->
-* Fix false positive `Match must be exhaustive` error in case of uninhabited types, e.g. empty enums (by [@fan-tom])
+* [#6238] Fix false positive `Match must be exhaustive` error in case of uninhabited types, e.g. empty enums (by [@fan-tom])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6207 -->
-* Do not show `Add wildcard pattern` intention for empty match expressions
+* [#6207] Do not show `Add wildcard pattern` intention for empty match expressions
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6356 -->
-* Update GDB pretty-printers to render `BTreeMap`/`BTreeSet` on Rust `1.44.0` or higher
+* [#6356] Update GDB pretty-printers to render `BTreeMap`/`BTreeSet` on Rust `1.44.0` or higher
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6314 -->
-* Provide proper rustc version by `Create New Issue` action which allows opening issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE
+* [#6314] Provide proper rustc version by `Create New Issue` action which allows opening issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6272 -->
-* Do not load Cargo project structure twice. It makes Cargo projects loading a bit faster
+* [#6272] Do not load Cargo project structure twice. It makes Cargo projects loading a bit faster
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6313 -->
-* Do not suggest lints in paths completion if path starts with `::` (by [@Kobzol])
+* [#6313] Do not suggest lints in paths completion if path starts with `::` (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6341 -->
-* Provide quick documentation for primitive types in stdlib
+* [#6341] Provide quick documentation for primitive types in stdlib
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6291 -->
-* Allow duplicate parameter bindings for trait methods without a body ([E0415](https://doc.rust-lang.org/error-index.html#E0415) compiler error) (by [@Kobzol])
+* [#6291] Allow duplicate parameter bindings for trait methods without a body ([E0415](https://doc.rust-lang.org/error-index.html#E0415) compiler error) (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6285 -->
-* Improve the parser recovering in case of incomplete paths
+* [#6285] Improve the parser recovering in case of incomplete paths
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6305 -->
-* Simplify script for fetching Clippy lints which is used in lints completion (by [@Kobzol])
+* [#6305] Simplify script for fetching Clippy lints which is used in lints completion (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6358 -->
-* 2020.3 platform is default for development now
+* [#6358] 2020.3 platform is default for development now
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/43?closed=1)
 
 [@Kobzol]: https://github.com/Kobzol
 [@fan-tom]: https://github.com/fan-tom
 [@zeroeightysix]: https://github.com/zeroeightysix
+
+
+[#5791]: https://github.com/intellij-rust/intellij-rust/pull/5791
+[#5933]: https://github.com/intellij-rust/intellij-rust/pull/5933
+[#6011]: https://github.com/intellij-rust/intellij-rust/pull/6011
+[#6207]: https://github.com/intellij-rust/intellij-rust/pull/6207
+[#6238]: https://github.com/intellij-rust/intellij-rust/pull/6238
+[#6272]: https://github.com/intellij-rust/intellij-rust/pull/6272
+[#6285]: https://github.com/intellij-rust/intellij-rust/pull/6285
+[#6289]: https://github.com/intellij-rust/intellij-rust/pull/6289
+[#6291]: https://github.com/intellij-rust/intellij-rust/pull/6291
+[#6298]: https://github.com/intellij-rust/intellij-rust/pull/6298
+[#6301]: https://github.com/intellij-rust/intellij-rust/pull/6301
+[#6304]: https://github.com/intellij-rust/intellij-rust/pull/6304
+[#6305]: https://github.com/intellij-rust/intellij-rust/pull/6305
+[#6306]: https://github.com/intellij-rust/intellij-rust/pull/6306
+[#6307]: https://github.com/intellij-rust/intellij-rust/pull/6307
+[#6308]: https://github.com/intellij-rust/intellij-rust/pull/6308
+[#6313]: https://github.com/intellij-rust/intellij-rust/pull/6313
+[#6314]: https://github.com/intellij-rust/intellij-rust/pull/6314
+[#6318]: https://github.com/intellij-rust/intellij-rust/pull/6318
+[#6326]: https://github.com/intellij-rust/intellij-rust/pull/6326
+[#6330]: https://github.com/intellij-rust/intellij-rust/pull/6330
+[#6335]: https://github.com/intellij-rust/intellij-rust/pull/6335
+[#6338]: https://github.com/intellij-rust/intellij-rust/pull/6338
+[#6341]: https://github.com/intellij-rust/intellij-rust/pull/6341
+[#6346]: https://github.com/intellij-rust/intellij-rust/pull/6346
+[#6356]: https://github.com/intellij-rust/intellij-rust/pull/6356
+[#6358]: https://github.com/intellij-rust/intellij-rust/pull/6358
+[#6368]: https://github.com/intellij-rust/intellij-rust/pull/6368
+[#6369]: https://github.com/intellij-rust/intellij-rust/pull/6369
