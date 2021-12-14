@@ -7,94 +7,74 @@ date: 2020-06-15 12:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5514 -->
-* Support 2020.2 EAPs
+* [#5514] Support 2020.2 EAPs
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5496 -->
-* Enable [new macro expansion engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support) in nightly builds
+* [#5496] Enable [new macro expansion engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support) in nightly builds
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4460 -->
-* Provide initial version of [`Inline method`](https://www.jetbrains.com/help/idea/inline.html) (<kbd>Ctrl+Alt+N</kbd>) refactoring.
+* [#4460] Provide initial version of [`Inline method`](https://www.jetbrains.com/help/idea/inline.html) (<kbd>Ctrl+Alt+N</kbd>) refactoring.
 Note, actual arguments are not inlined properly so far (by [@SaarYogev] & [@sohich])
 
     {% include gif-img.html path="/assets/posts/changelog-124/4460" w="700px" %}
 
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5430 -->
-* Add completion of existing file paths inside path-like string literals in function arguments (by [@Kobzol])
+* [#5430] Add completion of existing file paths inside path-like string literals in function arguments (by [@Kobzol])
     
     {% include gif-img.html path="/assets/posts/changelog-124/5430" w="700px" %}
 
 
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5490 -->
-* Provide quick-fix to attach a file to module tree for `File is not included in module tree` inspection (by [@Kobzol])
+* [#5490] Provide quick-fix to attach a file to module tree for `File is not included in module tree` inspection (by [@Kobzol])
     
     {% include gif-img.html path="/assets/posts/changelog-124/5490" w="700px" %}
 
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5495 -->
-* Add `.some`, `.ok`, `.err` [postfix templates](https://www.jetbrains.com/help/idea/settings-postfix-completion.html) for `Result` and `Option` wrapping (by [@panstromek])
+* [#5495] Add `.some`, `.ok`, `.err` [postfix templates](https://www.jetbrains.com/help/idea/settings-postfix-completion.html) for `Result` and `Option` wrapping (by [@panstromek])
 
     {% include gif-img.html path="/assets/posts/changelog-124/5495" w="700px" %}
 
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5481 -->
-* Show [E0601](https://doc.rust-lang.org/error-index.html#E0601) error if the `main` function doesn't exist in binary crates and provide quick-fix to add the function (by [@Stzx])
+* [#5481] Show [E0601](https://doc.rust-lang.org/error-index.html#E0601) error if the `main` function doesn't exist in binary crates and provide quick-fix to add the function (by [@Stzx])
     
     {% include gif-img.html path="/assets/posts/changelog-124/5481" w="700px" %}
 
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5416 -->
-* Handle doc comments when uncommenting (<kbd>Ctrl+/</kbd>).
+* [#5416] Handle doc comments when uncommenting (<kbd>Ctrl+/</kbd>).
 Commenter can be configured using [code style settings](https://www.jetbrains.com/help/idea/configuring-code-style.html) located in `Preferences | Editor | Code Style | Rust` (by [@Kobzol])
     
     {% include gif-img.html path="/assets/posts/changelog-124/5416" w="700px" %}
 
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4993 -->
-* Place the caret near a type when navigating to an `impl` item
+* [#4993] Place the caret near a type when navigating to an `impl` item
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5486 -->
-* Add `--ignored` to command line when launching tests marked with `#[ignore]`. Now Cargo actually run them (by [@Kobzol])
+* [#5486] Add `--ignored` to command line when launching tests marked with `#[ignore]`. Now Cargo actually run them (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5472 -->
-* Sort packages and targets alphabetically in [Cargo tool window](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support) (by [@Kobzol])
+* [#5472] Sort packages and targets alphabetically in [Cargo tool window](https://www.jetbrains.com/help/clion/rust-support.html#cargo-support) (by [@Kobzol])
 
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5423 -->
-* Significantly speed up macro expansion phase for new macro expansion engine
+* [#5423] Significantly speed up macro expansion phase for new macro expansion engine
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5501 -->
-* Fix UI freezes caused by chain method hints
+* [#5501] Fix UI freezes caused by chain method hints
 
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5521 -->
-* `Add unsafe to function` quick-fix now works inside loops and conditions (by [@Kobzol])
+* [#5521] `Add unsafe to function` quick-fix now works inside loops and conditions (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5493 -->
-* Fix parsing `crate` at the beginning of macro call as visibility modifier
+* [#5493] Fix parsing `crate` at the beginning of macro call as visibility modifier
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5392 -->
-* Fix false-positive `Argument never used` annotation when using raw format strings in macro calls (by [@Kobzol])
+* [#5392] Fix false-positive `Argument never used` annotation when using raw format strings in macro calls (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5489 -->
-* Fix run icon displaying when `main` function is declared in a nested method (by [@Stzx])
+* [#5489] Fix run icon displaying when `main` function is declared in a nested method (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5504 -->
-* Fix exception in `RsFileTypeOverriderForMacroExpansionFileSystem`
+* [#5504] Fix exception in `RsFileTypeOverriderForMacroExpansionFileSystem`
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4489 -->
-* Check indices are not accessed during document committing
+* [#4489] Check indices are not accessed during document committing
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5500 -->
-* Add more consistency checks in [new macro expansion engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support)
+* [#5500] Add more consistency checks in [new macro expansion engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support)
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/32?closed=1)
 
@@ -103,3 +83,25 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@sohich]: https://github.com/sohich
 [@Stzx]: https://github.com/Stzx
 [@panstromek]: https://github.com/panstromek
+
+
+[#4460]: https://github.com/intellij-rust/intellij-rust/pull/4460
+[#4489]: https://github.com/intellij-rust/intellij-rust/pull/4489
+[#4993]: https://github.com/intellij-rust/intellij-rust/pull/4993
+[#5392]: https://github.com/intellij-rust/intellij-rust/pull/5392
+[#5416]: https://github.com/intellij-rust/intellij-rust/pull/5416
+[#5423]: https://github.com/intellij-rust/intellij-rust/pull/5423
+[#5430]: https://github.com/intellij-rust/intellij-rust/pull/5430
+[#5472]: https://github.com/intellij-rust/intellij-rust/pull/5472
+[#5481]: https://github.com/intellij-rust/intellij-rust/pull/5481
+[#5486]: https://github.com/intellij-rust/intellij-rust/pull/5486
+[#5489]: https://github.com/intellij-rust/intellij-rust/pull/5489
+[#5490]: https://github.com/intellij-rust/intellij-rust/pull/5490
+[#5493]: https://github.com/intellij-rust/intellij-rust/pull/5493
+[#5495]: https://github.com/intellij-rust/intellij-rust/pull/5495
+[#5496]: https://github.com/intellij-rust/intellij-rust/pull/5496
+[#5500]: https://github.com/intellij-rust/intellij-rust/pull/5500
+[#5501]: https://github.com/intellij-rust/intellij-rust/pull/5501
+[#5504]: https://github.com/intellij-rust/intellij-rust/pull/5504
+[#5514]: https://github.com/intellij-rust/intellij-rust/pull/5514
+[#5521]: https://github.com/intellij-rust/intellij-rust/pull/5521

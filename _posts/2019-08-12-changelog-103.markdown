@@ -7,60 +7,62 @@ date: 2019-08-12 16:48:35 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4210 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4190 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4183 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4182 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4181 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4179 -->
-* This update brings a significant performance improvement, like plugin cache subsystem was reworked.
+* [#4210], [#4190], [#4183], [#4182], [#4181], [#4179] This update brings a significant performance improvement, like plugin cache subsystem was reworked.
 In combination with other micro-optimizations, it greatly speeds up name resolution and type inference.
 Note, these changes will have a greater effect on the new experimental macro expansion engine because it's more cache-friendly.
 You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4121 -->
-* Make Toml [plugin](https://plugins.jetbrains.com/plugin/8195-toml) mandatory dependency of Rust plugin.
+* [#4121] Make Toml [plugin](https://plugins.jetbrains.com/plugin/8195-toml) mandatory dependency of Rust plugin.
 If you still don't have it, IDE will suggest installing Toml plugin while updating
 
 * Update the [Rust page](https://www.jetbrains.com/help/clion/rust-support.html) in CLion help
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4194 -->
-* Support `concat` macro. Now name resolution and completion work for direct arguments of the macro like `env!`. Also, the value of the macro is taken into account while path evaluation inside `include` macro call.
+* [#4194] Support `concat` macro. Now name resolution and completion work for direct arguments of the macro like `env!`. Also, the value of the macro is taken into account while path evaluation inside `include` macro call.
 It's yet another step to support code included via macro call like `include!(concat!(env!("OUT_DIR"), "/bindings.rs"))`
 
   {% include gif-img.html path="/assets/posts/changelog-103/support-concat-macro" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4206 -->
-* Add completion of `const` keyword for [const generics](https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md)
+* [#4206] Add completion of `const` keyword for [const generics](https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4195 -->
-* Associated functions have higher priority than methods in completion list for paths like `module::Struct::`
+* [#4195] Associated functions have higher priority than methods in completion list for paths like `module::Struct::`
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4175 -->
-* Fix false positive `Trait objects without an explicit 'dyn' are deprecated` warnings for `Self` type parameters
+* [#4175] Fix false positive `Trait objects without an explicit 'dyn' are deprecated` warnings for `Self` type parameters
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4226 -->
-* Fix name resolution of items from [prelude](https://doc.rust-lang.org/std/prelude/index.html) with nightly compiler
+* [#4226] Fix name resolution of items from [prelude](https://doc.rust-lang.org/std/prelude/index.html) with nightly compiler
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4213 -->
-* Fix `IndexNotReadyException` while indexing `pub extern crate` items
+* [#4213] Fix `IndexNotReadyException` while indexing `pub extern crate` items
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4177 -->
-* Correctly insert `use` item by `Auto Import` quick fix inside public inline modules
+* [#4177] Correctly insert `use` item by `Auto Import` quick fix inside public inline modules
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4202 -->
-* Fix incorrect name resolution of `const` generic parameters
+* [#4202] Fix incorrect name resolution of `const` generic parameters
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4184 -->
-* Correctly set focus on name field in `Extract method` dialog (by [@gejun123456])
+* [#4184] Correctly set focus on name field in `Extract method` dialog (by [@gejun123456])
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4188 -->
-* Make 2019.2 default platform for development
+* [#4188] Make 2019.2 default platform for development
 
 
 
 [@gejun123456]: https://github.com/gejun123456
+
+
+[#4121]: https://github.com/intellij-rust/intellij-rust/pull/4121
+[#4175]: https://github.com/intellij-rust/intellij-rust/pull/4175
+[#4177]: https://github.com/intellij-rust/intellij-rust/pull/4177
+[#4179]: https://github.com/intellij-rust/intellij-rust/pull/4179
+[#4181]: https://github.com/intellij-rust/intellij-rust/pull/4181
+[#4182]: https://github.com/intellij-rust/intellij-rust/pull/4182
+[#4183]: https://github.com/intellij-rust/intellij-rust/pull/4183
+[#4184]: https://github.com/intellij-rust/intellij-rust/pull/4184
+[#4188]: https://github.com/intellij-rust/intellij-rust/pull/4188
+[#4190]: https://github.com/intellij-rust/intellij-rust/pull/4190
+[#4194]: https://github.com/intellij-rust/intellij-rust/pull/4194
+[#4195]: https://github.com/intellij-rust/intellij-rust/pull/4195
+[#4202]: https://github.com/intellij-rust/intellij-rust/pull/4202
+[#4206]: https://github.com/intellij-rust/intellij-rust/pull/4206
+[#4210]: https://github.com/intellij-rust/intellij-rust/pull/4210
+[#4213]: https://github.com/intellij-rust/intellij-rust/pull/4213
+[#4226]: https://github.com/intellij-rust/intellij-rust/pull/4226

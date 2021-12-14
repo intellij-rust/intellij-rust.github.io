@@ -7,52 +7,53 @@ date: 2019-11-18 16:49:30 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4492 -->
-* Add completion inside `cfg` attributes.
+* [#4492] Add completion inside `cfg` attributes.
 Note, the set of supported options is quite small and doesn't include [features](https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section) at this moment
 
     {% include gif-img.html path="/assets/posts/changelog-110/cfg-completion" w="700px" %}
 
 * Toml plugin improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4612 -->
-    * Provide color settings for toml language.
+    * [#4612] Provide color settings for toml language.
     You can change the corresponding colors via `Preferences | Editor | Color Scheme | Toml` setting panel
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4569 -->
-    * Highlight escape symbols like `\n` or `\u0020`
+    * [#4569] Highlight escape symbols like `\n` or `\u0020`
 
         <img src="/assets/posts/changelog-110/toml_highlight_escape_symbols.png" alt="highlight toml escape symbols" width="650px"/>
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4612 -->
-    * Highlight integer numbers, dates and keys properly.
+    * [#4612] Highlight integer numbers, dates and keys properly.
     Previously, the plugin didn't determine integer numbers, dates, and number/date-like keys while highlighting.
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4480 -->
-* Show parent item (`trait` or `impl`) for associated items in usage results
+* [#4480] Show parent item (`trait` or `impl`) for associated items in usage results
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4638 -->
-* Fix navigation in `Build` tool window for compile errors comes from macro expansions.
+* [#4638] Fix navigation in `Build` tool window for compile errors comes from macro expansions.
 Note, `Build` tool window is disabled by default for now.
 To turn it on, enable `org.rust.cargo.build.tool.window` option via `Experimental Features` dialog
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4555 -->
-* Fix parsing of compile errors to show them correctly in `Build` tool window.
+* [#4555] Fix parsing of compile errors to show them correctly in `Build` tool window.
 It also fixes the absence of error annotations provided by external linter
 (see `Preferences | Languages & Frameworks | Rust | Cargo | External Linter`) in some cases
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4596 -->
-* Improve detection of type mismatches for partially unknown types
+* [#4596] Improve detection of type mismatches for partially unknown types
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4600 -->
-* Do not show deprecate error annotations for `Self` identifier
+* [#4600] Do not show deprecate error annotations for `Self` identifier
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4597 -->
-* Ignore `impl`s with unresolved trait while name resolution
+* [#4597] Ignore `impl`s with unresolved trait while name resolution
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4485 -->
-* Render parameter hints without unexpected `mut`, extra spaces and line separators
+* [#4485] Render parameter hints without unexpected `mut`, extra spaces and line separators
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/18?closed=1)
 
 
+
+
+[#4480]: https://github.com/intellij-rust/intellij-rust/pull/4480
+[#4485]: https://github.com/intellij-rust/intellij-rust/pull/4485
+[#4492]: https://github.com/intellij-rust/intellij-rust/pull/4492
+[#4555]: https://github.com/intellij-rust/intellij-rust/pull/4555
+[#4569]: https://github.com/intellij-rust/intellij-rust/pull/4569
+[#4596]: https://github.com/intellij-rust/intellij-rust/pull/4596
+[#4597]: https://github.com/intellij-rust/intellij-rust/pull/4597
+[#4600]: https://github.com/intellij-rust/intellij-rust/pull/4600
+[#4612]: https://github.com/intellij-rust/intellij-rust/pull/4612
+[#4638]: https://github.com/intellij-rust/intellij-rust/pull/4638

@@ -7,8 +7,7 @@ date: 2020-11-30 10:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6378 -->
-* Introduce the new experimental engine for name resolution (disabled by default).
+* [#6378] Introduce the new experimental engine for name resolution (disabled by default).
   The new algorithm (aka name resolution 2.0) uses the fixed-point iteration approach and aims to improve our support for
   complex glob imports (`use foo::*`) and re-exports. Also, it will allow the plugin to expand the upcoming
   [macros 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) properly.
@@ -20,41 +19,32 @@ date: 2020-11-30 10:00:00 +0300
   it out and share if you face any issues. It will help us to polish the new algorithm and make it the default one. Please use `Help | Create New Issue` action in your IDE or our
   [issue tracker](https://github.com/intellij-rust/intellij-rust/issues/new) directly to file your issues.
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6276 -->
-* Support `Go to Declaration` (<kbd>Ctrl</kbd> + <kbd>B</kbd>) for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in
+* [#6276] Support `Go to Declaration` (<kbd>Ctrl</kbd> + <kbd>B</kbd>) for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in
   [`cfg`](https://doc.rust-lang.org/reference/conditional-compilation.html#the-cfg-attribute) and
   [`cfg_attr`](https://doc.rust-lang.org/reference/conditional-compilation.html#the-cfg_attr-attribute) attributes.
 
   {% include gif-img.html path="/assets/posts/changelog-136/6276" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6396 -->
-* Take into account macro invocations in type context, e.g. `const FOO: foobar!() = 1`
+* [#6396] Take into account macro invocations in type context, e.g. `const FOO: foobar!() = 1`
 
 * Compiler errors detection improvements:
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6352 -->
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6413 -->
-  * Detect attributes that require parentheses but haven't them, and suggest `Add parentheses`
+  * [#6352], [#6413] Detect attributes that require parentheses but haven't them, and suggest `Add parentheses`
     quick-fix (by [@zeroeightysix])
 
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6372 -->
-  * Detect the missing type of `const` and `static` items as a semantic error and produce a user-friendly error message.
+  * [#6372] Detect the missing type of `const` and `static` items as a semantic error and produce a user-friendly error message.
     Also, provide a quick-fix to add explicit type in such cases (by [@Kobzol])
 
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/6319 -->
-  * Detect [E0057](https://doc.rust-lang.org/error-index.html#E0057) in some cases (by [@zeroeightysix])
+  * [#6319] Detect [E0057](https://doc.rust-lang.org/error-index.html#E0057) in some cases (by [@zeroeightysix])
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6395 -->
-* Slightly optimize syntax highlighting and other analysis
+* [#6395] Slightly optimize syntax highlighting and other analysis
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6380 -->
-* Fix macro group matching in some cases. In particular, this fixes completion in `tokio 0.3`
+* [#6380] Fix macro group matching in some cases. In particular, this fixes completion in `tokio 0.3`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6323 -->
-* Validate Perf profiler settings when running code with
+* [#6323] Validate Perf profiler settings when running code with
   [CPU profiler](https://www.jetbrains.com/help/clion/cpu-profiler.html) on Linux.
   Now, in case of no `perf` path specified in settings, IDE will show an error with a link to configure the profiler settings
 
@@ -62,3 +52,15 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 
 [@Kobzol]: https://github.com/Kobzol
 [@zeroeightysix]: https://github.com/zeroeightysix
+
+
+[#6276]: https://github.com/intellij-rust/intellij-rust/pull/6276
+[#6319]: https://github.com/intellij-rust/intellij-rust/pull/6319
+[#6323]: https://github.com/intellij-rust/intellij-rust/pull/6323
+[#6352]: https://github.com/intellij-rust/intellij-rust/pull/6352
+[#6372]: https://github.com/intellij-rust/intellij-rust/pull/6372
+[#6378]: https://github.com/intellij-rust/intellij-rust/pull/6378
+[#6380]: https://github.com/intellij-rust/intellij-rust/pull/6380
+[#6395]: https://github.com/intellij-rust/intellij-rust/pull/6395
+[#6396]: https://github.com/intellij-rust/intellij-rust/pull/6396
+[#6413]: https://github.com/intellij-rust/intellij-rust/pull/6413

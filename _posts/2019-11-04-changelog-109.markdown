@@ -7,8 +7,7 @@ date: 2019-11-04 13:54:53 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4542 -->
-* Support `env!("OUT_DIR")` in `include!` macro calls in experimental mode.
+* [#4542] Support `env!("OUT_DIR")` in `include!` macro calls in experimental mode.
 So now the plugin supports all code insight features (highlighting, navigation, completion, etc.) for code generated while compilation in most cases.
 Under the hood, it uses the output of `cargo build --build-plan` command to get value of `OUT_DIR` variable.
 Note, this feature is disabled by default because found out that
@@ -17,8 +16,7 @@ To turn it on just enable `org.rust.cargo.fetch.out.dir` option in `Experimental
 
     {% include gif-img.html path="/assets/posts/changelog-109/out-dir-support" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4581 -->
-* Support code coverage in CLion.
+* [#4581] Support code coverage in CLion.
 It's available since [recent 2019.3 EAP](https://blog.jetbrains.com/clion/2019/10/clion-2019-3-eap-coverage-cmake-defaults-lldb/#code_coverage) release.
 Implementation is based on [grcov](https://github.com/mozilla/grcov) utility.
 If the utility is not installed on your machine, the plugin will suggest installing it.
@@ -27,34 +25,27 @@ Note, it requires nightly toolchain to instrument code properly.
 
     {% include gif-img.html path="/assets/posts/changelog-109/code-coverage-in-clion" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4397  -->
-* Make `Build` action take into account only selected configuration if possible.
+* [#4397] Make `Build` action take into account only selected configuration if possible.
 So, if you have run configuration that runs a specific target, then `Build` action will build only that target.
 Note, it works only when build tool window is enabled. You can turn it on via `Experimental Features | org.rust.cargo.build.tool.window` option
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4491 -->
-* Parse macro calls with missing `;` at the end in right way.
+* [#4491] Parse macro calls with missing `;` at the end in right way.
 Previously, the plugin showed a lot of syntax errors for macro calls in this case
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4572 -->
-* Correctly highlight `async`, `await` and `try` keywords in code disabled by `cfg` attribute
+* [#4572] Correctly highlight `async`, `await` and `try` keywords in code disabled by `cfg` attribute
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4553 -->
-* Render `async` keyword for `async` functions in quick documentation
+* [#4553] Render `async` keyword for `async` functions in quick documentation
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4513 -->
-* Take into account `async` keyword by `Implement members` quick fix
+* [#4513] Take into account `async` keyword by `Implement members` quick fix
 
 ## Internal Improvements
 
 * Macros improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4491 -->
-    * Implement manual parsing of macro calls.
+    * [#4491] Implement manual parsing of macro calls.
     It should make macro call parsing faster and simplify special parser rules for macro calls (like existing parser rules for `vec!` and `include!`) in grammar.
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4522 -->
-    * Rework mapping between macro calls and the corresponding expansions.
+    * [#4522] Rework mapping between macro calls and the corresponding expansions.
     It should make implementation more stable in general and fix some sporadic exceptions
 
 
@@ -62,3 +53,13 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 
 
 
+
+
+[#4397]: https://github.com/intellij-rust/intellij-rust/pull/4397
+[#4491]: https://github.com/intellij-rust/intellij-rust/pull/4491
+[#4513]: https://github.com/intellij-rust/intellij-rust/pull/4513
+[#4522]: https://github.com/intellij-rust/intellij-rust/pull/4522
+[#4542]: https://github.com/intellij-rust/intellij-rust/pull/4542
+[#4553]: https://github.com/intellij-rust/intellij-rust/pull/4553
+[#4572]: https://github.com/intellij-rust/intellij-rust/pull/4572
+[#4581]: https://github.com/intellij-rust/intellij-rust/pull/4581

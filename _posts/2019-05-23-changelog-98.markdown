@@ -37,46 +37,36 @@ and [E0184](https://doc.rust-lang.org/error-index.html#E0184) (by [@mibac138])
 
     {% include gif-img.html path="/assets/posts/changelog-98/code-insight-in-evaluate-expression" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3738 -->
-* Improve `Convert to named fields` refactoring.
+* [#3738] Improve `Convert to named fields` refactoring.
 Now it allows converting all usages of the struct to the corresponding representation (by [@rrevenantt])
 
   {% include gif-img.html path="/assets/posts/changelog-98/improve-convert-to-named-fields-refactoring" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3779 -->
-* Automatically detect stdlib sources in `rustc` sysroot even if rustup is absent
+* [#3779] Automatically detect stdlib sources in `rustc` sysroot even if rustup is absent
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3796 -->
-* Take into account constants of primitive types: `bool`, `f32/64`, `char` and `&str` in `Match Check` inspection.
+* [#3796] Take into account constants of primitive types: `bool`, `f32/64`, `char` and `&str` in `Match Check` inspection.
 In addition, the inspection can evaluate constant boolean expressions while analysis (constant functions are not supported)
 like it has already implemented for integer expressions
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3819 -->
-* Now it’s possible to filter usage of variables and fields by read/write access [png](https://user-images.githubusercontent.com/4854600/58246480-d5922280-7d5f-11e9-9200-802b9ac87f08.png)
+* [#3819] Now it’s possible to filter usage of variables and fields by read/write access [png](https://user-images.githubusercontent.com/4854600/58246480-d5922280-7d5f-11e9-9200-802b9ac87f08.png)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3520  -->
-* Support more types from stdlib, like `Rc`, `Arc`, `Cell`, `RefCell`, etc., in `Add missing fields` quick fix (by [@Kobzol])
+* [#3520] Support more types from stdlib, like `Rc`, `Arc`, `Cell`, `RefCell`, etc., in `Add missing fields` quick fix (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-98/arc-in-add-missing-fields-refactoring" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3826 -->
-* Notify a user when a file is not included in the project structure.
+* [#3826] Notify a user when a file is not included in the project structure.
 It should simplify to find out the reason why common IDE features (e.g., name resolution, completion, etc.) don't work properly in the file (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3778 -->
-* Add `Flatten use statements` intention (by [@mibac138])
+* [#3778] Add `Flatten use statements` intention (by [@mibac138])
 
   {% include gif-img.html path="/assets/posts/changelog-98/flatten-use-statements-intention" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3745 -->
-* Allow folding of macros and macro expansion branches (by [@ice1000])
+* [#3745] Allow folding of macros and macro expansion branches (by [@ice1000])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3736 -->
-* Add `Show the result of macro expansion` intention to invoke `cargo expand` command.
+* [#3736] Add `Show the result of macro expansion` intention to invoke `cargo expand` command.
 If you don't have the corresponding package, the plugin shows a notification to install `cargo-expand` binary in one click
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3827 -->
-* Update `Extract function` dialog. Now it allows changing parameter names.
+* [#3827] Update `Extract function` dialog. Now it allows changing parameter names.
 Also, it validates creating function name (by [@Kobzol])
 
 ## Fixes
@@ -113,8 +103,7 @@ This feature has been working for 2015 edition crates for a long time but was br
 
 * More precise code highlighting in doc tests
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3800 -->
-* Parse 4 slashes in doc comments properly (by [@rrevenantt])
+* [#3800] Parse 4 slashes in doc comments properly (by [@rrevenantt])
 
 ## Internal Improvements
 
@@ -127,3 +116,16 @@ This feature has been working for 2015 edition crates for a long time but was br
 [@mibac138]: https://github.com/mibac138
 [@rrevenantt]: https://github.com/rrevenantt
 [@vlad20012]: https://github.com/vlad20012
+
+
+[#3520]: https://github.com/intellij-rust/intellij-rust/pull/3520
+[#3736]: https://github.com/intellij-rust/intellij-rust/pull/3736
+[#3738]: https://github.com/intellij-rust/intellij-rust/pull/3738
+[#3745]: https://github.com/intellij-rust/intellij-rust/pull/3745
+[#3778]: https://github.com/intellij-rust/intellij-rust/pull/3778
+[#3779]: https://github.com/intellij-rust/intellij-rust/pull/3779
+[#3796]: https://github.com/intellij-rust/intellij-rust/pull/3796
+[#3800]: https://github.com/intellij-rust/intellij-rust/pull/3800
+[#3819]: https://github.com/intellij-rust/intellij-rust/pull/3819
+[#3826]: https://github.com/intellij-rust/intellij-rust/pull/3826
+[#3827]: https://github.com/intellij-rust/intellij-rust/pull/3827

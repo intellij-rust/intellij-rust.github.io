@@ -10,56 +10,58 @@ This is the last release that supports the 2019.1 platform. To receive plugin up
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4385 -->
-* Support 2019.3 EAPs
+* [#4385] Support 2019.3 EAPs
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4353 -->
-* Implement `Navigation | Implementation(s)` action (<kbd>Ctrl+Alt+B</kbd>/<kbd>Cmd+Alt+B</kbd>) for trait members (by [@rrevenantt])
+* [#4353] Implement `Navigation | Implementation(s)` action (<kbd>Ctrl+Alt+B</kbd>/<kbd>Cmd+Alt+B</kbd>) for trait members (by [@rrevenantt])
 
   {% include gif-img.html path="/assets/posts/changelog-106/trait-member-implementations" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4293 -->
-* Support [`--offline`](https://github.com/rust-lang/cargo/pull/6934/) Cargo option stabilized in 1.36.
+* [#4293] Support [`--offline`](https://github.com/rust-lang/cargo/pull/6934/) Cargo option stabilized in 1.36.
 Now, the plugin passes this flag to each Cargo command if `Preferences | Languages & Frameworks | Rust | Cargo | Offline mode` option is enabled.
 Previously, the plugin always passed `-Zoffline` instead that have been working only with nightly builds
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4352 -->
-* Various parsing optimizations. It should reduce indexing and macro expanding processes duration
+* [#4352] Various parsing optimizations. It should reduce indexing and macro expanding processes duration
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4396 -->
-* Support `async` and `try` blocks in lambdas
+* [#4396] Support `async` and `try` blocks in lambdas
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4359 -->
-* Provide a link to external documentation for non stdlib items
+* [#4359] Provide a link to external documentation for non stdlib items
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4287 -->
-* Enhance Cargo tool window.
+* [#4287] Enhance Cargo tool window.
 Now it contains `Expand All` and `Collapse All` actions. In addition, action toolbar has the same layout style as other similar tool windows
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4376 -->
-* Better type inference of `await` expressions
+* [#4376] Better type inference of `await` expressions
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4383 -->
-* Prevent an infinite recursion during macro expansion
+* [#4383] Prevent an infinite recursion during macro expansion
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4374 -->
-* Fix `NullPointerException` while parsing of rustc commit date.
+* [#4374] Fix `NullPointerException` while parsing of rustc commit date.
 Previously, it prevented correct project metadata updates with custom builds of `rustc`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4336 -->
-* Do not add unexpected `;` when `Complete current statement` (add shortcut here) action is invoked (by [@t-kameyama])
+* [#4336] Do not add unexpected `;` when `Complete current statement` (add shortcut here) action is invoked (by [@t-kameyama])
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4356 -->
-* Update docs about releases
+* [#4356] Update docs about releases
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4357 -->
-* Support lazy parsing for macros. In general, it reduces parsing time while indexing
+* [#4357] Support lazy parsing for macros. In general, it reduces parsing time while indexing
 but this improvement is not visible to users (in comparison with the previous version).
 So it's more a proof of concept to make further similar improvements easier
 
 [@rrevenantt]: https://github.com/rrevenantt
 [@t-kameyama]: https://github.com/t-kameyama
+
+
+[#4287]: https://github.com/intellij-rust/intellij-rust/pull/4287
+[#4293]: https://github.com/intellij-rust/intellij-rust/pull/4293
+[#4336]: https://github.com/intellij-rust/intellij-rust/pull/4336
+[#4352]: https://github.com/intellij-rust/intellij-rust/pull/4352
+[#4353]: https://github.com/intellij-rust/intellij-rust/pull/4353
+[#4356]: https://github.com/intellij-rust/intellij-rust/pull/4356
+[#4357]: https://github.com/intellij-rust/intellij-rust/pull/4357
+[#4359]: https://github.com/intellij-rust/intellij-rust/pull/4359
+[#4374]: https://github.com/intellij-rust/intellij-rust/pull/4374
+[#4376]: https://github.com/intellij-rust/intellij-rust/pull/4376
+[#4383]: https://github.com/intellij-rust/intellij-rust/pull/4383
+[#4385]: https://github.com/intellij-rust/intellij-rust/pull/4385
+[#4396]: https://github.com/intellij-rust/intellij-rust/pull/4396

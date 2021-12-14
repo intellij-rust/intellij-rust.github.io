@@ -7,78 +7,61 @@ date: 2020-12-28 17:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6530 -->
-* Enable `Build` tool window by default. The `Build` tool window provides structured output for `build`, `run` and `test` commands.
+* [#6530] Enable `Build` tool window by default. The `Build` tool window provides structured output for `build`, `run` and `test` commands.
   Note, this feature requires Cargo 1.48.0 or higher
 
   {% include gif-img.html path="/assets/posts/changelog-138/build-tool-window" w="700px" %}
 
   You can disable it via `org.rust.cargo.build.window` option in `Experimental Features` dialog (`Help | Find Action` and type `Experimental features` to open the dialog)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6419 -->
-* Provide experimental code completion ranking for Rust based on machine learning.
+* [#6419] Provide experimental code completion ranking for Rust based on machine learning.
   It applies rules learned from data we have gathered anonymously during our EAPs, which results in better suggestions.
   Note that we have not collected any source code, only information about your interactions with the code completion UI.
   The ranking model is disabled by default for now.
   You can enable it via `Editor | General | Code Completion | Machine Learning-Assisted Completion` [settings](https://www.jetbrains.com/help/idea/auto-completing-code.html#ml_completion).
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6443 -->
-* Update obsolete references in `use` groups via `Move` refactoring (<kbd>F6</kbd>).
+* [#6443] Update obsolete references in `use` groups via `Move` refactoring (<kbd>F6</kbd>).
   Now, when moving `foo` from `mod1` to `mod2`, the outdated group import `use mod1::{foo, bar};` will be replaced with the proper `use mod2::foo; use mod1::bar;`.
 
   {% include gif-img.html path="/assets/posts/changelog-138/move-use" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5644 -->
-* Add `Fill missing arguments` quick-fix to complete a function call arguments with default values (by [@Kobzol])
+* [#5644] Add `Fill missing arguments` quick-fix to complete a function call arguments with default values (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-138/fill-arguments" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5771 -->
-* Add the intention to change item visibility (by [@Kobzol])
+* [#5771] Add the intention to change item visibility (by [@Kobzol])
 
   {% include gif-img.html path="/assets/posts/changelog-138/make-pub" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6390 -->
-* Introduce experimental `Cargo.toml` dependency completion based on the new local Cargo registry index.
+* [#6390] Introduce experimental `Cargo.toml` dependency completion based on the new local Cargo registry index.
   Note, the corresponding feature is disabled by default for now. You can enable it via `org.rust.crates.local.index` option in `Experimental Features` dialog (`Help | Find Action` and type `Experimental features` to open the dialog)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6492 -->
-* Show [quick documentation](https://www.jetbrains.com/help/idea/viewing-reference-information.html#inline-quick-documentation) for [keyword](https://doc.rust-lang.org/stable/std/#keywords)-like elements, e.g. `fn`, `enum`, `async`, etc
+* [#6492] Show [quick documentation](https://www.jetbrains.com/help/idea/viewing-reference-information.html#inline-quick-documentation) for [keyword](https://doc.rust-lang.org/stable/std/#keywords)-like elements, e.g. `fn`, `enum`, `async`, etc
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6273 -->
-* Provide highlighting of string-formatting macros from `log` crate, in addition to already supported macros from stdlib like `println`, `format`, etc. (by [@Kobzol])
+* [#6273] Provide highlighting of string-formatting macros from `log` crate, in addition to already supported macros from stdlib like `println`, `format`, etc. (by [@Kobzol])
 
 ## Performance Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6526 -->
-* Speedup name resolution, especially in large Rust modules
+* [#6526] Speedup name resolution, especially in large Rust modules
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6498 -->
-* Resolve derive procedural macros with [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine.
+* [#6498] Resolve derive procedural macros with [new name resolution](https://github.com/intellij-rust/intellij-rust/issues/6217) engine.
   Note, you can enable the new engine via `Use experimental name resolution engine` option in `Preferences | Languages & Frameworks | Rust` settings
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4254 -->
-* Proper support for ANSI escape codes in `Build` tool window
+* [#4254] Proper support for ANSI escape codes in `Build` tool window
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6536 -->
-* Fix rendering of generic types in [`E0277`](https://doc.rust-lang.org/error-index.html#E0277) error message
+* [#6536] Fix rendering of generic types in [`E0277`](https://doc.rust-lang.org/error-index.html#E0277) error message
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6533 -->
-* Improve popup of `Has implementations` gutter icon by items sorting and allowing to open results in `Find` tool window
+* [#6533] Improve popup of `Has implementations` gutter icon by items sorting and allowing to open results in `Find` tool window
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6506 -->
-* Fix false-positive warnings about wrong naming convention for [non-ASCII identifiers](https://rust-lang.github.io/rfcs/2457-non-ascii-idents.html) (by [@Stzx])
+* [#6506] Fix false-positive warnings about wrong naming convention for [non-ASCII identifiers](https://rust-lang.github.io/rfcs/2457-non-ascii-idents.html) (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6491 -->
-* Do not annotate `cfg`-disabled trait items as missing ([E0046](https://doc.rust-lang.org/error-index.html#E0046)) and do not offer them via `Generate members` action (by [@Kobzol])
+* [#6491] Do not annotate `cfg`-disabled trait items as missing ([E0046](https://doc.rust-lang.org/error-index.html#E0046)) and do not offer them via `Generate members` action (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6404 -->
-* Parse fully qualified macro calls at top-level properly (by [@msmorgan])
+* [#6404] Parse fully qualified macro calls at top-level properly (by [@msmorgan])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6004 -->
-* Fix inlining of function arguments (by [@SaarYogev])
+* [#6004] Fix inlining of function arguments (by [@SaarYogev])
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/46?closed=1)
 
@@ -86,3 +69,22 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@SaarYogev]: https://github.com/SaarYogev
 [@Stzx]: https://github.com/Stzx
 [@msmorgan]: https://github.com/msmorgan
+
+
+[#4254]: https://github.com/intellij-rust/intellij-rust/pull/4254
+[#5644]: https://github.com/intellij-rust/intellij-rust/pull/5644
+[#5771]: https://github.com/intellij-rust/intellij-rust/pull/5771
+[#6004]: https://github.com/intellij-rust/intellij-rust/pull/6004
+[#6273]: https://github.com/intellij-rust/intellij-rust/pull/6273
+[#6390]: https://github.com/intellij-rust/intellij-rust/pull/6390
+[#6404]: https://github.com/intellij-rust/intellij-rust/pull/6404
+[#6419]: https://github.com/intellij-rust/intellij-rust/pull/6419
+[#6443]: https://github.com/intellij-rust/intellij-rust/pull/6443
+[#6491]: https://github.com/intellij-rust/intellij-rust/pull/6491
+[#6492]: https://github.com/intellij-rust/intellij-rust/pull/6492
+[#6498]: https://github.com/intellij-rust/intellij-rust/pull/6498
+[#6506]: https://github.com/intellij-rust/intellij-rust/pull/6506
+[#6526]: https://github.com/intellij-rust/intellij-rust/pull/6526
+[#6530]: https://github.com/intellij-rust/intellij-rust/pull/6530
+[#6533]: https://github.com/intellij-rust/intellij-rust/pull/6533
+[#6536]: https://github.com/intellij-rust/intellij-rust/pull/6536

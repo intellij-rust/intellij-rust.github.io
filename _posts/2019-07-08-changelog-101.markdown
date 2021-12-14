@@ -7,20 +7,17 @@ date: 2019-07-08 17:21:29 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4001 -->
-* Add initial completion inside macro calls
+* [#4001] Add initial completion inside macro calls
 
   {% include gif-img.html path="/assets/posts/changelog-101/completion-in-macro-call" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3792 -->
-* Navigation works inside macro calls now.
+* [#3792] Navigation works inside macro calls now.
 Note, it works only when the new experimental macro expansion engine is enabled.
 You can turn it on via `Preferences | Languages & Frameworks | Rust | Expand declarative macros` option
 
   {% include gif-img.html path="/assets/posts/changelog-101/navigation-in-macro-call" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4002 -->
-* Support [`Duplicated code fragment`](https://www.jetbrains.com/help/idea/analyzing-duplicates.html#dup) inspection for Rust.
+* [#4002] Support [`Duplicated code fragment`](https://www.jetbrains.com/help/idea/analyzing-duplicates.html#dup) inspection for Rust.
 The inspection can detect duplicates even with different names of local variables, functions and fields, and values of literals.
 By default, only anonymization of local variable names is enabled.
 You may change default settings via `Preferences | Editor | Duplicates | Rust`.
@@ -28,47 +25,35 @@ Note, this inspection is available since 2019.2 and not available in free IDEs l
 
   {% include gif-img.html path="/assets/posts/changelog-101/duplicate-inspection" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4064 -->
-* Add `Create field` quick fix for `No such field` error annotation (by [@t-kameyama])
+* [#4064] Add `Create field` quick fix for `No such field` error annotation (by [@t-kameyama])
 
   {% include gif-img.html path="/assets/posts/changelog-101/create-field-fix" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3991 -->
-* Add `Convert to struct` and `Convert to tuple` intentions to invoke the corresponding refactorings via <kbd>Alt + Enter</kbd> (by [@rrevenantt])
+* [#3991] Add `Convert to struct` and `Convert to tuple` intentions to invoke the corresponding refactorings via <kbd>Alt + Enter</kbd> (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4055 -->
-* Provide proper navigation from `derive` arguments and custom attributes to the corresponding definition of procedural macros (by [@fedochet])
+* [#4055] Provide proper navigation from `derive` arguments and custom attributes to the corresponding definition of procedural macros (by [@fedochet])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3946 -->
-* Add quick fix to create a subdirectory with the corresponding `mod.rs` for unresolved module declaration (by [@mibac138])
+* [#3946] Add quick fix to create a subdirectory with the corresponding `mod.rs` for unresolved module declaration (by [@mibac138])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4069 -->
-* Support [arbitrary enum discriminants](https://github.com/rust-lang/rfcs/blob/master/text/2363-arbitrary-enum-discriminant.md) (by [@mibac138])
+* [#4069] Support [arbitrary enum discriminants](https://github.com/rust-lang/rfcs/blob/master/text/2363-arbitrary-enum-discriminant.md) (by [@mibac138])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4050 -->
-* Automatically open `lib.rs`/`main.rs` when project is created
+* [#4050] Automatically open `lib.rs`/`main.rs` when project is created
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4059 -->
-* Detect [E0586](https://doc.rust-lang.org/error-index.html#E0586) compiler error (by [@mibac138])
+* [#4059] Detect [E0586](https://doc.rust-lang.org/error-index.html#E0586) compiler error (by [@mibac138])
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4071 -->
-* Make `Auto Import` works correctly when an imported trait is re-exported
+* [#4071] Make `Auto Import` works correctly when an imported trait is re-exported
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4101 -->
-* Fix occurred exception while invoking `Make public fix` quick fix for module declarations
+* [#4101] Fix occurred exception while invoking `Make public fix` quick fix for module declarations
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4067 -->
-* Correctly parse macro calls with the same names as stdlib provides
+* [#4067] Correctly parse macro calls with the same names as stdlib provides
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4082 -->
-* Make lexer incremental (by [@rrevenantt])
+* [#4082] Make lexer incremental (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4113 -->
-* Add `Create New Issue` action. Now it’s possible to open issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE.
+* [#4113] Add `Create New Issue` action. Now it’s possible to open issue in our [tracker](https://github.com/intellij-rust/intellij-rust/issues/new) right from your IDE.
 The action automatically collects environment information about IDE, plugin, Rust versions, etc.
 Also, selected code is added into `Steps to reproduce` issue section
 
@@ -78,3 +63,20 @@ Also, selected code is added into `Steps to reproduce` issue section
 [@mibac138]: https://github.com/mibac138
 [@rrevenantt]: https://github.com/rrevenantt
 [@t-kameyama]: https://github.com/t-kameyama
+
+
+[#3792]: https://github.com/intellij-rust/intellij-rust/pull/3792
+[#3946]: https://github.com/intellij-rust/intellij-rust/pull/3946
+[#3991]: https://github.com/intellij-rust/intellij-rust/pull/3991
+[#4001]: https://github.com/intellij-rust/intellij-rust/pull/4001
+[#4002]: https://github.com/intellij-rust/intellij-rust/pull/4002
+[#4050]: https://github.com/intellij-rust/intellij-rust/pull/4050
+[#4055]: https://github.com/intellij-rust/intellij-rust/pull/4055
+[#4059]: https://github.com/intellij-rust/intellij-rust/pull/4059
+[#4064]: https://github.com/intellij-rust/intellij-rust/pull/4064
+[#4067]: https://github.com/intellij-rust/intellij-rust/pull/4067
+[#4069]: https://github.com/intellij-rust/intellij-rust/pull/4069
+[#4071]: https://github.com/intellij-rust/intellij-rust/pull/4071
+[#4082]: https://github.com/intellij-rust/intellij-rust/pull/4082
+[#4101]: https://github.com/intellij-rust/intellij-rust/pull/4101
+[#4113]: https://github.com/intellij-rust/intellij-rust/pull/4113

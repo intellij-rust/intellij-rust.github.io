@@ -7,76 +7,78 @@ date: 2020-11-02 12:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6267 -->
-* Support debugging in [IDEA Ultimate](https://www.jetbrains.com/idea/) and [RubyMine](https://www.jetbrains.com/ruby/) on Windows.
+* [#6267] Support debugging in [IDEA Ultimate](https://www.jetbrains.com/idea/) and [RubyMine](https://www.jetbrains.com/ruby/) on Windows.
   Note, it requires [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support) plugin and supports only MSVC toolchain.
   See current progress and restrictions of MSVC debugging support [here](https://github.com/intellij-rust/intellij-rust/issues/5632)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6242 -->
-* Show project loading steps in the `Sync` tool window. Now it's more convenient to see errors of project loading
+* [#6242] Show project loading steps in the `Sync` tool window. Now it's more convenient to see errors of project loading
 
     <img src="/assets/posts/changelog-134/sync-tool-window.png" alt="Sync tool window" width="700px"/>
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5646 -->
-* Provide completion for `rustc` and `clippy` [lint attributes](https://doc.rust-lang.org/rustc/lints/levels.html) (by [@Kobzol])
+* [#5646] Provide completion for `rustc` and `clippy` [lint attributes](https://doc.rust-lang.org/rustc/lints/levels.html) (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-134/lint-attrs-completion" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6204 -->
-* Support `Go to Declaration` for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in `Cargo.toml`
+* [#6204] Support `Go to Declaration` for Cargo [features](https://doc.rust-lang.org/cargo/reference/features.html) in `Cargo.toml`
 
     {% include gif-img.html path="/assets/posts/changelog-134/goto-cargo-features" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5871 -->
-* Check if struct fields are not bound multiple times in struct patterns (see [E0025](https://doc.rust-lang.org/error-index.html#E0025)) (by [@Kobzol])
+* [#5871] Check if struct fields are not bound multiple times in struct patterns (see [E0025](https://doc.rust-lang.org/error-index.html#E0025)) (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6107 -->
-* Move refactoring (`Refactor | Move` or <kbd>F6</kbd>) improvements:
+* [#6107] Move refactoring (`Refactor | Move` or <kbd>F6</kbd>) improvements:
     * Support move multiple files/directories
     * Support move a file to another crate
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6205 -->
-* Clear variables view on `:clear` command in REPL (`Tools | Rust REPL`)
+* [#6205] Clear variables view on `:clear` command in REPL (`Tools | Rust REPL`)
 
 ## Fixes
 
 * Cargo features [support](https://blog.jetbrains.com/clion/2020/10/intellij-rust-new-functionality-for-cargo-features/) improvements:
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6279 -->
-    * Take into account workspace features in external linter integration (`Languages & Frameworks | Rust | Cargo`)
+    * [#6279] Take into account workspace features in external linter integration (`Languages & Frameworks | Rust | Cargo`)
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6280 -->
-    * Refresh inlay hints (`Preferences | Editor | Inlay Hints | Rust`) on enabling / disabling Cargo features in `Cargo.toml`
+    * [#6280] Refresh inlay hints (`Preferences | Editor | Inlay Hints | Rust`) on enabling / disabling Cargo features in `Cargo.toml`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6249 -->
-* Fix rendering of `NonZero` types in Rust 1.48+ while debugging (by [@Kobzol])
+* [#6249] Fix rendering of `NonZero` types in Rust 1.48+ while debugging (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6253 -->
-* Don't suggest `Create function` intention inside parentheses (by [@Kobzol])
+* [#6253] Don't suggest `Create function` intention inside parentheses (by [@Kobzol])
 
 * Parser improvements:
 
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6299 -->
-    * Fix float literal parsing
+    * [#6299] Fix float literal parsing
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6281 -->
-    * Allow using `bool` literals as `ident` fragments or `metavar` names in macros
+    * [#6281] Allow using `bool` literals as `ident` fragments or `metavar` names in macros
     
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/6283 -->
-    * Improve the parser recovering in several cases
+    * [#6283] Improve the parser recovering in several cases
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6251 -->
-* Correctly parse pre-release suffix of rustc version
+* [#6251] Correctly parse pre-release suffix of rustc version
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6106 -->
-* Improve newline handling in `Move items` refactoring
+* [#6106] Improve newline handling in `Move items` refactoring
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6250 -->
-* Now `Setup toolchain` action shows Rust settings dialog
+* [#6250] Now `Setup toolchain` action shows Rust settings dialog
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/6248 -->
-* Allow only left mouse button double-click to run a target in the Cargo tool window
+* [#6248] Allow only left mouse button double-click to run a target in the Cargo tool window
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/42?closed=1)
 
 [@Kobzol]: https://github.com/Kobzol
+
+
+[#5646]: https://github.com/intellij-rust/intellij-rust/pull/5646
+[#5871]: https://github.com/intellij-rust/intellij-rust/pull/5871
+[#6106]: https://github.com/intellij-rust/intellij-rust/pull/6106
+[#6107]: https://github.com/intellij-rust/intellij-rust/pull/6107
+[#6204]: https://github.com/intellij-rust/intellij-rust/pull/6204
+[#6205]: https://github.com/intellij-rust/intellij-rust/pull/6205
+[#6242]: https://github.com/intellij-rust/intellij-rust/pull/6242
+[#6248]: https://github.com/intellij-rust/intellij-rust/pull/6248
+[#6249]: https://github.com/intellij-rust/intellij-rust/pull/6249
+[#6250]: https://github.com/intellij-rust/intellij-rust/pull/6250
+[#6251]: https://github.com/intellij-rust/intellij-rust/pull/6251
+[#6253]: https://github.com/intellij-rust/intellij-rust/pull/6253
+[#6267]: https://github.com/intellij-rust/intellij-rust/pull/6267
+[#6279]: https://github.com/intellij-rust/intellij-rust/pull/6279
+[#6280]: https://github.com/intellij-rust/intellij-rust/pull/6280
+[#6281]: https://github.com/intellij-rust/intellij-rust/pull/6281
+[#6283]: https://github.com/intellij-rust/intellij-rust/pull/6283
+[#6299]: https://github.com/intellij-rust/intellij-rust/pull/6299

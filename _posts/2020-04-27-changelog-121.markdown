@@ -7,8 +7,7 @@ date: 2020-04-27 17:16:05 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5200 -->
-* Provide initial debugger support outside of CLion. The current restrictions:
+* [#5200] Provide initial debugger support outside of CLion. The current restrictions:
   * available since 2020.1
   * only Linux and macOS are supported for now
   * supported IDEs: [IDEA Ultimate](https://www.jetbrains.com/idea/), [AppCode](https://www.jetbrains.com/objc/) and [RubyMine](https://www.jetbrains.com/ruby/)
@@ -18,72 +17,52 @@ date: 2020-04-27 17:16:05 +0300
 
    {% include gif-img.html path="/assets/posts/changelog-121/idea-debugger" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5226 -->
-* Implement type inference for [subslice patterns](https://github.com/rust-lang/rfcs/blob/master/text/2359-subslice-pattern-syntax.md)
+* [#5226] Implement type inference for [subslice patterns](https://github.com/rust-lang/rfcs/blob/master/text/2359-subslice-pattern-syntax.md)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5182 -->
-* Add `Extract enum variant` intention.
+* [#5182] Add `Extract enum variant` intention.
 Now you can extract enum variant into a separate struct and replace all usages by one action (by [@Kobzol])
 
    {% include gif-img.html path="/assets/posts/changelog-121/extract-enum-variant-intention" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5157 -->
-* Detect redundant `else` branch for [irrefutable](https://doc.rust-lang.org/book/ch18-02-refutability.html) if-let patterns by new `Redundant else` inspection (by [@Kobzol])
+* [#5157] Detect redundant `else` branch for [irrefutable](https://doc.rust-lang.org/book/ch18-02-refutability.html) if-let patterns by new `Redundant else` inspection (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5184 -->
-* Automatically insert paired `*/` for block comment on enter if needed (by [@Kobzol])
+* [#5184] Automatically insert paired `*/` for block comment on enter if needed (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3855 -->
-* Do not show warning annotations about needless explicit lifetimes when there is `allow(clippy::needless_lifetimes)` attribute
+* [#3855] Do not show warning annotations about needless explicit lifetimes when there is `allow(clippy::needless_lifetimes)` attribute
 
 ## Fixes
 
 * Rust REPL improvements:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/5244 -->
-  * Fix various bugs with incorrect output on Windows. It requires updating `evcxr_repl` binary to `0.5.1` version
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/5223 -->
-  * Parse top-level statements like `1+2;` properly
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/5170 -->
-  * Use <kbd>Ctrl+Enter</kbd> as shortcut for executing instead of <kbd>Enter</kbd>. Now you can type multiline items easier
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/5173 -->
-  * Don't throw exception while executing command during indexing
+  * [#5244] Fix various bugs with incorrect output on Windows. It requires updating `evcxr_repl` binary to `0.5.1` version
+  * [#5223] Parse top-level statements like `1+2;` properly
+  * [#5170] Use <kbd>Ctrl+Enter</kbd> as shortcut for executing instead of <kbd>Enter</kbd>. Now you can type multiline items easier
+  * [#5173] Don't throw exception while executing command during indexing
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5161 -->
-* Fix `Specify type explicitly` intention for `ref` pat bindings like `let ref a = 123;`
+* [#5161] Fix `Specify type explicitly` intention for `ref` pat bindings like `let ref a = 123;`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5130 -->
-* Do not show false positive `Struct pattern does not mention field_name` error annotation for unions (by [@Stzx])
+* [#5130] Do not show false positive `Struct pattern does not mention field_name` error annotation for unions (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5133 -->
-* Now `Add _ pattern` and `Add remaining patterns` quick fixes insert `,` after last match arm if needed to produce valid code (by [@Stzx])
+* [#5133] Now `Add _ pattern` and `Add remaining patterns` quick fixes insert `,` after last match arm if needed to produce valid code (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5220 -->
-* Fix stdlib detection for [rust-lang/rust](https://github.com/rust-lang/rust) project
+* [#5220] Fix stdlib detection for [rust-lang/rust](https://github.com/rust-lang/rust) project
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5252 -->
-* Fix spacing after visibility in plugin Rust formatter for cases like `pub &i32 field` or `pub (i32, i32) tuple`.
+* [#5252] Fix spacing after visibility in plugin Rust formatter for cases like `pub &i32 field` or `pub (i32, i32) tuple`.
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5236 -->
-* Don't remove empty lines by `Extract function` refactoring (by [@t-kameyama])
+* [#5236] Don't remove empty lines by `Extract function` refactoring (by [@t-kameyama])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5257 -->
-* Don't remove curly braces after insertion of paired `}` for selected single path in `use` item
+* [#5257] Don't remove curly braces after insertion of paired `}` for selected single path in `use` item
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5112 -->
-* Fix exception while `Cargo` tool window initialization
+* [#5112] Fix exception while `Cargo` tool window initialization
 
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5279 -->
-* Provide GitHub workflow for beta and stable releases
+* [#5279] Provide GitHub workflow for beta and stable releases
 
 * [Dynamic plugin](https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/dynamic_plugins.html) progress:
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/5222 -->
-  * Get rid of some project/application components
+  * [#5222] Get rid of some project/application components
 
-   <!-- https://github.com/intellij-rust/intellij-rust/pull/5250 -->
-  * Make all extension points of Rust plugin dynamic
+  * [#5250] Make all extension points of Rust plugin dynamic
 
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/29?closed=1)
@@ -94,3 +73,26 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 
 
 
+
+
+[#3855]: https://github.com/intellij-rust/intellij-rust/pull/3855
+[#5112]: https://github.com/intellij-rust/intellij-rust/pull/5112
+[#5130]: https://github.com/intellij-rust/intellij-rust/pull/5130
+[#5133]: https://github.com/intellij-rust/intellij-rust/pull/5133
+[#5157]: https://github.com/intellij-rust/intellij-rust/pull/5157
+[#5161]: https://github.com/intellij-rust/intellij-rust/pull/5161
+[#5170]: https://github.com/intellij-rust/intellij-rust/pull/5170
+[#5173]: https://github.com/intellij-rust/intellij-rust/pull/5173
+[#5182]: https://github.com/intellij-rust/intellij-rust/pull/5182
+[#5184]: https://github.com/intellij-rust/intellij-rust/pull/5184
+[#5200]: https://github.com/intellij-rust/intellij-rust/pull/5200
+[#5220]: https://github.com/intellij-rust/intellij-rust/pull/5220
+[#5222]: https://github.com/intellij-rust/intellij-rust/pull/5222
+[#5223]: https://github.com/intellij-rust/intellij-rust/pull/5223
+[#5226]: https://github.com/intellij-rust/intellij-rust/pull/5226
+[#5236]: https://github.com/intellij-rust/intellij-rust/pull/5236
+[#5244]: https://github.com/intellij-rust/intellij-rust/pull/5244
+[#5250]: https://github.com/intellij-rust/intellij-rust/pull/5250
+[#5252]: https://github.com/intellij-rust/intellij-rust/pull/5252
+[#5257]: https://github.com/intellij-rust/intellij-rust/pull/5257
+[#5279]: https://github.com/intellij-rust/intellij-rust/pull/5279

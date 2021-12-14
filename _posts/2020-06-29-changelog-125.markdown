@@ -7,48 +7,36 @@ date: 2020-06-29 16:00:00 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5535 -->
-* Provide initial support for debugging with MSVC toolchain in CLion 2020.2. You can track current progress and restrictions [here](https://github.com/intellij-rust/intellij-rust/issues/5632)
+* [#5535] Provide initial support for debugging with MSVC toolchain in CLion 2020.2. You can track current progress and restrictions [here](https://github.com/intellij-rust/intellij-rust/issues/5632)
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4640 -->
-* Enable intelligent highlighting inside macro call bodies when [new macro expansion engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support) is used
+* [#4640] Enable intelligent highlighting inside macro call bodies when [new macro expansion engine](https://www.jetbrains.com/help/clion/rust-support.html#language-support) is used
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5626 -->
-* Add initial implementation of `Move File` refactoring. The refactoring currently supports moving a single file without submodules.
+* [#5626] Add initial implementation of `Move File` refactoring. The refactoring currently supports moving a single file without submodules.
 
     {% include gif-img.html path="/assets/posts/changelog-125/move-file" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5545 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5506 -->
-* Now Rust plugin is [dynamically loadable](https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/dynamic_plugins.html) on 2020.2.
+* [#5545], [#5506] Now Rust plugin is [dynamically loadable](https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/dynamic_plugins.html) on 2020.2.
 It allows you to install the plugin without restarting the IDE
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5614 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5601 -->
-* Add intentions to convert a method call to UFCS and vice versa (by [@Kobzol])
+* [#5614], [#5601] Add intentions to convert a method call to UFCS and vice versa (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-125/ufcs" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5557 -->
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5561 -->
-* Add quick fixes to remove unused variable / parameter (by [@Kobzol])
+* [#5557], [#5561] Add quick fixes to remove unused variable / parameter (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-125/remove-unused" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5550 -->
-* Add the quick fix to convert an immutable reference to a mutable one (by [@Kobzol])
+* [#5550] Add the quick fix to convert an immutable reference to a mutable one (by [@Kobzol])
 
     {% include gif-img.html path="/assets/posts/changelog-125/make-mut" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5609 -->
-* Update icons for Rust items. Now they are more similar to C/C++ icons. Also, fix visibility modifiers for some items in [structure view](https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html)
+* [#5609] Update icons for Rust items. Now they are more similar to C/C++ icons. Also, fix visibility modifiers for some items in [structure view](https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html)
 
     | Before | After |
     |-|-|
     | ![image](/assets/posts/changelog-125/icons-before.png) | ![image](/assets/posts/changelog-125/icons-after.png) |
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5586 -->
-* Make `Introduce variable` refactoring available as an intention (by [@Kobzol])
+* [#5586] Make `Introduce variable` refactoring available as an intention (by [@Kobzol])
 
 
 * Add or improve detection of the new compiler errors:
@@ -56,112 +44,76 @@ It allows you to install the plugin without restarting the IDE
     * [E0277](https://doc.rust-lang.org/error-index.html#E0277) in some new cases (by [@Kobzol])
     * [E0015](https://doc.rust-lang.org/error-index.html#E0015) and [E0435](https://doc.rust-lang.org/error-index.html#E0435) in case of array size expression (by [@t-kameyama])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5571 -->
-* Now highlighting of lint inspection annotations is associated with corresponding lint levels defined by [lint check attributes](https://doc.rust-lang.org/reference/attributes/diagnostics.html#lint-check-attributes) like `allow`, `warn`, etc. (by [@Stzx])
+* [#5571] Now highlighting of lint inspection annotations is associated with corresponding lint levels defined by [lint check attributes](https://doc.rust-lang.org/reference/attributes/diagnostics.html#lint-check-attributes) like `allow`, `warn`, etc. (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5571 -->
-* Basic support for `forbid` attribute. Now messages from a forbidden lint are highlighted as errors in the editor (by [@Stzx])
+* [#5571] Basic support for `forbid` attribute. Now messages from a forbidden lint are highlighted as errors in the editor (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5313 -->
-* Allow a user to change mutability of parameters in `Extract Function` dialog (by [@Kobzol])
+* [#5313] Allow a user to change mutability of parameters in `Extract Function` dialog (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5548 -->
-* Report type errors for references with different mutability even if a type is not fully known (by [@Kobzol])
+* [#5548] Report type errors for references with different mutability even if a type is not fully known (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5580 -->
-* Enable `Convert match statement to if let` intention for [irrefutable patterns](https://doc.rust-lang.org/book/ch18-02-refutability.html) (by [@Kobzol])
+* [#5580] Enable `Convert match statement to if let` intention for [irrefutable patterns](https://doc.rust-lang.org/book/ch18-02-refutability.html) (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5579 -->
-* Show unique editor tab names for `main.rs`, `lib.rs` and `Cargo.toml` (by [@Kobzol])
+* [#5579] Show unique editor tab names for `main.rs`, `lib.rs` and `Cargo.toml` (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5533 -->
-* Improve text for `Convert to type` quick fix (by [@Kobzol])
+* [#5533] Improve text for `Convert to type` quick fix (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5354 -->
-* Update `Wrong type arguments number` inspection (by [@Kobzol])
+* [#5354] Update `Wrong type arguments number` inspection (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5462 -->
-* Replace `Remove all type arguments` quick fix with `Remove redundant type arguments` quick fix (by [@Stzx])
+* [#5462] Replace `Remove all type arguments` quick fix with `Remove redundant type arguments` quick fix (by [@Stzx])
 
 ## Fixes
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5603 -->
-* Take into account namespaces when name shadowing occurs.
+* [#5603] Take into account namespaces when name shadowing occurs.
 For example, now `use anyhow::anyhow` doesn't break name resolution
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5599 -->
-* Fix false positive about not allowed `impl Trait` in associated type binding (by [@Kobzol])
+* [#5599] Fix false positive about not allowed `impl Trait` in associated type binding (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5466 -->
-* Fix false positive for `Match must be exhaustive` error (by [@Mcat12])
+* [#5466] Fix false positive for `Match must be exhaustive` error (by [@Mcat12])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5381 -->
-* Fix usage replacement in `Extract Enum Variant` refactoring (by [@Kobzol])
+* [#5381] Fix usage replacement in `Extract Enum Variant` refactoring (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5633 -->
-* Support tuple struct fields in `Make public` quick fix (by [@Kobzol])
+* [#5633] Support tuple struct fields in `Make public` quick fix (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5570 -->
-* Make `Self` inside impl of enum to be resolved to both impl and enum items (by [@fan-tom])
+* [#5570] Make `Self` inside impl of enum to be resolved to both impl and enum items (by [@fan-tom])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5547 -->
-* Don't trigger `Main function not found` inspection if the file has top-level errors (by [@Kobzol])
+* [#5547] Don't trigger `Main function not found` inspection if the file has top-level errors (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5538 -->
-* Fix `Go to Declaration` from associated type bindings on 2020.2
+* [#5538] Fix `Go to Declaration` from associated type bindings on 2020.2
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5574 -->
-* Fix parentheses completion for Fn* traits (by [@Kobzol])
+* [#5574] Fix parentheses completion for Fn* traits (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5528 -->
-* Liveness analysis takes into account destructured struct fields (by [@Kobzol])
+* [#5528] Liveness analysis takes into account destructured struct fields (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5523 -->
-* Fix `Join Lines` action for doc comment lines (by [@Stzx])
+* [#5523] Fix `Join Lines` action for doc comment lines (by [@Stzx])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5515 -->
-* Disable `Promote Module to Directory` and `Downgrade Module to File` refactorings for invalid files in the editor (by [@Kobzol])
+* [#5515] Disable `Promote Module to Directory` and `Downgrade Module to File` refactorings for invalid files in the editor (by [@Kobzol])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4868 -->
-* Correctly handle symlinked Cargo projects (by [@Jezza])
+* [#4868] Correctly handle symlinked Cargo projects (by [@Jezza])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5623 -->
-* Fix `#[macro_export(local_inner_macros)]` when used with the experimental macro expansion engine
+* [#5623] Fix `#[macro_export(local_inner_macros)]` when used with the experimental macro expansion engine
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5597 -->
-* Fix macro expansion infinite progress on 2020.2
+* [#5597] Fix macro expansion infinite progress on 2020.2
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5640 -->
-* Properly render types in annotations on 2020.2
+* [#5640] Properly render types in annotations on 2020.2
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5611 -->
-* Properly escape text in a test output pane
+* [#5611] Properly escape text in a test output pane
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5549 -->
-* Get rid of options to disable the Test Tool window
+* [#5549] Get rid of options to disable the Test Tool window
 
 * Fix some exceptions:
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5584 -->
-  * In `Remove reference` and `Change return type` quick fixes
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5591 -->
-  * When analysing file with an external linter
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5583 -->
-  * During code folding of invalid macro calls
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5578 -->
-  * On `Find Usages` in Macros 2.0
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5595 -->
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5590 -->
-  * In structure view and usage tooltip
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/5596 -->
-  * When formatting file with rustfmt on save
+  * [#5584] In `Remove reference` and `Change return type` quick fixes
+  * [#5591] When analysing file with an external linter
+  * [#5583] During code folding of invalid macro calls
+  * [#5578] On `Find Usages` in Macros 2.0
+  * [#5595], [#5590] In structure view and usage tooltip
+  * [#5596] When formatting file with rustfmt on save
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5629 -->
-* Enable proofreading in commit messages
+* [#5629] Enable proofreading in commit messages
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/5622 -->
-* Provide issue / PR navigation in git log
+* [#5622] Provide issue / PR navigation in git log
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/33?closed=1)
 
@@ -171,3 +123,52 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@Stzx]: https://github.com/Stzx
 [@fan-tom]: https://github.com/fan-tom
 [@t-kameyama]: https://github.com/t-kameyama
+
+
+[#4640]: https://github.com/intellij-rust/intellij-rust/pull/4640
+[#4868]: https://github.com/intellij-rust/intellij-rust/pull/4868
+[#5313]: https://github.com/intellij-rust/intellij-rust/pull/5313
+[#5354]: https://github.com/intellij-rust/intellij-rust/pull/5354
+[#5381]: https://github.com/intellij-rust/intellij-rust/pull/5381
+[#5462]: https://github.com/intellij-rust/intellij-rust/pull/5462
+[#5466]: https://github.com/intellij-rust/intellij-rust/pull/5466
+[#5506]: https://github.com/intellij-rust/intellij-rust/pull/5506
+[#5515]: https://github.com/intellij-rust/intellij-rust/pull/5515
+[#5523]: https://github.com/intellij-rust/intellij-rust/pull/5523
+[#5528]: https://github.com/intellij-rust/intellij-rust/pull/5528
+[#5533]: https://github.com/intellij-rust/intellij-rust/pull/5533
+[#5535]: https://github.com/intellij-rust/intellij-rust/pull/5535
+[#5538]: https://github.com/intellij-rust/intellij-rust/pull/5538
+[#5545]: https://github.com/intellij-rust/intellij-rust/pull/5545
+[#5547]: https://github.com/intellij-rust/intellij-rust/pull/5547
+[#5548]: https://github.com/intellij-rust/intellij-rust/pull/5548
+[#5549]: https://github.com/intellij-rust/intellij-rust/pull/5549
+[#5550]: https://github.com/intellij-rust/intellij-rust/pull/5550
+[#5557]: https://github.com/intellij-rust/intellij-rust/pull/5557
+[#5561]: https://github.com/intellij-rust/intellij-rust/pull/5561
+[#5570]: https://github.com/intellij-rust/intellij-rust/pull/5570
+[#5571]: https://github.com/intellij-rust/intellij-rust/pull/5571
+[#5574]: https://github.com/intellij-rust/intellij-rust/pull/5574
+[#5578]: https://github.com/intellij-rust/intellij-rust/pull/5578
+[#5579]: https://github.com/intellij-rust/intellij-rust/pull/5579
+[#5580]: https://github.com/intellij-rust/intellij-rust/pull/5580
+[#5583]: https://github.com/intellij-rust/intellij-rust/pull/5583
+[#5584]: https://github.com/intellij-rust/intellij-rust/pull/5584
+[#5586]: https://github.com/intellij-rust/intellij-rust/pull/5586
+[#5590]: https://github.com/intellij-rust/intellij-rust/pull/5590
+[#5591]: https://github.com/intellij-rust/intellij-rust/pull/5591
+[#5595]: https://github.com/intellij-rust/intellij-rust/pull/5595
+[#5596]: https://github.com/intellij-rust/intellij-rust/pull/5596
+[#5597]: https://github.com/intellij-rust/intellij-rust/pull/5597
+[#5599]: https://github.com/intellij-rust/intellij-rust/pull/5599
+[#5601]: https://github.com/intellij-rust/intellij-rust/pull/5601
+[#5603]: https://github.com/intellij-rust/intellij-rust/pull/5603
+[#5609]: https://github.com/intellij-rust/intellij-rust/pull/5609
+[#5611]: https://github.com/intellij-rust/intellij-rust/pull/5611
+[#5614]: https://github.com/intellij-rust/intellij-rust/pull/5614
+[#5622]: https://github.com/intellij-rust/intellij-rust/pull/5622
+[#5623]: https://github.com/intellij-rust/intellij-rust/pull/5623
+[#5626]: https://github.com/intellij-rust/intellij-rust/pull/5626
+[#5629]: https://github.com/intellij-rust/intellij-rust/pull/5629
+[#5633]: https://github.com/intellij-rust/intellij-rust/pull/5633
+[#5640]: https://github.com/intellij-rust/intellij-rust/pull/5640

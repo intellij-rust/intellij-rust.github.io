@@ -7,8 +7,7 @@ date: 2019-07-22 22:10:38 +0300
 
 ## New Features
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3618 -->
-* Support code coverage for Rust. Implementation is based on [grcov](https://github.com/mozilla/grcov) utility.
+* [#3618] Support code coverage for Rust. Implementation is based on [grcov](https://github.com/mozilla/grcov) utility.
 If the utility is not installed on your machine, the plugin will suggest installing it.
 Note, it requires nightly toolchain to instrument code properly.
 Also, this feature doesn't work in CLion for now (see the corresponding [issue](https://youtrack.jetbrains.com/issue/CPP-9678)
@@ -16,95 +15,69 @@ for more details).
 
   {% include gif-img.html path="/assets/posts/changelog-102/code-coverage" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4108 -->
-* Add intention to convert `impl Trait` to type parameter (by [@rrevenantt])
+* [#4108] Add intention to convert `impl Trait` to type parameter (by [@rrevenantt])
 
   {% include gif-img.html path="/assets/posts/changelog-102/convert-impl-trait-intention" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4022 -->
-* Add `Implicit trait objects are deprecated` inspection that highlights trait objects declaration without explicit `dyn` keyword in edition 2018 (by [@rrevenantt])
+* [#4022] Add `Implicit trait objects are deprecated` inspection that highlights trait objects declaration without explicit `dyn` keyword in edition 2018 (by [@rrevenantt])
 
   {% include gif-img.html path="/assets/posts/changelog-102/implicit-trait-objects-deprecated-inspection" w="700px" %}
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4090 -->
-* Add option to emulate the terminal while running `Cargo Command` run configuration.
+* [#4090] Add option to emulate the terminal while running `Cargo Command` run configuration.
 It may be useful with crates like [color-backtrace](https://crates.io/crates/color-backtrace) that have different behavior when a process is run under TTY.
 The option is available only on Unix.
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4078 -->
-* Take into account `pub extern crate` re-exports by `Auto Import` quick fix and out-of-scope item completion
+* [#4078] Take into account `pub extern crate` re-exports by `Auto Import` quick fix and out-of-scope item completion
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4134 -->
-* Correctly parse [trait aliases](https://github.com/rust-lang/rfcs/blob/master/text/1733-trait-alias.md).
+* [#4134] Correctly parse [trait aliases](https://github.com/rust-lang/rfcs/blob/master/text/1733-trait-alias.md).
 Note, type inference and name resolution have not been implemented yet (by [@lundibundi])
 
 * Add detection of the new compiler errors:
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/3979 -->
-  * Usage of `break` and `continue` outside of a loop [E0267](https://doc.rust-lang.org/error-index.html#E0267)
+  * [#3979] Usage of `break` and `continue` outside of a loop [E0267](https://doc.rust-lang.org/error-index.html#E0267)
   and [E0268](https://doc.rust-lang.org/error-index.html#E0268) (by [@mibac138])
-  <!-- https://github.com/intellij-rust/intellij-rust/pull/4140 -->
-  * Invalid usages of `impl Trait` [E0562](https://doc.rust-lang.org/error-index.html#E0562),
+  * [#4140] Invalid usages of `impl Trait` [E0562](https://doc.rust-lang.org/error-index.html#E0562),
   [E0666](https://doc.rust-lang.org/error-index.html#E0666) and [E0667](https://doc.rust-lang.org/error-index.html#E0667) (by [@rrevenantt])
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4128 -->
-* Add separate color for `union`s (by [@fan-tom])
+* [#4128] Add separate color for `union`s (by [@fan-tom])
 
 ## Fixes
 
 * Inspection fixes:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4070 -->
-    * Provide `Auto Import` quick fix for associated items and method calls in UFCS form
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4120 -->
-    * Fix false positive [E0081](https://doc.rust-lang.org/error-index.html#E0081) error annotations when enum variant discriminant defined via constant expression.
+    * [#4070] Provide `Auto Import` quick fix for associated items and method calls in UFCS form
+    * [#4120] Fix false positive [E0081](https://doc.rust-lang.org/error-index.html#E0081) error annotations when enum variant discriminant defined via constant expression.
     Also, evaluation of enum variant discriminant takes into account `repr` attribute
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4148 -->
-    * Do not produce [E0618](https://doc.rust-lang.org/error-index.html#E0618) error for structs that implement `Fn*` traits (by [@mibac138])
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4046 -->
-    * Do not show false positive `Use of moved value` error annotation for slice destructing like `let [a, b , c] = array;`
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4047 -->
-    * Produce missing `Use of moved value` annotation for struct patterns
+    * [#4148] Do not produce [E0618](https://doc.rust-lang.org/error-index.html#E0618) error for structs that implement `Fn*` traits (by [@mibac138])
+    * [#4046] Do not show false positive `Use of moved value` error annotation for slice destructing like `let [a, b , c] = array;`
+    * [#4047] Produce missing `Use of moved value` annotation for struct patterns
 
 * Performance improvements:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4151 -->
-    * Fix IDE hang while `rustfmt` formatting on 2019.2
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4114 -->
-    * Fix an infinite recursion while type inference that led to IDE freeze sometimes
+    * [#4151] Fix IDE hang while `rustfmt` formatting on 2019.2
+    * [#4114] Fix an infinite recursion while type inference that led to IDE freeze sometimes
 
 * Type inference fixes:
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4162 -->
-    * Fix exception while type inference when project contains several packages
-    <!-- https://github.com/intellij-rust/intellij-rust/pull/4124 -->
-    * Don't throw exception on unbounded inclusive range like `a = ..=;`
+    * [#4162] Fix exception while type inference when project contains several packages
+    * [#4124] Don't throw exception on unbounded inclusive range like `a = ..=;`
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4107 -->
-* Fix LLDB and GDB formatters for HashMap and HashSet. They were broken because of the new implementation in stdlib since 1.36
+* [#4107] Fix LLDB and GDB formatters for HashMap and HashSet. They were broken because of the new implementation in stdlib since 1.36
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4160 -->
-* Perform `Move Line` action correctly if line ended with comment
+* [#4160] Perform `Move Line` action correctly if line ended with comment
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/3731 -->
-* Correctly process doc tests results while test running
+* [#3731] Correctly process doc tests results while test running
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4099 -->
-* Expand macros properly if it produces new macro definition. It should support the new implementation of `iterator` macros in nightly stdlib.
+* [#4099] Expand macros properly if it produces new macro definition. It should support the new implementation of `iterator` macros in nightly stdlib.
 Note, it works only when an invocation of the new macro is at least on the same expansion step (or deeper) in term of macro expansion engine
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4119 -->
-* Fold block doc comments (like `/** */`) properly
+* [#4119] Fold block doc comments (like `/** */`) properly
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4115 -->
-* Fix `Runner Run is not registered` exception
+* [#4115] Fix `Runner Run is not registered` exception
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4122 -->
-* Fix indexing exception when `include` macro invoked inside a function body
+* [#4122] Fix indexing exception when `include` macro invoked inside a function body
 
 ## Internal Improvements
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4136 -->
-* Extract performance tests and tests on real projects into a separate package
+* [#4136] Extract performance tests and tests on real projects into a separate package
 
-<!-- https://github.com/intellij-rust/intellij-rust/pull/4154 -->
-* Improve `MinRustcVersion` annotation. Now it's possible to define a minimal version of stdlib in inheritors of `RsTestBase`.
+* [#4154] Improve `MinRustcVersion` annotation. Now it's possible to define a minimal version of stdlib in inheritors of `RsTestBase`.
 Should be useful for checking new stdlib features
 
 
@@ -114,3 +87,32 @@ Should be useful for checking new stdlib features
 [@lundibundi]: https://github.com/lundibundi
 [@mibac138]: https://github.com/mibac138
 [@rrevenantt]: https://github.com/rrevenantt
+
+
+[#3618]: https://github.com/intellij-rust/intellij-rust/pull/3618
+[#3731]: https://github.com/intellij-rust/intellij-rust/pull/3731
+[#3979]: https://github.com/intellij-rust/intellij-rust/pull/3979
+[#4022]: https://github.com/intellij-rust/intellij-rust/pull/4022
+[#4046]: https://github.com/intellij-rust/intellij-rust/pull/4046
+[#4047]: https://github.com/intellij-rust/intellij-rust/pull/4047
+[#4070]: https://github.com/intellij-rust/intellij-rust/pull/4070
+[#4078]: https://github.com/intellij-rust/intellij-rust/pull/4078
+[#4090]: https://github.com/intellij-rust/intellij-rust/pull/4090
+[#4099]: https://github.com/intellij-rust/intellij-rust/pull/4099
+[#4107]: https://github.com/intellij-rust/intellij-rust/pull/4107
+[#4108]: https://github.com/intellij-rust/intellij-rust/pull/4108
+[#4114]: https://github.com/intellij-rust/intellij-rust/pull/4114
+[#4115]: https://github.com/intellij-rust/intellij-rust/pull/4115
+[#4119]: https://github.com/intellij-rust/intellij-rust/pull/4119
+[#4120]: https://github.com/intellij-rust/intellij-rust/pull/4120
+[#4122]: https://github.com/intellij-rust/intellij-rust/pull/4122
+[#4124]: https://github.com/intellij-rust/intellij-rust/pull/4124
+[#4128]: https://github.com/intellij-rust/intellij-rust/pull/4128
+[#4134]: https://github.com/intellij-rust/intellij-rust/pull/4134
+[#4136]: https://github.com/intellij-rust/intellij-rust/pull/4136
+[#4140]: https://github.com/intellij-rust/intellij-rust/pull/4140
+[#4148]: https://github.com/intellij-rust/intellij-rust/pull/4148
+[#4151]: https://github.com/intellij-rust/intellij-rust/pull/4151
+[#4154]: https://github.com/intellij-rust/intellij-rust/pull/4154
+[#4160]: https://github.com/intellij-rust/intellij-rust/pull/4160
+[#4162]: https://github.com/intellij-rust/intellij-rust/pull/4162
