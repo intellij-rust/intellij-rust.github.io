@@ -4,7 +4,7 @@ title: "IntelliJ Rust Changelog #47"
 date: 2017-07-31 12:29:31 +0300
 ---
 
-Plugin is now officially supported by JetBrains :tada:.
+Plugin is now officially supported by JetBrains 🎉.
 
 Support for IDEA 2016.3 was dropped, the minimal required version is
 2017.1.

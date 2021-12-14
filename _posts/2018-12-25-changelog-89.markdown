@@ -11,7 +11,7 @@ Also great thanks for our contributors -
 now more than one hundred people participated in the improvement of intellij-rust. Thank you!
 Hope that next year will be even better than this one!
 
-Happy New Year! :christmas_tree: :santa: :bell: :sparkles: :star2: :fireworks:
+Happy New Year! 🎄 🎅 🔔 ✨ 🌟 🎆
 
 ## New Features
 
