@@ -9,7 +9,9 @@ date: 2019-08-26 14:08:06 +0300
 
 * Completion improvements:
   * [#4207] Substitute types for generic items in completion suggestions
-  ![img](/assets/posts/changelog-104/type-substitution-in-completion-items.png)
+
+    <img src="/assets/posts/changelog-104/type-substitution-in-completion-items.png" width="700px"/>
+
   * [#4270] Provide keyword completion inside trait and `impl` blocks (by [@t-kameyama])
   * [#4255] Make text of all keyword completion element bold to be consistent with all similar completion variants
   * [#4250] Correctly move caret inside parentheses after method completion in [UFCS](https://github.com/rust-lang/rfcs/blob/master/text/0132-ufcs.md) form (by [@t-kameyama])
