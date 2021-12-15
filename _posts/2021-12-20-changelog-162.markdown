@@ -1,0 +1,61 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #162"
+date: 2021-12-20 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8192] Parse and annotate `~const` syntax
+
+* [#8145] Take into account const generics defaults in const evaluation
+
+* [#8070] Suggest private items when completing code in the debugger
+
+## Fixes
+
+* [#8278] Fix proc macro expansion on Rust nightly
+
+* [#8271] Fix expansion of `sqlx` procedural macros with `offline` feature
+
+* [#8261] TY: fix #8236
+
+* [#8241] Fix handling `$crate` inside detached files
+
+* [#8235] 1) Fix false positive E0277 `trait bound Sized is not satisfied` 2) Take into account `Sized`/`?Sized` trait bounds during name resolution and completion
+
+* [#8233] MACRO: fix expansion of proc macros that weirdly mix token spans
+
+* [#8226] Don't produce [E0277](https://doc.rust-lang.org/error-index.html#E0277) errors for non fully-known types
+
+* [#8217] Fix [`Extract function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) for argument of `println!` macro
+
+* [#8203] MACRO: fix expansion of proc macros with a float literal in a body
+
+* [#8194] Fix "Introduce variable" intention inside match arm
+
+* [#8164] Fix continuous "Preparing resolve data" when memory is low
+
+* [#8045] Fix auto-import in `include!`-ed files
+
+* [#7947] Fix exception when expanding macros in parallel and enable it by default
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/70?closed=1)
+
+[#7947]: https://github.com/intellij-rust/intellij-rust/pull/7947
+[#8045]: https://github.com/intellij-rust/intellij-rust/pull/8045
+[#8070]: https://github.com/intellij-rust/intellij-rust/pull/8070
+[#8145]: https://github.com/intellij-rust/intellij-rust/pull/8145
+[#8164]: https://github.com/intellij-rust/intellij-rust/pull/8164
+[#8192]: https://github.com/intellij-rust/intellij-rust/pull/8192
+[#8194]: https://github.com/intellij-rust/intellij-rust/pull/8194
+[#8203]: https://github.com/intellij-rust/intellij-rust/pull/8203
+[#8217]: https://github.com/intellij-rust/intellij-rust/pull/8217
+[#8226]: https://github.com/intellij-rust/intellij-rust/pull/8226
+[#8233]: https://github.com/intellij-rust/intellij-rust/pull/8233
+[#8235]: https://github.com/intellij-rust/intellij-rust/pull/8235
+[#8241]: https://github.com/intellij-rust/intellij-rust/pull/8241
+[#8261]: https://github.com/intellij-rust/intellij-rust/pull/8261
+[#8271]: https://github.com/intellij-rust/intellij-rust/pull/8271
+[#8278]: https://github.com/intellij-rust/intellij-rust/pull/8278
