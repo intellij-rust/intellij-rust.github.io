@@ -11,6 +11,8 @@ date: 2021-12-20 13:00:00 +0300
 
 * [#8070] Suggest private items when completing code inside `New Watch` and `Evaluate` in [Debug](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-debug-tool-window.html) tool window
 
+  {% include gif-img.html path="/assets/posts/changelog-162/debug" w="600px" %}
+
 * [#8192] Parse and annotate [`~const` syntax]
 
 ## Performance Improvements
