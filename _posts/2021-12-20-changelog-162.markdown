@@ -35,7 +35,7 @@ date: 2021-12-20 13:00:00 +0300
   Note, procedural macro expansion is still under development, and it's disabled by default for now.
   To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features]
 
-* [#8261] Fix type inference then the type in `impl` item is also used in associated type projection like `impl Trait1<<S as Trait2>::Item> for S {}`, In particular, it should fix type inference and code completion with [`sqlx`] macros
+* [#8261] Fix type inference when the type in `impl` item is also used in associated type projection like `impl Trait1<<S as Trait2>::Item> for S {}`, In particular, it should fix type inference and code completion with [`sqlx`] macros
 
 * [#8241] Fix handling `$crate` inside detached files
 
