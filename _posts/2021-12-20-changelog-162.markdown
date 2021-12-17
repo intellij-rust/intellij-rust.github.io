@@ -18,7 +18,7 @@ date: 2021-12-20 13:00:00 +0300
 ## Performance Improvements
 
 * [#7947] Fix exception when expanding macros in parallel and enable it by default.
-  This is a second attempt to make procedural macro expansion parallel.
+  This is the second attempt to make procedural macro expansion parallel.
   The previous one was reverted because of [the bug](https://github.com/intellij-rust/intellij-rust/issues/7937).
 
 ## Fixes
