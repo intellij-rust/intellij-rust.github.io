@@ -7,9 +7,9 @@ date: 2021-12-20 13:00:00 +0300
 
 ## New Features
 
-* [#8145] Take into account [const generics defaults] in const evaluation
+* [#8145] Take into account [const generics defaults] during const evaluation
 
-* [#8070] Suggest private items when completing code in the debugger
+* [#8070] Suggest private items when completing code inside `New Watch` and `Evaluate` in [Debug](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-debug-tool-window.html) tool window
 
 * [#8192] Parse and annotate [`~const` syntax]
 
@@ -19,9 +19,9 @@ date: 2021-12-20 13:00:00 +0300
 
   * [#8271] Fix expansion of `sqlx` procedural macros with `offline` feature
 
-  * [#8233] fix expansion of proc macros that weirdly mix token spans (e.g. `yew::html!`)
+  * [#8233] Fix expansion of proc macros that weirdly mix token spans (e.g. `yew::html!`)
 
-  * [#8203] fix expansion of proc macros with a float literal in a body
+  * [#8203] Fix expansion of proc macros with a float literal in a body
 
   * [#7947] Fix exception when expanding macros in parallel and enable it by default
 
@@ -40,13 +40,13 @@ date: 2021-12-20 13:00:00 +0300
 
 * [#8235] Take into account `Sized`/`?Sized` trait bounds during name resolution and code completion
 
-* [#8217] Fix [`Extract function`] refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) for argument of `println!` macro
+* [#8217] Fix [`Extract function`] refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) for argument of some macro calls like `println!` or `vec!`
 
 * [#8194] Fix `Introduce variable` intention inside match arm
 
-* [#8164] Fix continuous "Preparing resolve data" when memory is low
+* [#8164] Fix continuous "Preparing resolve data" process when memory is low
 
-* [#8045] Fix auto-import in `include!`-ed files
+* [#8045] Fix auto-import in `include!`-ed files. Previously, `use` items were wrongly inserted into file contained `include!` macro call
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/70?closed=1)
 
