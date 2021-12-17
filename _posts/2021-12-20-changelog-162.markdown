@@ -13,24 +13,29 @@ date: 2021-12-20 13:00:00 +0300
 
 * [#8192] Parse and annotate [`~const` syntax]
 
+## Performance Improvements
+
+* [#7947] Fix exception when expanding macros in parallel and enable it by default.
+  This is a second attempt to make procedural macro expansion parallel.
+  The previous one was reverted because of [the bug](https://github.com/intellij-rust/intellij-rust/issues/7937).
+
 ## Fixes
 
 * Procedural macro expansion fixes:
 
-  * [#8271] Fix expansion of `sqlx` procedural macros with `offline` feature
+  * [#8271] Fix expansion of procedural macros that use `CARGO_TARGET_DIR` environment variable
+    (for example, macros from [`sqlx`] crate with `offline` feature)
 
   * [#8233] Fix expansion of proc macros that weirdly mix token spans (e.g. `yew::html!`)
 
   * [#8203] Fix expansion of proc macros with a float literal in a body
-
-  * [#7947] Fix exception when expanding macros in parallel and enable it by default
 
   * [#8278] Fix procedural macro expansion with nightly toolchain
 
   Note, procedural macro expansion is still under development, and it's disabled by default for now.
   To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features]
 
-* [#8261] Fix type inference and method code completion with `sqlx` macros
+* [#8261] Fix type inference and method code completion with [`sqlx`] macros
 
 * [#8241] Fix handling `$crate` inside detached files
 
@@ -72,3 +77,4 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [`~const` syntax]: https://internals.rust-lang.org/t/pre-rfc-revamped-const-trait-impl-aka-rfc-2632/15192
 [`Extract function`]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring
 [E0277]: https://doc.rust-lang.org/error-index.html#E0277
+[`sqlx`]: https://crates.io/crates/sqlx
