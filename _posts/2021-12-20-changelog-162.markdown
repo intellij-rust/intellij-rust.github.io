@@ -7,39 +7,46 @@ date: 2021-12-20 13:00:00 +0300
 
 ## New Features
 
-* [#8192] Parse and annotate `~const` syntax
-
-* [#8145] Take into account const generics defaults in const evaluation
+* [#8145] Take into account [const generics defaults] in const evaluation
 
 * [#8070] Suggest private items when completing code in the debugger
 
+* [#8192] Parse and annotate [`~const` syntax]
+
 ## Fixes
 
-* [#8278] Fix proc macro expansion on Rust nightly
+* Procedural macro expansion fixes:
 
-* [#8271] Fix expansion of `sqlx` procedural macros with `offline` feature
+  * [#8271] Fix expansion of `sqlx` procedural macros with `offline` feature
 
-* [#8261] TY: fix #8236
+  * [#8233] fix expansion of proc macros that weirdly mix token spans (e.g. `yew::html!`)
+
+  * [#8203] fix expansion of proc macros with a float literal in a body
+
+  * [#7947] Fix exception when expanding macros in parallel and enable it by default
+
+  * [#8278] Fix procedural macro expansion with nightly toolchain
+
+  Note, procedural macro expansion is still under development, and it's disabled by default for now.
+  To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features]
+
+* [#8261] Fix type inference and method code completion with `sqlx` macros
 
 * [#8241] Fix handling `$crate` inside detached files
 
-* [#8235] 1) Fix false positive E0277 `trait bound Sized is not satisfied` 2) Take into account `Sized`/`?Sized` trait bounds during name resolution and completion
+* [#8235] Fix false positive E0277 `trait bound Sized is not satisfied`
 
-* [#8233] MACRO: fix expansion of proc macros that weirdly mix token spans
+* [#8235] Take into account `Sized`/`?Sized` trait bounds during name resolution and code completion
 
 * [#8226] Don't produce [E0277](https://doc.rust-lang.org/error-index.html#E0277) errors for non fully-known types
 
-* [#8217] Fix [`Extract function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) for argument of `println!` macro
+* [#8217] Fix [`Extract function`] refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) for argument of `println!` macro
 
-* [#8203] MACRO: fix expansion of proc macros with a float literal in a body
-
-* [#8194] Fix "Introduce variable" intention inside match arm
+* [#8194] Fix `Introduce variable` intention inside match arm
 
 * [#8164] Fix continuous "Preparing resolve data" when memory is low
 
 * [#8045] Fix auto-import in `include!`-ed files
-
-* [#7947] Fix exception when expanding macros in parallel and enable it by default
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/70?closed=1)
 
@@ -59,3 +66,8 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#8261]: https://github.com/intellij-rust/intellij-rust/pull/8261
 [#8271]: https://github.com/intellij-rust/intellij-rust/pull/8271
 [#8278]: https://github.com/intellij-rust/intellij-rust/pull/8278
+
+[experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+[const generics defaults]: https://doc.rust-lang.org/stable/unstable-book/language-features/const-generics-defaults.html#const_generics_defaults
+[`~const` syntax]: https://internals.rust-lang.org/t/pre-rfc-revamped-const-trait-impl-aka-rfc-2632/15192
+[`Extract function`]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring
