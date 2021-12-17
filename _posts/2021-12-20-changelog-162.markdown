@@ -34,11 +34,11 @@ date: 2021-12-20 13:00:00 +0300
 
 * [#8241] Fix handling `$crate` inside detached files
 
-* [#8235] Fix false positive E0277 `trait bound Sized is not satisfied`
+* [#8226] Don't produce [E0277] errors for non fully-known types
+
+* [#8235] Fix false positive [E0277] `trait bound Sized is not satisfied`
 
 * [#8235] Take into account `Sized`/`?Sized` trait bounds during name resolution and code completion
-
-* [#8226] Don't produce [E0277](https://doc.rust-lang.org/error-index.html#E0277) errors for non fully-known types
 
 * [#8217] Fix [`Extract function`] refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) for argument of `println!` macro
 
@@ -71,3 +71,4 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [const generics defaults]: https://doc.rust-lang.org/stable/unstable-book/language-features/const-generics-defaults.html#const_generics_defaults
 [`~const` syntax]: https://internals.rust-lang.org/t/pre-rfc-revamped-const-trait-impl-aka-rfc-2632/15192
 [`Extract function`]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring
+[E0277]: https://doc.rust-lang.org/error-index.html#E0277
