@@ -26,6 +26,8 @@ MAINTAINERS = [
     "avrong",
     "lancelote",
     "ozkriff",
+    "mili-l",
+    "neonat",
     "intellij-rust-bot",
     "dependabot[bot]"
 ]
