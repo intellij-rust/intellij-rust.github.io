@@ -1,0 +1,83 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #164"
+date: 2022-01-31 11:00:00 +0300
+---
+
+This is the last release that supports the 2021.2 IDEs. To receive plugin updates further, please upgrade
+your IDE to 2021.3.
+
+## New Features
+
+* [#8438] Enable the `.ref` and `.refm` postfix completions for type references (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-164/ref" w="700px" %}
+
+* [#8441] Parse  [`inline_const`](https://doc.rust-lang.org/nightly/unstable-book/language-features/inline-const.html) / [`inline_const_pat`](https://doc.rust-lang.org/nightly/unstable-book/language-features/inline-const-pat.html) feature and annotate them as experimental
+
+* [#8410] Infer type of `&raw const` and `&raw mut` [operators](https://rust-lang.github.io/rfcs/2582-raw-reference-mir-operator.html). As a result, the plugin now knows the proper type of `addr_of!` and `addr_of_mut!` macro calls from stdlib
+
+## Fixes
+
+* [#8392], [#8402] Suppress `Unresolved reference` inspection in test mods in packages with cyclic dev-dependencies or if the path qualifier is multiresolved
+
+* [#8146] Take into account const generics in `Wrong generic arguments number` inspection and corresponding quick-fixes
+
+* [#8447] Properly add new module declaration by `Attach file to module` quick-fix if a new module has a keyword-like name
+
+* [#8375] Make `Add missing fields` quick-fix work properly with raw identifiers
+
+* [#8411] Fix adding trait imports for usages in `Extract Trait` refactoring
+
+* [#8408] Fix `Find usages` when usage is in a module with a relative path attribute
+
+* [#8430] Mark usages in [doctests](https://doc.rust-lang.org/rustdoc/documentation-tests.html) as "Test usages" in IntelliJ IDEA
+
+* [#8292] Improve `Preferences | Editor | Inlay Hints` rendering: drop redundant options and fix wording
+
+* Name resolution improvements:
+
+  * [#8418] Fix resolve of [macros 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) in doctests
+
+  * [#8404] Resolve `self` in `use proc_macro_crate::{self}`
+
+  * [#8401] Resolve items inside mods named as primitive types
+
+  * [#8418] Resolve and expand attribute proc macros in doctests
+
+* [#8398] Fix expansion of `pin_project_lite::pin_project` macro inside function bodies
+
+* [#8400] Fix Cargo features inference with [renamed](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#renaming-dependencies-in-cargotoml) packages with hyphens
+
+* [#8376] Fix an exception during a new project creation after dynamic plugin loading
+
+## Internal Improvements
+
+* [#8444] Create a release branch one day earlier, i.e. usually on Monday morning one week before release
+
+* [#8389] Use Java 11 as the target level during compilation and as language level in the project. So now, it's possible to use any Java 11 API
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/72?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#8146]: https://github.com/intellij-rust/intellij-rust/pull/8146
+[#8292]: https://github.com/intellij-rust/intellij-rust/pull/8292
+[#8375]: https://github.com/intellij-rust/intellij-rust/pull/8375
+[#8376]: https://github.com/intellij-rust/intellij-rust/pull/8376
+[#8389]: https://github.com/intellij-rust/intellij-rust/pull/8389
+[#8392]: https://github.com/intellij-rust/intellij-rust/pull/8392
+[#8398]: https://github.com/intellij-rust/intellij-rust/pull/8398
+[#8400]: https://github.com/intellij-rust/intellij-rust/pull/8400
+[#8401]: https://github.com/intellij-rust/intellij-rust/pull/8401
+[#8402]: https://github.com/intellij-rust/intellij-rust/pull/8402
+[#8404]: https://github.com/intellij-rust/intellij-rust/pull/8404
+[#8408]: https://github.com/intellij-rust/intellij-rust/pull/8408
+[#8410]: https://github.com/intellij-rust/intellij-rust/pull/8410
+[#8411]: https://github.com/intellij-rust/intellij-rust/pull/8411
+[#8418]: https://github.com/intellij-rust/intellij-rust/pull/8418
+[#8430]: https://github.com/intellij-rust/intellij-rust/pull/8430
+[#8438]: https://github.com/intellij-rust/intellij-rust/pull/8438
+[#8441]: https://github.com/intellij-rust/intellij-rust/pull/8441
+[#8444]: https://github.com/intellij-rust/intellij-rust/pull/8444
+[#8447]: https://github.com/intellij-rust/intellij-rust/pull/8447
