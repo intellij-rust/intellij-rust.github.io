@@ -13,7 +13,7 @@ your IDE to 2021.3.
 
   {% include gif-img.html path="/assets/posts/changelog-164/ref" w="700px" %}
 
-* [#8441] Parse  [`inline_const`](https://doc.rust-lang.org/nightly/unstable-book/language-features/inline-const.html) / [`inline_const_pat`](https://doc.rust-lang.org/nightly/unstable-book/language-features/inline-const-pat.html) feature and annotate them as experimental
+* [#8441] Parse  [`inline_const`](https://doc.rust-lang.org/nightly/unstable-book/language-features/inline-const.html) / [`inline_const_pat`](https://doc.rust-lang.org/nightly/unstable-book/language-features/inline-const-pat.html) syntax and annotate them as experimental
 
 * [#8410] Infer type of `&raw const` and `&raw mut` [operators](https://rust-lang.github.io/rfcs/2582-raw-reference-mir-operator.html). As a result, the plugin now knows the proper type of `addr_of!` and `addr_of_mut!` macro calls from stdlib
 
