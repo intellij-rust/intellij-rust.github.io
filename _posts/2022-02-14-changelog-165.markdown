@@ -1,0 +1,84 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #165"
+date: 2022-02-14 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8473] Provide support for 2022.1 [EAP](https://www.jetbrains.com/resources/eap/) builds.
+  Note, the Early Access Program gives you free access to pre-release versions of JetBrains software and doesn't require a paid IDE subscription
+
+* [#8456] Drop support of 2021.2 major IDE release. To get new updates of the plugin, upgrade your IDE to 2021.3
+
+* [#8455] Report misplaced lifetimes in `Wrong generic arguments order` [E0747](https://doc.rust-lang.org/error-index.html#E0747) inspection
+  
+  <img src="/assets/posts/changelog-165/lifetime_order.png" width="700px"/>
+
+* [#8266] Implement `Add unambiguous imports on the fly` option. You can turn it on in `Settings | Editor | General | Auto Import`. The option may be useful when pasting Rust code copied from outside the editor
+
+  {% include gif-img.html path="/assets/posts/changelog-165/unambiguous_imports" w="700px" %}
+
+* [#8265] Support debugging in Rider starting with 2022.1. If you are using [Rider for Unreal Engine](https://www.jetbrains.com/lp/rider-unreal/), the debugging will be available in 2021.3 builds as well. Note, previously we made another attempt to support this, but it failed because of some technical reasons
+
+* [#7867] Enable [profiler](https://www.jetbrains.com/help/clion/cpu-profiler.html) on WSL 2 toolchains. Note, profiler feature is available only in CLion
+
+## Fixes
+
+* [#8458], [#8492], [#8490] Do not highlight exit points, documentation elements and format templates disabled by `cfg` attributes
+
+* [#8505] Fix an exception in `Un-elide lifetimes` intention when processing nested ADTs
+
+* [#8501] Fix [`Change Signature`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) (<kbd>Ctrl</kbd>+<kbd>F6</kbd>) refactoring inside `extern` block
+
+* [#8489] Don't fill up disk space with procedural macro DLLs on Windows
+
+* [#8457] Consider functions in type argument lists as const arguments
+
+* [#8436] Don't suggest multipart quick-fixes provided by [external linters](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) not to break the code. Note, code annotation via external linters is disabled by default. To turn it on, enable `Run external linter to analyze code on the fly` option in `Preferences | Languages & Frameworks | Rust | External Linters` settings or run `External Linter` inspection manually
+
+* [#8425] Basic support for name resolution of [macros 2.0](https://rust-lang.github.io/rfcs/1584-macros.html) in local modules
+
+* [#8358] Support arbitrary and explicit self types in `Self convention inspection` (by [@Kobzol])
+
+* [#8357] Handle qualified field paths correctly in `Generate getter/setter` (`Code | Generate | Getter/Setter`) refactoring (by [@Kobzol])
+
+* [#8428] Provide correct URLs for `Cargo.toml` dependencies with quoted names
+
+* [#8516] Disable `liftShorter` completion classifier on 2022.1 platform
+
+## Internal Improvements
+
+* [#8515] Provide context features and more element features in [ML-completion](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-completion.html#ml-completion) for unsafe, async and const elements
+
+* [#8514] Use weighers instead of raw priorities during completion variants sorting
+
+* [#8431] Use [`RsResult`](https://github.com/intellij-rust/intellij-rust/blob/f7f2b1f29dde73e8d3738eb40e1be3912fdca3cf/src/main/kotlin/org/rust/stdext/RsResult.kt#L8) instead of exceptions in code running external processes
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/73?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#7867]: https://github.com/intellij-rust/intellij-rust/pull/7867
+[#8265]: https://github.com/intellij-rust/intellij-rust/pull/8265
+[#8266]: https://github.com/intellij-rust/intellij-rust/pull/8266
+[#8357]: https://github.com/intellij-rust/intellij-rust/pull/8357
+[#8358]: https://github.com/intellij-rust/intellij-rust/pull/8358
+[#8425]: https://github.com/intellij-rust/intellij-rust/pull/8425
+[#8428]: https://github.com/intellij-rust/intellij-rust/pull/8428
+[#8431]: https://github.com/intellij-rust/intellij-rust/pull/8431
+[#8436]: https://github.com/intellij-rust/intellij-rust/pull/8436
+[#8455]: https://github.com/intellij-rust/intellij-rust/pull/8455
+[#8456]: https://github.com/intellij-rust/intellij-rust/pull/8456
+[#8457]: https://github.com/intellij-rust/intellij-rust/pull/8457
+[#8458]: https://github.com/intellij-rust/intellij-rust/pull/8458
+[#8473]: https://github.com/intellij-rust/intellij-rust/pull/8473
+[#8489]: https://github.com/intellij-rust/intellij-rust/pull/8489
+[#8490]: https://github.com/intellij-rust/intellij-rust/pull/8490
+[#8492]: https://github.com/intellij-rust/intellij-rust/pull/8492
+[#8501]: https://github.com/intellij-rust/intellij-rust/pull/8501
+[#8505]: https://github.com/intellij-rust/intellij-rust/pull/8505
+[#8514]: https://github.com/intellij-rust/intellij-rust/pull/8514
+[#8515]: https://github.com/intellij-rust/intellij-rust/pull/8515
+[#8516]: https://github.com/intellij-rust/intellij-rust/pull/8516
