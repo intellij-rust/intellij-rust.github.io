@@ -48,7 +48,7 @@ date: 2021-10-11 13:00:00 +0300
 
 * [#7766] Make `Show the result of macro expansion (cargo expand)` intention use dark theme for output if IDE is under dark theme
 
-* [#7649] [`Extract function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) refactoring now can be applied when trailing semicolon is selected together with expression
+* [#7649] [`Extract function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>) refactoring now can be applied when trailing semicolon is selected together with expression
 
 * [Move refactoring](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#move-refactoring) fixes:
   * [#7837] Add trait imports for UFCS trait method calls in move refactoring if necessary
