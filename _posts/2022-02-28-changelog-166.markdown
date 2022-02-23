@@ -1,0 +1,33 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #166"
+date: 2022-02-28 10:00:00 +0300
+---
+
+
+## New Features
+
+* [#8446] Detect [E0049](https://doc.rust-lang.org/error-index.html#E0049) (Implementation has wrong number of type or const parameters)
+
+  <img src="/assets/posts/changelog-166/wrong_number_arguments.png" width="700px"/>
+
+## Fixes
+
+* [#8531] Take into account type arguments/parameters ordering and const generics in some intentions/fixes
+
+* [#8524] Use `Self` when generating constructor in the `Generate Constructor` refactoring action (by [@Kobzol])
+
+* [#8538] Update bundled spellchecker dictionary. It should fix some spellchecker false positive warnings, for example, for identifiers with `addr` word
+
+* [#8532] Hide unneeded stacktrace filtering button in debugger in 2022.1 (by [@kishmakov])
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/74?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@kishmakov]: https://github.com/kishmakov
+
+[#8446]: https://github.com/intellij-rust/intellij-rust/pull/8446
+[#8524]: https://github.com/intellij-rust/intellij-rust/pull/8524
+[#8531]: https://github.com/intellij-rust/intellij-rust/pull/8531
+[#8532]: https://github.com/intellij-rust/intellij-rust/pull/8532
+[#8538]: https://github.com/intellij-rust/intellij-rust/pull/8538
