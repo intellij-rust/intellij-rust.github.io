@@ -1,0 +1,63 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #166"
+date: 2022-03-09 10:00:00 +0300
+---
+
+
+## New Features
+
+* [#8446] Detect `Implementation has wrong number of type or const parameters` errors ([E0049](https://doc.rust-lang.org/error-index.html#E0049))
+
+  <img src="/assets/posts/changelog-166/wrong_number_arguments.png" width="700px"/>
+
+* [#8524] Use `Self` when generating constructor in the `Generate Constructor` refactoring action (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-166/generate_constructor_self" w="700px" %}
+
+## Fixes
+
+* [#8531] Take into account type arguments/parameters ordering and const generics in some intentions/quick-fixes
+
+* [#7864] Correctly handle `+toolchain` at the beginning of [Cargo command](https://plugins.jetbrains.com/plugin/8182-rust/docs/cargo-command-configuration.html)
+
+* [#8578] Add `--respect-source-config` to `cargo vendor` command  to respect `[source]` config in `.cargo/config`.
+  This should fix the problem when the plugin stuck with `updating crates.io index` status during project model loading with alternative Cargo [registries](https://doc.rust-lang.org/cargo/reference/registries.html#using-an-alternate-registry) (by [@Kylin3216])
+
+* [#7977] Improve rendering of generic parameters for associated types in `Implement Members` quick-fix
+
+* [#8580] Don't suggest multi-span quick-fixes from [External Linter](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) to avoid broken code
+
+* [#8538] Update bundled spellchecker dictionary. It should fix some spellchecker false positive warnings, for example, for identifiers with `addr` word
+
+* [#8586] Fix wrong indents in UI during creation of a new Rust project in IDEA 2022.1
+
+* [#8571], [#8594] Don't offer `Add unsafe to function` quick-fix for the `main` function (by [@Stzx])
+
+* [#8594] Don't show run line marker for `main` function in targets with [`no_main`](https://doc.rust-lang.org/reference/crates-and-source-files.html#the-no_main-attribute) attribute
+
+* [#8184] Remove spurious `unreachable expression` warnings from match expressions with no arms (by [@afetisov])
+
+* [#8532] Hide redundant stacktrace filtering button in debugger in 2022.1
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/74?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@Kylin3216]: https://github.com/Kylin3216
+[@Stzx]: https://github.com/Stzx
+[@afetisov]: https://github.com/afetisov
+
+[#7816]: https://github.com/intellij-rust/intellij-rust/pull/7816
+[#7864]: https://github.com/intellij-rust/intellij-rust/pull/7864
+[#7977]: https://github.com/intellij-rust/intellij-rust/pull/7977
+[#8184]: https://github.com/intellij-rust/intellij-rust/pull/8184
+[#8446]: https://github.com/intellij-rust/intellij-rust/pull/8446
+[#8524]: https://github.com/intellij-rust/intellij-rust/pull/8524
+[#8531]: https://github.com/intellij-rust/intellij-rust/pull/8531
+[#8532]: https://github.com/intellij-rust/intellij-rust/pull/8532
+[#8538]: https://github.com/intellij-rust/intellij-rust/pull/8538
+[#8571]: https://github.com/intellij-rust/intellij-rust/pull/8571
+[#8578]: https://github.com/intellij-rust/intellij-rust/pull/8578
+[#8580]: https://github.com/intellij-rust/intellij-rust/pull/8580
+[#8586]: https://github.com/intellij-rust/intellij-rust/pull/8586
+[#8594]: https://github.com/intellij-rust/intellij-rust/pull/8594
