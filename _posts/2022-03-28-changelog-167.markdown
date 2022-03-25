@@ -7,30 +7,31 @@ date: 2022-03-28 13:00:00 +0300
 
 ## New Features
 
-* [#8596] IDE: add derive to structs generated from JSON if `serde` is in dependencies (by [@Kobzol])
+* [#8461] Support the [`Extract trait` refactoring](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extract-trait) for traits
 
-* [#8461] Support `Extract trait` refactoring for traits
+  {% include gif-img.html path="/assets/posts/changelog-167/extract_trait_from_trait" w="700px" %}
 
 ## Fixes
 
+* [#8563] Fix the [`Inline function` refactoring](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) for single occurrence and recursive functions
+
+* [#8639] Improve ambiguity resolution for type parameters between types and values with the same names. Previously, the plugin filtered out only constants and const parameters but did nothing with other elements from the values namespace.
+
 * [#8670] Fix exception during Cargo tool window initialization on 2022.1 platform
 
-* [#8648] Fix visibility of created trait in "Extract trait" refactoring
+* [#8628] Do not suggest `Extract trait` refactoring in non-Rust files
 
-* [#8639] Improve ambiguity resolution for type parameters between types and values with same names
-
-* [#8628] Fix that "Extract trait" refactoring can be offered in non-Rust files
+* [#8648] Fix visibility of created trait in the `Extract trait` refactoring
 
 * [#8609] Use the project toolchain to retrieve info about stdlib. Previously, the plugin used the default toolchain for it that sometimes produced errors
 
 * [#8565] Render generic parameters for type aliases / associated types in UI
 
-* [#8563] 1. Fix handling of recursive functions in "Inline function" refactoring 2. Fix "Inline function" refactoring for single occurence
-
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/75?closed=1)
 
 [@Kobzol]: https://github.com/Kobzol
 
+[#7816]: https://github.com/intellij-rust/intellij-rust/pull/7816
 [#8461]: https://github.com/intellij-rust/intellij-rust/pull/8461
 [#8563]: https://github.com/intellij-rust/intellij-rust/pull/8563
 [#8565]: https://github.com/intellij-rust/intellij-rust/pull/8565
