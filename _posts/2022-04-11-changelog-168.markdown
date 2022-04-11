@@ -1,0 +1,59 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #168"
+date: 2022-04-11 12:00:00 +0300
+---
+
+
+## New Features
+
+* [#8647] Collapse macro expansion steps into a single one.
+It not only fixes blinking UI during macro expansion process but also significantly speeds up the macro expansion itself
+
+* [#8689] Provide file links for `dbg!` macro output in the terminal
+
+  {% include gif-img.html path="/assets/posts/changelog-168/dbg_output_file_links" w="700px" %}
+
+## Fixes
+
+* [#8674] `Generate constructor` action now places the cursor after the generated code (by [@Kobzol])
+
+* [#8671] `Import` quick-fix now properly escapes keyword-like identifiers as [raw identifiers](https://rust-lang.github.io/rfcs/2151-raw-identifiers.html)
+
+* [#8631] Properly evaluate build scripts even if a package does not have any binary or library targets.
+  Note, build script evaluation is disabled by default for now. To turn it on, enable `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
+
+* [#8692] Update [ra_ap_proc_macro_srv](https://crates.io/crates/ra_ap_proc_macro_srv) lib to 0.0.102 in procedural macro expander.
+  It should fix expansion of some procedural macro calls (for example, from [rocket](https://crates.io/crates/rocket) crate).
+  Note, procedural macro expansion is disabled by default for now.
+  To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features]
+
+* [#8666] Fix `NoClassDefFoundError` exceptions in Rider 2021.3 and show debugger settings properly
+
+* [#8683] Properly validate project names containing `.` symbol while creating new Rust projects in minor IDEs like CLion
+
+* [#8555] Parse and highlight headers in doc comments properly
+
+* [#8679] Fix parsing errors when updating local crates index
+
+## Internal Improvements
+
+* [#8684] Make 2022.1 platform default for development
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/76?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#8555]: https://github.com/intellij-rust/intellij-rust/pull/8555
+[#8631]: https://github.com/intellij-rust/intellij-rust/pull/8631
+[#8647]: https://github.com/intellij-rust/intellij-rust/pull/8647
+[#8666]: https://github.com/intellij-rust/intellij-rust/pull/8666
+[#8671]: https://github.com/intellij-rust/intellij-rust/pull/8671
+[#8674]: https://github.com/intellij-rust/intellij-rust/pull/8674
+[#8679]: https://github.com/intellij-rust/intellij-rust/pull/8679
+[#8683]: https://github.com/intellij-rust/intellij-rust/pull/8683
+[#8684]: https://github.com/intellij-rust/intellij-rust/pull/8684
+[#8689]: https://github.com/intellij-rust/intellij-rust/pull/8689
+[#8692]: https://github.com/intellij-rust/intellij-rust/pull/8692
+
+[experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
