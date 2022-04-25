@@ -22,7 +22,7 @@ date: 2022-04-25 13:00:00 +0300
   Previously such files were ignored by IDE during indexing and it was necessary to adjust the limit manually using `idea.max.intellisense.filesize` property to make IDE index them.
   Note, build script evaluation is disabled by default for now. To turn it on, enable `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
 
-* [#8713] Update [ML completion] model.
+* [#8713] Update [ML completion] model to improve sorting of completion suggestions.
   In addition to the data used before, the new model is now taking into account several new facts to:
 
   * prefer expressions of type matching the expected type
@@ -42,6 +42,8 @@ date: 2022-04-25 13:00:00 +0300
 
 * [#7410] Add `Unnecessarily qualified path` inspection that finds unnecessarily qualified paths.
   It corresponds to the `unused_qualifications` [lint](https://doc.rust-lang.org/rustc/lints/index.html) (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-169/unnecessarily-qualified-path" w="600px" %}
 
 ## Fixes
 
