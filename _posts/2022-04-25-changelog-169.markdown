@@ -12,7 +12,8 @@ date: 2022-04-25 13:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-169/run-target" w="800px" %}
 
-  Note that remote debugging using Run Targets is currently unavailable
+  Note that Run Targets available only in CLion, IDEA Ultimate and GoLand.
+  Also note that remote debugging using Run Targets is currently unavailable
 
 * [#7825] Add an option to use Rustfmt from a non-default toolchain and
   allow to configure addition arguments and environment variables for Rustfmt.
