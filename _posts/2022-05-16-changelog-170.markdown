@@ -1,0 +1,57 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #170"
+date: 2022-05-16 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#7849] Add inspections and quick-fixes for `unused_must_use` and `clippy::double_must_use` lints
+
+  {% include gif-img.html path="/assets/posts/changelog-170/unused_must_use" w="700px" %}
+
+* [#8542] Parse generic parameters, type aliases and type bindings of [generic associated types](https://rust-lang.github.io/rfcs/1598-generic_associated_types.html)
+
+* [#8709] Allow installing Rust plugin together with Toml plugin without IDE restart. Note, Rust plugin update still requires IDE restart
+
+* [#5642] Add `Base URL for external documentation` option to [Advanced settings](https://www.jetbrains.com/help/idea/advanced-settings.html). This allows setting up custom base URL for external documentation, defaulting to `https://docs.rs/`  (by [@Kobzol])
+
+## Performance Improvements
+
+* [#8746] Share single thread pool between macro expansion and name resolution
+
+## Fixes
+
+* [#8741] Fix external linter showing outdated results when more than one file is opened
+
+* [#8745] Fix false-positive `Unresolved reference` for local enum variants brought into scope using glob import
+
+* [#8808] Fix `AssertionError` exception when indexing `test` cfg options
+
+* [#8790] Improve type inference for call expressions
+
+* [#8805] Fix integration of [EduTools](https://plugins.jetbrains.com/plugin/10081-edutools) plugin with Rust plugin
+
+* [#8736] Add missing example of conditionally disabled code in Rust color settings page (`Settings/Preferences | Editor | Color Scheme | Rust`)
+
+## Internal Improvements
+
+* [#8709] Migrate plugin to [new plugin model](https://github.com/JetBrains/intellij-community/blob/master/docs/plugin.md)
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/78?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#5642]: https://github.com/intellij-rust/intellij-rust/pull/5642
+[#7849]: https://github.com/intellij-rust/intellij-rust/pull/7849
+[#8542]: https://github.com/intellij-rust/intellij-rust/pull/8542
+[#8709]: https://github.com/intellij-rust/intellij-rust/pull/8709
+[#8736]: https://github.com/intellij-rust/intellij-rust/pull/8736
+[#8741]: https://github.com/intellij-rust/intellij-rust/pull/8741
+[#8745]: https://github.com/intellij-rust/intellij-rust/pull/8745
+[#8746]: https://github.com/intellij-rust/intellij-rust/pull/8746
+[#8790]: https://github.com/intellij-rust/intellij-rust/pull/8790
+[#8796]: https://github.com/intellij-rust/intellij-rust/pull/8796
+[#8805]: https://github.com/intellij-rust/intellij-rust/pull/8805
+[#8808]: https://github.com/intellij-rust/intellij-rust/pull/8808
