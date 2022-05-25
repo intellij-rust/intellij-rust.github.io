@@ -1,0 +1,25 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #171"
+date: 2022-05-30 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8839] Provide builds for 2022.2 major release
+
+* [#8828] Implement unsize coercion in type inference. This fixes false-positive errors like type mismatch between `Box<[u8]>` and `Box<[u8; 4]>`
+
+## Fixes
+
+* [#8835] TY: several type inference fixes
+
+* [#8776] Take into account line breaks in `rustfmt` errors
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/79?closed=1)
+
+[#8776]: https://github.com/intellij-rust/intellij-rust/pull/8776
+[#8828]: https://github.com/intellij-rust/intellij-rust/pull/8828
+[#8835]: https://github.com/intellij-rust/intellij-rust/pull/8835
+[#8839]: https://github.com/intellij-rust/intellij-rust/pull/8839
