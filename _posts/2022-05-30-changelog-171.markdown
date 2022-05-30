@@ -1,0 +1,31 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #171"
+date: 2022-05-30 13:00:00 +0300
+---
+
+This is the last release that supports the 2021.3 IDEs. To receive plugin updates further, please upgrade
+your IDE to 2022.1.
+
+## New Features
+
+* [#8839] Provide builds for 2022.2 major release
+
+* [#8828] Implement [unsized coercion](https://doc.rust-lang.org/reference/type-coercions.html#unsized-coercions) in type inference engine. In particular, this fixes false-positive errors like type mismatch between `Box<[u8]>` and `Box<[u8; 4]>`
+
+## Fixes
+
+* [#8835] Type inference improvements:
+  * Infer closure parameters types when a closure is assigned to a variable and parameters types should be inferred later
+  * Fix `?` operator with `Try` trait. The (unstable) `Try` trait was moved to `core::ops::try_trait::Try` and its associated types was renamed. Now `?` works for `Poll<Result>`, for example.
+  * Fix for loop over type parameter implementing `Iterator`
+  * Derive recently added unstable `Destruct` trait for all types. It is used as a trait bound in stdlib
+
+* [#8776] Take into account line breaks when showing `rustfmt` error messages
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/79?closed=1)
+
+[#8776]: https://github.com/intellij-rust/intellij-rust/pull/8776
+[#8828]: https://github.com/intellij-rust/intellij-rust/pull/8828
+[#8835]: https://github.com/intellij-rust/intellij-rust/pull/8835
+[#8839]: https://github.com/intellij-rust/intellij-rust/pull/8839
