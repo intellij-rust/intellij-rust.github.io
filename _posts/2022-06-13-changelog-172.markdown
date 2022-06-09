@@ -1,0 +1,62 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #172"
+date: 2022-06-14 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8807] Use proper terminal if `Emulate terminal in output console` option is enabled in [Cargo Run configurations](https://plugins.jetbrains.com/plugin/8182-rust/docs/cargo-command-configuration.html). It can be used for interactive output, like [`indicatif`](https://github.com/console-rs/indicatif) progress bar. Also, this option is now available on Windows
+
+* [#8829] Highlight urls in string literals and allow opening them in browser from the editor
+
+  {% include gif-img.html path="/assets/posts/changelog-172/links_in_literals" w="700px" %}
+
+* [#8867] Annotate using `feature` attribute in non-nightly release channels ([E0554](https://doc.rust-lang.org/error-index.html#E0554) error)
+
+  {% include gif-img.html path="/assets/posts/changelog-172/feature_attribute_annotation" w="700px" %}
+
+* [#8863] Drop support of 2021.3 major IDE release. To get new updates of the plugin, upgrade your IDE to 2022.1
+
+## Performance Improvements
+
+* [#8890] Slightly speed up type inference
+
+* [#8881] Get rid of toolchain validation in local inspections. This should improve performance under WSL 2
+
+## Fixes
+
+* [#8882] Fix [external linter on the fly](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) on the nightly version of the plugin
+
+* [#8877] Update LLDB/GDB pretty-printers to properly render `Vec` children using Rust 1.62 or higher
+
+* [#8864] Fix rendering of assoc type bindings in `Implement members` action
+
+* [#8925] Fix procedural macros expansion on nightly Rust
+
+* [#8896] Fix potential IDE crash because of too large macro expansion
+
+* [#8907] Fix resolve of procedural macro when there is other item with same name in scope
+
+* [#8885] There is a [rustc limit](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute) for nesting depth of macro expansion. The default value in rustc was changed from 64 to 128 some time ago. Starting with this release, plugin also expand macros up to 128 nesting depth
+
+* [#8872] Don't throw `NullPointerException` during quick documentation generation in some cases
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/80?closed=1)
+
+[#8807]: https://github.com/intellij-rust/intellij-rust/pull/8807
+[#8829]: https://github.com/intellij-rust/intellij-rust/pull/8829
+[#8863]: https://github.com/intellij-rust/intellij-rust/pull/8863
+[#8864]: https://github.com/intellij-rust/intellij-rust/pull/8864
+[#8867]: https://github.com/intellij-rust/intellij-rust/pull/8867
+[#8872]: https://github.com/intellij-rust/intellij-rust/pull/8872
+[#8877]: https://github.com/intellij-rust/intellij-rust/pull/8877
+[#8881]: https://github.com/intellij-rust/intellij-rust/pull/8881
+[#8882]: https://github.com/intellij-rust/intellij-rust/pull/8882
+[#8885]: https://github.com/intellij-rust/intellij-rust/pull/8885
+[#8888]: https://github.com/intellij-rust/intellij-rust/pull/8888
+[#8890]: https://github.com/intellij-rust/intellij-rust/pull/8890
+[#8896]: https://github.com/intellij-rust/intellij-rust/pull/8896
+[#8907]: https://github.com/intellij-rust/intellij-rust/pull/8907
+[#8925]: https://github.com/intellij-rust/intellij-rust/pull/8925
