@@ -1,0 +1,49 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #173"
+date: 2022-06-27 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8927] Take into account [`#![recursion_limit]`](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute) attribute for macro expansion. This fixes some unresolved references when using such crates as `async-std` and `tokio`
+
+* [#8919] Implement new approach to detect changes that possibly affect project model
+
+## Performance Improvements
+
+* [#8955] PERF: reduce memory usage by `TraitImplSource` instances
+
+## Fixes
+
+* [#8957] take into account impls for macro types. For example, `impl foo!() { fn bar(&self) {} }`
+
+* [#8952] Complete more methods when autoderef occurs
+
+* [#8950] Consider methods in impls for a reference (`&Foo`) when the receiver is not a reference type
+
+* [#8943] Consider negative impls (e.g. `impl !Sync for T {}`) in type inference
+
+* [#8934] The `clippy::all` lint group will now be completed (by [@Kobzol])
+
+* [#8900] Remove Old Macro Expansion Engine option
+
+## Internal Improvements
+
+* [#8926] Bump jvm from 1.6.21 to 1.7.0
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/81?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#8900]: https://github.com/intellij-rust/intellij-rust/pull/8900
+[#8919]: https://github.com/intellij-rust/intellij-rust/pull/8919
+[#8926]: https://github.com/intellij-rust/intellij-rust/pull/8926
+[#8927]: https://github.com/intellij-rust/intellij-rust/pull/8927
+[#8934]: https://github.com/intellij-rust/intellij-rust/pull/8934
+[#8943]: https://github.com/intellij-rust/intellij-rust/pull/8943
+[#8950]: https://github.com/intellij-rust/intellij-rust/pull/8950
+[#8952]: https://github.com/intellij-rust/intellij-rust/pull/8952
+[#8955]: https://github.com/intellij-rust/intellij-rust/pull/8955
+[#8957]: https://github.com/intellij-rust/intellij-rust/pull/8957
