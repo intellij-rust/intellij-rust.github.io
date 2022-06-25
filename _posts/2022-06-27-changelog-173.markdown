@@ -7,33 +7,33 @@ date: 2022-06-27 13:00:00 +0300
 
 ## New Features
 
-* [#8927] Take into account [`#![recursion_limit]`](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute) attribute for macro expansion. This fixes some unresolved references when using such crates as `async-std` and `tokio`
-
-* [#8919] Implement new approach to detect changes that possibly affect project model
+* [#8927] Take into account [`#![recursion_limit]`](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute)  which controls the maximum depth of macro expansions. This fixes some unresolved references when using such crates as `async-std` and `tokio`. If you don't want/need to expand macros to full depth, you can adjust "Maximum recursion limit for macro expansion" in [Advanced Settings](https://jetbrains.com/help/idea/advanced-settings.html).
 
 ## Performance Improvements
 
-* [#8955] PERF: reduce memory usage by `TraitImplSource` instances
+* [#8955] Reduce memory usage by `TraitImplSource` instances since they're extensively cached and thus bloat old generation heap space a lot
 
 ## Fixes
 
-* [#8957] take into account impls for macro types. For example, `impl foo!() { fn bar(&self) {} }`
+* [#8957] Take into account impls for macro types. For example, `impl foo!() { fn bar(&self) {} }`
 
 * [#8952] Complete more methods when autoderef occurs
 
 * [#8950] Consider methods in impls for a reference (`&Foo`) when the receiver is not a reference type
 
-* [#8943] Consider negative impls (e.g. `impl !Sync for T {}`) in type inference
+* [#8943] Consider [negative impls](https://github.com/rust-lang/rust/issues/68318) (e.g. `impl !Sync for T {}`) in type inference
 
-* [#8934] The `clippy::all` lint group will now be completed (by [@Kobzol])
-
-* [#8900] Remove Old Macro Expansion Engine option
+* [#8934] The  "virtual" `clippy::all` lint group will now be completed (by [@Kobzol])
 
 ## Internal Improvements
 
+* [#8919] Implement a new approach to better detect changes that possibly affect the project model. It's disabled by default for now.
+
+* [#8900] Remove [Old Macro Expansion Engine](https://blog.jetbrains.com/clion/2020/07/intellij-rust-0-3-new-macro-expansion-engine) option
+
 * [#8926] Bump jvm from 1.6.21 to 1.7.0
 
-Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/81?closed=1)
+The full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/81?closed=1)
 
 [@Kobzol]: https://github.com/Kobzol
 
