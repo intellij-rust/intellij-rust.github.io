@@ -31,7 +31,7 @@ date: 2022-06-27 13:00:00 +0300
 
 * [#8919] Implement a new approach to better detect changes that possibly affect the project model. It's disabled by default for now.
 
-* [#8926] Increase Kotlin language level to 1.7 and API level to 1.6. So now it's possible to use all language features added in Kotlin 1.7 and any API from stdlib added in Kotlin 1.6
+* [#8926] Increase Kotlin language level to 1.7 and API level to 1.6. So now it's possible to use all [language features](https://kotlinlang.org/docs/whatsnew17.html#language) added in Kotlin 1.7 and any API from stdlib added in Kotlin 1.6
 
 The full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/81?closed=1)
 
