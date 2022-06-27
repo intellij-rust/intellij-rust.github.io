@@ -1,0 +1,49 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #173"
+date: 2022-06-27 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8927] Take into account [`#![recursion_limit]`](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute)  which controls the maximum depth of macro expansions. This fixes some unresolved references when using such crates as `async-std` and `tokio`. If you don't want/need to expand macros to full depth, you can adjust `Maximum recursion limit for macro expansion` in [Advanced Settings](https://jetbrains.com/help/idea/advanced-settings.html).
+
+* [#8934] Add `clippy::all` group to [lint](https://doc.rust-lang.org/rustc/lints/index.html) compeltion suggestions (by [@Kobzol])
+
+* [#8900] Remove [Old Macro Expansion Engine](https://blog.jetbrains.com/clion/2020/07/intellij-rust-0-3-new-macro-expansion-engine) option
+
+## Performance Improvements
+
+* [#8955] Reduce memory usage by trait implementation metadata since it's extensively cached and thus bloat old generation heap space a lot
+
+## Fixes
+
+* [#8957] Take into account impls for macro types. For example, `impl foo!() { fn bar(&self) {} }`
+
+* [#8952] Complete more methods when auto dereference occurs
+
+* [#8950] Consider methods in impls for a reference (`&Foo`) when the receiver is not a reference type
+
+* [#8943] Consider [negative impls](https://github.com/rust-lang/rust/issues/68318) (e.g. `impl !Sync for T {}`) in type inference
+
+## Internal Improvements
+
+* [#8919] Implement a new approach to better detect changes that possibly affect the project model. It's disabled by default for now.
+
+* [#8926] Increase Kotlin language level to 1.7 and API level to 1.6. So now it's possible to use all [language features](https://kotlinlang.org/docs/whatsnew17.html#language) added in Kotlin 1.7 and any API from stdlib added in Kotlin 1.6
+
+The full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/81?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#8900]: https://github.com/intellij-rust/intellij-rust/pull/8900
+[#8919]: https://github.com/intellij-rust/intellij-rust/pull/8919
+[#8926]: https://github.com/intellij-rust/intellij-rust/pull/8926
+[#8927]: https://github.com/intellij-rust/intellij-rust/pull/8927
+[#8934]: https://github.com/intellij-rust/intellij-rust/pull/8934
+[#8943]: https://github.com/intellij-rust/intellij-rust/pull/8943
+[#8950]: https://github.com/intellij-rust/intellij-rust/pull/8950
+[#8952]: https://github.com/intellij-rust/intellij-rust/pull/8952
+[#8955]: https://github.com/intellij-rust/intellij-rust/pull/8955
+[#8957]: https://github.com/intellij-rust/intellij-rust/pull/8957
