@@ -7,7 +7,7 @@ date: 2022-06-27 13:00:00 +0300
 
 ## New Features
 
-* [#8927] Take into account [`#![recursion_limit]`](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute)  which controls the maximum depth of macro expansions. This fixes some unresolved references when using such crates as `async-std` and `tokio`. If you don't want/need to expand macros to full depth, you can adjust "Maximum recursion limit for macro expansion" in [Advanced Settings](https://jetbrains.com/help/idea/advanced-settings.html).
+* [#8927] Take into account [`#![recursion_limit]`](https://doc.rust-lang.org/reference/attributes/limits.html#the-recursion_limit-attribute)  which controls the maximum depth of macro expansions. This fixes some unresolved references when using such crates as `async-std` and `tokio`. If you don't want/need to expand macros to full depth, you can adjust `Maximum recursion limit for macro expansion` in [Advanced Settings](https://jetbrains.com/help/idea/advanced-settings.html).
 
 ## Performance Improvements
 
