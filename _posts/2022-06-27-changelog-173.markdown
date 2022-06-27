@@ -23,7 +23,7 @@ date: 2022-06-27 13:00:00 +0300
 
 * [#8943] Consider [negative impls](https://github.com/rust-lang/rust/issues/68318) (e.g. `impl !Sync for T {}`) in type inference
 
-* [#8934] The  "virtual" `clippy::all` lint group will now be completed (by [@Kobzol])
+* [#8934] Add `clippy::all` group to [lint](https://doc.rust-lang.org/rustc/lints/index.html) compeltion suggestions (by [@Kobzol])
 
 ## Internal Improvements
 
