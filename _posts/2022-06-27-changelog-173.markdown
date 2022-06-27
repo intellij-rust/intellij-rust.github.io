@@ -21,7 +21,7 @@ date: 2022-06-27 13:00:00 +0300
 
 * [#8957] Take into account impls for macro types. For example, `impl foo!() { fn bar(&self) {} }`
 
-* [#8952] Complete more methods when autoderef occurs
+* [#8952] Complete more methods when auto dereference occurs
 
 * [#8950] Consider methods in impls for a reference (`&Foo`) when the receiver is not a reference type
 
