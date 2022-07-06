@@ -1,0 +1,84 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #174"
+date: 2022-07-11 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8998] Support [rename refactoring](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#rename-refactoring) (`Refactor | Rename` or <kbd>Shift</kbd>+<kbd>F6</kbd>) for macro [metavariables](https://doc.rust-lang.org/reference/macros-by-example.html#metavariables)
+
+  {% include gif-img.html path="/assets/posts/changelog-174/metavariable-rename" w="700px" %}
+
+* [#8850] `Borrow checker` inspection now detects more cases of move errors when a type overloads dereference operator. Among the new supported types are smart pointers (`Box`, `Rc`, etc.) and user-defined types implementing `Deref` trait
+
+  <img src="/assets/posts/changelog-174/more-borrow-checker-annotations.png" alt="More borrow checker annotations" width="700px"/>
+
+* [#8972] Detect [E0429](https://doc.rust-lang.org/error-index.html#E0429) and [E0431](https://doc.rust-lang.org/error-index.html#E0431) compiler errors
+
+## Performance Improvements
+
+* [#8985] Speed up completion and highlighting when typing in macro calls, thanks to fewer cache invalidations
+
+* [#8981] Slightly speed up type inference
+
+* [#8978] Do not invalidate caches of dependency crates on workspace code changes
+
+* [#8977] Do not trigger the indexing mode when typing in non-recursive macro calls
+
+## Fixes
+
+* [#8977] Show completion popup automatically when typing in macro calls.
+  Now there is no need to press <kbd>Ctrl</kbd> + <kbd>Space</kbd> to invoke completion manually.
+  Note, this change works only if the corresponding macro does not invoke other macros
+
+* [#8979] Fix false-positive unresolved reference annotations in type-qualified paths to associate members, e.g. `<S as module::Trait>::convert(S)`
+
+* [#8967] Properly resolve methods with specified [`self`](https://doc.rust-lang.org/stable/reference/items/associated-items.html?highlight=self#methods) parameter type, e.g. `self: Rc<Self>`
+
+* Improvements of procedural macro expansion:
+
+  * [#8989] Fix error messages explaining why a procedural macro call has not been expanded
+
+  * [#8991] Fix deserialization of certain messages produced by procedural macro expander
+
+  Note, procedural macro expansion is disabled by default for now.
+  To turn it on, enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+
+## Internal Improvements
+
+* Improvements in new project model reloading approach:
+
+  * [#8960], [#8987] Update or suggest updating the project model on changes in [Cargo config](https://doc.rust-lang.org/cargo/reference/config.html),
+    [rust-toolchain](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file) and [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) files
+
+  * [#8980] Provide a new icon for the floating button notifying about the changes in the plugin project model
+
+* [#8946] Add a registry flag to enable native Rust support in MSVC LLDB on Windows.
+  Note, the implementation at this point is experimental and might cause LLDB crashes in certain cases
+
+* [#8850] Implement type adjustments in the plugin's type inference engine
+
+* [#8705] Automatically suggest generated struct names after paste, based on their fields in JSON import (by [@Kobzol])
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/82?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#8705]: https://github.com/intellij-rust/intellij-rust/pull/8705
+[#8850]: https://github.com/intellij-rust/intellij-rust/pull/8850
+[#8946]: https://github.com/intellij-rust/intellij-rust/pull/8946
+[#8960]: https://github.com/intellij-rust/intellij-rust/pull/8960
+[#8967]: https://github.com/intellij-rust/intellij-rust/pull/8967
+[#8972]: https://github.com/intellij-rust/intellij-rust/pull/8972
+[#8977]: https://github.com/intellij-rust/intellij-rust/pull/8977
+[#8978]: https://github.com/intellij-rust/intellij-rust/pull/8978
+[#8979]: https://github.com/intellij-rust/intellij-rust/pull/8979
+[#8980]: https://github.com/intellij-rust/intellij-rust/pull/8980
+[#8981]: https://github.com/intellij-rust/intellij-rust/pull/8981
+[#8985]: https://github.com/intellij-rust/intellij-rust/pull/8985
+[#8987]: https://github.com/intellij-rust/intellij-rust/pull/8987
+[#8989]: https://github.com/intellij-rust/intellij-rust/pull/8989
+[#8991]: https://github.com/intellij-rust/intellij-rust/pull/8991
+[#8998]: https://github.com/intellij-rust/intellij-rust/pull/8998
