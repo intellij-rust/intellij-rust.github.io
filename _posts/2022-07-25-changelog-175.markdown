@@ -1,0 +1,141 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #175"
+date: 2022-07-25 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#7816], [#8596], [#8597], [#8629], [#8675], [#8705], [#8730], [#8996], [#8767]
+  You can now paste JSON objects into Rust files and convert them to a set of Rust structs (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-175/json" w="700px" %}
+
+* [#9012] Introduce new approach of project model reloading and detection changes in configuration files
+  starting with 2022.2 major IDE release. Now the plugin detects changes in configuration files like
+  `Cargo.toml` even if they are not saved into disk yet, takes into account
+  [Cargo config](https://doc.rust-lang.org/cargo/reference/config.html),
+  [toolchain](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file) and
+  [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) files and notifies you if
+  the project model is not up-to-date via floating button in the top-right corner of the editor.
+  You can select preferable way when the project model should be reloaded automatically in
+  `Preferences | Build, Execution, Deployment | Build Tools`. At the same time, Cargo settings were
+  moved to `Preferences | Build, Execution, Deployment | Build Tools | Cargo`
+
+  {% include gif-img.html path="/assets/posts/changelog-175/new-cargo-model-auto-import" w="700px" %}
+
+* [#8868] Highlight macro-machinery-specific syntax in [declarative macro] definitions.
+  New highlighting should help to distinguish a syntax specific to macros from
+  an expansion code (by [@daym])
+
+  <img src="/assets/posts/changelog-175/macro-highlighting.png" alt="Macro highlighting" width="700px"/>
+
+* [#8869] Enable by default some inspections for dependencies in `Cargo.toml`
+
+    * `Invalid crate version` warns you about a non-existing crate version
+
+      <img src="/assets/posts/changelog-175/invalid-crate-version.png" alt="Invalid crate version" width="700px"/>
+
+    * `New crate version available` notifies you about a crate that could be updated.
+
+      {% include gif-img.html path="/assets/posts/changelog-175/new-crate-version-available" w="700px" %}
+
+      We tried to make the highlighting not too intrusive, because using an older version of a crate
+      may be quite normal. If you still don't like the inspection, you can simply [disable it][disable-inspection]
+
+* Improve detection of some errors:
+
+    * [#9026] Improve detection of duplicate definitions.
+      Add support for [`E0254`](https://doc.rust-lang.org/error-index.html#E0254),
+      [`E0259`](https://doc.rust-lang.org/error-index.html#E0259) and
+      [`E0260`](https://doc.rust-lang.org/error-index.html#E0260) errors
+
+    * [#9020] Detect [E0430](https://doc.rust-lang.org/error-index.html#E0430)
+      `The self import appears more than once in the list` compiler error
+
+    * [#9000] Detect [E0742](https://doc.rust-lang.org/error-index.html#E0742)
+      `Visibility is restricted to a module which isn’t an ancestor of the current item` compiler error
+
+* [#7299] Provide debugger pretty-printers to render `HashMap`/`HashSet` with MSVC LLDB on Windows
+
+* [#9024] Support `View | Type Info` action (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) for field shorthand syntax
+
+## Performance Improvements
+
+* [#9021], [#9016], [#9015], [#8968] Slightly speed up type inference
+
+* [#8986] Speed up completion in procedural macros.
+  Please, note that procedural macro expansion is experimental. If you want to try it,
+  enable `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features]
+
+* [#9085] Fix possible deadlock during indexing
+
+## Fixes
+
+* [#8986] Try to fix up rust syntax before calling an attribute procedural macro placed on a function.
+  This fixes highlighting blinking during typing in a body of a function with a proc attribute macro on it
+
+* [#9090] Limit the maximal `#![recursion_limit]` attribute value to 1000 when expanding macros.
+  This fixes possible stack overflows
+
+* [#9058] Fixes procedural macro expansion on Rust beta
+
+* [#9009] Fix ["Inline function"] refactoring dialog when function has single usage in another module
+
+* [#8951] Do not offer `remove unused variables` quick-fix if the variable is not declared in a `let` binging
+  (for example, if it is declared in a `for` loop) (by [@Kobzol])
+
+* [#9067] Fixes exception on opening `Configure features` popup in Cargo.toml (by [@Stzx])
+  The popup can be observed only if `org.rust.cargo.features.settings.gutter`
+  [experimental feature][experimental features] is enabled
+
+## Internal Improvements
+
+* [#9070] Migrate usages of [Kotlin UI DSL version 1][dsl1] to [the second version][dsl2]
+
+* [#9025] Make 2022.2 platform default for development
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/83?closed=1)
+
+[disable-inspection]: https://www.jetbrains.com/help/idea/disabling-and-enabling-inspections.html#disable-inspections
+["Inline function"]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring
+[dsl1]: https://plugins.jetbrains.com/docs/intellij/kotlin-ui-dsl.html
+[dsl2]: https://plugins.jetbrains.com/docs/intellij/kotlin-ui-dsl-version-2.html
+[experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+[declarative macro]: https://doc.rust-lang.org/book/ch19-06-macros.html#declarative-macros-with-macro_rules-for-general-metaprogramming
+
+[@Kobzol]: https://github.com/Kobzol
+[@Stzx]: https://github.com/Stzx
+[@daym]: https://github.com/daym
+
+[#7299]: https://github.com/intellij-rust/intellij-rust/pull/7299
+[#8767]: https://github.com/intellij-rust/intellij-rust/pull/8767
+[#7816]: https://github.com/intellij-rust/intellij-rust/pull/7816
+[#8596]: https://github.com/intellij-rust/intellij-rust/pull/8596
+[#8597]: https://github.com/intellij-rust/intellij-rust/pull/8597
+[#8629]: https://github.com/intellij-rust/intellij-rust/pull/8629
+[#8675]: https://github.com/intellij-rust/intellij-rust/pull/8675
+[#8705]: https://github.com/intellij-rust/intellij-rust/pull/8705
+[#8730]: https://github.com/intellij-rust/intellij-rust/pull/8730
+[#8996]: https://github.com/intellij-rust/intellij-rust/pull/8996
+[#8868]: https://github.com/intellij-rust/intellij-rust/pull/8868
+[#8869]: https://github.com/intellij-rust/intellij-rust/pull/8869
+[#8951]: https://github.com/intellij-rust/intellij-rust/pull/8951
+[#8968]: https://github.com/intellij-rust/intellij-rust/pull/8968
+[#8986]: https://github.com/intellij-rust/intellij-rust/pull/8986
+[#9000]: https://github.com/intellij-rust/intellij-rust/pull/9000
+[#9009]: https://github.com/intellij-rust/intellij-rust/pull/9009
+[#9012]: https://github.com/intellij-rust/intellij-rust/pull/9012
+[#9015]: https://github.com/intellij-rust/intellij-rust/pull/9015
+[#9016]: https://github.com/intellij-rust/intellij-rust/pull/9016
+[#9020]: https://github.com/intellij-rust/intellij-rust/pull/9020
+[#9021]: https://github.com/intellij-rust/intellij-rust/pull/9021
+[#9024]: https://github.com/intellij-rust/intellij-rust/pull/9024
+[#9025]: https://github.com/intellij-rust/intellij-rust/pull/9025
+[#9026]: https://github.com/intellij-rust/intellij-rust/pull/9026
+[#9058]: https://github.com/intellij-rust/intellij-rust/pull/9058
+[#9067]: https://github.com/intellij-rust/intellij-rust/pull/9067
+[#9070]: https://github.com/intellij-rust/intellij-rust/pull/9070
+[#9085]: https://github.com/intellij-rust/intellij-rust/pull/9085
+[#9090]: https://github.com/intellij-rust/intellij-rust/pull/9090
