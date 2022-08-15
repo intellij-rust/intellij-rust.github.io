@@ -8,9 +8,13 @@ date: 2022-08-15 13:00:00 +0300
 ## New Features
 
 * [#9047] Improve [`Inline function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring:
-  * Use fresh names when adding new bindings to avoid shadowing existing ones 
-  * Inline simple arguments (e.g. literals) when possible to avoid unnecessary bindings 
+
+  * Use fresh names when adding new bindings to avoid shadowing existing ones
+
+  * Inline simple arguments (e.g. literals) when possible to avoid unnecessary bindings
+
   * Do not break code when invoked on a nested function call or inside a block expression
+
   * Handle destructuring assignments and nested function definitions
 
   {% include gif-img.html path="/assets/posts/changelog-176/improve-inline-function-refactoring" w="700px" %}
