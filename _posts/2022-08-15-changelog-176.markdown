@@ -1,0 +1,87 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #176"
+date: 2022-08-15 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9047] Improve [`Inline function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring:
+  * Use fresh names when adding new bindings to avoid shadowing existing ones 
+  * Inline simple arguments (e.g. literals) when possible to avoid unnecessary bindings 
+  * Do not break code when invoked on a nested function call or inside a block expression
+  * Handle destructuring assignments and nested function definitions
+
+  {% include gif-img.html path="/assets/posts/changelog-176/improve-inline-function-refactoring" w="700px" %}
+
+## Performance Improvements
+
+* [#9074] Slightly optimize name resolution
+
+* [#9027] Slightly speed up highlighting and appearance of inlay hints
+
+## Fixes
+
+* [#9169] Fix possible stack overflow introduced in the previous release of the plugin
+
+* [#9083] Resolve enum variants in match patterns properly
+
+* [#9106] Resolve reexported macros properly
+
+* [#9155] Do not suggest unexpected or duplicate completion variants in `Cargo.toml`
+
+* [#9152] Do not suggest macros when completing module names
+
+* [#9150] Fix handling of `self` parameters in [`Change signature`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring (by [@Kobzol])
+
+* [#9117] Fix [`Rename`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#rename-refactoring) refactoring when invoked on a constant used in a [shorthand init](https://doc.rust-lang.org/reference/expressions/struct-expr.html#struct-field-init-shorthand)
+
+* [#9146] Disable `Extract struct fields` and [`Generate getter/setter`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#generate-menu) actions when no fields are selected (by [@Kobzol])
+
+* [#9158] Auto-import on completion now respects [underscore imports](https://doc.rust-lang.org/reference/items/use-declarations.html#underscore-imports)
+
+* [#9138] Fix auto-import when completing items inside trait implementations
+
+* [#9132], [#9107] Fix resolve of certain items and macros declared in nested [`include!`-ed](https://doc.rust-lang.org/std/macro.include.html) files
+
+* [#9082] Support `.await`ing types that implement [`IntoFuture`](https://doc.rust-lang.org/std/future/trait.IntoFuture.html) and resolve the output type (by [@ForsakenHarmony])
+
+* [#9097] Properly add `Cargo` settings in Rider 2022.2
+
+* [#9151] Fix cache invalidation after changing [`Expand macros`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-project-settings.html#macro-engine) settings
+
+* [#9095] Fix error messages about unsuccessful macro expansion when the [procedural macro expansion](https://github.com/intellij-rust/intellij-rust/issues/6908) is not enabled or when a declarative macro call is `cfg`-disabled
+
+* [#9079] Allow changing the shortcut for [Rust REPL](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-repl-console.html) command execution via `Execute Current Statement in Multiline Console` option in [Keymap](https://www.jetbrains.com/help/idea/configuring-keyboard-and-mouse-shortcuts.html)
+
+## Internal Improvements
+
+* [#9160] Fix `attribute-info` crate compilation which is used to update the compiler features
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/84?closed=1)
+
+[@ForsakenHarmony]: https://github.com/ForsakenHarmony
+[@Kobzol]: https://github.com/Kobzol
+
+[#9027]: https://github.com/intellij-rust/intellij-rust/pull/9027
+[#9047]: https://github.com/intellij-rust/intellij-rust/pull/9047
+[#9074]: https://github.com/intellij-rust/intellij-rust/pull/9074
+[#9079]: https://github.com/intellij-rust/intellij-rust/pull/9079
+[#9082]: https://github.com/intellij-rust/intellij-rust/pull/9082
+[#9083]: https://github.com/intellij-rust/intellij-rust/pull/9083
+[#9095]: https://github.com/intellij-rust/intellij-rust/pull/9095
+[#9097]: https://github.com/intellij-rust/intellij-rust/pull/9097
+[#9106]: https://github.com/intellij-rust/intellij-rust/pull/9106
+[#9107]: https://github.com/intellij-rust/intellij-rust/pull/9107
+[#9117]: https://github.com/intellij-rust/intellij-rust/pull/9117
+[#9132]: https://github.com/intellij-rust/intellij-rust/pull/9132
+[#9138]: https://github.com/intellij-rust/intellij-rust/pull/9138
+[#9146]: https://github.com/intellij-rust/intellij-rust/pull/9146
+[#9150]: https://github.com/intellij-rust/intellij-rust/pull/9150
+[#9151]: https://github.com/intellij-rust/intellij-rust/pull/9151
+[#9152]: https://github.com/intellij-rust/intellij-rust/pull/9152
+[#9155]: https://github.com/intellij-rust/intellij-rust/pull/9155
+[#9158]: https://github.com/intellij-rust/intellij-rust/pull/9158
+[#9160]: https://github.com/intellij-rust/intellij-rust/pull/9160
+[#9169]: https://github.com/intellij-rust/intellij-rust/pull/9169
