@@ -1,0 +1,91 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #177"
+date: 2022-08-29 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9006] Support [`Rename`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#rename-refactoring) refactoring of items expanded from a macro
+
+  {% include gif-img.html path="/assets/posts/changelog-177/rename" w="700px" %}
+
+* [#9173] Rustup toolchains newer than 2022-07-29 contain a proc macro server that should be compatible with macros built by the matching compiler.
+          Since today’s release, the server is automatically detected by and used the plugin.
+          This means that proc macros will keep working on latest Rust nightly versions.
+          For more details, you can read @fasterthanlime’s [blog post](https://fasterthanli.me/articles/proc-macro-support-in-rust-analyzer-for-nightly-rustc-versions#what-s-next).
+          Note, proc macros can be enabled using `org.rust.cargo.evaluate.build.scripts` and `org.rust.macros.proc` [experimental features](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+
+* Debugger pretty-printers improvements:
+
+  * [#9168] Show the contents and the size of Rust slices
+
+    <img src="/assets/posts/changelog-177/slices.png" width="700px"/>
+
+  * [#9200] Render `alloc::rc::Weak` and `alloc::sync::Weak`
+
+    <img src="/assets/posts/changelog-177/weak.png" width="700px"/>
+
+  * [#9203], [#9237] Fix rendering of `Ref` and `RefMut`
+
+* [#8937] Enable `Unused imports` inspection if proc macros are enabled. You can disable it in [inspection settings](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#inspection-settings)
+
+  <img src="/assets/posts/changelog-177/unused-import.png" width="700px"/>
+
+* Improvements of top-level completion of macro calls
+
+  * [#9156] Out-of-scope completion for unqualified macro calls
+
+  * [#9156] Support for 3-segments and longer macro calls
+
+  * [#9194] Fix possible exception during typing in macro call
+
+  * [#9183] Fix duplicates in completion results
+
+* [#9137] Updated list of key completions in `Cargo.toml` (by [@afetisov])
+
+## Performance Improvements
+
+* [#9208], [#9190], [#9182], [#9161], [#9104] Slightly speed up name resolution and type inference
+
+## Fixes
+
+* [#9081] Remove false positive `Unused variable` warnings for [implicit format arguments](https://rust-lang.github.io/rfcs/2795-format-args-implicit-identifiers.html) used in macros like `println!` (by [@Kobzol])
+
+* [#9175] Fix proc macro expansion on Rust 1.63 and 1.64 nightly
+
+* [#9139] Fix completion of qualified [macros 2.0](https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md)
+
+* [#9080] Fix resolve of items with `#[async_trait]` in some cases
+
+## Internal Improvements
+
+* [#8944] Properly configure cargo-based projects for running inspection from [command line](https://www.jetbrains.com/help/idea/command-line-code-inspector.html) or via [Qodana](https://www.jetbrains.com/qodana/)
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/86?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@afetisov]: https://github.com/afetisov
+
+[#8937]: https://github.com/intellij-rust/intellij-rust/pull/8937
+[#8944]: https://github.com/intellij-rust/intellij-rust/pull/8944
+[#9006]: https://github.com/intellij-rust/intellij-rust/pull/9006
+[#9080]: https://github.com/intellij-rust/intellij-rust/pull/9080
+[#9081]: https://github.com/intellij-rust/intellij-rust/pull/9081
+[#9104]: https://github.com/intellij-rust/intellij-rust/pull/9104
+[#9137]: https://github.com/intellij-rust/intellij-rust/pull/9137
+[#9139]: https://github.com/intellij-rust/intellij-rust/pull/9139
+[#9156]: https://github.com/intellij-rust/intellij-rust/pull/9156
+[#9161]: https://github.com/intellij-rust/intellij-rust/pull/9161
+[#9168]: https://github.com/intellij-rust/intellij-rust/pull/9168
+[#9173]: https://github.com/intellij-rust/intellij-rust/pull/9173
+[#9175]: https://github.com/intellij-rust/intellij-rust/pull/9175
+[#9182]: https://github.com/intellij-rust/intellij-rust/pull/9182
+[#9183]: https://github.com/intellij-rust/intellij-rust/pull/9183
+[#9190]: https://github.com/intellij-rust/intellij-rust/pull/9190
+[#9194]: https://github.com/intellij-rust/intellij-rust/pull/9194
+[#9200]: https://github.com/intellij-rust/intellij-rust/pull/9200
+[#9203]: https://github.com/intellij-rust/intellij-rust/pull/9203
+[#9237]: https://github.com/intellij-rust/intellij-rust/pull/9237
+[#9208]: https://github.com/intellij-rust/intellij-rust/pull/9208
