@@ -1,0 +1,109 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #178"
+date: 2022-09-12 13:00:00 +0300
+---
+
+
+## New Features
+
+* Detect new compiler errors:
+
+  * [#9251] `await` outside `async` function ([E0728](https://doc.rust-lang.org/error-index.html#E0728))
+
+    {% include gif-img.html path="/assets/posts/changelog-178/await_outside_async" w="350px" %}
+
+  * [#9272] Use of variable from outer function ([E0434](https://doc.rust-lang.org/error-index.html#E0434))
+
+    {% include gif-img.html path="/assets/posts/changelog-178/use_outer_variable" w="350px" %}
+
+  * [#9256] An async function used recursion without boxing ([E0733](https://doc.rust-lang.org/error-index.html#E0733)). Note, detection of indirect async recursion (two async functions calling each other) is not supported for now
+
+    {% include gif-img.html path="/assets/posts/changelog-178/recursive_async_function" w="350px" %}
+
+* [#9268], [#9259] Complete [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macros in attributes
+
+  {% include gif-img.html path="/assets/posts/changelog-178/complete_attr_proc_macros" w="350px" %}
+
+* [#9209] Provide debugger pretty-printers to render range types (e.g. `core::ops::range::Range`)
+
+  <img src="/assets/posts/changelog-178/pretty_printers_range_types.png" width="700px"/>
+
+* [#8961] Take into account build target during collection information about the project model and don't download and analyze [platform-specific](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#platform-specific-dependencies) dependencies not suitable for the current platform
+
+* [#9269] Add completions for new Clippy and Rustc lints inside lint attributes like `allow`, `warn`, etc. (by [@afetisov])
+
+## Performance Improvements
+
+* [#9236] Enable again name resolution [optimization](https://github.com/intellij-rust/intellij-rust/pull/9021) reverted in the previous release
+
+* [#9171] Slightly speed up name resolution
+
+* [#9255] Speed up `Optimize import` action when `Unused imports` inspection is enabled
+
+## Fixes
+
+* [#9235] Fix broken `anyhow` compilation when `org.rust.cargo.evaluate.build.scripts` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) is enabled
+
+* [#9202] Fix name resolution of items inside module declared in `include!`-ed file
+
+* [#9295] Fix search of the plugin settings in `Find Action` dialog and `Settings` window which was broken in [#8709](https://github.com/intellij-rust/intellij-rust/pull/8709)
+
+* [#9238] Allow leading `|` in nested or-patterns (by [@afetisov])
+
+* [#9288] Always reload the project model after changes in settings which affect the model
+
+* [#9267] Fix auto-import of attribute procedural macro with the same name as crate
+
+  {% include gif-img.html path="/assets/posts/changelog-178/import_attr_proc_macro" w="350px" %}
+
+* [#9280] Fix expansion of local (located inside function bodies) [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) and [derive](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) procedural macros
+
+* [#9205] Update debugger pretty-printers to render `CString` and `CStr` properly
+
+* [#9233] Fix cargo feature state inference in several cases
+
+* [#9265] Fix auto-import variants for `error::Error` path on nightly toolchain
+
+* [#9225] Properly parse environment variables in [cargo config](https://doc.rust-lang.org/cargo/reference/config.html#env)
+
+* [#9234] Show error message in `Sync` tool window if project directory does not exist
+
+* [#9270] Simplify [`Inline function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring dialog (remove unused options `Search in comments`)
+
+## Internal Improvements
+
+* [#8866] Decouple associated type refinement from `RsPathReference.resolve()`
+
+* [#9290] Remove code related to the old name resolution engine
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/87?closed=1)
+
+[@afetisov]: https://github.com/afetisov
+
+[#8866]: https://github.com/intellij-rust/intellij-rust/pull/8866
+[#8961]: https://github.com/intellij-rust/intellij-rust/pull/8961
+[#9171]: https://github.com/intellij-rust/intellij-rust/pull/9171
+[#9202]: https://github.com/intellij-rust/intellij-rust/pull/9202
+[#9205]: https://github.com/intellij-rust/intellij-rust/pull/9205
+[#9209]: https://github.com/intellij-rust/intellij-rust/pull/9209
+[#9225]: https://github.com/intellij-rust/intellij-rust/pull/9225
+[#9233]: https://github.com/intellij-rust/intellij-rust/pull/9233
+[#9234]: https://github.com/intellij-rust/intellij-rust/pull/9234
+[#9235]: https://github.com/intellij-rust/intellij-rust/pull/9235
+[#9236]: https://github.com/intellij-rust/intellij-rust/pull/9236
+[#9238]: https://github.com/intellij-rust/intellij-rust/pull/9238
+[#9251]: https://github.com/intellij-rust/intellij-rust/pull/9251
+[#9255]: https://github.com/intellij-rust/intellij-rust/pull/9255
+[#9256]: https://github.com/intellij-rust/intellij-rust/pull/9256
+[#9259]: https://github.com/intellij-rust/intellij-rust/pull/9259
+[#9265]: https://github.com/intellij-rust/intellij-rust/pull/9265
+[#9267]: https://github.com/intellij-rust/intellij-rust/pull/9267
+[#9268]: https://github.com/intellij-rust/intellij-rust/pull/9268
+[#9269]: https://github.com/intellij-rust/intellij-rust/pull/9269
+[#9270]: https://github.com/intellij-rust/intellij-rust/pull/9270
+[#9272]: https://github.com/intellij-rust/intellij-rust/pull/9272
+[#9280]: https://github.com/intellij-rust/intellij-rust/pull/9280
+[#9288]: https://github.com/intellij-rust/intellij-rust/pull/9288
+[#9290]: https://github.com/intellij-rust/intellij-rust/pull/9290
+[#9295]: https://github.com/intellij-rust/intellij-rust/pull/9295
