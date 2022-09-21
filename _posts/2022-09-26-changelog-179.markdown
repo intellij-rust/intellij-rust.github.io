@@ -1,0 +1,100 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #179"
+date: 2022-09-26 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9325] Enable build script evaluation in nightly plugin builds for 2022.2 platform
+
+* [#9296] ACT: Remove resolve engine info from "Create new issue" action
+
+* [#9242] update completions for function attributes (by [@afetisov])
+
+* [#9241] changed the rendering of folded blocks for `use`, `mod`, `extern crate` and `where` blocks (by [@afetisov])
+
+* [#9176] CARGO: Use `--keep-going` when building and evaluating buildscripts
+
+* [#9043] Add [redundant_semicolons](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
+
+* [#7435] The intention to convert a match expression to a series of if let statements is now offered in more situations (by [@Kobzol])
+
+## Performance Improvements
+
+* [#9338] Slightly speed up type inference
+
+* [#9337] Slightly speed up name resolution
+
+* [#9334] Slightly speed up name resolution
+
+* [#9331] Slightly speed up name resolution
+
+* [#9322] Slightly speed up type inference
+
+* [#9213] PERF: use dependencies modification tracker in more places
+
+* [#9211] Speed up name resolution of large nested paths like `Foo<Foo<Foo<Foo<...>>>>`
+
+## Fixes
+
+* [#9352] Allow empty precision in formatting parameter (by [@KarelPeeters])
+
+* [#9351] Fix `Tools | Rust | Share in Playgroud` action
+
+* [#9327] Fix name resolution of an associated type of a type parameter inside a trait bound, in the case where the type parameter is declared on a level other than the bound
+
+* [#9317] Complete crates from workspace in `extern crate`
+
+* [#9314] Don't suggest auto-import fix for assoc type binding
+
+* [#9302] Provide proper names for `Undo`/`Redo` actions and records in [Local history](https://www.jetbrains.com/help/idea/local-history.html) for changes made by `Promote Module to Directory` and `Downgrade Module to File` refactorings (by [@afetisov])
+
+* [#9298] Fix ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when number of occurrences is unknown
+
+* [#9297] Improve UI of ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog for functions with a large number of parameters
+
+* [#9271] Support "Unused imports" inspection for public reexports in binary crates
+
+* [#8963] Fix URLs in messages from external linters
+
+* [#5911] Fix detection of  [E0774](https://doc.rust-lang.org/error-index.html#E0774) compiler error (by [@Stzx])
+
+## Internal Improvements
+
+* [#9228] Use `ubuntu-latest` runners instead of deprecated  `ubuntu-18.04`
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/88?closed=1)
+
+[@KarelPeeters]: https://github.com/KarelPeeters
+[@Kobzol]: https://github.com/Kobzol
+[@Stzx]: https://github.com/Stzx
+[@afetisov]: https://github.com/afetisov
+
+[#5911]: https://github.com/intellij-rust/intellij-rust/pull/5911
+[#7435]: https://github.com/intellij-rust/intellij-rust/pull/7435
+[#8963]: https://github.com/intellij-rust/intellij-rust/pull/8963
+[#9043]: https://github.com/intellij-rust/intellij-rust/pull/9043
+[#9176]: https://github.com/intellij-rust/intellij-rust/pull/9176
+[#9211]: https://github.com/intellij-rust/intellij-rust/pull/9211
+[#9213]: https://github.com/intellij-rust/intellij-rust/pull/9213
+[#9228]: https://github.com/intellij-rust/intellij-rust/pull/9228
+[#9241]: https://github.com/intellij-rust/intellij-rust/pull/9241
+[#9242]: https://github.com/intellij-rust/intellij-rust/pull/9242
+[#9271]: https://github.com/intellij-rust/intellij-rust/pull/9271
+[#9296]: https://github.com/intellij-rust/intellij-rust/pull/9296
+[#9297]: https://github.com/intellij-rust/intellij-rust/pull/9297
+[#9298]: https://github.com/intellij-rust/intellij-rust/pull/9298
+[#9302]: https://github.com/intellij-rust/intellij-rust/pull/9302
+[#9314]: https://github.com/intellij-rust/intellij-rust/pull/9314
+[#9317]: https://github.com/intellij-rust/intellij-rust/pull/9317
+[#9322]: https://github.com/intellij-rust/intellij-rust/pull/9322
+[#9325]: https://github.com/intellij-rust/intellij-rust/pull/9325
+[#9327]: https://github.com/intellij-rust/intellij-rust/pull/9327
+[#9331]: https://github.com/intellij-rust/intellij-rust/pull/9331
+[#9334]: https://github.com/intellij-rust/intellij-rust/pull/9334
+[#9337]: https://github.com/intellij-rust/intellij-rust/pull/9337
+[#9338]: https://github.com/intellij-rust/intellij-rust/pull/9338
+[#9351]: https://github.com/intellij-rust/intellij-rust/pull/9351
+[#9352]: https://github.com/intellij-rust/intellij-rust/pull/9352
