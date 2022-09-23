@@ -22,6 +22,8 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
 * [#9271] Mark public re-exports in binary crates like unused by `Unused imports` inspection. Note that the inspection works only when [the procedural macro support is enabled](https://github.com/intellij-rust/intellij-rust/issues/6908)
 
+* [#9317] Complete crates from a workspace in `extern crate`
+
 * [#9325] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation in nightly plugin builds for 2022.2 platform
 
 ## Performance Improvements
@@ -37,8 +39,6 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 * [#9351] Fix `Tools | Rust | Share in Playground` action
 
 * [#9327] Fix name resolution of an associated type of a type parameter inside a trait bound, in the case where the type parameter is declared on a level other than the bound
-
-* [#9317] Complete crates from a workspace in `extern crate`
 
 * [#9314] Don't suggest `Import` quick-fix for associated type bindings
 
