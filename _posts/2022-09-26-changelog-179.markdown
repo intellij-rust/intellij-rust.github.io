@@ -4,64 +4,63 @@ title: "IntelliJ Rust Changelog #179"
 date: 2022-09-26 13:00:00 +0300
 ---
 
+This is the last release that supports the 2022.1 IDEs. To receive plugin updates further, please upgrade your IDE to 2022.2.
 
 ## New Features
 
-* [#9325] Enable build script evaluation in nightly plugin builds for 2022.2 platform
+* [#9241] Change the rendering of folded blocks for `use`, `mod`, `extern crate`, and `where` blocks to make them more distinct from folded block comments (by [@afetisov])
 
-* [#9296] ACT: Remove resolve engine info from "Create new issue" action
+  **TODO**: img/gif
 
-* [#9242] update completions for function attributes (by [@afetisov])
+* [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts to continue building even if some crate fails to compile
 
-* [#9241] changed the rendering of folded blocks for `use`, `mod`, `extern crate` and `where` blocks (by [@afetisov])
+* [#9325] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation in nightly plugin builds for 2022.2 platform
 
-* [#9176] CARGO: Use `--keep-going` when building and evaluating buildscripts
+* [#9043] Add [`redundant_semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
 
-* [#9043] Add [redundant_semicolons](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
+  **TODO**: img/gif
 
 * [#7435] The intention to convert a match expression to a series of if let statements is now offered in more situations (by [@Kobzol])
 
+  **TODO**: img/gif?
+
+* [#9242] update completions for function attributes including `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` (by [@afetisov])
+
 ## Performance Improvements
 
-* [#9338] Slightly speed up type inference
+* [#9338], [#9337], [#9334], [#9331], [#9322] Slightly speed up name resolution and type inference
 
-* [#9337] Slightly speed up name resolution
+* [#9211] Speed up name resolution of large nested paths like `Foo<Foo<Foo<Foo<...>>>>` by resolving and caching them at once
 
-* [#9334] Slightly speed up name resolution
-
-* [#9331] Slightly speed up name resolution
-
-* [#9322] Slightly speed up type inference
-
-* [#9213] PERF: use dependencies modification tracker in more places
-
-* [#9211] Speed up name resolution of large nested paths like `Foo<Foo<Foo<Foo<...>>>>`
+* [#9213] Use dependencies modification tracker in more places to reduce unnecessary cache invalidations
 
 ## Fixes
 
 * [#9352] Allow empty precision in formatting parameter (by [@KarelPeeters])
 
-* [#9351] Fix `Tools | Rust | Share in Playgroud` action
+* [#9351] Fix `Tools | Rust | Share in Playground` action
 
 * [#9327] Fix name resolution of an associated type of a type parameter inside a trait bound, in the case where the type parameter is declared on a level other than the bound
 
-* [#9317] Complete crates from workspace in `extern crate`
+* [#9317] Complete crates from a workspace in `extern crate`
 
 * [#9314] Don't suggest auto-import fix for assoc type binding
 
 * [#9302] Provide proper names for `Undo`/`Redo` actions and records in [Local history](https://www.jetbrains.com/help/idea/local-history.html) for changes made by `Promote Module to Directory` and `Downgrade Module to File` refactorings (by [@afetisov])
 
-* [#9298] Fix ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when number of occurrences is unknown
+* [#9298] Fix ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when the number of occurrences is unknown
 
 * [#9297] Improve UI of ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog for functions with a large number of parameters
 
-* [#9271] Support "Unused imports" inspection for public reexports in binary crates
+* [#9271] Support the `Unused imports` inspection for public reexports in binary crates
 
-* [#8963] Fix URLs in messages from external linters
+* [#8963] Fix URLs in messages from [external linters](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters)
 
-* [#5911] Fix detection of  [E0774](https://doc.rust-lang.org/error-index.html#E0774) compiler error (by [@Stzx])
+* [#5911] Fix detection of a misplaced `derive` attribute ([E0774](https://doc.rust-lang.org/error-index.html#E0774)) compiler error (by [@Stzx])
 
 ## Internal Improvements
+
+* [#9296] Remove resolve engine info from the "Create new issue" action because options to use the old resolve engine and the old macro expander are already removed.
 
 * [#9228] Use `ubuntu-latest` runners instead of deprecated  `ubuntu-18.04`
 
