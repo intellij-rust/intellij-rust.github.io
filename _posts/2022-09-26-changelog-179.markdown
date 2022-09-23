@@ -10,7 +10,7 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
 * [#9241] Change the rendering of folded blocks for `use`, `mod`, `extern crate`, and `where` blocks to make them more distinct from folded block comments (by [@afetisov])
 
-  **TODO**: img/gif
+  {% include gif-img.html path="/assets/posts/changelog-179/fold" w="700px" %}
 
 * [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts to continue building even if some crate fails to compile
 
@@ -18,11 +18,11 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
 * [#9043] Add [`redundant_semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
 
-  **TODO**: img/gif
+  {% include gif-img.html path="/assets/posts/changelog-179/semicolons" w="700px" %}
 
 * [#7435] The intention to convert a match expression to a series of if let statements is now offered in more situations (by [@Kobzol])
 
-  **TODO**: img/gif?
+  {% include gif-img.html path="/assets/posts/changelog-179/match-to-if-let" w="700px" %}
 
 * [#9242] update completions for function attributes including `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` (by [@afetisov])
 
