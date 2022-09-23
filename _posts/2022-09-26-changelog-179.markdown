@@ -12,31 +12,27 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
   {% include gif-img.html path="/assets/posts/changelog-179/fold" w="700px" %}
 
-* [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts to continue building even if some crate fails to compile
-
-* [#9325] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation in nightly plugin builds for 2022.2 platform
+* [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts. By default, cargo stops the build immediately if one rustc instance or buildscript instance fails, even if it would be possible to compile other crates that does not depends on the error crate. The option `--keep-going` instructs cargo to continue building even if the compilation of some crate fails or the evaluation of some buildscript fails. This behavior is exactly what is need in the case of buildscript evaluation - as an IDE, we need to compile&evaluate as much as possible. Requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
 
 * [#9043] Add [`redundant_semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
 
   {% include gif-img.html path="/assets/posts/changelog-179/semicolons" w="700px" %}
 
-* [#7435] The intention to convert a match expression to a series of if let statements is now offered in more situations (by [@Kobzol])
+* [#9242] Complete `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` atributes for functions (by [@afetisov])
 
-  {% include gif-img.html path="/assets/posts/changelog-179/match-to-if-let" w="700px" %}
+* [#9271] Mark public re-exports in binary crates like unused by `Unused imports` inspection. Note that the inspection works only when [the procedural macro support is enabled](https://github.com/intellij-rust/intellij-rust/issues/6908)
 
-* [#9242] update completions for function attributes including `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` (by [@afetisov])
+* [#9325] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation in nightly plugin builds for 2022.2 platform
 
 ## Performance Improvements
 
 * [#9338], [#9337], [#9334], [#9331], [#9322] Slightly speed up name resolution and type inference
 
-* [#9211] Speed up name resolution of large nested paths like `Foo<Foo<Foo<Foo<...>>>>` by resolving and caching them at once
+* [#9211] Speed up name resolution of large nested paths like `Foo<Foo<Foo<Foo<...>>>>` by resolving and caching them at once. This is particularly helpful in the case of `typenum` crate
 
-* [#9213] Use dependencies modification tracker in more places to reduce unnecessary cache invalidations
+* [#9213] Reduce unnecessary invalidations of caches for dependencies by changes in workspace code
 
 ## Fixes
-
-* [#9352] Allow empty precision in formatting parameter (by [@KarelPeeters])
 
 * [#9351] Fix `Tools | Rust | Share in Playground` action
 
@@ -44,19 +40,19 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
 * [#9317] Complete crates from a workspace in `extern crate`
 
-* [#9314] Don't suggest auto-import fix for assoc type binding
+* [#9314] Don't suggest `Import` quick-fix for associated type bindings
 
 * [#9302] Provide proper names for `Undo`/`Redo` actions and records in [Local history](https://www.jetbrains.com/help/idea/local-history.html) for changes made by `Promote Module to Directory` and `Downgrade Module to File` refactorings (by [@afetisov])
 
-* [#9298] Fix ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when the number of occurrences is unknown
+* [#9298] Fix [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when the number of occurrences is unknown
 
-* [#9297] Improve UI of ["Inline function"](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog for functions with a large number of parameters
-
-* [#9271] Support the `Unused imports` inspection for public reexports in binary crates
+* [#9297] Don't show parameters by [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring dialog. Otherwise, the dialog looks cluttered, expecially in case of large number of arguments
 
 * [#8963] Fix URLs in messages from [external linters](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters)
 
 * [#5911] Fix detection of a misplaced `derive` attribute ([E0774](https://doc.rust-lang.org/error-index.html#E0774)) compiler error (by [@Stzx])
+
+* [#9352] Allow empty precision in formatting parameter (by [@KarelPeeters])
 
 ## Internal Improvements
 
@@ -97,3 +93,5 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9338]: https://github.com/intellij-rust/intellij-rust/pull/9338
 [#9351]: https://github.com/intellij-rust/intellij-rust/pull/9351
 [#9352]: https://github.com/intellij-rust/intellij-rust/pull/9352
+
+[experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
