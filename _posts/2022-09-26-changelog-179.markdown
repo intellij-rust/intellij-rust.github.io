@@ -12,7 +12,7 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
   {% include gif-img.html path="/assets/posts/changelog-179/fold" w="700px" %}
 
-* [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts. By default, cargo stops the build immediately if one rustc instance or buildscript instance fails, even if it would be possible to compile other crates that does not depends on the error crate. The option `--keep-going` instructs cargo to continue building even if the compilation of some crate fails or the evaluation of some buildscript fails. This behavior is exactly what is need in the case of buildscript evaluation - as an IDE, we need to compile&evaluate as much as possible. Requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
+* [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts. This allows building and executing as much as possible even if some build scripts or proc-macros aren't working. Requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
 
 * [#9043] Add [`Redundant semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
 
