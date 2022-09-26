@@ -19,7 +19,7 @@ Note, build script evaluation still requires enabling of the `org.rust.cargo.eva
 
   {% include gif-img.html path="/assets/posts/changelog-179/semicolons" w="700px" %}
 
-* [#9242] Complete `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` atributes for functions (by [@afetisov])
+* [#9242] Complete `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` attributes for functions (by [@afetisov])
 
 * [#9271] Mark public re-exports in binary crates as unused by `Unused imports` inspection. Note that the inspection works only when [the procedural macro support is enabled](https://github.com/intellij-rust/intellij-rust/issues/6908)
 
