@@ -12,7 +12,8 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
   {% include gif-img.html path="/assets/posts/changelog-179/fold" w="700px" %}
 
-* [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts. This allows building and executing as much as possible even if some build scripts or proc-macros aren't working. Requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
+* [#9176] Use the [--keep-going](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) `cargo` option when building and evaluating build scripts. This allows building and executing as much as possible even if some build scripts or procedural macros can be compiled or executed succesfully. Previously, it was possible to break analysis of code by some error in unrelated build script or procedural macros.
+Note, build script evaluation still requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
 
 * [#9043] Add [`Redundant semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
 
