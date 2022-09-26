@@ -1,0 +1,97 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #179"
+date: 2022-09-26 13:00:00 +0300
+---
+
+This is the last release that supports the 2022.1 IDEs. To receive plugin updates further, please upgrade your IDE to 2022.2.
+
+## New Features
+
+* [#9241] Change the rendering of folded blocks for `use`, `mod`, `extern crate`, and `where` blocks to make them more distinct from folded block comments (by [@afetisov])
+
+  {% include gif-img.html path="/assets/posts/changelog-179/fold" w="700px" %}
+
+* [#9176] Use the [--keep-going](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) `cargo` option when building and evaluating build scripts. This allows building and executing as much as possible even if some build scripts or procedural macros can be compiled or executed succesfully. Previously, it was possible to break analysis of code by some error in unrelated build script or procedural macros.
+Note, build script evaluation still requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
+
+* [#9043] Add [Redundant semicolons](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
+
+  {% include gif-img.html path="/assets/posts/changelog-179/semicolons" w="700px" %}
+
+* [#9242] Complete `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` attributes for functions (by [@afetisov])
+
+* [#9271] Mark public re-exports in binary crates as unused by `Unused imports` inspection. Note that the inspection works only when [the procedural macro support is enabled](https://github.com/intellij-rust/intellij-rust/issues/6908)
+
+* [#9317] Complete crates from a workspace in `extern crate`
+
+* [#9325] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation in nightly plugin builds for 2022.2 platform
+
+## Performance Improvements
+
+* [#9338], [#9337], [#9334], [#9331], [#9322] Slightly speed up name resolution and type inference
+
+* [#9211] Speed up name resolution of large nested paths like `Foo<Foo<Foo<Foo<...>>>>` by resolving and caching them at once. This is particularly helpful in the case of `typenum` crate
+
+* [#9213] Reduce unnecessary invalidations of caches for dependencies by changes in workspace code
+
+## Fixes
+
+* [#9351] Fix `Tools | Rust | Share in Playground` action
+
+* [#9327] Fix name resolution of an associated type of a type parameter inside a trait bound, in the case where the type parameter is declared on a level other than the bound
+
+* [#9314] Don't suggest `Import` quick-fix for associated type bindings
+
+* [#9302] Provide proper names for `Undo`/`Redo` actions and records in [Local history](https://www.jetbrains.com/help/idea/local-history.html) for changes made by `Promote Module to Directory` and `Downgrade Module to File` refactorings (by [@afetisov])
+
+* [#9298] Fix [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when the number of occurrences is unknown
+
+* [#9297] Don't show parameters by [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring dialog. Otherwise, the dialog looks cluttered, especially in case of large number of arguments
+
+* [#8963] Fix links to error codes in messages provided by [external linters](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters)
+
+* [#5911] Fix detection of a misplaced `derive` attribute ([E0774](https://doc.rust-lang.org/error-index.html#E0774)) (by [@Stzx])
+
+* [#9352] Allow empty [precision](https://doc.rust-lang.org/std/fmt/#precision) in formatting parameter of format macros like `println` (by [@KarelPeeters])
+
+## Internal Improvements
+
+* [#9296] Remove resolve engine info from the `Create new issue` action because it's not possible to use the old resolve engine and the old macro expander anymore
+
+* [#9228] Use `ubuntu-latest` runners instead of deprecated `ubuntu-18.04`
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/88?closed=1)
+
+[@KarelPeeters]: https://github.com/KarelPeeters
+[@Kobzol]: https://github.com/Kobzol
+[@Stzx]: https://github.com/Stzx
+[@afetisov]: https://github.com/afetisov
+
+[#5911]: https://github.com/intellij-rust/intellij-rust/pull/5911
+[#8963]: https://github.com/intellij-rust/intellij-rust/pull/8963
+[#9043]: https://github.com/intellij-rust/intellij-rust/pull/9043
+[#9176]: https://github.com/intellij-rust/intellij-rust/pull/9176
+[#9211]: https://github.com/intellij-rust/intellij-rust/pull/9211
+[#9213]: https://github.com/intellij-rust/intellij-rust/pull/9213
+[#9228]: https://github.com/intellij-rust/intellij-rust/pull/9228
+[#9241]: https://github.com/intellij-rust/intellij-rust/pull/9241
+[#9242]: https://github.com/intellij-rust/intellij-rust/pull/9242
+[#9271]: https://github.com/intellij-rust/intellij-rust/pull/9271
+[#9296]: https://github.com/intellij-rust/intellij-rust/pull/9296
+[#9297]: https://github.com/intellij-rust/intellij-rust/pull/9297
+[#9298]: https://github.com/intellij-rust/intellij-rust/pull/9298
+[#9302]: https://github.com/intellij-rust/intellij-rust/pull/9302
+[#9314]: https://github.com/intellij-rust/intellij-rust/pull/9314
+[#9317]: https://github.com/intellij-rust/intellij-rust/pull/9317
+[#9322]: https://github.com/intellij-rust/intellij-rust/pull/9322
+[#9325]: https://github.com/intellij-rust/intellij-rust/pull/9325
+[#9327]: https://github.com/intellij-rust/intellij-rust/pull/9327
+[#9331]: https://github.com/intellij-rust/intellij-rust/pull/9331
+[#9334]: https://github.com/intellij-rust/intellij-rust/pull/9334
+[#9337]: https://github.com/intellij-rust/intellij-rust/pull/9337
+[#9338]: https://github.com/intellij-rust/intellij-rust/pull/9338
+[#9351]: https://github.com/intellij-rust/intellij-rust/pull/9351
+[#9352]: https://github.com/intellij-rust/intellij-rust/pull/9352
+
+[experimental features]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
