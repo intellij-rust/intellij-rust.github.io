@@ -14,13 +14,13 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
 * [#9176] Use the [`--keep-going` Cargo option](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#keep-going) when building and evaluating build scripts. By default, cargo stops the build immediately if one rustc instance or buildscript instance fails, even if it would be possible to compile other crates that does not depends on the error crate. The option `--keep-going` instructs cargo to continue building even if the compilation of some crate fails or the evaluation of some buildscript fails. This behavior is exactly what is need in the case of buildscript evaluation - as an IDE, we need to compile&evaluate as much as possible. Requires enabling of the `org.rust.cargo.evaluate.build.scripts` [experimental feature][experimental features]
 
-* [#9043] Add [`redundant_semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
+* [#9043] Add [`Redundant semicolons`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#redundant-semicolons) inspection and quick-fix for it
 
   {% include gif-img.html path="/assets/posts/changelog-179/semicolons" w="700px" %}
 
 * [#9242] Complete `target_feature`, `proc_macro`, `proc_macro_derive`, and `proc_macro_attribute` atributes for functions (by [@afetisov])
 
-* [#9271] Mark public re-exports in binary crates like unused by `Unused imports` inspection. Note that the inspection works only when [the procedural macro support is enabled](https://github.com/intellij-rust/intellij-rust/issues/6908)
+* [#9271] Mark public re-exports in binary crates as unused by `Unused imports` inspection. Note that the inspection works only when [the procedural macro support is enabled](https://github.com/intellij-rust/intellij-rust/issues/6908)
 
 * [#9317] Complete crates from a workspace in `extern crate`
 
@@ -46,19 +46,19 @@ This is the last release that supports the 2022.1 IDEs. To receive plugin update
 
 * [#9298] Fix [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) dialog when the number of occurrences is unknown
 
-* [#9297] Don't show parameters by [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring dialog. Otherwise, the dialog looks cluttered, expecially in case of large number of arguments
+* [#9297] Don't show parameters by [Inline function](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring dialog. Otherwise, the dialog looks cluttered, especially in case of large number of arguments
 
-* [#8963] Fix URLs in messages from [external linters](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters)
+* [#8963] Fix links to error codes in messages provided by [external linters](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters)
 
-* [#5911] Fix detection of a misplaced `derive` attribute ([E0774](https://doc.rust-lang.org/error-index.html#E0774)) compiler error (by [@Stzx])
+* [#5911] Fix detection of a misplaced `derive` attribute ([E0774](https://doc.rust-lang.org/error-index.html#E0774)) (by [@Stzx])
 
-* [#9352] Allow empty precision in formatting parameter (by [@KarelPeeters])
+* [#9352] Allow empty [precision](https://doc.rust-lang.org/std/fmt/#precision) in formatting parameter of format macros like `println` (by [@KarelPeeters])
 
 ## Internal Improvements
 
-* [#9296] Remove resolve engine info from the "Create new issue" action because options to use the old resolve engine and the old macro expander are already removed.
+* [#9296] Remove resolve engine info from the `Create new issue` action because it's not possible to use the old resolve engine and the old macro expander anymore
 
-* [#9228] Use `ubuntu-latest` runners instead of deprecated  `ubuntu-18.04`
+* [#9228] Use `ubuntu-latest` runners instead of deprecated `ubuntu-18.04`
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/88?closed=1)
 
@@ -68,7 +68,6 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [@afetisov]: https://github.com/afetisov
 
 [#5911]: https://github.com/intellij-rust/intellij-rust/pull/5911
-[#7435]: https://github.com/intellij-rust/intellij-rust/pull/7435
 [#8963]: https://github.com/intellij-rust/intellij-rust/pull/8963
 [#9043]: https://github.com/intellij-rust/intellij-rust/pull/9043
 [#9176]: https://github.com/intellij-rust/intellij-rust/pull/9176
