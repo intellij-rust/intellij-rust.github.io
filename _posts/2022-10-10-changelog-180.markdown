@@ -7,51 +7,62 @@ date: 2022-10-10 13:00:00 +0300
 
 ## New Features
 
-* [#9412] Support 2022.3 platform. Internal: Use Java 17 for development
+* [#9412] Support 2022.3 EAPs
 
-* [#9376] Drop support for 2022.1 platform. Consider updating to 2022.2
+* Completion improvements:
 
-* [#9335] Support `Create associated function` intention for path `Self::func()`
+  * [#9308] Complete [custom derive] procedural macros and import the macros which aren't already in the scope
 
-* [#9332] Suggest importing modules in completion
+    TODO: gif
 
-* [#9313] Complete function-like proc macros with `!`
+  * [#9332] Suggest out-of-scope modules in completion list. Previously, completion list contained only modules from the current scope
 
-* [#9308] Complete custom derive proc macros
+    TODO: gif
 
-* [#9153] Add an intention to import constants in match arms
+  * [#9313] Completion of [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
+    and doesn't show redundant info about token stream argument
 
-* [#7597] Automatically import unresolved items after copy/pasting Rust code (by [@Kobzol])
+* [#7597] Automatically import unresolved items after pasting Rust code into the editor.
+  You can disable this behaviour via `Insert imports on paste` option in `Preferences | Editor | General | Auto Import | Rust` settings (by [@Kobzol])
 
-* [#7157] Introduce navigation bar breadcrumbs (by [@Kobzol])
+  TODO: gif
 
-* [#5866] INSP: add inspection to check associated type bindings (by [@Kobzol])
+* [#5866] Add `Wrong associated type arguments` inspection to check associated type bindings,
+  in particular [E0191](https://doc.rust-lang.org/error-index.html#E0191) and [E0220](https://doc.rust-lang.org/error-index.html#E0220) compiler errors (by [@Kobzol])
+
+  TODO: gif
+
+* [#9153] Add `Add import for path in pattern` intention to import constants in match patterns
+
+* [#9335] Provide `Create associated function` intention for path `Self::func()`
+
+* [#9376] Drop support for 2022.1 platform. Upgrade your IDE to 2022.2 to get new updates of the plugin
 
 ## Fixes
 
-* [#9461] 
+* [#9461] Fix sporadic false positive errors and absense of completion related to plugin's inability to find proper `impl` block.
+  The bug was introduced by [#9229] in previous release
 
-* [#9434] don't prioritize functions that return `!` type (e.g. `panic()`)
+* [#9434] Don't prioritize functions that return `!` type (e.g. `panic()`) in completion list
 
-* [#9428] MACRO: fix `format` macro expansion when param name is keyword (`self`) or there is a syntax error in param name
+* [#9428] Fix expansion of [format](https://doc.rust-lang.org/std/fmt) macros like `println!` when parameter name is `self` keyword or syntax is incorrect
 
-* [#9344] Fix adding imports for default values in change signature refactoring
+* [#9293], [#9344] Fix adding imports by [Change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring
 
-* [#9336] Don't auto-import usual items in derive attribute
+* [#9336] Don't suggest to import items in `derive` attribute if they are not [custom derive] macros
 
 * [#9303] Don't show fix to make function async when function returns `impl Future`
 
-* [#9293] Fix adding imports in `Change signature` refactoring
-
-* [#9222] Don't erase the file content while formatting if `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
+* [#9222] Don't erase the file content during [formatting with `rustfmt`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-style-and-formatting.html#reformat)
+  if `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
 
 * [#9078] Don't override folder settings on project model reloading if the folder is manually marked as excluded or as source folder
 
 ## Internal Improvements
 
-* [#9412] Support 2022.3 platform. Internal: Use Java 17 for development
+* [#9412] Use Java 17 for development
 
-* [#9361] PSI: split `RsBaseType` into 4 different PSI element types
+* [#9361] Split `RsBaseType` into 4 different [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) element types
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/89?closed=1)
 
@@ -63,6 +74,7 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9078]: https://github.com/intellij-rust/intellij-rust/pull/9078
 [#9153]: https://github.com/intellij-rust/intellij-rust/pull/9153
 [#9222]: https://github.com/intellij-rust/intellij-rust/pull/9222
+[#9229]: https://github.com/intellij-rust/intellij-rust/pull/9229
 [#9293]: https://github.com/intellij-rust/intellij-rust/pull/9293
 [#9303]: https://github.com/intellij-rust/intellij-rust/pull/9303
 [#9308]: https://github.com/intellij-rust/intellij-rust/pull/9308
@@ -77,3 +89,5 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9428]: https://github.com/intellij-rust/intellij-rust/pull/9428
 [#9434]: https://github.com/intellij-rust/intellij-rust/pull/9434
 [#9461]: https://github.com/intellij-rust/intellij-rust/pull/9461
+
+[custom derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
