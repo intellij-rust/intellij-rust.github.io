@@ -1,0 +1,79 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #180"
+date: 2022-10-10 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9412] Support 2022.3 platform. Internal: Use Java 17 for development
+
+* [#9376] Drop support for 2022.1 platform. Consider updating to 2022.2
+
+* [#9335] Support `Create associated function` intention for path `Self::func()`
+
+* [#9332] Suggest importing modules in completion
+
+* [#9313] Complete function-like proc macros with `!`
+
+* [#9308] Complete custom derive proc macros
+
+* [#9153] Add an intention to import constants in match arms
+
+* [#7597] Automatically import unresolved items after copy/pasting Rust code (by [@Kobzol])
+
+* [#7157] Introduce navigation bar breadcrumbs (by [@Kobzol])
+
+* [#5866] INSP: add inspection to check associated type bindings (by [@Kobzol])
+
+## Fixes
+
+* [#9461] 
+
+* [#9434] don't prioritize functions that return `!` type (e.g. `panic()`)
+
+* [#9428] MACRO: fix `format` macro expansion when param name is keyword (`self`) or there is a syntax error in param name
+
+* [#9344] Fix adding imports for default values in change signature refactoring
+
+* [#9336] Don't auto-import usual items in derive attribute
+
+* [#9303] Don't show fix to make function async when function returns `impl Future`
+
+* [#9293] Fix adding imports in `Change signature` refactoring
+
+* [#9222] Don't erase the file content while formatting if `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
+
+* [#9078] Don't override folder settings on project model reloading if the folder is manually marked as excluded or as source folder
+
+## Internal Improvements
+
+* [#9412] Support 2022.3 platform. Internal: Use Java 17 for development
+
+* [#9361] PSI: split `RsBaseType` into 4 different PSI element types
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/89?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#5866]: https://github.com/intellij-rust/intellij-rust/pull/5866
+[#7157]: https://github.com/intellij-rust/intellij-rust/pull/7157
+[#7597]: https://github.com/intellij-rust/intellij-rust/pull/7597
+[#9078]: https://github.com/intellij-rust/intellij-rust/pull/9078
+[#9153]: https://github.com/intellij-rust/intellij-rust/pull/9153
+[#9222]: https://github.com/intellij-rust/intellij-rust/pull/9222
+[#9293]: https://github.com/intellij-rust/intellij-rust/pull/9293
+[#9303]: https://github.com/intellij-rust/intellij-rust/pull/9303
+[#9308]: https://github.com/intellij-rust/intellij-rust/pull/9308
+[#9313]: https://github.com/intellij-rust/intellij-rust/pull/9313
+[#9332]: https://github.com/intellij-rust/intellij-rust/pull/9332
+[#9335]: https://github.com/intellij-rust/intellij-rust/pull/9335
+[#9336]: https://github.com/intellij-rust/intellij-rust/pull/9336
+[#9344]: https://github.com/intellij-rust/intellij-rust/pull/9344
+[#9361]: https://github.com/intellij-rust/intellij-rust/pull/9361
+[#9376]: https://github.com/intellij-rust/intellij-rust/pull/9376
+[#9412]: https://github.com/intellij-rust/intellij-rust/pull/9412
+[#9428]: https://github.com/intellij-rust/intellij-rust/pull/9428
+[#9434]: https://github.com/intellij-rust/intellij-rust/pull/9434
+[#9461]: https://github.com/intellij-rust/intellij-rust/pull/9461
