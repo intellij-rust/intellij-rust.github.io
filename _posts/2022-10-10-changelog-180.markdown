@@ -34,7 +34,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * [#9153] Add `Add import for path in pattern` intention to import constants in match patterns
 
-* [#9335] Provide `Create associated function` intention for path `Self::func()`
+* [#9335] Provide `Create associated function` intention for paths like `Self::func()`
 
 * [#9376] Drop support for 2022.1 platform. Upgrade your IDE to 2022.2 to get new updates of the plugin
 
