@@ -54,7 +54,7 @@ date: 2022-10-10 13:00:00 +0300
 * [#9303] Don't show fix to make function async when function returns `impl Future`
 
 * [#9222] Don't erase the file content during [formatting with `rustfmt`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-style-and-formatting.html#reformat)
-  if `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
+  if the `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
 
 * [#9078] Don't override folder settings on project model reloading if the folder is manually marked as excluded or as source folder
 
