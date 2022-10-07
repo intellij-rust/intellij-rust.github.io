@@ -49,7 +49,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * [#9293], [#9344] Fix adding imports by [Change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring
 
-* [#9336] Don't suggest to import items in `derive` attribute if they are not [custom derive] macros
+* [#9336] Suggest importing only [custom derive] macros inside the `derive` attribute
 
 * [#9303] Do not suggest `Make function async` quick-fix for functions returning `impl Future`
 
