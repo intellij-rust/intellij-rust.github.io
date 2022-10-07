@@ -51,7 +51,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * [#9336] Don't suggest to import items in `derive` attribute if they are not [custom derive] macros
 
-* [#9303] Don't show fix to make function async when function returns `impl Future`
+* [#9303] Do not suggest `Make function async` quick-fix for functions returning `impl Future`
 
 * [#9222] Don't erase the file content during [formatting with `rustfmt`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-style-and-formatting.html#reformat)
   if the `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
