@@ -11,7 +11,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * Completion improvements:
 
-  * [#9308] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
+  * [#9308], [#9336] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
 
     TODO: gif
 
@@ -30,8 +30,6 @@ date: 2022-10-10 13:00:00 +0300
 * [#5866] Add `Wrong associated type arguments` inspection to check associated type bindings,
   in particular [E0191](https://doc.rust-lang.org/error-index.html#E0191) and [E0220](https://doc.rust-lang.org/error-index.html#E0220) compiler errors (by [@Kobzol])
 
-  TODO: gif
-
 * [#9153] Add `Add import for path in pattern` intention to import constants in match patterns
 
 * [#9335] Provide `Create associated function` intention for paths like `Self::func()`
@@ -47,9 +45,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * [#9428] Fix expansion of [format](https://doc.rust-lang.org/std/fmt) macros like `println!` when the `self` keyword is used as a parameter name, or when the syntax is incorrect
 
-* [#9293], [#9344] Fix adding imports by [Change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring
-
-* [#9336] Suggest importing only [custom derive] macros inside the `derive` attribute
+* [#9293], [#9344] Fix [change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring to add imports properly
 
 * [#9303] Do not suggest `Make function async` quick-fix for functions returning `impl Future`
 
