@@ -11,7 +11,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * Completion improvements:
 
-  * [#9308] Complete [custom derive] procedural macros and import the macros which aren't already in the scope
+  * [#9308] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
 
     TODO: gif
 
