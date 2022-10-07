@@ -19,7 +19,7 @@ date: 2022-10-10 13:00:00 +0300
 
     TODO: gif
 
-  * [#9313] Completion of [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
+  * [#9313] Completion for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
     and doesn't show redundant info about token stream argument
 
 * [#7597] Automatically import unresolved items after pasting Rust code into the editor.
