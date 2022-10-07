@@ -45,7 +45,7 @@ date: 2022-10-10 13:00:00 +0300
 
 * [#9434] Don't prioritize functions that return `!` type (e.g. `panic()`) in completion list
 
-* [#9428] Fix expansion of [format](https://doc.rust-lang.org/std/fmt) macros like `println!` when parameter name is `self` keyword or syntax is incorrect
+* [#9428] Fix expansion of [format](https://doc.rust-lang.org/std/fmt) macros like `println!` when the `self` keyword is used as a parameter name, or when the syntax is incorrect
 
 * [#9293], [#9344] Fix adding imports by [Change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring
 
