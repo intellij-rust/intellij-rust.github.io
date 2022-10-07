@@ -15,7 +15,7 @@ date: 2022-10-10 13:00:00 +0300
 
     TODO: gif
 
-  * [#9332] Suggest out-of-scope modules in completion list. Previously, completion list contained only modules from the current scope
+  * [#9332] Suggest out-of-scope modules in the completion list. Previously, the completion list contained modules from the current scope only
 
     TODO: gif
 
