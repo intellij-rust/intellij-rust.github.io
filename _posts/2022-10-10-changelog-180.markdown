@@ -56,7 +56,7 @@ date: 2022-10-10 13:00:00 +0300
 * [#9222] Don't erase the file content during [formatting with `rustfmt`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-style-and-formatting.html#reformat)
   if the `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
 
-* [#9078] Don't override folder settings on project model reloading if the folder is manually marked as excluded or as source folder
+* [#9078] Keep the settings for folders that are manually excluded or marked as source roots when reloading the project model
 
 ## Internal Improvements
 
