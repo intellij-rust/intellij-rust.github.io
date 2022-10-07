@@ -13,11 +13,11 @@ date: 2022-10-10 13:00:00 +0300
 
   * [#9308], [#9336] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
 
-    TODO: gif
+    {% include gif-img.html path="/assets/posts/changelog-180/derive_completion" w="700px" %}
 
   * [#9332] Suggest out-of-scope modules in the completion list. Previously, the completion list contained modules from the current scope only
 
-    TODO: gif
+    {% include gif-img.html path="/assets/posts/changelog-180/module_auto_import" w="700px" %}
 
   * [#9313] Completion for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
     and doesn't show redundant info about token stream argument
@@ -25,7 +25,7 @@ date: 2022-10-10 13:00:00 +0300
 * [#7597] Automatically import unresolved items after pasting Rust code into the editor.
   You can disable this behaviour via `Insert imports on paste` option in `Preferences | Editor | General | Auto Import | Rust` settings (by [@Kobzol])
 
-  TODO: gif
+  {% include gif-img.html path="/assets/posts/changelog-180/paste_auto_import" w="700px" %}
 
 * [#5866] Add `Wrong associated type arguments` inspection to check associated type bindings,
   in particular [E0191](https://doc.rust-lang.org/error-index.html#E0191) and [E0220](https://doc.rust-lang.org/error-index.html#E0220) compiler errors (by [@Kobzol])
