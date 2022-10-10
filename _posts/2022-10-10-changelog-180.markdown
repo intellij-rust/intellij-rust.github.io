@@ -9,18 +9,9 @@ date: 2022-10-10 13:00:00 +0300
 
 * [#9412] Support 2022.3 EAPs
 
-* Completion improvements:
+* [#9308], [#9336] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
 
-  * [#9308], [#9336] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
-
-    {% include gif-img.html path="/assets/posts/changelog-180/derive_completion" w="700px" %}
-
-  * [#9332] Suggest out-of-scope modules in the completion list. Previously, the completion list contained modules from the current scope only
-
-    {% include gif-img.html path="/assets/posts/changelog-180/module_auto_import" w="700px" %}
-
-  * [#9313] Completion for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
-    and doesn't show redundant info about token stream argument
+  {% include gif-img.html path="/assets/posts/changelog-180/derive_completion" w="700px" %}
 
 * [#7597] Automatically import unresolved items after pasting Rust code into the editor.
   You can disable this behaviour via `Insert imports on paste` option in `Preferences | Editor | General | Auto Import | Rust` settings (by [@Kobzol])
@@ -46,6 +37,9 @@ date: 2022-10-10 13:00:00 +0300
 * [#9428] Fix expansion of [format](https://doc.rust-lang.org/std/fmt) macros like `println!` when the `self` keyword is used as a parameter name, or when the syntax is incorrect
 
 * [#9293], [#9344] Fix [change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring to add imports properly
+
+* [#9313] Completion for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
+  and doesn't show redundant info about token stream argument
 
 * [#9303] Do not suggest `Make function async` quick-fix for functions returning `impl Future`
 
