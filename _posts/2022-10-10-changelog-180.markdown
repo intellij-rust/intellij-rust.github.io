@@ -1,0 +1,83 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #180"
+date: 2022-10-10 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9412] Support 2022.3 EAPs
+
+* [#9308], [#9336] Complete [custom derive] procedural macros and automatically add imports for out-of-scope ones
+
+  {% include gif-img.html path="/assets/posts/changelog-180/derive_completion" w="700px" %}
+
+* [#7597] Automatically import unresolved items after pasting Rust code into the editor.
+  You can disable this behaviour via `Insert imports on paste` option in `Preferences | Editor | General | Auto Import | Rust` settings (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-180/paste_auto_import" w="700px" %}
+
+* [#5866] Add `Wrong associated type arguments` inspection to check associated type bindings,
+  in particular [E0191](https://doc.rust-lang.org/error-index.html#E0191) and [E0220](https://doc.rust-lang.org/error-index.html#E0220) compiler errors (by [@Kobzol])
+
+* [#9153] Add `Add import for path in pattern` intention to import constants in match patterns
+
+* [#9335] Provide `Create associated function` intention for paths like `Self::func()`
+
+* [#9376] Drop support for 2022.1 platform. Upgrade your IDE to 2022.2 to get new updates of the plugin
+
+## Fixes
+
+* [#9461] Fix sporadic false positive errors and absense of completion related to plugin's inability to find proper `impl` block.
+  The bug was introduced by [#9229] in previous release
+
+* [#9434] Don't prioritize functions that return `!` type (e.g. `panic()`) in completion list
+
+* [#9428] Fix expansion of [format](https://doc.rust-lang.org/std/fmt) macros like `println!` when the `self` keyword is used as a parameter name, or when the syntax is incorrect
+
+* [#9293], [#9344] Fix [change signature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring to add imports properly
+
+* [#9313] Completion for [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macros now properly adds `!`
+  and doesn't show redundant info about token stream argument
+
+* [#9303] Do not suggest `Make function async` quick-fix for functions returning `impl Future`
+
+* [#9222] Don't erase the file content during [formatting with `rustfmt`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-style-and-formatting.html#reformat)
+  if the `#![cfg_attr(rustfmt, rustfmt_skip)]` attribute is presented
+
+* [#9078] Keep the settings for folders that are manually excluded or marked as source roots when reloading the project model
+
+## Internal Improvements
+
+* [#9412] Use Java 17 for development
+
+* [#9361] Split `RsBaseType` into 4 different [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) element types
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/89?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#5866]: https://github.com/intellij-rust/intellij-rust/pull/5866
+[#7157]: https://github.com/intellij-rust/intellij-rust/pull/7157
+[#7597]: https://github.com/intellij-rust/intellij-rust/pull/7597
+[#9078]: https://github.com/intellij-rust/intellij-rust/pull/9078
+[#9153]: https://github.com/intellij-rust/intellij-rust/pull/9153
+[#9222]: https://github.com/intellij-rust/intellij-rust/pull/9222
+[#9229]: https://github.com/intellij-rust/intellij-rust/pull/9229
+[#9293]: https://github.com/intellij-rust/intellij-rust/pull/9293
+[#9303]: https://github.com/intellij-rust/intellij-rust/pull/9303
+[#9308]: https://github.com/intellij-rust/intellij-rust/pull/9308
+[#9313]: https://github.com/intellij-rust/intellij-rust/pull/9313
+[#9332]: https://github.com/intellij-rust/intellij-rust/pull/9332
+[#9335]: https://github.com/intellij-rust/intellij-rust/pull/9335
+[#9336]: https://github.com/intellij-rust/intellij-rust/pull/9336
+[#9344]: https://github.com/intellij-rust/intellij-rust/pull/9344
+[#9361]: https://github.com/intellij-rust/intellij-rust/pull/9361
+[#9376]: https://github.com/intellij-rust/intellij-rust/pull/9376
+[#9412]: https://github.com/intellij-rust/intellij-rust/pull/9412
+[#9428]: https://github.com/intellij-rust/intellij-rust/pull/9428
+[#9434]: https://github.com/intellij-rust/intellij-rust/pull/9434
+[#9461]: https://github.com/intellij-rust/intellij-rust/pull/9461
+
+[custom derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
