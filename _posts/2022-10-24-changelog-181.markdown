@@ -29,8 +29,6 @@ TODO gif
 
 * [#9517] Provide code folding for `extern` blocks (`extern "C" { ... }`) (by [@Kobzol])
 
-* [#9502] Annotate usage of `wasm` [external ABI] as experimental
-
 * [#9459] Resolve and complete items from the stdlib in Rust files which don't belong to a particular Cargo project (detached and [scratch](https://www.jetbrains.com/help/idea/scratches.html) files)
 
 * [#9451] Provide completion for `'static` lifetime (by [@Kobzol])
@@ -40,6 +38,8 @@ TODO gif
 
 * [#9433] Take into account return type of some stdlib macros in completion sorting.
   For example, now `vec![]` will be bubbled up in the completion list if expected expression type is `Vec`
+
+* [#9502] Annotate usage of `wasm` [external ABI] as experimental
 
 ## Performance Improvements
 
