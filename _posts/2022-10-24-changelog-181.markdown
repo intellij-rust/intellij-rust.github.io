@@ -7,7 +7,7 @@ date: 2022-10-24 13:00:00 +0300
 
 ## New Features
 
-* [#9532] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation by default.
+* [#9532] Enable [build script] evaluation by default.
   Now the plugin builds and executes all build scripts in the project (including build scripts in external dependencies)
   during project model loading to create source code generated during compilation and collect information about
   generated environment variables and `cfg` options. A typical use case is to generate some code by a build script
@@ -18,24 +18,25 @@ date: 2022-10-24 13:00:00 +0300
   build scripts code, it also allows the plugin to compile all procedural macro libraries which is required
   for procedural macro expansion.
   Note, procedural macro expansion is still disabled by default. To turn it on, enable `org.rust.macros.proc`
-  [experimental](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) feature
+  [experimental] feature
 
 * [#9239] Support new Cargo features syntax from Rust 1.60.0. See [Rust release blog post] for more info about the
   syntax
 
-* [#9429] Add refactoring `Inline type alias` in addition to existing intention `Substitute type alias`.
+* [#9429] Add `Inline type alias` refactoring in addition to existing intention `Substitute type alias`.
 
 TODO gif
 
-* [#9517] Foreign mod declarations (`extern "C" { ... }`) are now folded by the plugin (by [@Kobzol])
+* [#9517] Provide code folding for `extern` blocks (`extern "C" { ... }`) (by [@Kobzol])
 
 * [#9502] Annotate usage of `wasm` [external ABI] as experimental
 
 * [#9459] Resolve and complete items from the stdlib in Rust files without a Cargo project (detached and scratch files)
 
-* [#9451] Complete `'static` lifetime (by [@Kobzol])
+* [#9451] Provide completion for `'static` lifetime (by [@Kobzol])
 
-* [#9443] Support adding imports for macros in [`Move refactoring`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#move-refactoring) (currently only macros from dependencies crates are supported)
+* [#9443] Support adding imports for macros in [`Move refactoring`]
+  (currently only macros from dependency crates are supported)
 
 * [#9433] Take into account some stdlib macro types in completion sorting.
   For example, Now `vec![]` will be bubbled up in the completion list if expected expression type is `Vec`
@@ -113,6 +114,9 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9558]: https://github.com/intellij-rust/intellij-rust/pull/9558
 [#9567]: https://github.com/intellij-rust/intellij-rust/pull/9567
 
+[build script]: https://doc.rust-lang.org/cargo/reference/build-scripts.html
+[experimental]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+[`Move refactoring`]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#move-refactoring
 [#9539]: https://github.com/intellij-rust/intellij-rust/issues/9539
 [Rust release blog post]: https://blog.rust-lang.org/2022/04/07/Rust-1.60.0.html#new-syntax-for-cargo-features
 [external ABI]: https://doc.rust-lang.org/reference/items/external-blocks.html#abi
