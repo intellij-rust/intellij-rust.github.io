@@ -7,24 +7,38 @@ date: 2022-10-24 13:00:00 +0300
 
 ## New Features
 
-* [#9532] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation by default. Now the plugin builds and executes all build scripts in the project (including build scripts in external dependencies) during project model loading to create source code generated during compilation and collect information about generated environment variables and `cfg` options. A typical use case is to generate some code by a build script and include it via `include!(concat!(env!("OUT_DIR"), "/path_to_generated_file.rs"))`. Now the plugin understands where generated code is located and includes them into its own analysis.
-Under the hood, build script evaluation uses `cargo check` call modified in a way to compile and execute only host code (i.e. only buil scripts and procedural macros as well as their dependencies). Besides execution of build scripts code, it also allows the plugin to compile all procedural macro libraries which is required for procedural macro expansion. Note, procedural macro expansion is still disabled by default. To turn it on, enable `org.rust.macros.proc` [experimental](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) feature
+* [#9532] Enable [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html) evaluation by default.
+  Now the plugin builds and executes all build scripts in the project (including build scripts in external dependencies)
+  during project model loading to create source code generated during compilation and collect information about
+  generated environment variables and `cfg` options. A typical use case is to generate some code by a build script
+  and include it via `include!(concat!(env!("OUT_DIR"), "/path_to_generated_file.rs"))`. Now the plugin understands
+  where generated code is located and includes them into its own analysis.
+  Under the hood, build script evaluation uses `cargo check` call modified in a way to compile and execute only
+  host code (i.e. only build scripts and procedural macros as well as their dependencies). Besides execution of
+  build scripts code, it also allows the plugin to compile all procedural macro libraries which is required
+  for procedural macro expansion.
+  Note, procedural macro expansion is still disabled by default. To turn it on, enable `org.rust.macros.proc`
+  [experimental](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features) feature
 
-* [#9517] Foreign mod declarations (`extern "C" { ... }`) arenow folded by the plugin (by [@Kobzol])
+* [#9239] Support new Cargo features syntax from Rust 1.60.0. See [Rust release blog post] for more info about the
+  syntax
 
-* [#9502] Annotate usage of `wasm` abi as experimental
+* [#9429] Add refactoring `Inline type alias` in addition to existing intention `Substitute type alias`.
 
-* [#9459] Now items from stdlib are resolved in detached and scratch files
+TODO gif
+
+* [#9517] Foreign mod declarations (`extern "C" { ... }`) are now folded by the plugin (by [@Kobzol])
+
+* [#9502] Annotate usage of `wasm` [external ABI] as experimental
+
+* [#9459] Resolve and complete items from the stdlib in Rust files without a Cargo project (detached and scratch files)
 
 * [#9451] Complete `'static` lifetime (by [@Kobzol])
 
 * [#9443] Support adding imports for macros in [`Move refactoring`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#move-refactoring) (currently only macros from dependencies crates are supported)
 
-* [#9433] Take into account some stdlib macro types in completion sorting. For example, Now `vec![]` will be bubbled up in the completion list if expected expression type is `Vec`
-
-* [#9429] Add refactoring `Inline type alias`
-
-* [#9239] CARGO: support new Cargo features syntax from 1.60.0
+* [#9433] Take into account some stdlib macro types in completion sorting.
+  For example, Now `vec![]` will be bubbled up in the completion list if expected expression type is `Vec`
 
 ## Performance Improvements
 
@@ -36,33 +50,32 @@ Under the hood, build script evaluation uses `cargo check` call modified in a wa
 
 * [#9567] Fix possible stack overflow during type inference
 
-* [#9558] Fix procedural macro completion in imports
-
 * [#9545] Fix resolve of absolute path when there is `extern crate` with alias
 
-* [#9540] MACRO: fix proc macro expansion PSI cache invalidation
-
-* [#9537] Fix `Attach file to module` quick fix
+* [#9537] Fix `Attach file to module` quick fix. Now `File is not included in module tree` bar will disappear after
+  attaching the file to a module tree
 
 * [#9510] Improve auto-import of items from same crate in some cases
 
-* [#9507] Improve error message for [`E0407`](https://doc.rust-lang.org/error-index.html#E0407) error
+* [#9507] Improve error message for [`E0407`] error
 
 * [#9506] Don't reorder reexports of legacy macros when optimizing imports
 
-* [#9504] Fix adding imports for return type in [`Change signature`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring
+* [#9504] Fix adding imports for return type in [`Change signature`] refactoring
 
-* [#9485] Fix handling of [`$crate`](https://doc.rust-lang.org/reference/macros-by-example.html#hygiene) in procedural macros in some cases
+* [#9485] Fix handling of [`$crate`] in procedural macros in some cases
 
 * [#9430] fix inference of types with mixed type/const type arguments
 
-* [#9416] Fix false-positive [E0117](https://doc.rust-lang.org/error-index.html#E0117) in some cases
+* [#9416] Fix false-positive [E0117] in some cases
 
-* [#9374] Fix nested labels shadowing
+* [#9374] Fix nested loop/block labels shadowing
 
 * [#9358] Fix `todo!()` macro type inference
 
-* [#9312] Filter out attr and derive proc macros in usual macro calls completion
+* [#9312], [#9558] Filter out attr and derive proc macros in usual macro calls completion
+
+* [#9540] Fix proc macro expansion PSI cache invalidation. See issue [#9539] for more details
 
 ## Internal Improvements
 
@@ -99,3 +112,11 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9545]: https://github.com/intellij-rust/intellij-rust/pull/9545
 [#9558]: https://github.com/intellij-rust/intellij-rust/pull/9558
 [#9567]: https://github.com/intellij-rust/intellij-rust/pull/9567
+
+[#9539]: https://github.com/intellij-rust/intellij-rust/issues/9539
+[Rust release blog post]: https://blog.rust-lang.org/2022/04/07/Rust-1.60.0.html#new-syntax-for-cargo-features
+[external ABI]: https://doc.rust-lang.org/reference/items/external-blocks.html#abi
+[`E0407`]: https://doc.rust-lang.org/error-index.html#E0407
+[`$crate`]: https://doc.rust-lang.org/reference/macros-by-example.html#hygiene
+[E0117]: https://doc.rust-lang.org/error-index.html#E0117
+[`Change signature`]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign
