@@ -31,15 +31,15 @@ TODO gif
 
 * [#9502] Annotate usage of `wasm` [external ABI] as experimental
 
-* [#9459] Resolve and complete items from the stdlib in Rust files without a Cargo project (detached and scratch files)
+* [#9459] Resolve and complete items from the stdlib in Rust files which don't belong to a particular Cargo project (detached and [scratch](https://www.jetbrains.com/help/idea/scratches.html) files)
 
 * [#9451] Provide completion for `'static` lifetime (by [@Kobzol])
 
-* [#9443] Support adding imports for macros in [`Move refactoring`]
-  (currently only macros from dependency crates are supported)
+* [#9443] Add imports for macros by [`Move refactoring`].
+  Currently, only macros from dependency crates are supported
 
-* [#9433] Take into account some stdlib macro types in completion sorting.
-  For example, Now `vec![]` will be bubbled up in the completion list if expected expression type is `Vec`
+* [#9433] Take into account return type of some stdlib macros in completion sorting.
+  For example, now `vec![]` will be bubbled up in the completion list if expected expression type is `Vec`
 
 ## Performance Improvements
 
@@ -51,22 +51,22 @@ TODO gif
 
 * [#9567] Fix possible stack overflow during type inference
 
-* [#9545] Fix resolve of absolute path when there is `extern crate` with alias
+* [#9545] Fix name resolution of absolute path when there is `extern crate` with alias
 
-* [#9537] Fix `Attach file to module` quick fix. Now `File is not included in module tree` bar will disappear after
-  attaching the file to a module tree
+* [#9537] Fix `Attach file to module` quick-fix. Now `File is not included in module tree` bar will disappear after
+  attaching the file to a module tree as expected
 
-* [#9510] Improve auto-import of items from same crate in some cases
+* [#9510] Don't use private re-exports declared in the same crate by `Import` quick-fix
 
 * [#9507] Improve error message for [`E0407`] error
 
-* [#9506] Don't reorder reexports of legacy macros when optimizing imports
+* [#9506] Don't reorder re-exports of legacy macros when optimizing imports
 
-* [#9504] Fix adding imports for return type in [`Change signature`] refactoring
+* [#9504] Add imports for return type by [`Change signature`] refactoring properly
 
-* [#9485] Fix handling of [`$crate`] in procedural macros in some cases
+* [#9485] Handle [`$crate`] variable during procedural macro expansion properly
 
-* [#9430] fix inference of types with mixed type/const type arguments
+* [#9430] Fix inference of types with mixed type/const type arguments
 
 * [#9416] Fix false-positive [E0117] in some cases
 
@@ -74,9 +74,9 @@ TODO gif
 
 * [#9358] Fix `todo!()` macro type inference
 
-* [#9312], [#9558] Filter out attr and derive proc macros in usual macro calls completion
+* [#9312], [#9558] Filter out attribute and derive procedural macros in usual macro calls completion
 
-* [#9540] Fix proc macro expansion PSI cache invalidation. See issue [#9539] for more details
+* [#9540] Fix procedural macro expansion cache invalidation. See issue [#9539] for more details
 
 ## Internal Improvements
 
