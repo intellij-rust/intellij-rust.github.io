@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "IntelliJ Rust Changelog #181"
-date: 2022-10-24 13:00:00 +0300
+date: 2022-10-24 12:50:00 +0300
 ---
 
 
@@ -26,7 +26,7 @@ date: 2022-10-24 13:00:00 +0300
 * [#9239] Support new Cargo features syntax from Rust 1.60.0. See [Rust release blog post] for more info about the
   syntax
 
-* [#9429] Add `Inline type alias` refactoring in addition to existing intention `Substitute type alias`.
+* [#9429] Add `Inline type alias` refactoring in addition to existing `Substitute type alias` intention
 
   {% include gif-img.html path="/assets/posts/changelog-181/inline" w="600px" %}
 
