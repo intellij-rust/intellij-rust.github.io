@@ -25,7 +25,7 @@ date: 2022-10-24 13:00:00 +0300
 
 * [#9429] Add `Inline type alias` refactoring in addition to existing intention `Substitute type alias`.
 
-TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-181/inline" w="600px" %}
 
 * [#9517] Provide code folding for `extern` blocks (`extern "C" { ... }`) (by [@Kobzol])
 
