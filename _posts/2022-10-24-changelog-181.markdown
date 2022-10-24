@@ -12,13 +12,16 @@ date: 2022-10-24 13:00:00 +0300
   during project model loading to create source code generated during compilation and collect information about
   generated environment variables and `cfg` options. A typical use case is to generate some code by a build script
   and include it via `include!(concat!(env!("OUT_DIR"), "/path_to_generated_file.rs"))`. Now the plugin understands
-  where generated code is located and includes them into its own analysis.
+  where generated sources are located and includes them into its own analysis.
   Under the hood, build script evaluation uses `cargo check` call modified in a way to compile and execute only
   host code (i.e. only build scripts and procedural macros as well as their dependencies). Besides execution of
   build scripts code, it also allows the plugin to compile all procedural macro libraries which is required
   for procedural macro expansion.
   Note, procedural macro expansion is still disabled by default. To turn it on, enable `org.rust.macros.proc`
-  [experimental] feature
+  [experimental] feature.
+
+  Read more about build scripts and how to work with them in Rust plugin in the corresponding
+  [blog post](https://blog.jetbrains.com/rust/2022/10/24/evaluating-build-scripts-in-the-intellij-rust-plugin/)
 
 * [#9239] Support new Cargo features syntax from Rust 1.60.0. See [Rust release blog post] for more info about the
   syntax
