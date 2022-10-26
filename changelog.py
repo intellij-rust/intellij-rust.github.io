@@ -274,7 +274,7 @@ def contributor_list(args: argparse.Namespace) -> None:
         print(c)
 
 
-def collect_contributors(repo: Repository, milestone: Milestone) -> set[str]:
+def collect_contributors(repo: Repository, milestone: Milestone) -> Set[str]:
     milestone_contributors = set()
     issues = repo.get_issues(milestone=milestone, state="all")
     for issue in issues:
