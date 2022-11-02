@@ -1,0 +1,94 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #182"
+date: 2022-11-07 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9650] Increase the minimal supported version of Rust to 1.56
+
+* [#9628] Enable [function-like](https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros) procedural macro expansion in [nightly plugin builds](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html#install-nightly)
+
+* [#9526] Suggest the proper type of braces while a procedural macro call completion
+
+* [#9349] Decorate MSVC type names when rendering values in the debugger on Windows. This can be disabled via the `Decorate MSVC type names` checkbox in the `File | Settings | Build, Execution, Deployment | Debugger | Data Views | Rust` settings
+
+* [#9105] Provide ability to run a specific [documentation test](https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html) [all the ways](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-testing.html) you can run a usual test (gif image here) (by [@Kobzol])
+
+* [#8916] Fix emulating terminal in output console in some cases
+
+* [#8755] Add basic parsing support for `let_chains` (by [@Kobzol])
+
+* [#7134] Add a quickfix to generate missing trait member definitions in trait implementations (by [@Sejsel])
+
+## Fixes
+
+* [#9639] Fix false-positive `trait bound is not satisfied E0277`. Can be merged with #9598 point
+
+* [#9637] Don't fail build script evaluation without native helper binary
+
+* [#9631] fix type inference in the case of normalizable associated type projections like `<A as B>::C`
+
+* [#9627] Don't show line markers for tests in dependence crates
+
+* [#9620] Ty: normalize associated type in `impl` item trait ref
+
+* [#9614] Fix expansion of attribute and derive procedural macros inside functions
+
+* [#9598] 1. Fix `trait bound is not satisfied E0277` false-positives when implementing `Ord`/`Eq` traits 2. Correctly infer types when `Self` type is used in trait inheritance like `trait Bar: Foo<Self>`
+
+* [#9586] Ty: infer const arguments in struct literal paths
+
+* [#9562] Fix `Create module file` quick-fix in 2022.3
+
+* [#9559] Fix duplicate completion of attribute procedural macros when it is imported locally
+
+* [#9556] Temporary disable `Insert imports on paste` feature because it may be slow when copying large code fragments
+
+* [#9552] Properly infer type of custom macros which shadow built-in macros
+
+* [#9550] Don't resolve and complete macros after `::`
+
+* [#9469] Fix issue #9468 random false-positive `Variable is never used`
+
+* [#9170] Fix raw identifier in `use declarations` not complete (by [@Stzx])
+
+* [#7450] Improve type inference of array sizes (by [@Kobzol])
+
+## Internal Improvements
+
+* [#9615] MACRO: split `org.rust.macros.proc` experimental feature into 3 features
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/91?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@Sejsel]: https://github.com/Sejsel
+[@Stzx]: https://github.com/Stzx
+
+[#7134]: https://github.com/intellij-rust/intellij-rust/pull/7134
+[#7450]: https://github.com/intellij-rust/intellij-rust/pull/7450
+[#8755]: https://github.com/intellij-rust/intellij-rust/pull/8755
+[#8916]: https://github.com/intellij-rust/intellij-rust/pull/8916
+[#9105]: https://github.com/intellij-rust/intellij-rust/pull/9105
+[#9170]: https://github.com/intellij-rust/intellij-rust/pull/9170
+[#9349]: https://github.com/intellij-rust/intellij-rust/pull/9349
+[#9469]: https://github.com/intellij-rust/intellij-rust/pull/9469
+[#9526]: https://github.com/intellij-rust/intellij-rust/pull/9526
+[#9550]: https://github.com/intellij-rust/intellij-rust/pull/9550
+[#9552]: https://github.com/intellij-rust/intellij-rust/pull/9552
+[#9556]: https://github.com/intellij-rust/intellij-rust/pull/9556
+[#9559]: https://github.com/intellij-rust/intellij-rust/pull/9559
+[#9562]: https://github.com/intellij-rust/intellij-rust/pull/9562
+[#9586]: https://github.com/intellij-rust/intellij-rust/pull/9586
+[#9598]: https://github.com/intellij-rust/intellij-rust/pull/9598
+[#9614]: https://github.com/intellij-rust/intellij-rust/pull/9614
+[#9615]: https://github.com/intellij-rust/intellij-rust/pull/9615
+[#9620]: https://github.com/intellij-rust/intellij-rust/pull/9620
+[#9627]: https://github.com/intellij-rust/intellij-rust/pull/9627
+[#9628]: https://github.com/intellij-rust/intellij-rust/pull/9628
+[#9631]: https://github.com/intellij-rust/intellij-rust/pull/9631
+[#9637]: https://github.com/intellij-rust/intellij-rust/pull/9637
+[#9639]: https://github.com/intellij-rust/intellij-rust/pull/9639
+[#9650]: https://github.com/intellij-rust/intellij-rust/pull/9650
