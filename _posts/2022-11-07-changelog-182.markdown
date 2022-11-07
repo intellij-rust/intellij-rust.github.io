@@ -7,30 +7,36 @@ date: 2022-11-07 13:00:00 +0300
 
 ## New Features
 
-* [#9650] Increase the minimal supported version of Rust to 1.56
+* [#8755] Support `let_chains` (by [@Kobzol])
+
+* [#9105] Allow to run a specific [documentation test](https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html) [all the ways](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-testing.html) you can run a usual test (by [@Kobzol])
+  TODO: gif
+
+* [#9349] Decorate MSVC type names when rendering values in the debugger on Windows. Now the Rust type names containing MSVC-specific wrappers are rendered properly, e.g. `tuple$<Foo, ref$<Bar>>` is replaced by `(Foo, &Bar)`.
+  This feature can be disabled via the `Decorate MSVC type names` checkbox in the `File | Settings | Build, Execution, Deployment | Debugger | Data Views | Rust` settings
+  TODO: image
+
+* [#7134] Add a quick-fix to generate missing trait member definitions in trait implementations (by [@Sejsel])
+  TODO: gif
 
 * Procedural macro support improvements:
-  * [#9628] Enable the expansion of [function-like procedural macros] in the [nightly builds].
-    This feature can be controlled via `org.rust.macros.proc.function-like` option in `Experimental Features` dialog.
-    For more information, check the [implementation PR](https://github.com/intellij-rust/intellij-rust/pull/6564) and the corresponding [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908).
+  * [#9615] Split `org.rust.macros.proc` experimental feature into sub-features:
+    - `org.rust.macros.proc.function-like` enables [function-like] procedural macros expansion
+    - `org.rust.macros.proc.derive` enables [derive] procedural macro expansion
+    - `org.rust.macros.proc.attr` enables [attribute] procedural macro expansion
+    - `org.rust.macros.proc` enables all the above
+  Note, since the procedural macro support is still experimental, these features are disabled by default. You can turn them on via `Help | Find Action | Experimental Features` dialog
 
-  * [#9526] Insert brackets of the proper form (`()`, `[]` or `{}`) when completing procedural macro calls
+  * [#9628] Enable the expansion of [function-like] procedural macros in the [nightly builds].
+    For more information, check the [implementation PR](https://github.com/intellij-rust/intellij-rust/pull/6564) and the corresponding [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908).
 
   * [#9614] Fix the expansion of [attribute] and [derive] procedural macros inside functions
 
   * [#9559] Fix duplicate completion for already imported [attribute] procedural macros
 
-* [#9105] Allow to run a specific [documentation test](https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html) [all the ways](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-testing.html) you can run a usual test (by [@Kobzol])
-TODO: gif
+  * [#9526] Insert brackets of the proper form (`()`, `[]` or `{}`, depending on the macro's documentation) when completing procedural macro calls
 
-* [#9349] Decorate MSVC type names when rendering values in the debugger on Windows. Now the Rust type names containing MSVC-specific wrappers are rendered properly, e.g. `tuple$<Foo, ref$<Bar>>` is replaced by `(Foo, &Bar)`.
-  This feature can be disabled via the `Decorate MSVC type names` checkbox in the `File | Settings | Build, Execution, Deployment | Debugger | Data Views | Rust` settings
-TODO: image
-
-* [#7134] Add a quick-fix to generate missing trait member definitions in trait implementations (by [@Sejsel])
-TODO: gif
-
-* [#8755] Add basic parsing support for `let_chains` (by [@Kobzol])
+* [#9650] Increase the minimal supported version of Rust to 1.56
 
 * [#8916] Fix emulating terminal in output console in some cases
 
@@ -46,27 +52,24 @@ TODO: gif
 
   * [#9586] Infer const arguments in struct literal paths
 
-  * [#9620] Normalize associated type in `impl` item trait ref
+  * [#9620] Normalize associated type in `impl` item trait reference
 
   * [#9631] Fix type inference in the case of normalizable associated type projections like `<A as B>::C`
 
-* [#9637] Do not cancel the [build script] evaluation when the native helper binary was not found
+* [#9637] Fix [build script] evaluation failure when the native helper binary was not found
 
 * [#9627] Do not show line markers for tests in dependence crates
 
 * [#9562] Fix `Create module file` quick-fix in 2022.3 EAPs
 
-* [#9556] Temporary disable `Insert imports on paste` feature because it may be slow when copying large code fragments
+* [#9556] Temporary disable `Insert imports on paste` feature because it may be slow when copying large code fragments.
+  The corresponding option is located in `Preferences | Editor | General | Auto Import | Rust` settings
 
-* [#9550] Do not resolve and complete macros after `::`
+* [#9550] Do not resolve and complete macros after `::` when Rust edition 2018 or later is used
 
 * [#9469] Fix randomly appearing false-positive `Variable is never used` annotation when the variable is only used in a macro call
 
 * [#9170] Fix completion for raw identifiers inside `use` declarations (by [@Stzx])
-
-## Internal Improvements
-
-* [#9615] MACRO: split `org.rust.macros.proc` experimental feature into 3 features
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/91?closed=1)
 
@@ -100,8 +103,8 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9639]: https://github.com/intellij-rust/intellij-rust/pull/9639
 [#9650]: https://github.com/intellij-rust/intellij-rust/pull/9650
 
-[build script]: https://doc.rust-lang.org/cargo/reference/build-scripts.html
-[function-like procedural macros]: https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros
-[nightly plugin builds]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html#install-nightly
-[attribute]: https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros
+[function-like]: https://doc.rust-lang.org/reference/procedural-macros.html#function-like-procedural-macros
 [derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
+[attribute]: https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros
+[nightly builds]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html#install-nightly
+[build script]: https://doc.rust-lang.org/cargo/reference/build-scripts.html
