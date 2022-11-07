@@ -10,14 +10,17 @@ date: 2022-11-07 13:00:00 +0300
 * [#8755] Support `let_chains` (by [@Kobzol])
 
 * [#9105] Allow to run a specific [documentation test](https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html) [all the ways](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-testing.html) you can run a usual test (by [@Kobzol])
-  TODO: gif
+
+  {% include gif-img.html path="/assets/posts/changelog-182/run_doctest" w="700px" %}
 
 * [#9349] Decorate MSVC type names when rendering values in the debugger on Windows. Now the Rust type names containing MSVC-specific wrappers are rendered properly, e.g. `tuple$<Foo, ref$<Bar>>` is replaced by `(Foo, &Bar)`.
   This feature can be disabled via the `Decorate MSVC type names` checkbox in the `File | Settings | Build, Execution, Deployment | Debugger | Data Views | Rust` settings
-  TODO: image
+
+  <img src="/assets/posts/changelog-182/msvc_decorators.png" width="700px"/>
 
 * [#7134] Add a quick-fix to generate missing trait member definitions in trait implementations (by [@Sejsel])
-  TODO: gif
+
+  {% include gif-img.html path="/assets/posts/changelog-182/add_definition_to_trait" w="700px" %}
 
 * Procedural macro support improvements:
   * [#9615] Split `org.rust.macros.proc` experimental feature into sub-features:
