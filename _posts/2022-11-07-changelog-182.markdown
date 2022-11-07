@@ -7,7 +7,7 @@ date: 2022-11-07 13:00:00 +0300
 
 ## New Features
 
-* [#8755] Support `let_chains` (by [@Kobzol])
+* [#8755] Support [`let_chains`](https://rust-lang.github.io/rfcs/2497-if-let-chains.html) (by [@Kobzol])
 
 * [#9105] Allow to run a specific [documentation test](https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html) [all the ways](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-testing.html) you can run a usual test (by [@Kobzol])
 
@@ -28,7 +28,10 @@ date: 2022-11-07 13:00:00 +0300
     - `org.rust.macros.proc.derive` enables [derive] procedural macro expansion
     - `org.rust.macros.proc.attr` enables [attribute] procedural macro expansion
     - `org.rust.macros.proc` enables all the above
-  Note, since the procedural macro support is still experimental, these features are disabled by default. You can turn them on via `Help | Find Action | Experimental Features` dialog
+    
+    It should help us to enable macro support gradually.
+
+    Note, since the procedural macro support is still experimental, these features are disabled by default. You can turn them on via `Help | Find Action | Experimental Features` dialog
 
   * [#9628] Enable the expansion of [function-like] procedural macros in the [nightly builds].
     For more information, check the [implementation PR](https://github.com/intellij-rust/intellij-rust/pull/6564) and the corresponding [tracking issue](https://github.com/intellij-rust/intellij-rust/issues/6908).
