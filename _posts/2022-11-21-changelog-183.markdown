@@ -1,0 +1,85 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #183"
+date: 2022-11-21 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9699] Support [quick-fixes preview](https://blog.jetbrains.com/idea/2022/09/intellij-idea-2022-3-eap/#Intention_action_preview_enabled_by_default) in 2022.3
+
+* [#9694] Enable [derive](https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros) procedural macro expansion in [nightly plugin builds](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html#install-nightly)
+
+* [#9649] Enable native Rust support in [MSVC LLDB](https://blog.jetbrains.com/clion/2019/06/clion-2019-2-eap-msvc-debugger-unused-includes-check-and-more/#msvc_debug) in 2022.3 IDE builds on Windows. Currently, the most visible improvement of the native support is the proper displaying of Rust primitive type names, such as `u64` instead of `unsigned long long`
+
+* [#9641] Support [Intention preview](https://blog.jetbrains.com/idea/2022/09/intellij-idea-2022-3-eap/#Intention_action_preview_enabled_by_default) in 2022.3
+
+* [#9350] Support renaming derive procedural macros
+
+* [#8958] Provide support for proper build script evaluation and procedural macro expansion on Windows and Linux with arm64 CPU
+
+* [#7353] Support [intra-doc links](https://doc.rust-lang.org/rustdoc/write-documentation/linking-to-items-by-name.html). Please note that currently we support links in format `[text](link)`, but not `[link]`
+
+## Performance Improvements
+
+* [#9658] FIX: Show completion autopopup when typing in a recursive macro call. PERF: Don't enter Dumb Mode when typing in a recursive macros
+
+## Fixes
+
+* [#9714] fix type inference of const arguments in a path qualifier type arguments
+
+* [#9708] Fix completion in a function-like macro call body
+
+* [#9698] Use qualified type if the name is already imported in `Specify type explicitly` intention
+
+* [#9695] Properly load stdlib metadata with [custom build target](https://docs.rust-embedded.org/embedonomicon/custom-target.html)
+
+* [#9689] Fallback to hardcoded stdlib structure if fetching of stdlib structure failed for some reason
+
+* [#9658] FIX: Show completion autopopup when typing in a recursive macro call. PERF: Don't enter Dumb Mode when typing in a recursive macros
+
+* [#9633] Fix `clippy` if the run configuration doesn't contain `Build Before Launch` task
+
+* [#9602] Don't allow to use Run targets alongside with WSL toolchain
+
+* [#9585] Fix `Add unambiguous imports on the fly` for 2022.3
+
+* [#9525] Substitute `Self` in [`Inline function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring
+
+* [#9515] "Add missing fields" quickfix: add trailing comma if needed (by [@t-kameyama])
+
+* [#9470] improve completion when the caret is placed in the middle of an identifier
+
+* [#9377] fix docs.rs documentation hyperlinks for proc macros (by [@afetisov])
+
+## Internal Improvements
+
+* [#9667] await finish of macro expansion task when running inspection from [command line](https://www.jetbrains.com/help/idea/command-line-code-inspector.html) or via [Qodana](https://www.jetbrains.com/qodana/)
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/92?closed=1)
+
+[@afetisov]: https://github.com/afetisov
+[@t-kameyama]: https://github.com/t-kameyama
+
+[#7353]: https://github.com/intellij-rust/intellij-rust/pull/7353
+[#8958]: https://github.com/intellij-rust/intellij-rust/pull/8958
+[#9350]: https://github.com/intellij-rust/intellij-rust/pull/9350
+[#9377]: https://github.com/intellij-rust/intellij-rust/pull/9377
+[#9470]: https://github.com/intellij-rust/intellij-rust/pull/9470
+[#9515]: https://github.com/intellij-rust/intellij-rust/pull/9515
+[#9525]: https://github.com/intellij-rust/intellij-rust/pull/9525
+[#9585]: https://github.com/intellij-rust/intellij-rust/pull/9585
+[#9602]: https://github.com/intellij-rust/intellij-rust/pull/9602
+[#9633]: https://github.com/intellij-rust/intellij-rust/pull/9633
+[#9641]: https://github.com/intellij-rust/intellij-rust/pull/9641
+[#9649]: https://github.com/intellij-rust/intellij-rust/pull/9649
+[#9658]: https://github.com/intellij-rust/intellij-rust/pull/9658
+[#9667]: https://github.com/intellij-rust/intellij-rust/pull/9667
+[#9689]: https://github.com/intellij-rust/intellij-rust/pull/9689
+[#9694]: https://github.com/intellij-rust/intellij-rust/pull/9694
+[#9695]: https://github.com/intellij-rust/intellij-rust/pull/9695
+[#9698]: https://github.com/intellij-rust/intellij-rust/pull/9698
+[#9699]: https://github.com/intellij-rust/intellij-rust/pull/9699
+[#9708]: https://github.com/intellij-rust/intellij-rust/pull/9708
+[#9714]: https://github.com/intellij-rust/intellij-rust/pull/9714
