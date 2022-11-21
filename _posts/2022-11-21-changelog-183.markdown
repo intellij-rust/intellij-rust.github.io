@@ -13,7 +13,7 @@ date: 2022-11-21 13:00:00 +0300
   {% include gif-img.html path="/assets/posts/changelog-183/intention_preview" w="700px" %}
 
 
-* [#7353] Support code insight features (like completion, navigation, find usages, rename, etc.) for [intra-doc links](https://doc.rust-lang.org/rustdoc/write-documentation/linking-to-items-by-name.html).
+* [#7353] Support code insight features (like completion, navigation, find usages, rename, etc.) for [intra-doc links](https://doc.rust-lang.org/rustdoc/write-documentation/linking-to-items-by-name.html)
 
   {% include gif-img.html path="/assets/posts/changelog-183/intra-docs_links" w="700px" %}
 
