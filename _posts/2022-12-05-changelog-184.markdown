@@ -11,7 +11,9 @@ date: 2022-12-05 13:00:00 +0300
 
   <img src="/assets/posts/changelog-184/derive_proc_macro.png" width="700px"/>
 
-  Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is still disabled by default. If you want to try out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+  Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is still disabled by default. If you want to try out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+  
+  Read more about macros and how they are supported in Rust plugin in the [corresponding blog post](https://blog.jetbrains.com/rust/2022/12/05/what-every-rust-developer-should-know-about-macro-support-in-ides/)
 
 ## New Features
 
