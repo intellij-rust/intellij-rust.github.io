@@ -1,0 +1,79 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #185"
+date: 2022-12-19 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9858] Annotate syntactically invalid range patterns / Annotate half-open ranges patterns as experimental before 1.66 / Annotate inclusive ranges without end for range patterns
+
+* [#9836] - Respect `#[allow(clippy::wrong_self_convention)]` attribute,
+    avoiding the need to use `//noinspection RsSelfConvention` anymore (by [@Techcable])
+
+* [#9816] Add support for [E0044](https://doc.rust-lang.org/error_codes/E0044.html) (by [@kuksag])
+
+* [#9803] Show type hints inside attribute procedural macros
+
+* [#8544] Provide initial type inference support for [GATs](https://blog.rust-lang.org/2022/10/28/gats-stabilization.html)
+
+## Performance Improvements
+
+* [#9869] PERF: speed up `getMacroIndex` - most item types now have macro index
+
+* [#9861] Slightly optimize `Unused imports` inspection
+
+* [#9841] PERF: don't calculate CFG, Liveness and borrowck in cfg-disabled code
+
+* [#9528] Slightly speed up name resolution
+
+## Fixes
+
+* [#9875] I don't think it deserves to be included in the changelog, but it fixes issue #9855
+
+* [#9866] Don't remove unused imports marked with `#[allow(unused_imports)]`
+
+* [#9851] Improve [Extend selection](https://www.jetbrains.com/idea/guide/tips/extend-selection/) and [Type info](https://www.jetbrains.com/help/idea/viewing-reference-information.html#type-info) actions inside macro calls
+
+* [#9832] Fix `type info` action (`Ctrl`+`Shift`+`P`) inside attribute procedural macro calls
+
+* [#9804] MACRO: properly limit max depth of im-memory macro expansions
+
+* [#9796] 1. Take into account `impl`s expanded from macro calls inside function bodies. 2. Take into account `impl`s located in doctests
+
+* [#9753] Improve `include!` macros search
+
+* [#9347] Convert `Self` usages in `Convert struct to tuple` refactoring
+
+* [#9341] fix rendering of some actions in the Undo stack (by [@afetisov])
+
+## Internal Improvements
+
+* [#9754] Remove `RsExternCrateReexportIndex` and `RsMacroCallIndex` since they are unused now
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/94?closed=1)
+
+[@Techcable]: https://github.com/Techcable
+[@afetisov]: https://github.com/afetisov
+[@kuksag]: https://github.com/kuksag
+
+[#8544]: https://github.com/intellij-rust/intellij-rust/pull/8544
+[#9341]: https://github.com/intellij-rust/intellij-rust/pull/9341
+[#9347]: https://github.com/intellij-rust/intellij-rust/pull/9347
+[#9528]: https://github.com/intellij-rust/intellij-rust/pull/9528
+[#9753]: https://github.com/intellij-rust/intellij-rust/pull/9753
+[#9754]: https://github.com/intellij-rust/intellij-rust/pull/9754
+[#9796]: https://github.com/intellij-rust/intellij-rust/pull/9796
+[#9803]: https://github.com/intellij-rust/intellij-rust/pull/9803
+[#9804]: https://github.com/intellij-rust/intellij-rust/pull/9804
+[#9816]: https://github.com/intellij-rust/intellij-rust/pull/9816
+[#9832]: https://github.com/intellij-rust/intellij-rust/pull/9832
+[#9836]: https://github.com/intellij-rust/intellij-rust/pull/9836
+[#9841]: https://github.com/intellij-rust/intellij-rust/pull/9841
+[#9851]: https://github.com/intellij-rust/intellij-rust/pull/9851
+[#9858]: https://github.com/intellij-rust/intellij-rust/pull/9858
+[#9861]: https://github.com/intellij-rust/intellij-rust/pull/9861
+[#9866]: https://github.com/intellij-rust/intellij-rust/pull/9866
+[#9869]: https://github.com/intellij-rust/intellij-rust/pull/9869
+[#9875]: https://github.com/intellij-rust/intellij-rust/pull/9875
