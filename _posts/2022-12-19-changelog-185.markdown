@@ -4,49 +4,47 @@ title: "IntelliJ Rust Changelog #185"
 date: 2022-12-19 13:00:00 +0300
 ---
 
-
 ## New Features
 
-* [#9858] Annotate syntactically invalid range patterns / Annotate half-open ranges patterns as experimental before 1.66 / Annotate inclusive ranges without end for range patterns
+* [#9803] Show [type hints](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#inlay-hints) inside attribute procedural macros
 
-* [#9836] - Respect `#[allow(clippy::wrong_self_convention)]` attribute,
-    avoiding the need to use `//noinspection RsSelfConvention` anymore (by [@Techcable])
-
-* [#9816] Add support for [E0044](https://doc.rust-lang.org/error_codes/E0044.html) (by [@kuksag])
-
-* [#9803] Show type hints inside attribute procedural macros
+  <img src="/assets/posts/changelog-185/inlay_type_hint_in_rocket.png" width="350px"/>
 
 * [#8544] Provide initial type inference support for [GATs](https://blog.rust-lang.org/2022/10/28/gats-stabilization.html)
 
-## Performance Improvements
+* [#9858] Annotate half-open [range patterns](https://doc.rust-lang.org/reference/patterns.html#range-patterns) as experimental before Rust 1.66, and highlight syntactically invalid range patterns and inclusive ranges without end as errors
 
-* [#9869] PERF: speed up `getMacroIndex` - most item types now have macro index
+* [#9836] Respect [`clippy::wrong_self_convention`](https://rust-lang.github.io/rust-clippy/master/index.html#wrong_self_convention) attribute, avoiding the need to use additional [IntelliJ-specific](https://jetbrains.com/help/idea/disabling-and-enabling-inspections.html#suppress-inspections) `//noinspection RsSelfConvention` comments anymore (by [@Techcable])
+
+* [#9816] Add support for the "Foreign items may not have type/const parameters" ([E0044](https://doc.rust-lang.org/error_codes/E0044.html)) error (by [@kuksag])
+
+## Performance Improvements
 
 * [#9861] Slightly optimize `Unused imports` inspection
 
-* [#9841] PERF: don't calculate CFG, Liveness and borrowck in cfg-disabled code
+* [#9841] Don't calculate CFG, liveness, and borrowck in cfg-disabled code
 
-* [#9528] Slightly speed up name resolution
+* [#9528] Slightly speed up name resolution by resolving more cases of nested paths at once
+
+* [#9869] Slightly speed up macro resolution
 
 ## Fixes
 
-* [#9875] I don't think it deserves to be included in the changelog, but it fixes issue #9855
+* [#9866] Don't remove unused imports marked with `#[allow(unused_imports)]` during [import optimization](https://jetbrains.com/help/idea/creating-and-optimizing-imports.html#optimize-imports)
 
-* [#9866] Don't remove unused imports marked with `#[allow(unused_imports)]`
+* [#9851] Improve [Extend Selection](https://jetbrains.com/idea/guide/tips/extend-selection) and [Type Info](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#type-info) actions inside macro calls
 
-* [#9851] Improve [Extend selection](https://www.jetbrains.com/idea/guide/tips/extend-selection/) and [Type info](https://www.jetbrains.com/help/idea/viewing-reference-information.html#type-info) actions inside macro calls
+* [#9832] Fix the [Type Info](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#type-info) action (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) inside attribute procedural macro calls
 
-* [#9832] Fix `type info` action (`Ctrl`+`Shift`+`P`) inside attribute procedural macro calls
+* [#9804] Properly limit max depth of im-memory macro expansions
 
-* [#9804] MACRO: properly limit max depth of im-memory macro expansions
+* [#9796] Take into account `impl`s expanded from macro calls inside function bodies and `impl`s located in doctests
 
-* [#9796] 1. Take into account `impl`s expanded from macro calls inside function bodies. 2. Take into account `impl`s located in doctests
+* [#9753] Improve [the `include!` macro](https://doc.rust-lang.org/stable/std/macro.include.html) search
 
-* [#9753] Improve `include!` macros search
+* [#9347] Convert `Self` usages in the [Convert Struct to Tuple](https://plugins.jetbrains.com/plugin/8182-rust/docs/#convert-refactoring) refactoring
 
-* [#9347] Convert `Self` usages in `Convert struct to tuple` refactoring
-
-* [#9341] fix rendering of some actions in the Undo stack (by [@afetisov])
+* [#9341] Fix rendering of some actions in the Undo/Redo stack (by [@afetisov])
 
 ## Internal Improvements
 
