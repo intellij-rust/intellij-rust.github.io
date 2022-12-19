@@ -33,7 +33,7 @@ date: 2022-12-19 13:00:00 +0300
 
 ## Fixes
 
-* [#9801] Fix flickering of [external linter](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) icon in the status bar during scans
+* [#9801] Fix flickering of [external linter](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) icon in the status bar during scans (by [@afetisov])
 
 * [#9866] Don't remove unused imports marked with `#[allow(unused_imports)]` during [import optimization](https://jetbrains.com/help/idea/creating-and-optimizing-imports.html#optimize-imports)
 
