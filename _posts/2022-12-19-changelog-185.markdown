@@ -1,0 +1,82 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #185"
+date: 2022-12-19 13:00:00 +0300
+---
+
+## New Features
+
+* [#8544] Provide initial type inference support for [GATs](https://blog.rust-lang.org/2022/10/28/gats-stabilization.html)
+
+* [#9803] Show [type hints](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#inlay-hints) inside attribute procedural macros
+
+  <img src="/assets/posts/changelog-185/inlay_type_hint_in_rocket.png" width="350px"/>
+
+  Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is still disabled by default. If you want to try out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+
+
+* [#9858] Annotate half-open [range patterns](https://doc.rust-lang.org/reference/patterns.html#range-patterns) as experimental before Rust 1.66, and highlight syntactically invalid range patterns and inclusive ranges without end as errors
+
+* [#9836] Respect [`clippy::wrong_self_convention`](https://rust-lang.github.io/rust-clippy/master/index.html#wrong_self_convention) attribute, avoiding the need to use additional [IntelliJ-specific](https://jetbrains.com/help/idea/disabling-and-enabling-inspections.html#suppress-inspections) `//noinspection RsSelfConvention` comments anymore (by [@Techcable])
+
+* [#9816] Detect `Foreign items may not have type/const parameters` ([E0044](https://doc.rust-lang.org/error_codes/E0044.html)) error
+
+## Performance Improvements
+
+* [#9841] Don't perform some code analysis for cfg-disabled code
+
+* [#9861] Speed up `Unused imports` inspection
+
+* [#9528] Speed up name resolution by resolving more cases of nested paths at once
+
+* [#9869] Speed up macro resolution
+
+## Fixes
+
+* [#9801] Fix flickering of [external linter](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) icon in the status bar during scans (by [@afetisov])
+
+* [#9866] Don't remove unused imports marked with `#[allow(unused_imports)]` during [import optimization](https://jetbrains.com/help/idea/creating-and-optimizing-imports.html#optimize-imports)
+
+* [#9851] Improve [Extend Selection](https://jetbrains.com/idea/guide/tips/extend-selection) and [Type Info](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#type-info) actions inside macro calls
+
+* [#9832] Fix the [Type Info](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#type-info) action (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) inside attribute procedural macro calls
+
+* [#9804] Properly limit maximum depth of in-memory macro expansion
+
+* [#9796] Take into account `impl`s expanded from macro calls inside function bodies and `impl`s located in doctests
+
+* [#9753] Improve [the `include!` macro](https://doc.rust-lang.org/stable/std/macro.include.html) search
+
+* [#9347] Convert `Self` usages in the [Convert Struct to Tuple](https://plugins.jetbrains.com/plugin/8182-rust/docs/#convert-refactoring) refactoring
+
+* [#9341] Provide proper names for `Undo`/`Redo` actions and records in [Local history](https://jetbrains.com/help/idea/local-history.html) for changes made by plugin actions, intentions and refactorings (by [@afetisov])
+
+## Internal Improvements
+
+* [#9754] Remove `RsExternCrateReexportIndex` and `RsMacroCallIndex` since they are unused now
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/94?closed=1)
+
+[@Techcable]: https://github.com/Techcable
+[@afetisov]: https://github.com/afetisov
+[@kuksag]: https://github.com/kuksag
+
+[#8544]: https://github.com/intellij-rust/intellij-rust/pull/8544
+[#9341]: https://github.com/intellij-rust/intellij-rust/pull/9341
+[#9347]: https://github.com/intellij-rust/intellij-rust/pull/9347
+[#9528]: https://github.com/intellij-rust/intellij-rust/pull/9528
+[#9753]: https://github.com/intellij-rust/intellij-rust/pull/9753
+[#9754]: https://github.com/intellij-rust/intellij-rust/pull/9754
+[#9796]: https://github.com/intellij-rust/intellij-rust/pull/9796
+[#9801]: https://github.com/intellij-rust/intellij-rust/pull/9801
+[#9803]: https://github.com/intellij-rust/intellij-rust/pull/9803
+[#9804]: https://github.com/intellij-rust/intellij-rust/pull/9804
+[#9816]: https://github.com/intellij-rust/intellij-rust/pull/9816
+[#9832]: https://github.com/intellij-rust/intellij-rust/pull/9832
+[#9836]: https://github.com/intellij-rust/intellij-rust/pull/9836
+[#9841]: https://github.com/intellij-rust/intellij-rust/pull/9841
+[#9851]: https://github.com/intellij-rust/intellij-rust/pull/9851
+[#9858]: https://github.com/intellij-rust/intellij-rust/pull/9858
+[#9861]: https://github.com/intellij-rust/intellij-rust/pull/9861
+[#9866]: https://github.com/intellij-rust/intellij-rust/pull/9866
+[#9869]: https://github.com/intellij-rust/intellij-rust/pull/9869
