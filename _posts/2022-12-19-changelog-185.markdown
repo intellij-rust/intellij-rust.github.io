@@ -41,7 +41,7 @@ date: 2022-12-19 13:00:00 +0300
 
 * [#9832] Fix the [Type Info](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#type-info) action (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) inside attribute procedural macro calls
 
-* [#9804] Properly limit max depth of im-memory macro expansions
+* [#9804] Properly limit maximum depth of in-memory macro expansion
 
 * [#9796] Take into account `impl`s expanded from macro calls inside function bodies and `impl`s located in doctests
 
