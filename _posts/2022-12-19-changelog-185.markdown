@@ -23,13 +23,13 @@ date: 2022-12-19 13:00:00 +0300
 
 ## Performance Improvements
 
-* [#9861] Slightly optimize `Unused imports` inspection
-
 * [#9841] Don't perform some code analysis for cfg-disabled code
 
-* [#9528] Slightly speed up name resolution by resolving more cases of nested paths at once
+* [#9861] Speed up `Unused imports` inspection
 
-* [#9869] Slightly speed up macro resolution
+* [#9528] Speed up name resolution by resolving more cases of nested paths at once
+
+* [#9869] Speed up macro resolution
 
 ## Fixes
 
