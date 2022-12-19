@@ -6,29 +6,34 @@ date: 2022-12-19 13:00:00 +0300
 
 ## New Features
 
+* [#8544] Provide initial type inference support for [GATs](https://blog.rust-lang.org/2022/10/28/gats-stabilization.html)
+
 * [#9803] Show [type hints](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-reference-info.html#inlay-hints) inside attribute procedural macros
 
   <img src="/assets/posts/changelog-185/inlay_type_hint_in_rocket.png" width="350px"/>
 
-* [#8544] Provide initial type inference support for [GATs](https://blog.rust-lang.org/2022/10/28/gats-stabilization.html)
+  Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is still disabled by default. If you want to try out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+
 
 * [#9858] Annotate half-open [range patterns](https://doc.rust-lang.org/reference/patterns.html#range-patterns) as experimental before Rust 1.66, and highlight syntactically invalid range patterns and inclusive ranges without end as errors
 
 * [#9836] Respect [`clippy::wrong_self_convention`](https://rust-lang.github.io/rust-clippy/master/index.html#wrong_self_convention) attribute, avoiding the need to use additional [IntelliJ-specific](https://jetbrains.com/help/idea/disabling-and-enabling-inspections.html#suppress-inspections) `//noinspection RsSelfConvention` comments anymore (by [@Techcable])
 
-* [#9816] Add support for the "Foreign items may not have type/const parameters" ([E0044](https://doc.rust-lang.org/error_codes/E0044.html)) error (by [@kuksag])
+* [#9816] Detect `Foreign items may not have type/const parameters` ([E0044](https://doc.rust-lang.org/error_codes/E0044.html)) error
 
 ## Performance Improvements
 
 * [#9861] Slightly optimize `Unused imports` inspection
 
-* [#9841] Don't calculate CFG, liveness, and borrowck in cfg-disabled code
+* [#9841] Don't perform some code analysis for cfg-disabled code
 
 * [#9528] Slightly speed up name resolution by resolving more cases of nested paths at once
 
 * [#9869] Slightly speed up macro resolution
 
 ## Fixes
+
+* [#9801] Fix flickering of [external linter](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-analysis.html#external-linters) icon in the status bar during scans
 
 * [#9866] Don't remove unused imports marked with `#[allow(unused_imports)]` during [import optimization](https://jetbrains.com/help/idea/creating-and-optimizing-imports.html#optimize-imports)
 
@@ -44,7 +49,7 @@ date: 2022-12-19 13:00:00 +0300
 
 * [#9347] Convert `Self` usages in the [Convert Struct to Tuple](https://plugins.jetbrains.com/plugin/8182-rust/docs/#convert-refactoring) refactoring
 
-* [#9341] Fix rendering of some actions in the Undo/Redo stack (by [@afetisov])
+* [#9341] Provide proper names for `Undo`/`Redo` actions and records in [Local history](https://jetbrains.com/help/idea/local-history.html) for changes made by plugin actions, intentions and refactorings (by [@afetisov])
 
 ## Internal Improvements
 
@@ -63,6 +68,7 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9753]: https://github.com/intellij-rust/intellij-rust/pull/9753
 [#9754]: https://github.com/intellij-rust/intellij-rust/pull/9754
 [#9796]: https://github.com/intellij-rust/intellij-rust/pull/9796
+[#9801]: https://github.com/intellij-rust/intellij-rust/pull/9801
 [#9803]: https://github.com/intellij-rust/intellij-rust/pull/9803
 [#9804]: https://github.com/intellij-rust/intellij-rust/pull/9804
 [#9816]: https://github.com/intellij-rust/intellij-rust/pull/9816
@@ -74,4 +80,3 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#9861]: https://github.com/intellij-rust/intellij-rust/pull/9861
 [#9866]: https://github.com/intellij-rust/intellij-rust/pull/9866
 [#9869]: https://github.com/intellij-rust/intellij-rust/pull/9869
-[#9875]: https://github.com/intellij-rust/intellij-rust/pull/9875
