@@ -1,0 +1,46 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #186"
+date: 2023-01-16 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9926] Add support for displaying source control author Code Vision (by [@Kobzol])
+
+* [#9883] Annotate exclusive range patterns as experimental
+
+* [#9441] Fully qualify paths from the local crate that cannot be imported after paste (by [@Kobzol])
+
+## Fixes
+
+* [#9928] Improve error messages for already defined names:
+- Produce proper `E0403` error for const generic parameters with duplicate names
+- Update error messages for already defined names to provide the same error message as the compiler
+
+* [#9899] Fix annotation for exclusive range patterns
+
+* [#9794] Now unused imports are removed inside functions if [corresponding inspection](https://github.com/intellij-rust/intellij-rust/issues/2158) is enabled
+
+* [#9747] Support `Create field` quick-fix for struct literals with `Self`
+
+## Internal Improvements
+
+* [#9931] Use Kotlin 1.8 for compilation
+
+* [#9879] Refactor resolve processors
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/95?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+
+[#9441]: https://github.com/intellij-rust/intellij-rust/pull/9441
+[#9747]: https://github.com/intellij-rust/intellij-rust/pull/9747
+[#9794]: https://github.com/intellij-rust/intellij-rust/pull/9794
+[#9879]: https://github.com/intellij-rust/intellij-rust/pull/9879
+[#9883]: https://github.com/intellij-rust/intellij-rust/pull/9883
+[#9899]: https://github.com/intellij-rust/intellij-rust/pull/9899
+[#9926]: https://github.com/intellij-rust/intellij-rust/pull/9926
+[#9928]: https://github.com/intellij-rust/intellij-rust/pull/9928
+[#9931]: https://github.com/intellij-rust/intellij-rust/pull/9931
