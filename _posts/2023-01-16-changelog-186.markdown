@@ -5,31 +5,41 @@ date: 2023-01-16 13:00:00 +0300
 ---
 
 
+This is the last release that supports the 2022.2 IDEs. To receive plugin updates further, please upgrade your IDE to 2022.3.
+
 ## New Features
 
-* [#9926] Add support for displaying source control author Code Vision (by [@Kobzol])
+* [#9747] Support `Create field` quick-fix for struct literals with `Self`
 
-* [#9883] Annotate exclusive range patterns as experimental
+  {% include gif-img.html path="/assets/posts/changelog-186/create-field" w="700px" %}
 
-* [#9441] Fully qualify paths from the local crate that cannot be imported after paste (by [@Kobzol])
+* [#9794] Remove unused imports inside functions by `Optimize import` action
+  (only if [Unused import](https://github.com/intellij-rust/intellij-rust/issues/2158) inspection is enabled)
+
+  {% include gif-img.html path="/assets/posts/changelog-186/unused-imports-in-function" w="700px" %}
+
+* [#9441] Fully qualify paths from the local crate that cannot be imported after paste.
+  Note, the corresponding feature is disabled by default.
+  You can turn it on via `Rust | Insert imports on paste` option in `Preferences | Editor | General | Auto Import` panel (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-186/import-on-paste" w="700px" %}
+
+* [#9883], [#9899] Annotate [exclusive range patterns](https://github.com/rust-lang/rust/issues/37854) as experimental
 
 ## Fixes
 
 * [#9928] Improve error messages for already defined names:
-- Produce proper `E0403` error for const generic parameters with duplicate names
-- Update error messages for already defined names to provide the same error message as the compiler
-
-* [#9899] Fix annotation for exclusive range patterns
-
-* [#9794] Now unused imports are removed inside functions if [corresponding inspection](https://github.com/intellij-rust/intellij-rust/issues/2158) is enabled
-
-* [#9747] Support `Create field` quick-fix for struct literals with `Self`
+    - Produce proper [E0403](https://doc.rust-lang.org/error_codes/E0403.html) error for const generic parameters with duplicate names
+    - Use the same error messages as the Rust compiler
 
 ## Internal Improvements
 
-* [#9931] Use Kotlin 1.8 for compilation
+* [#9926] Provide initial implementation to show code authors hints.
+  The feature is disabled by default for now (by [@Kobzol])
 
-* [#9879] Refactor resolve processors
+* [#9931] Use Kotlin 1.8 for plugin compilation
+
+* [#9879] Refactor name resolution processors
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/95?closed=1)
 
