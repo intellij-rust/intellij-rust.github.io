@@ -8,23 +8,23 @@ date: 2023-01-30 13:00:00 +0300
 ## New Features
 
 * [#10002], [#10032] Add initial support for 2023.1 [EAP](https://www.jetbrains.com/resources/eap/) builds.
-  Note, the Early Access Program gives you free access to pre-release versions of JetBrains software
+  The Early Access Program gives you free access to pre-release versions of JetBrains software
   and doesn't require a paid IDE subscription
 
 * [#9991] Drop support for 2022.2 platform
 
 * [#9977] Provide separate icons for constants and statics
 
-  TODO screenshot
+  <img src="/assets/posts/changelog-187/new_const_icon_2.png" width="1044px"/>
 
 * [#9974] Provide `Inject language or reference` intention action inside macro invocation bodies
 
-  TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-187/inject_macro" w="600px" %}
 
 * [#9927] Add support for showing reference usages Code Vision. Note, these hints are currently disabled by default.
   You can turn it on via `Registry... | org.rust.code.vision.usage` (by [@Kobzol])
 
-  TODO screenshot
+  {% include gif-img.html path="/assets/posts/changelog-187/code_vision_uses" w="600px" %}
 
 ## Performance Improvements
 
@@ -36,8 +36,6 @@ date: 2023-01-30 13:00:00 +0300
 ## Fixes
 
 * [#9589] Fix jumping outside closing bracket/quote with `Tab` when typing
-
-  TODO promote the feature with a gif?
 
 * [#9945] Filter out methods of inaccessible traits from completion list.
 
