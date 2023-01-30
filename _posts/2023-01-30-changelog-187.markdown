@@ -11,9 +11,9 @@ date: 2023-01-30 13:00:00 +0300
   The Early Access Program gives you free access to pre-release versions of JetBrains software
   and doesn't require a paid IDE subscription. Also, 2023.1 EAPs fix several debugger issues:
 
-    * Fix dereference operator in evaluate expression in LLDB
+    * [#9933] Fix dereference operator when evaluating expressions in LLDB
 
-    * Show function parameters in variable view when using LLDB on Windows with MSVC toolchain
+    * [#6676] Show the correct values of function parameters when using LLDB on Windows with MSVC toolchain
 
 * [#9991] Drop support for 2022.2 platform
 
@@ -109,3 +109,6 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#10014]: https://github.com/intellij-rust/intellij-rust/pull/10014
 [#10021]: https://github.com/intellij-rust/intellij-rust/pull/10021
 [#10032]: https://github.com/intellij-rust/intellij-rust/pull/10032
+
+[#9933]: https://github.com/intellij-rust/intellij-rust/issues/9933
+[#6676]: https://github.com/intellij-rust/intellij-rust/issues/6676
