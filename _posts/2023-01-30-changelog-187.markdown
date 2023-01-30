@@ -1,0 +1,114 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #187"
+date: 2023-01-30 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10002], [#10032] Add initial support for 2023.1 [EAP](https://www.jetbrains.com/resources/eap/) builds.
+  The Early Access Program gives you free access to pre-release versions of JetBrains software
+  and doesn't require a paid IDE subscription. Also, 2023.1 EAPs fix several debugger issues:
+
+    * [#9933] Fix dereference operator when evaluating expressions in LLDB
+
+    * [#6676] Show the correct values of function parameters when using LLDB on Windows with MSVC toolchain
+
+* [#9991] Drop support for 2022.2 platform
+
+* [#9977] Provide separate icons for constants and statics
+
+  <img src="/assets/posts/changelog-187/new_const_icon_2.png" width="522px"/>
+
+* [#9974] Provide `Inject language or reference` intention action inside macro invocation bodies
+
+  {% include gif-img.html path="/assets/posts/changelog-187/inject_macro" w="600px" %}
+
+## Performance Improvements
+
+* [#9978] Speed up `Insert imports on paste` action. Note, the corresponding feature is disabled by default.
+  You can turn it on via `Rust | Insert imports on paste` option in `Preferences | Editor | General | Auto Import` panel
+
+* [#9960] Check if any plugin action is available in the current context in the background thread to prevent possible
+  UI freezes in some cases
+
+## Fixes
+
+* [#9945] Filter out methods of inaccessible traits from completion list.
+
+* [#9589] Fix jumping outside closing bracket/quote with `Tab` when typing
+
+* [#9786] Fix rendering of huge strings when debugging with LLDB
+
+* [#9901] Fix broken compilation of some crates (for example, `thiserror`) after build script evaluation by the plugin
+
+* [#10021] Fix handling of `Fn*` trait with path lifetimes in `Needless lifetimes` inspection
+
+* [#10014] Fix the UI freeze caused by the navigation bar
+
+* [#9990] Properly resolve custom macros with the same names as built-in macros from the prelude
+
+* [#9988] Trim template name and URL when creating a new project using a [custom cargo-generate template]
+
+* [#9971], [#9982] Fix incorrect macro expansions when block expression is involved (by [@foriequal0])
+
+* [#9930] Show a proper error message for usage of undeclared lifetimes
+
+* [#9914] Properly process top-level items by `Main function not found` inspection. Now it takes into account
+  `cfg` attributes and items expanded from macros.
+  Note, you need to enable attribute macro expansion via `org.rust.macros.proc.attr` [experimental feature]
+  to fix false positive `Main function not found` with [rocket](https://rocket.rs/) library
+
+* [#9850] Suggest `Elide lifetimes` fix in case `self` parameter has reference type like `Box<&Self>`
+
+* [#9842] Suggest `Elide lifetimes` fix in cases when a function has `fn` pointer parameters
+
+* [#9472] Fix default generic arg subst if it refers to another generic param, for example `struct Bar<A = Foo, B = A>`
+
+## Internal Improvements
+
+* [#9974] Plugin developers now can implement `MultiHostInjector`s to make language injections into some macro invocation bodies
+
+* [#9678] Slightly speed up Gradle task execution on CI thanks to better caching
+
+* [#9927] Add support for showing reference usages Code Vision.
+  Note, these hints are currently disabled by default because of possibly low performance and negative
+  impact on other editor features. You can turn it on via `Registry... | org.rust.code.vision.usage` (by [@Kobzol])
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/96?closed=1)
+
+[custom cargo-generate template]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-new-cargo-projects.html#cargo-generate
+[experimental feature]: https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features
+
+[@Kobzol]: https://github.com/Kobzol
+[@foriequal0]: https://github.com/foriequal0
+
+[#9472]: https://github.com/intellij-rust/intellij-rust/pull/9472
+[#9589]: https://github.com/intellij-rust/intellij-rust/pull/9589
+[#9678]: https://github.com/intellij-rust/intellij-rust/pull/9678
+[#9786]: https://github.com/intellij-rust/intellij-rust/pull/9786
+[#9802]: https://github.com/intellij-rust/intellij-rust/pull/9802
+[#9842]: https://github.com/intellij-rust/intellij-rust/pull/9842
+[#9850]: https://github.com/intellij-rust/intellij-rust/pull/9850
+[#9901]: https://github.com/intellij-rust/intellij-rust/pull/9901
+[#9914]: https://github.com/intellij-rust/intellij-rust/pull/9914
+[#9927]: https://github.com/intellij-rust/intellij-rust/pull/9927
+[#9930]: https://github.com/intellij-rust/intellij-rust/pull/9930
+[#9945]: https://github.com/intellij-rust/intellij-rust/pull/9945
+[#9960]: https://github.com/intellij-rust/intellij-rust/pull/9960
+[#9971]: https://github.com/intellij-rust/intellij-rust/pull/9971
+[#9974]: https://github.com/intellij-rust/intellij-rust/pull/9974
+[#9977]: https://github.com/intellij-rust/intellij-rust/pull/9977
+[#9978]: https://github.com/intellij-rust/intellij-rust/pull/9978
+[#9982]: https://github.com/intellij-rust/intellij-rust/pull/9982
+[#9988]: https://github.com/intellij-rust/intellij-rust/pull/9988
+[#9990]: https://github.com/intellij-rust/intellij-rust/pull/9990
+[#9991]: https://github.com/intellij-rust/intellij-rust/pull/9991
+[#10002]: https://github.com/intellij-rust/intellij-rust/pull/10002
+[#10014]: https://github.com/intellij-rust/intellij-rust/pull/10014
+[#10021]: https://github.com/intellij-rust/intellij-rust/pull/10021
+[#10032]: https://github.com/intellij-rust/intellij-rust/pull/10032
+
+[#9933]: https://github.com/intellij-rust/intellij-rust/issues/9933
+[#6676]: https://github.com/intellij-rust/intellij-rust/issues/6676
