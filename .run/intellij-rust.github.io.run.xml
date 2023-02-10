@@ -1,0 +1,45 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="intellij-rust.github.io" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+    <deployment type="dockerfile">
+      <settings>
+        <option name="imageTag" value="intellij-rust.github.io" />
+        <option name="containerName" value="intellij-rust.github.io" />
+        <option name="portBindings">
+          <list>
+            <DockerPortBindingImpl>
+              <option name="containerPort" value="8080" />
+              <option name="hostIp" value="0.0.0.0" />
+              <option name="hostPort" value="8080" />
+            </DockerPortBindingImpl>
+          </list>
+        </option>
+        <option name="sourceFilePath" value="Dockerfile" />
+        <option name="volumeBindings">
+          <list>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/intellij-rust.github.io/_posts/" />
+              <option name="hostPath" value="$PROJECT_DIR$/_posts/" />
+              <option name="readOnly" value="true" />
+            </DockerVolumeBindingImpl>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/intellij-rust.github.io/assets/" />
+              <option name="hostPath" value="$PROJECT_DIR$/assets/" />
+              <option name="readOnly" value="true" />
+            </DockerVolumeBindingImpl>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/intellij-rust.github.io/_docs" />
+              <option name="hostPath" value="$PROJECT_DIR$/_docs/" />
+              <option name="readOnly" value="true" />
+            </DockerVolumeBindingImpl>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/intellij-rust.github.io/_includes" />
+              <option name="hostPath" value="$PROJECT_DIR$/_includes/" />
+              <option name="readOnly" value="true" />
+            </DockerVolumeBindingImpl>
+          </list>
+        </option>
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>
