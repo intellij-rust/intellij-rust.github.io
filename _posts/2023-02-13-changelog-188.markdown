@@ -1,0 +1,105 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #188"
+date: 2023-02-13 13:00:00 +0300
+---
+
+
+## New Features
+
+* Detect new compiler errors (by [@kuksag]):
+  * [#10066] `main` function is not allowed to have generic parameters ([E0131](https://doc.rust-lang.org/error-index.html#E0131))
+
+  * [#10066] An inherent implementation was marked `unsafe` ([E0197](https://doc.rust-lang.org/error-index.html#E0197))
+
+  * [#10066] Type parameter has more than one relaxed default bound ([E0203](https://doc.rust-lang.org/error-index.html#E0203))
+
+  * [#9894] A pattern was declared as an argument in a foreign function declaration ([E0130](https://doc.rust-lang.org/error-index.html#E0130))
+
+  * [#9894] Trait methods currently cannot take patterns as arguments ([E0642](https://doc.rust-lang.org/error-index.html#E0642))
+
+* [#10057] Parse and annotate [`const_closures`](https://github.com/rust-lang/rust/issues/106003) syntax
+
+* [#8826] Support `where` clauses [on generic associated types](https://rust-lang.github.io/rfcs/1598-generic_associated_types.html#where-clauses-on-associated-types) at the end of statement
+
+* [#9987] Annotate missing lifetimes ([E0106](https://doc.rust-lang.org/error-index.html#E0106)) in function signatures
+
+* [#9123] Allow excluding specific paths from auto-import via `Preferences | Editor | General | Auto Import | Rust` settings.
+By default, [`Borrow`](https://doc.rust-lang.org/std/borrow/trait.Borrow.html) and [`BorrowMut`](https://doc.rust-lang.org/std/borrow/trait.BorrowMut.html) methods are excluded, as auto-import is rarely desired for them.
+Tip: exclude functions or traits that are re-exported in irrelevant crates to get only the original one in the suggestions.
+For further details, please refer to the pull request description
+
+  <img src="/assets/posts/changelog-188/exclude_paths_auto_import.png" width="600px"/>
+
+* [#7489] Add debugger option to not step into stdlib sources.
+Note, there is a [known limitation](https://github.com/intellij-rust/intellij-rust/issues/10088) that it does not work yet on Windows with MSVC toolchain (by [@Kobzol])
+
+  {% include gif-img.html path="/assets/posts/changelog-188/do_not_step_into_stdlib" w="600px" %}
+
+* [#9962] Show the contents of raw slice pointers (`*const [T]`, `*mut [T]`) in the debugger
+
+  <img src="/assets/posts/changelog-188/contents_of_slice_ptr.png" width="600px"/>
+
+* [#9806] Update icons for the [New UI](https://www.jetbrains.com/help/idea/new-ui.html)
+
+  <img src="/assets/posts/changelog-188/icons_new_ui.png" width="600px"/>
+
+* [#10056] Add a dedicated icon for procedural macros
+
+  <img src="/assets/posts/changelog-188/icon_proc_macro.png" width="600px"/>
+
+* [#10050] Allow disabling gutter icons provided by the plugin via `Preferences | Editor | General | Gutter Icons` settings
+
+* [#9583] Support `Emulate terminal in output console` option for `wasm-pack` [configurations](https://plugins.jetbrains.com/plugin/8182-rust/docs/wasm-projects-support.html#wasm-pack-config)
+
+## Performance Improvements
+
+* [#9868] Speed up syntax highlighting in macro calls
+
+* [#9529] Slightly speed up name resolution
+
+## Fixes
+
+* [#9965] Update debugger pretty-printers and type name decorators for MSVC to Rust 1.67. Now the debugger renders `str` and slice types properly
+
+* [#9746] Do not suggest removing unused parameters in trait methods and procedural macro definitions
+
+## Platform Updates
+
+* [CPP-28311] Since CLion 2023.1 [EAP](https://www.jetbrains.com/clion/nextversion/) build 231.6890.13, Rust debugging using Bundled GDB on Windows works properly without throwing `Undefined item: "UTF-8"` exception
+
+* [#10007] Since CLion 2023.1 [EAP](https://www.jetbrains.com/clion/nextversion/) build 231.4840.362, Rust [remote debugging](https://www.jetbrains.com/help/clion/remote-debug.html) works properly with LLDB
+
+## Internal Improvements
+
+* [#10049] Allow using new language features from Kotlin 1.8
+
+* [#9972] Use mixed AST where possible
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/97?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@kuksag]: https://github.com/kuksag
+
+[#7489]: https://github.com/intellij-rust/intellij-rust/pull/7489
+[#8826]: https://github.com/intellij-rust/intellij-rust/pull/8826
+[#9123]: https://github.com/intellij-rust/intellij-rust/pull/9123
+[#9529]: https://github.com/intellij-rust/intellij-rust/pull/9529
+[#9583]: https://github.com/intellij-rust/intellij-rust/pull/9583
+[#9746]: https://github.com/intellij-rust/intellij-rust/pull/9746
+[#9806]: https://github.com/intellij-rust/intellij-rust/pull/9806
+[#9868]: https://github.com/intellij-rust/intellij-rust/pull/9868
+[#9894]: https://github.com/intellij-rust/intellij-rust/pull/9894
+[#9962]: https://github.com/intellij-rust/intellij-rust/pull/9962
+[#9965]: https://github.com/intellij-rust/intellij-rust/pull/9965
+[#9972]: https://github.com/intellij-rust/intellij-rust/pull/9972
+[#9987]: https://github.com/intellij-rust/intellij-rust/pull/9987
+[#10049]: https://github.com/intellij-rust/intellij-rust/pull/10049
+[#10050]: https://github.com/intellij-rust/intellij-rust/pull/10050
+[#10056]: https://github.com/intellij-rust/intellij-rust/pull/10056
+[#10057]: https://github.com/intellij-rust/intellij-rust/pull/10057
+[#10066]: https://github.com/intellij-rust/intellij-rust/pull/10066
+[#10090]: https://github.com/intellij-rust/intellij-rust/pull/10090
+
+[CPP-28311]: https://youtrack.jetbrains.com/issue/CPP-28311
+[#10007]: https://github.com/intellij-rust/intellij-rust/issues/10007
