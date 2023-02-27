@@ -1,0 +1,56 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #189"
+date: 2023-02-27 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#9864] Show type hints inside function-like macro calls
+
+  <img src="/assets/posts/changelog-189/macro_call_hints.png" width="600px"/>
+
+* [#10103] Take into account attribute procedural macros applied for an impl or trait member.
+  Note that attribute procedural macros expansion is disabled by default for now.
+  To turn it on, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features)
+
+* [#10120] Support [underscore expression](https://doc.rust-lang.org/reference/expressions/underscore-expr.html)
+
+* [#10118] Detect [E0571](https://doc.rust-lang.org/error_codes/E0571.html) compiler error (by [@kuksag])
+
+## Performance Improvements
+
+* [#10095] Skip expansion of `cfg`-disabled macro calls inside functions
+
+## Fixes
+
+* [#10105] Fix the icon for abstract functions in the [New UI](https://www.jetbrains.com/help/idea/new-ui.html)
+
+* [#10018] Don't show unstable stdlib items in completion list while using stable or beta Rust compiler
+
+* [#10139] Fix handling of attribute macro `tokio::test` in some cases
+
+* [#10071] Don't complete built-in attributes for qualified paths
+
+* [#9996] Fix namespace shadowing for a path in a type argument position
+
+## Internal Improvements
+
+* [#10098] Slightly simplify `RsTemplateBuilder` API
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/98?closed=1)
+
+[@kuksag]: https://github.com/kuksag
+
+[#9864]: https://github.com/intellij-rust/intellij-rust/pull/9864
+[#9996]: https://github.com/intellij-rust/intellij-rust/pull/9996
+[#10018]: https://github.com/intellij-rust/intellij-rust/pull/10018
+[#10071]: https://github.com/intellij-rust/intellij-rust/pull/10071
+[#10095]: https://github.com/intellij-rust/intellij-rust/pull/10095
+[#10098]: https://github.com/intellij-rust/intellij-rust/pull/10098
+[#10103]: https://github.com/intellij-rust/intellij-rust/pull/10103
+[#10105]: https://github.com/intellij-rust/intellij-rust/pull/10105
+[#10118]: https://github.com/intellij-rust/intellij-rust/pull/10118
+[#10120]: https://github.com/intellij-rust/intellij-rust/pull/10120
+[#10139]: https://github.com/intellij-rust/intellij-rust/pull/10139
