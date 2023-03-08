@@ -1,0 +1,37 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #190"
+date: 2023-03-13 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10037] Now the plugin detects and highlights errors in attribute macros. Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is disabled by default. If you want to try out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+
+  <img src="/assets/posts/changelog-190/macro-error-highlighting.png" width="350px"/>
+
+* [#10171] Detect `A trait object was declared with no traits` [E0224](https://doc.rust-lang.org/error_codes/E0224.html) error
+
+  <img src="/assets/posts/changelog-190/E0224.png" width="700px"/>
+
+## Fixes
+
+* [#10191] Fix memory leak after opening Rust project settings
+
+* [#10124] Fix parsing `cargo` command line arguments in Run configurations
+
+## Internal Improvements
+
+* [#8740] Setup [Qodana](https://www.jetbrains.com/qodana/) checks on CI
+
+* [#10134] Introduce `PsiInsertionPlace`, use it in intentions, clean up intentions
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/99?closed=1)
+
+[#8740]: https://github.com/intellij-rust/intellij-rust/pull/8740
+[#10037]: https://github.com/intellij-rust/intellij-rust/pull/10037
+[#10124]: https://github.com/intellij-rust/intellij-rust/pull/10124
+[#10134]: https://github.com/intellij-rust/intellij-rust/pull/10134
+[#10171]: https://github.com/intellij-rust/intellij-rust/pull/10171
+[#10191]: https://github.com/intellij-rust/intellij-rust/pull/10191
