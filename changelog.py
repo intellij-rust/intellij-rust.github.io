@@ -28,6 +28,9 @@ MAINTAINERS = [
     "ozkriff",
     "mili-l",
     "neonaot",
+    "yopox",
+    "konrad-sz",
+    "wbars",
     "intellij-rust-bot",
     "dependabot[bot]"
 ]
