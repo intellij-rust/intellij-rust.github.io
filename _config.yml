@@ -9,6 +9,7 @@
 title: IntelliJ Rust
 email: ""
 description: Open-source Rust plugin for IntelliJ-based IDEs
+repository: intellij-rust/intellij-rust.github.io
 
 collections:
   docs:

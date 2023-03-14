@@ -42,5 +42,6 @@ $ docker run \
   -v $PWD/assets:/intellij-rust.github.io/assets \
   -v $PWD/_docs:/intellij-rust.github.io/_docs \
   -v $PWD/_includes:/intellij-rust.github.io/_includes \
+  -v $PWD/_site:/intellij-rust.github.io/_site \
   -p 8080:8080 -it intellij-rust.github.io
 ```

@@ -1,4 +1,10 @@
-_posts/
-assets/
-_docs/
-_includes/
+/.git/
+/_site/
+/_posts/
+/assets/
+/_docs/
+/_includes/
+/.idea/
+/.run/
+/*.iml
+/README.md

@@ -36,6 +36,10 @@
               <option name="hostPath" value="$PROJECT_DIR$/_includes/" />
               <option name="readOnly" value="true" />
             </DockerVolumeBindingImpl>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/intellij-rust.github.io/_site" />
+              <option name="hostPath" value="$PROJECT_DIR$/_site/" />
+            </DockerVolumeBindingImpl>
           </list>
         </option>
       </settings>
