@@ -1,0 +1,68 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #191"
+date: 2023-03-27 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10236] Show parameter hints inside attribute procedural macros
+
+* [#10230] Show hints for chained method calls inside attribute procedural macros
+
+* [#10200] Highlight that `_` can only be used on the left-hand side of an assignment
+
+* [#10193] Annotate mismatched members in trait impl ([E0323](https://doc.rust-lang.org/error_codes/E0323.html), [E0324](https://doc.rust-lang.org/error_codes/E0324.html), [E0325](https://doc.rust-lang.org/error_codes/E0325.html))
+
+* [#10182] Make intention actions work inside an attribute macro expansion
+
+* [#10179] Add support for [E0785](https://doc.rust-lang.org/error_codes/E0785.html)
+
+* [#10176] Add support for [E0206](https://doc.rust-lang.org/error_codes/E0206.html)
+
+* [#10059] Show the contents of references and pointers when debugging with LLDB
+
+## Fixes
+
+* [#10260] Fix `Invert if condition` intention when there is another `if` after current one
+
+* [#10229] (i'm not sure it worth to add it to a changelog) provide `RsDiagnostic`-based API for quick-fixes with arbitrary ranges and use it for some diagnostics
+
+* [#10215] Fix false-positive detection of unreachable code with [`let else`](https://rust-lang.github.io/rfcs/3137-let-else.html) syntax (by [@White-Green])
+
+* [#10196] Don’t run some inspections on Rust files outside a valid Cargo project to avoid expected false positive errors
+
+* [#10096] Improve support for multiple attribute macro calls on a single item
+
+* [#7910] Fix "Before launch" configurations for Cargo Command configurations
+
+## Internal Improvements
+
+* [#10231] Provide plugin sources along with plugin archive to simplify plugin development with IntelliJ Rust plugin as a dependency
+
+* [#10221] Make 2023.1 default platform for development
+
+* [#10218] Now all macros are expanded by default in all `RsTestBase`-based tests, `@ExpandMacros` annotation is not needed there
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/100?closed=1)
+
+[@White-Green]: https://github.com/White-Green
+
+[#7910]: https://github.com/intellij-rust/intellij-rust/pull/7910
+[#10059]: https://github.com/intellij-rust/intellij-rust/pull/10059
+[#10096]: https://github.com/intellij-rust/intellij-rust/pull/10096
+[#10176]: https://github.com/intellij-rust/intellij-rust/pull/10176
+[#10179]: https://github.com/intellij-rust/intellij-rust/pull/10179
+[#10182]: https://github.com/intellij-rust/intellij-rust/pull/10182
+[#10193]: https://github.com/intellij-rust/intellij-rust/pull/10193
+[#10196]: https://github.com/intellij-rust/intellij-rust/pull/10196
+[#10200]: https://github.com/intellij-rust/intellij-rust/pull/10200
+[#10215]: https://github.com/intellij-rust/intellij-rust/pull/10215
+[#10218]: https://github.com/intellij-rust/intellij-rust/pull/10218
+[#10221]: https://github.com/intellij-rust/intellij-rust/pull/10221
+[#10229]: https://github.com/intellij-rust/intellij-rust/pull/10229
+[#10230]: https://github.com/intellij-rust/intellij-rust/pull/10230
+[#10231]: https://github.com/intellij-rust/intellij-rust/pull/10231
+[#10236]: https://github.com/intellij-rust/intellij-rust/pull/10236
+[#10260]: https://github.com/intellij-rust/intellij-rust/pull/10260
