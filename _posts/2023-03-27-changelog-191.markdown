@@ -1,0 +1,82 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #191"
+date: 2023-03-27 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10059] Show the contents of references and pointers when debugging with LLDB. For example, now the content of `&Vec`, `*const Vec` and `*mut Vec` is rendered, in addition to previously supported `Vec`.
+
+  <img src="/assets/posts/changelog-191/lldb-pointer-deref.png" width="700px"/>
+
+* Attribute procedural macro improvements:
+
+  * [#10236] Show parameter hints inside attribute procedural macros
+
+    <img src="/assets/posts/changelog-191/parameter-hints-in-attr-proc-macro.png" width="400px"/>
+
+  * [#10230] Show hints for chained method calls inside attribute procedural macros
+
+    <img src="/assets/posts/changelog-191/chain-hints-in-attr-proc-macro.png" width="500px"/>
+
+  * [#10182] Make [intentions](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#intention-actions) work inside an attribute macro expansion
+
+  Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is disabled by default. If you want to try it out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+
+* [#10200] Highlight that an [underscore expression (`_`)](https://doc.rust-lang.org/reference/expressions/underscore-expr.html) can only be used in the left-hand side of an assignment
+
+  <img src="/assets/posts/changelog-191/underscore-expr.png" width="600px"/>
+
+* Detect new compiler errors:
+
+  * [#10193] Annotate mismatched members in trait implementation ([E0323](https://doc.rust-lang.org/error_codes/E0323.html), [E0324](https://doc.rust-lang.org/error_codes/E0324.html), [E0325](https://doc.rust-lang.org/error_codes/E0325.html))
+
+  * [#10179] Annotate when an inherent implementation was written on a dyn auto trait ([E0785](https://doc.rust-lang.org/error_codes/E0785.html))
+
+  * [#10176] Detect if the `Copy` trait was implemented on a type that is neither a struct nor an enum  ([E0206](https://doc.rust-lang.org/error_codes/E0206.html))
+
+## Fixes
+
+* [#10260] Fix the `Invert if condition` intention when there is another `if` after the current one
+
+* [#10215] Fix false-positive detection of unreachable code with [`let else`](https://rust-lang.github.io/rfcs/3137-let-else.html) syntax (by [@White-Green])
+
+* [#10196] Don’t run some inspections on Rust files outside a valid Cargo project to avoid expected false-positive errors
+
+* [#10096] Improve support for multiple attribute macro calls on a single item
+
+* [#7910] Fix `Before launch` configurations for Cargo command configurations
+
+## Internal Improvements
+
+* [#10231] Provide plugin sources along with the plugin archive to simplify plugin development with IntelliJ Rust plugin as a dependency
+
+* [#10221] Make 2023.1 the default platform for development
+
+* [#10218] Now all macros are expanded by default in all `RsTestBase`-based tests and the `@ExpandMacros` annotation is not needed there anymore
+
+* [#10229] Provide `RsDiagnostic`-based API for quick-fixes with arbitrary ranges
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/100?closed=1)
+
+[@White-Green]: https://github.com/White-Green
+
+[#7910]: https://github.com/intellij-rust/intellij-rust/pull/7910
+[#10059]: https://github.com/intellij-rust/intellij-rust/pull/10059
+[#10096]: https://github.com/intellij-rust/intellij-rust/pull/10096
+[#10176]: https://github.com/intellij-rust/intellij-rust/pull/10176
+[#10179]: https://github.com/intellij-rust/intellij-rust/pull/10179
+[#10182]: https://github.com/intellij-rust/intellij-rust/pull/10182
+[#10193]: https://github.com/intellij-rust/intellij-rust/pull/10193
+[#10196]: https://github.com/intellij-rust/intellij-rust/pull/10196
+[#10200]: https://github.com/intellij-rust/intellij-rust/pull/10200
+[#10215]: https://github.com/intellij-rust/intellij-rust/pull/10215
+[#10218]: https://github.com/intellij-rust/intellij-rust/pull/10218
+[#10221]: https://github.com/intellij-rust/intellij-rust/pull/10221
+[#10229]: https://github.com/intellij-rust/intellij-rust/pull/10229
+[#10230]: https://github.com/intellij-rust/intellij-rust/pull/10230
+[#10231]: https://github.com/intellij-rust/intellij-rust/pull/10231
+[#10236]: https://github.com/intellij-rust/intellij-rust/pull/10236
+[#10260]: https://github.com/intellij-rust/intellij-rust/pull/10260
