@@ -1,0 +1,54 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #192"
+date: 2023-04-10 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10285] Add support for [E0226](https://doc.rust-lang.org/error_codes/E0226.html) ("More than one explicit lifetime bound was used on a trait object.")
+
+* [#10283] Improve support for [E0784](https://doc.rust-lang.org/error_codes/E0784.html) ("A union expression does not have exactly one field.")
+
+* [#10268] ANN: Show E0133 when accessing union field outside unsafe block
+
+* [#9375] Add [labels](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unused-labels) inspection and quick-fixes for it
+
+* [#6675] Add support for structural-search-and-replace (by [@Kobzol])
+
+## Fixes
+
+* [#10301] Fix expansion of macros that contain reserved keywords (e.g. `do`) in their body
+
+* [#10295] Don't suggest a project refresh after creating a file in a nested dir in `tests` dir
+
+* [#10281] Support `Rebuild ...` and `Clean` actions
+
+* [#10266] Fix code analysis inside functions under `sqlx::test` macro
+
+* [#10265] Don't show "Conditionally disabled code" in the `Problems` view
+
+## Internal Improvements
+
+* [#10286] Initial implementation of MIR (by [@LebedevEA])
+
+* [#10277] Set up tests for an intention action inside an attribute macro
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/101?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@LebedevEA]: https://github.com/LebedevEA
+
+[#6675]: https://github.com/intellij-rust/intellij-rust/pull/6675
+[#9375]: https://github.com/intellij-rust/intellij-rust/pull/9375
+[#10265]: https://github.com/intellij-rust/intellij-rust/pull/10265
+[#10266]: https://github.com/intellij-rust/intellij-rust/pull/10266
+[#10268]: https://github.com/intellij-rust/intellij-rust/pull/10268
+[#10277]: https://github.com/intellij-rust/intellij-rust/pull/10277
+[#10281]: https://github.com/intellij-rust/intellij-rust/pull/10281
+[#10283]: https://github.com/intellij-rust/intellij-rust/pull/10283
+[#10285]: https://github.com/intellij-rust/intellij-rust/pull/10285
+[#10286]: https://github.com/intellij-rust/intellij-rust/pull/10286
+[#10295]: https://github.com/intellij-rust/intellij-rust/pull/10295
+[#10301]: https://github.com/intellij-rust/intellij-rust/pull/10301
