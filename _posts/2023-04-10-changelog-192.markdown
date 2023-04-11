@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "IntelliJ Rust Changelog #192"
-date: 2023-04-10 13:00:00 +0300
+date: 2023-04-11 13:00:00 +0300
 ---
 
 
@@ -27,7 +27,7 @@ date: 2023-04-10 13:00:00 +0300
 
 * [#10266] Fix code analysis inside functions under `sqlx::test` macro
 
-* [#10265] Don't show "Conditionally disabled code" in the `Problems` view
+* [#10265] Don't show "Conditionally disabled code" in the [`Problems`] view
 
 ## Internal Improvements
 
@@ -41,6 +41,7 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [E0226]: https://doc.rust-lang.org/error_codes/E0226.html
 [E0784]: https://doc.rust-lang.org/error_codes/E0784.html
 [unused_labels]: https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unused-labels
+[`Problems`]: https://www.jetbrains.com/help/clion/problems-tool-window.html
 
 [#6675]: https://github.com/intellij-rust/intellij-rust/pull/6675
 [#9375]: https://github.com/intellij-rust/intellij-rust/pull/9375
