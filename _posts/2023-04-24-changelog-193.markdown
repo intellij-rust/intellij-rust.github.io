@@ -1,0 +1,57 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #193"
+date: 2023-04-24 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10339] Unwrap `Ok(...)?` and `Some(...)?` in `Inline function` refactoring
+
+* [#10322] Parse reserved keywords properly, annotate them and suggest to escape
+
+* [#10311] Add support for [E0316](https://doc.rust-lang.org/error_codes/E0316.html) ("A where clause contains a nested quantification over lifetimes")
+
+* [#10306] Alphabetical sort for all files in the project view
+
+* [#10294] Add intention to create an enum variant from usage
+
+* [#10288] Add support for [E0225](https://doc.rust-lang.org/error_codes/E0225.html)
+
+* [#10272] -  add support for [E0183](https://doc.rust-lang.org/error_codes/E0183.html)
+- show experimental features errors:
+  - The precise format of `Fn`-family traits' type parameters is subject to change
+  - Parenthetical notation is only stable when used with `Fn`-family traits
+
+* [#8842] Provide lint-based suppress quick-fixes for external linter annotations
+
+## Performance Improvements
+
+* [#10331] PERF: don't expand special macros in `RsLivenessInspection`
+
+## Fixes
+
+* [#10338] Fix handling async function in `Inline function` refactoring
+
+* [#10335] Merge with #10322
+
+* [#10317] Provide proper completion/annotation for crate names and versions in `Cargo.toml` when [sparse](https://doc.rust-lang.org/cargo/reference/registries.html#registry-protocols) protocol is used
+
+* [#10308] Fix handling paths to associated constants in `Implement members` intention
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/102?closed=1)
+
+[#8842]: https://github.com/intellij-rust/intellij-rust/pull/8842
+[#10272]: https://github.com/intellij-rust/intellij-rust/pull/10272
+[#10288]: https://github.com/intellij-rust/intellij-rust/pull/10288
+[#10294]: https://github.com/intellij-rust/intellij-rust/pull/10294
+[#10306]: https://github.com/intellij-rust/intellij-rust/pull/10306
+[#10308]: https://github.com/intellij-rust/intellij-rust/pull/10308
+[#10311]: https://github.com/intellij-rust/intellij-rust/pull/10311
+[#10317]: https://github.com/intellij-rust/intellij-rust/pull/10317
+[#10322]: https://github.com/intellij-rust/intellij-rust/pull/10322
+[#10331]: https://github.com/intellij-rust/intellij-rust/pull/10331
+[#10335]: https://github.com/intellij-rust/intellij-rust/pull/10335
+[#10338]: https://github.com/intellij-rust/intellij-rust/pull/10338
+[#10339]: https://github.com/intellij-rust/intellij-rust/pull/10339
