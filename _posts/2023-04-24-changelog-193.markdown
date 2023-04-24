@@ -1,0 +1,67 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #193"
+date: 2023-04-24 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#8842] Provide lint-based suppress quick-fixes for some external linter annotations
+
+  {% include gif-img.html path="/assets/posts/changelog-193/suppress" w="700px" %}
+
+* [#10294] Add intention to create an enum variant from usage
+
+  {% include gif-img.html path="/assets/posts/changelog-193/enum-variant" w="700px" %}
+
+* [#10322], [#10335] Parse reserved keywords properly, annotate them and suggest to escape
+
+  {% include gif-img.html path="/assets/posts/changelog-193/keywords" w="700px" %}
+
+* Detect new compiler errors:
+
+  * [#10311] A where clause contains a nested quantification over lifetimes [E0316]
+
+  * [#10288] Multiple types were used as bounds for a closure or trait object [E0225]
+
+  * [#10272] Manual implementation of a `Fn*` trait [E0183]
+
+  * [#10272] The precise format of `Fn`-family traits' type parameters is subject to change [E0658]
+
+  * [#10272] Parenthetical notation is only stable when used with `Fn`-family traits [E0658]
+
+* [#10339] Unwrap `Ok(...)?` and `Some(...)?` in `Inline function` refactoring
+
+
+## Performance Improvements
+
+* [#10331] Don't expand special macros (e.g., `vec!`) in `Liveness analysis` inspection
+
+## Fixes
+
+* [#10317] Provide proper completion/annotation for crate names and versions in `Cargo.toml` when [sparse](https://doc.rust-lang.org/cargo/reference/registries.html#registry-protocols) protocol is used
+
+* [#10338] Fix handling async function in `Inline function` refactoring
+
+* [#10308] Fix handling paths to associated constants in `Implement members` intention
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/102?closed=1)
+
+[E0183]: https://doc.rust-lang.org/error_codes/E0183.html
+[E0225]: https://doc.rust-lang.org/error_codes/E0225.html
+[E0316]: https://doc.rust-lang.org/error_codes/E0316.html
+[E0658]: https://doc.rust-lang.org/error_codes/E0658.html
+
+[#8842]: https://github.com/intellij-rust/intellij-rust/pull/8842
+[#10272]: https://github.com/intellij-rust/intellij-rust/pull/10272
+[#10288]: https://github.com/intellij-rust/intellij-rust/pull/10288
+[#10294]: https://github.com/intellij-rust/intellij-rust/pull/10294
+[#10308]: https://github.com/intellij-rust/intellij-rust/pull/10308
+[#10311]: https://github.com/intellij-rust/intellij-rust/pull/10311
+[#10317]: https://github.com/intellij-rust/intellij-rust/pull/10317
+[#10322]: https://github.com/intellij-rust/intellij-rust/pull/10322
+[#10331]: https://github.com/intellij-rust/intellij-rust/pull/10331
+[#10335]: https://github.com/intellij-rust/intellij-rust/pull/10335
+[#10338]: https://github.com/intellij-rust/intellij-rust/pull/10338
+[#10339]: https://github.com/intellij-rust/intellij-rust/pull/10339
