@@ -15,7 +15,7 @@ date: 2023-04-24 13:00:00 +0300
 
   {% include gif-img.html path="/assets/posts/changelog-193/enum-variant" w="700px" %}
 
-* [#10322] Parse reserved keywords properly, annotate them and suggest to escape
+* [#10322], [#10335] Parse reserved keywords properly, annotate them and suggest to escape
 
   {% include gif-img.html path="/assets/posts/changelog-193/keywords" w="700px" %}
 
@@ -62,5 +62,6 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#10317]: https://github.com/intellij-rust/intellij-rust/pull/10317
 [#10322]: https://github.com/intellij-rust/intellij-rust/pull/10322
 [#10331]: https://github.com/intellij-rust/intellij-rust/pull/10331
+[#10335]: https://github.com/intellij-rust/intellij-rust/pull/10335
 [#10338]: https://github.com/intellij-rust/intellij-rust/pull/10338
 [#10339]: https://github.com/intellij-rust/intellij-rust/pull/10339
