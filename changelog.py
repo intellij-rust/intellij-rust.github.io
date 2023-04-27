@@ -31,6 +31,7 @@ MAINTAINERS = [
     "yopox",
     "konrad-sz",
     "wbars",
+    "missingdays",
     "intellij-rust-bot",
     "dependabot[bot]"
 ]
