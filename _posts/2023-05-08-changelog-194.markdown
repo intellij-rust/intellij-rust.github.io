@@ -1,0 +1,129 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #194"
+date: 2023-05-08 13:00:00 +0300
+---
+
+
+## New Features
+
+* Detect new compiler errors:
+
+  * [#10406] The `not` cfg-predicate was malformed [E0536](https://doc.rust-lang.org/error_codes/E0536.html)
+
+  * [#10387] A non-ident or non-wildcard pattern has been used as a parameter of a function pointer type [E0561](https://doc.rust-lang.org/error_codes/E0561.html)
+
+  * [#10399] `async` non-`move` closures with parameters are currently not supported [E0708](https://doc.rust-lang.org/error_codes/E0708.html)
+
+  * [#10361] Variadic parameters have been used on a non-C ABI function [E0045](https://doc.rust-lang.org/error_codes/E0045.html)
+
+* [#10315] Support extracting code containing control flow in [`Extract function`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#extractmethod-refactoring) refactoring (`Refactor | Extract Method` or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>)
+
+  {% include gif-img.html path="/assets/posts/changelog-194/extract_function_control_flow" w="700px" %}
+
+* [#9219] Adjust new Rust project generator to new project wizard in IDEA
+
+  <img src="/assets/posts/changelog-194/new_project_wizard.png" width="700px"/>
+
+* [#10398] Highlight constants and statics differently to visually distinguish them
+
+  <img src="/assets/posts/changelog-194/static_const.png" width="350px"/>
+
+* [#10359] Annotate built-in attributes (by [@kuksag])
+
+  * Check that the proper delimiter is applied when specifying an attribute
+
+  * Check that attribute format is conforming with the respective template
+
+  * Check that no literal suffixes are used when specifying an attribute
+
+  * Check if an attribute is used multiple times on the same item
+
+* [#9551] Allow to configure the channel and environment variables for external linters. You can configure it in `Settings | Languages & Frameworks | Rust | External Linters`
+
+* [#9287] Enable Debugger, Profiler, Valgrind, Code Coverage, and Build/Test tool windows for `bench` command (CLion only).
+  Note: default bench profile doesn't contain debuginfo. You have to use, for example, `dev` profile (add `--profile=dev` to your command)
+
+* [#8161] Allow loading NatVis debugger renderers when using MSVC toolchain on Windows
+
+* [#8207] Add an experimental option to use source-based coverage
+
+* [#8087] Add a quick-fix for [type mismatch E0308](https://doc.rust-lang.org/error-index.html#E0308) error that adds a `#[repr(...)]` attribute to an enum: (by [@serid])
+
+## Fixes
+
+* [#10410] Parse and expand macros in attributes: `#[doc = foo!()]`
+
+* [#10367] Properly build local crate index to provide completion of crate names and version in `Cargo.toml` after collapsing cargo git crate index into one commit
+
+* [#8147] Render const generics in quick docs and inline hints
+
+* [#9254] Fix `Needless lifetimes` inspection in case of async functions
+
+* [#9740] Support smart enter for type aliases
+
+* [#8762] Fix running build if Cargo project is in a subdirectory
+
+* [#10382] Fix formatting and links in descriptions of some intentions and inspections
+
+* [#10396] Reduce the error scope for E0130, E0561 and E0642 compiler errors from value parameter to pattern
+
+* [#8908] Fix a bug when applying changes to multiple configurable (e.g. `Rust` and `Cargo`) at once
+
+* [#7917] Fixes [`E0518`](https://doc.rust-lang.org/error-index.html#E0518) error detection when there is cfg-disabled import of `inline` proc macro
+
+* [#7141] Fix completion of derive proc macro with `doc(hidden)` attribute in imports
+
+* [#10380] Fix showing error when assigning value to union field outside unsafe block
+
+* [#9948] Allow cargo packages installed via `cargo install --path` (by [@joshuataylor])
+
+* [#10361] Don't show error `function cannot be variadic` when use default ABI
+
+## Internal Improvements
+
+* [#10389] Extend MIR support with most basic cases (by [@LebedevEA])
+
+* [#10388] Migrate tests to JUnit4
+
+* [#10146] Generate info about built-in attributes
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/103?closed=1)
+
+[@LebedevEA]: https://github.com/LebedevEA
+[@joshuataylor]: https://github.com/joshuataylor
+[@kuksag]: https://github.com/kuksag
+[@serid]: https://github.com/serid
+
+[#7141]: https://github.com/intellij-rust/intellij-rust/pull/7141
+[#7917]: https://github.com/intellij-rust/intellij-rust/pull/7917
+[#8087]: https://github.com/intellij-rust/intellij-rust/pull/8087
+[#8147]: https://github.com/intellij-rust/intellij-rust/pull/8147
+[#8161]: https://github.com/intellij-rust/intellij-rust/pull/8161
+[#8207]: https://github.com/intellij-rust/intellij-rust/pull/8207
+[#8762]: https://github.com/intellij-rust/intellij-rust/pull/8762
+[#8908]: https://github.com/intellij-rust/intellij-rust/pull/8908
+[#9219]: https://github.com/intellij-rust/intellij-rust/pull/9219
+[#9254]: https://github.com/intellij-rust/intellij-rust/pull/9254
+[#9287]: https://github.com/intellij-rust/intellij-rust/pull/9287
+[#9551]: https://github.com/intellij-rust/intellij-rust/pull/9551
+[#9740]: https://github.com/intellij-rust/intellij-rust/pull/9740
+[#9948]: https://github.com/intellij-rust/intellij-rust/pull/9948
+[#10146]: https://github.com/intellij-rust/intellij-rust/pull/10146
+[#10315]: https://github.com/intellij-rust/intellij-rust/pull/10315
+[#10359]: https://github.com/intellij-rust/intellij-rust/pull/10359
+[#10361]: https://github.com/intellij-rust/intellij-rust/pull/10361
+[#10367]: https://github.com/intellij-rust/intellij-rust/pull/10367
+[#10380]: https://github.com/intellij-rust/intellij-rust/pull/10380
+[#10382]: https://github.com/intellij-rust/intellij-rust/pull/10382
+[#10385]: https://github.com/intellij-rust/intellij-rust/pull/10385
+[#10387]: https://github.com/intellij-rust/intellij-rust/pull/10387
+[#10388]: https://github.com/intellij-rust/intellij-rust/pull/10388
+[#10389]: https://github.com/intellij-rust/intellij-rust/pull/10389
+[#10392]: https://github.com/intellij-rust/intellij-rust/pull/10392
+[#10396]: https://github.com/intellij-rust/intellij-rust/pull/10396
+[#10398]: https://github.com/intellij-rust/intellij-rust/pull/10398
+[#10399]: https://github.com/intellij-rust/intellij-rust/pull/10399
+[#10406]: https://github.com/intellij-rust/intellij-rust/pull/10406
+[#10408]: https://github.com/intellij-rust/intellij-rust/pull/10408
+[#10410]: https://github.com/intellij-rust/intellij-rust/pull/10410
