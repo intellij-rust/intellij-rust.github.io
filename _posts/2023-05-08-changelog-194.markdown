@@ -5,6 +5,8 @@ date: 2023-05-08 13:00:00 +0300
 ---
 
 
+This is the last release that supports the 2022.3 IDEs. To receive plugin updates further, please upgrade your IDE to 2023.1.
+
 ## New Features
 
 * Detect new compiler errors:
