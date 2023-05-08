@@ -25,7 +25,8 @@ date: 2023-05-08 13:00:00 +0300
 
   <img src="/assets/posts/changelog-194/new_project_wizard.png" width="700px"/>
 
-* [#10398] Highlight constants and statics differently to visually distinguish them
+* [#10398] Highlight constants and statics differently to visually distinguish them.
+  You can change the corresponding highlighting via `Preferences | Editor | Color Scheme | Rust` settings
 
   <img src="/assets/posts/changelog-194/static_const.png" width="350px"/>
 
@@ -42,7 +43,7 @@ date: 2023-05-08 13:00:00 +0300
 * [#9551] Allow to configure the channel and environment variables for external linters. You can configure it in `Settings | Languages & Frameworks | Rust | External Linters`
 
 * [#9287] Enable Debugger, Profiler, Valgrind, Code Coverage, and Build/Test tool windows for `bench` command (CLion only).
-  Note: default bench profile doesn't contain debuginfo. You have to use, for example, `dev` profile (add `--profile=dev` to your command)
+  Note, default bench profile doesn't contain debuginfo. You have to use, for example, `dev` profile (add `--profile=dev` to your command)
 
 * [#8161] Allow loading NatVis debugger renderers when using MSVC toolchain on Windows
 
