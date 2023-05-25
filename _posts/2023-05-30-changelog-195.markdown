@@ -1,0 +1,72 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #195"
+date: 2023-05-30 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10467] Support 2023.2 EAPs
+
+* [#10460] -  Add support for E0589 error
+- Add support for E0693 error
+
+* [#10459] Add completion for keyword `let` after `if` and `while`
+
+* [#10456] E0696 support: highlighting and completion improvement
+
+* [#10450] E0590 support
+
+* [#10426] Add support for E0777 error
+
+* [#10424] - Add a quickfix for replacing a constant with a predefined one in std/core library
+- Fixes #10213 (by [@DeoTimeTheGithubUser])
+
+* [#10140] * Add support for E0538, multiple items used in `#[deprecated]` attribute, e.g.:
+```rust
+#[deprecated(
+    since = "a",
+    since = "b", // error
+    note = "c"
+)]
+fn f1() { }
+```
+Error code reference: https://doc.rust-lang.org/error_codes/E0538.html
+Compiler reference: https://github.com/rust-lang/rust/blob/904dd2c3987028f0270db306b9964bc465689de8/compiler/rustc_attr/src/builtin.rs#L834 (by [@kuksag])
+
+## Fixes
+
+* [#10446] Collect project settings statistics: add `offline`
+
+* [#10421] Fixes #10420 ANN: Use RsAnnotationHolder instead of AnnotationHolder in RsAttrErrorAnnotator
+
+## Internal Improvements
+
+* [#10457] MIR: Annotate E0382
+
+* [#10455] Drop support for 2022.3 platform
+
+* [#10453] MIR: Annotate E0381
+
+* [#10452] MIR: Setup MIR-dataflow framework
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/104?closed=1)
+
+[@DeoTimeTheGithubUser]: https://github.com/DeoTimeTheGithubUser
+[@kuksag]: https://github.com/kuksag
+
+[#10140]: https://github.com/intellij-rust/intellij-rust/pull/10140
+[#10421]: https://github.com/intellij-rust/intellij-rust/pull/10421
+[#10424]: https://github.com/intellij-rust/intellij-rust/pull/10424
+[#10426]: https://github.com/intellij-rust/intellij-rust/pull/10426
+[#10446]: https://github.com/intellij-rust/intellij-rust/pull/10446
+[#10450]: https://github.com/intellij-rust/intellij-rust/pull/10450
+[#10452]: https://github.com/intellij-rust/intellij-rust/pull/10452
+[#10453]: https://github.com/intellij-rust/intellij-rust/pull/10453
+[#10455]: https://github.com/intellij-rust/intellij-rust/pull/10455
+[#10456]: https://github.com/intellij-rust/intellij-rust/pull/10456
+[#10457]: https://github.com/intellij-rust/intellij-rust/pull/10457
+[#10459]: https://github.com/intellij-rust/intellij-rust/pull/10459
+[#10460]: https://github.com/intellij-rust/intellij-rust/pull/10460
+[#10467]: https://github.com/intellij-rust/intellij-rust/pull/10467
