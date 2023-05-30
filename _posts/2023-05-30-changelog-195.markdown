@@ -39,13 +39,13 @@ To receive this and further plugin updates, please upgrade your IDE to 2023.1 or
   [rust-lang/rust#109044](https://github.com/rust-lang/rust/pull/109044). Please follow the
   [rust-lang/rust#49359](https://github.com/rust-lang/rust/issues/49359) tracking issue for the proper fix.
 
-* [#10456] When completing a label in `continute` expression, don't complete irrelevant label names
+* [#10456] When completing a label in `continue` expression, don't complete irrelevant label names
 
-* [#10421] Fixes false-positive "`#![feature]` may not be used the stable release channel" (which appeared in rare cases)
+* [#10421] Fixes false-positive "`#![feature]` may not be used on the stable release channel" (which appeared in rare cases)
 
 ## Internal Improvements
 
-* [#10452], [#10453], [#10457] Setup MIR-dataflow framework, experimentally annotate E0381 and E0382 using MIR-based
+* [#10452], [#10453], [#10457] Setup MIR-dataflow framework, experimentally annotate [E0381] and [E0382] using MIR-based
   borrow checker
 
 * [#10455] Drop support for 2022.3 platform
@@ -72,3 +72,6 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#10511]: https://github.com/intellij-rust/intellij-rust/pull/10511
 
 [#10512]: https://github.com/intellij-rust/intellij-rust/issues/10512
+
+[E0381]: https://doc.rust-lang.org/error_codes/E0381.html
+[E0382]: https://doc.rust-lang.org/error_codes/E0382.html
