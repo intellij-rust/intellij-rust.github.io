@@ -1,0 +1,77 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #195"
+date: 2023-05-30 13:00:00 +0300
+---
+
+The minimal supported IDE platform version for this plugin update is **2023.1**.
+To receive this and further plugin updates, please upgrade your IDE to 2023.1 or 2023.2 EAP.
+
+## New Features
+
+* [#10467] Provide support for **2023.2** [EAP](https://www.jetbrains.com/clion/nextversion/) builds.
+  Note, the Early Access Program gives you free access to pre-release versions of JetBrains software and doesn't require a paid IDE subscription
+
+* Detect new compiler errors:
+
+  * [#10460] `#[repr(align())]` representation hint was incorrectly declared
+    [E0589](https://doc.rust-lang.org/error_codes/E0589.html), [E0693](https://doc.rust-lang.org/error_codes/E0693.html)
+
+  * [#10456] A function is using `continue` keyword incorrectly [E0696](https://doc.rust-lang.org/error_codes/E0696.html)
+
+  * [#10450] `break` or `continue` keywords were used in a condition of a `while` loop without a label
+    [E0590](https://doc.rust-lang.org/error_codes/E0590.html)
+
+  * [#10426] A literal value was used inside `#[derive]` [E0777](https://doc.rust-lang.org/error_codes/E0777.html)
+
+  * [#10140] A `#[deprecated]` attribute was malformed [E0538](https://doc.rust-lang.org/error_codes/E0538.html),
+    [E0551](https://doc.rust-lang.org/error_codes/E0551.html), [E0541](https://doc.rust-lang.org/error_codes/E0541.html)
+
+* [#10459] Provide completion for the keyword `let` after `if` and `while` keywords
+
+* [#10424] Provide a quickfix for replacing a constant with a predefined one in std/core library (by [@DeoTimeTheGithubUser])
+
+## Fixes
+
+* [#10511] Land a temporary workaround for the issue [#10512] "Cannot run tests on Rust 1.70-beta".
+  With this fix, the plugin run tests in a simple terminal instead of the rich test-tree tool window
+  (if you use Rust 1.70-beta or greater). The test running functionality has been degraded because of
+  [rust-lang/rust#109044](https://github.com/rust-lang/rust/pull/109044). Please follow the
+  [rust-lang/rust#49359](https://github.com/rust-lang/rust/issues/49359) tracking issue for the proper fix.
+
+* [#10456] When completing a label in `continue` expression, don't complete irrelevant label names
+
+* [#10421] Fixes false-positive "`#![feature]` may not be used on the stable release channel" (which appeared in rare cases)
+
+## Internal Improvements
+
+* [#10452], [#10453], [#10457] Setup MIR-dataflow framework, experimentally annotate [E0381] and [E0382] using MIR-based
+  borrow checker
+
+* [#10455] Drop support for 2022.3 platform
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/104?closed=1)
+
+[@DeoTimeTheGithubUser]: https://github.com/DeoTimeTheGithubUser
+[@kuksag]: https://github.com/kuksag
+
+[#10140]: https://github.com/intellij-rust/intellij-rust/pull/10140
+[#10421]: https://github.com/intellij-rust/intellij-rust/pull/10421
+[#10424]: https://github.com/intellij-rust/intellij-rust/pull/10424
+[#10426]: https://github.com/intellij-rust/intellij-rust/pull/10426
+[#10446]: https://github.com/intellij-rust/intellij-rust/pull/10446
+[#10450]: https://github.com/intellij-rust/intellij-rust/pull/10450
+[#10452]: https://github.com/intellij-rust/intellij-rust/pull/10452
+[#10453]: https://github.com/intellij-rust/intellij-rust/pull/10453
+[#10455]: https://github.com/intellij-rust/intellij-rust/pull/10455
+[#10456]: https://github.com/intellij-rust/intellij-rust/pull/10456
+[#10457]: https://github.com/intellij-rust/intellij-rust/pull/10457
+[#10459]: https://github.com/intellij-rust/intellij-rust/pull/10459
+[#10460]: https://github.com/intellij-rust/intellij-rust/pull/10460
+[#10467]: https://github.com/intellij-rust/intellij-rust/pull/10467
+[#10511]: https://github.com/intellij-rust/intellij-rust/pull/10511
+
+[#10512]: https://github.com/intellij-rust/intellij-rust/issues/10512
+
+[E0381]: https://doc.rust-lang.org/error_codes/E0381.html
+[E0382]: https://doc.rust-lang.org/error_codes/E0382.html
