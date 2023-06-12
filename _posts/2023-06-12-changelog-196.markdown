@@ -1,0 +1,45 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #196"
+date: 2023-06-12 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10477] Add `unnecessary cast` inspection
+
+  {% include gif-img.html path="/assets/posts/changelog-196/unnecessary_cast" w="700px" %}
+
+* [#10524] Make `Run rustfmt` available as a pre-commit action
+
+  <img src="/assets/posts/changelog-196/pre_commit_rustfmt.png" width="700px"/>
+
+* [#10530] Support [`return_position_impl_trait_in_trait`] feature
+
+* [#10480] Add completion for `for` keyword after `impl` block
+
+## Fixes
+
+* [#10554] Fix `cargo test` on Rust 1.70.0+ stable if the Test Tool Window is enable.
+           Note: now IDE runs `cargo test` with the `RUSTC_BOOTSTRAP=1` environment variable 1.70.0+ stable.
+           This enables required experimental features but may impact build and test results in rare cases.
+
+* [#10528] Fix expansion of macro 2.0 with multiple patterns (cases)
+
+## Internal Improvements
+
+* [#10514] Initial support for [E0505](https://doc.rust-lang.org/error_codes/E0505.html) using MIR framework
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/105?closed=1)
+
+[#10477]: https://github.com/intellij-rust/intellij-rust/pull/10477
+[#10480]: https://github.com/intellij-rust/intellij-rust/pull/10480
+[#10514]: https://github.com/intellij-rust/intellij-rust/pull/10514
+[#10522]: https://github.com/intellij-rust/intellij-rust/pull/10522
+[#10524]: https://github.com/intellij-rust/intellij-rust/pull/10524
+[#10528]: https://github.com/intellij-rust/intellij-rust/pull/10528
+[#10530]: https://github.com/intellij-rust/intellij-rust/pull/10530
+[#10554]: https://github.com/intellij-rust/intellij-rust/pull/10554
+
+[`return_position_impl_trait_in_trait`]: https://rust-lang.github.io/impl-trait-initiative/RFCs/rpit-in-traits.html
