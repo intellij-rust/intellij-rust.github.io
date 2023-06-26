@@ -1,0 +1,71 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #197"
+date: 2023-06-26 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10552], [#10581], [#10569] Enable `Unused mut` inspection by default with several improvements
+
+    <img src="/assets/posts/changelog-197/unused_mut.png" width="700px"/>
+
+* [#10579] Make [quick-fixes](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#intention-actions) work inside an attribute macro expansion. Note that [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion is disabled by default. If you want to try it out, enable `org.rust.macros.proc.attr` [experimental feature](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-faq.html#experimental-features).
+
+  {% include gif-img.html path="/assets/posts/changelog-197/quick_fixes_attribute_macros" w="350px" %}
+
+* [#10577] Add quick-fixes for incorrect `Display`/`Debug` format modifiers
+
+  {% include gif-img.html path="/assets/posts/changelog-197/change_display_to_debug" w="700px" %}
+
+* [#10570] Highlight missing format string inside `println`-like calls
+
+* [#10561] Support [parameter info](https://www.jetbrains.com/help/idea/viewing-reference-information.html) inside struct literal (<kbd>Ctrl</kbd>+<kbd>P</kbd>)
+
+    <img src="/assets/posts/changelog-197/struct_literal_parameter_info.png" width="350px"/>
+
+* [#10550] Support `Unnecessary cast` inspection for function types
+
+* [#10546] Provide unresolved imported items as completion items
+
+* [#10545] Detect [E0061](https://doc.rust-lang.org/error-index.html#E0061) for function pointer types
+
+* [#10539] Support [E0308](https://doc.rust-lang.org/error-index.html#E0308) for closure and function types
+
+* [#10541] Add filename in error message for pre-commit rustfmt
+
+* [#10572] Deprecate `box` syntax
+
+## Fixes
+
+* [#10586] Fix false-positive `Unnecessary cast` when casting enum constructors to function
+
+* [#10563] Suggest [`Change signature`](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-refactorings.html#change-sign) refactoring when editing a signature of a method with explicit `self` type
+
+* [#10548] Test inspections and error annotators against attribute procedural macros
+
+* [#10540] Fix regression for [E0562](https://doc.rust-lang.org/error-index.html#E0562) in return types
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/106?closed=1)
+
+[#10539]: https://github.com/intellij-rust/intellij-rust/pull/10539
+[#10540]: https://github.com/intellij-rust/intellij-rust/pull/10540
+[#10541]: https://github.com/intellij-rust/intellij-rust/pull/10541
+[#10545]: https://github.com/intellij-rust/intellij-rust/pull/10545
+[#10546]: https://github.com/intellij-rust/intellij-rust/pull/10546
+[#10548]: https://github.com/intellij-rust/intellij-rust/pull/10548
+[#10550]: https://github.com/intellij-rust/intellij-rust/pull/10550
+[#10552]: https://github.com/intellij-rust/intellij-rust/pull/10552
+[#10556]: https://github.com/intellij-rust/intellij-rust/pull/10556
+[#10561]: https://github.com/intellij-rust/intellij-rust/pull/10561
+[#10563]: https://github.com/intellij-rust/intellij-rust/pull/10563
+[#10568]: https://github.com/intellij-rust/intellij-rust/pull/10568
+[#10569]: https://github.com/intellij-rust/intellij-rust/pull/10569
+[#10570]: https://github.com/intellij-rust/intellij-rust/pull/10570
+[#10572]: https://github.com/intellij-rust/intellij-rust/pull/10572
+[#10577]: https://github.com/intellij-rust/intellij-rust/pull/10577
+[#10579]: https://github.com/intellij-rust/intellij-rust/pull/10579
+[#10581]: https://github.com/intellij-rust/intellij-rust/pull/10581
+[#10585]: https://github.com/intellij-rust/intellij-rust/pull/10585
+[#10586]: https://github.com/intellij-rust/intellij-rust/pull/10586
