@@ -1,0 +1,91 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #198"
+date: 2023-07-10 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10641] Add `Advanced Settings` usages collector statistics
+
+* [#10640] Permissive parsing for default parameter values
+
+* [#10637] Add completion for literal suffixes
+
+* [#10636] Complete enum variants inside patterns
+
+* [#10635] Suggest keys inside TOML dependency
+
+* [#10634] Add `as` keyword completion
+
+* [#10631] Provide postfix completion items `.sublist` and `.slice` on indexable expressions that will complete into `[]`
+
+* [#10630] Add annotation and quick-fix for [E0557](https://doc.rust-lang.org/error_codes/E0557.html)
+
+* [#10622] Add notification about disabling the Test tool window with `Revert` button
+
+* [#10608] Show inlay hints for exclusive range patterns and expressions
+
+* [#10607] Enable [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion by default
+
+* [#10605] Implement `as` cast can be replaced with literal suffix inspection
+
+* [#10602] Highlight `compile_error!()` usage as an error
+
+* [#10119] Support `Emulate terminal in output console` for Debug runner on 2023.1
+
+## Performance Improvements
+
+* [#10580] Specifying a display name for project configurables in .xml (by [@trespasserw])
+
+## Fixes
+
+* [#10628] Fix `Failed to get project sysroot` error when opening a project with `rust-toolchain.toml` file the first time and the toolchain is not installed
+
+* [#10621] Don't run `cargo clean` on `Build` action
+
+* [#10620] Detect E0061 for impl trait calls
+
+* [#10619] INSP: Fix false positive unused `mut` inspection detection for some macros like `writeln!()`
+
+* [#10613] This fixes a lot of `Unresolved Reference` false-positives in `ruffle` project
+
+* [#10604] Don't mishighlight cfg-disabled code in macro calls
+
+* [#10593] Take into account lint level by `Unused mut` inspection during highlighting
+
+* [#10590] Move `Unused mut modifier` and `Unnecessary cast` inspections to `Rust/Lint` group in inspection settings
+
+## Internal Improvements
+
+* [#10623] Next bunch of MIR
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/107?closed=1)
+
+[@trespasserw]: https://github.com/trespasserw
+
+[#10119]: https://github.com/intellij-rust/intellij-rust/pull/10119
+[#10580]: https://github.com/intellij-rust/intellij-rust/pull/10580
+[#10590]: https://github.com/intellij-rust/intellij-rust/pull/10590
+[#10593]: https://github.com/intellij-rust/intellij-rust/pull/10593
+[#10602]: https://github.com/intellij-rust/intellij-rust/pull/10602
+[#10604]: https://github.com/intellij-rust/intellij-rust/pull/10604
+[#10605]: https://github.com/intellij-rust/intellij-rust/pull/10605
+[#10607]: https://github.com/intellij-rust/intellij-rust/pull/10607
+[#10608]: https://github.com/intellij-rust/intellij-rust/pull/10608
+[#10613]: https://github.com/intellij-rust/intellij-rust/pull/10613
+[#10619]: https://github.com/intellij-rust/intellij-rust/pull/10619
+[#10620]: https://github.com/intellij-rust/intellij-rust/pull/10620
+[#10621]: https://github.com/intellij-rust/intellij-rust/pull/10621
+[#10622]: https://github.com/intellij-rust/intellij-rust/pull/10622
+[#10623]: https://github.com/intellij-rust/intellij-rust/pull/10623
+[#10628]: https://github.com/intellij-rust/intellij-rust/pull/10628
+[#10630]: https://github.com/intellij-rust/intellij-rust/pull/10630
+[#10631]: https://github.com/intellij-rust/intellij-rust/pull/10631
+[#10634]: https://github.com/intellij-rust/intellij-rust/pull/10634
+[#10635]: https://github.com/intellij-rust/intellij-rust/pull/10635
+[#10636]: https://github.com/intellij-rust/intellij-rust/pull/10636
+[#10637]: https://github.com/intellij-rust/intellij-rust/pull/10637
+[#10640]: https://github.com/intellij-rust/intellij-rust/pull/10640
+[#10641]: https://github.com/intellij-rust/intellij-rust/pull/10641
