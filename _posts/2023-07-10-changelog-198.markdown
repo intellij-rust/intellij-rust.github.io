@@ -67,7 +67,7 @@ TODO screenshot
 * [#10628] Fix `Failed to get project sysroot` error when opening a project with `rust-toolchain.toml`
   file the first time if the toolchain is not yet installed
 
-* [#10613] This fixes a lot of `Unresolved Reference` false-positives in `ruffle` project
+* [#10613] Fixes a lot of `Unresolved Reference` false-positives in `ruffle` project
 
 * [#10593] Take into account lint level by `Unused mut` inspection during highlighting
 
