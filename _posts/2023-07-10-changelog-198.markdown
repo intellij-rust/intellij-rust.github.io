@@ -5,65 +5,90 @@ date: 2023-07-10 13:00:00 +0300
 ---
 
 
+## Update on Procedural Macros Support
+
+[#10607] We finally enabled [attribute] procedural macro expansion by default 🎉
+
+Now generated items are suggested in code completion and considered in other code insight features:
+
+TODO screenshot
+
+
 ## New Features
 
-* [#10641] Add `Advanced Settings` usages collector statistics
+* Completion improvements:
 
-* [#10640] Permissive parsing for default parameter values
+  * [#10631] Suggest `.slice`/`.sublist` postfix completion that inserts `[a..b]` for indexable types
 
-* [#10637] Add completion for literal suffixes
+    TODO gif
 
-* [#10636] Complete enum variants inside patterns
+  * [#10637] Provide completion for literal suffixes
 
-* [#10635] Suggest keys inside TOML dependency
+    TODO gif
 
-* [#10634] Add `as` keyword completion
+  * [#10636] Complete enum variants inside patterns
 
-* [#10631] Provide postfix completion items `.sublist` and `.slice` on indexable expressions that will complete into `[]`
+    TODO gif
 
-* [#10630] Add annotation and quick-fix for [E0557](https://doc.rust-lang.org/error_codes/E0557.html)
+  * [#10635] Complete keys inside TOML dependency specification
 
-* [#10622] Add notification about disabling the Test tool window with `Revert` button
+    TODO gif
+
+  * [#10634] Provide `as` keyword completion
+
+    TODO gif
 
 * [#10608] Show inlay hints for exclusive range patterns and expressions
 
-* [#10607] Enable [attribute](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros) procedural macro expansion by default
+  TODO screenshot
 
-* [#10605] Implement `as` cast can be replaced with literal suffix inspection
+* [#10605] Suggest replacing casts like `1 as u8` to a literal suffix `1u8`
+
+  TODO gif
+
+* [#10630] Detect [E0557] error and provide a quick-fix for it
 
 * [#10602] Highlight `compile_error!()` usage as an error
 
+* [#10640] Parse default parameter values (`fn foo(a: i32 = 1) {}`) and highlight that they are not
+  supported in Rust
+
 * [#10119] Support `Emulate terminal in output console` for Debug runner on 2023.1
 
-## Performance Improvements
-
-* [#10580] Specifying a display name for project configurables in .xml (by [@trespasserw])
+* [#10622] Add notification about disabling the `Test tool window` with `Revert` button
 
 ## Fixes
 
-* [#10628] Fix `Failed to get project sysroot` error when opening a project with `rust-toolchain.toml` file the first time and the toolchain is not installed
-
-* [#10621] Don't run `cargo clean` on `Build` action
-
-* [#10620] Detect E0061 for impl trait calls
-
-* [#10619] INSP: Fix false positive unused `mut` inspection detection for some macros like `writeln!()`
-
-* [#10613] This fixes a lot of `Unresolved Reference` false-positives in `ruffle` project
+* [#10620] Highlight [E0061] `An invalid number of arguments was passed when calling a function` error
+  for impl trait calls
 
 * [#10604] Don't mishighlight cfg-disabled code in macro calls
 
+* [#10628] Fix `Failed to get project sysroot` error when opening a project with `rust-toolchain.toml`
+  file the first time if the toolchain is not yet installed
+
+* [#10613] This fixes a lot of `Unresolved Reference` false-positives in `ruffle` project
+
 * [#10593] Take into account lint level by `Unused mut` inspection during highlighting
 
+* [#10619] Fix false positive unused `mut` inspection detection for some macros like `writeln!()`
+
 * [#10590] Move `Unused mut modifier` and `Unnecessary cast` inspections to `Rust/Lint` group in inspection settings
+
+* [#10621] Don't run `cargo clean` on `Build` action
+
+## Performance Improvements
+
+* [#10580] Specifying a display name for project configurables in `.xml`
 
 ## Internal Improvements
 
 * [#10623] Next bunch of MIR
 
+* [#10641] Add `Advanced Settings` usages collector statistics
+
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/107?closed=1)
 
-[@trespasserw]: https://github.com/trespasserw
 
 [#10119]: https://github.com/intellij-rust/intellij-rust/pull/10119
 [#10580]: https://github.com/intellij-rust/intellij-rust/pull/10580
@@ -89,3 +114,8 @@ Full set of changes can be found [here](https://github.com/intellij-rust/intelli
 [#10637]: https://github.com/intellij-rust/intellij-rust/pull/10637
 [#10640]: https://github.com/intellij-rust/intellij-rust/pull/10640
 [#10641]: https://github.com/intellij-rust/intellij-rust/pull/10641
+
+[attribute]: https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros
+
+[E0557]: https://doc.rust-lang.org/error_codes/E0557.html
+[E0061]: https://doc.rust-lang.org/error_codes/E0061.html
