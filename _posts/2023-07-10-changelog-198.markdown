@@ -11,7 +11,7 @@ date: 2023-07-10 13:00:00 +0300
 
 Now generated items are suggested in code completion and considered in other code insight features:
 
-TODO screenshot
+{% include gif-img.html path="/assets/posts/changelog-198/macro_expansion" w="600px" %}
 
 
 ## New Features
@@ -20,31 +20,27 @@ TODO screenshot
 
   * [#10631] Suggest `.slice`/`.sublist` postfix completion that inserts `[a..b]` for indexable types
 
-    TODO gif
+    {% include gif-img.html path="/assets/posts/changelog-198/slice" w="600px" %}
 
   * [#10637] Provide completion for literal suffixes
 
-    TODO gif
-
-  * [#10636] Complete enum variants inside patterns
-
-    TODO gif
+    {% include gif-img.html path="/assets/posts/changelog-198/literal_suffix" w="600px" %}
 
   * [#10635] Complete keys inside TOML dependency specification
 
-    TODO gif
+    {% include gif-img.html path="/assets/posts/changelog-198/toml_key_completion" w="600px" %}
 
   * [#10634] Provide `as` keyword completion
 
-    TODO gif
-
-* [#10608] Show inlay hints for exclusive range patterns and expressions
-
-  TODO screenshot
+  * [#10636] Complete enum variants inside patterns
 
 * [#10605] Suggest replacing casts like `1 as u8` to a literal suffix `1u8`
 
-  TODO gif
+  {% include gif-img.html path="/assets/posts/changelog-198/1_as_u8" w="600px" %}
+
+* [#10608] Show inlay hints for exclusive range patterns and expressions
+
+  <img src="/assets/posts/changelog-198/range.png" width="600px"/>
 
 * [#10630] Detect [E0557] error and provide a quick-fix for it
 
