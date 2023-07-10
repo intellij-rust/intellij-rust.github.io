@@ -1,0 +1,117 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #198"
+date: 2023-07-10 13:00:00 +0300
+---
+
+
+## Update on Procedural Macros Support
+
+[#10607] We finally enabled [attribute] procedural macro expansion by default 🎉
+
+Now generated items are suggested in code completion and considered in other code insight features:
+
+{% include gif-img.html path="/assets/posts/changelog-198/macro_expansion" w="600px" %}
+
+
+## New Features
+
+* Completion improvements:
+
+  * [#10631] Suggest `.slice`/`.sublist` postfix completion that inserts `[a..b]` for indexable types
+
+    {% include gif-img.html path="/assets/posts/changelog-198/slice" w="600px" %}
+
+  * [#10637] Provide completion for literal suffixes
+
+    {% include gif-img.html path="/assets/posts/changelog-198/literal_suffix" w="600px" %}
+
+  * [#10635] Complete keys inside TOML dependency specification
+
+    {% include gif-img.html path="/assets/posts/changelog-198/toml_key_completion" w="600px" %}
+
+  * [#10634] Provide `as` keyword completion
+
+  * [#10636] Complete enum variants inside patterns
+
+* [#10605] Suggest replacing casts like `1 as u8` to a literal suffix `1u8`
+
+  {% include gif-img.html path="/assets/posts/changelog-198/1_as_u8" w="600px" %}
+
+* [#10608] Show inlay hints for exclusive range patterns and expressions
+
+  <img src="/assets/posts/changelog-198/range.png" width="600px"/>
+
+* [#10630] Detect [E0557] error and provide a quick-fix for it
+
+* [#10602] Highlight `compile_error!()` usage as an error
+
+* [#10640] Parse default parameter values (`fn foo(a: i32 = 1) {}`) and highlight that they are not
+  supported in Rust
+
+* [#10119] Support `Emulate terminal in output console` for Debug runner on 2023.1
+
+* [#10622] Add notification about disabling the `Test tool window` with `Revert` button
+
+## Fixes
+
+* [#10620] Highlight [E0061] `An invalid number of arguments was passed when calling a function` error
+  for impl trait calls
+
+* [#10604] Don't mishighlight cfg-disabled code in macro calls
+
+* [#10628] Fix `Failed to get project sysroot` error when opening a project with `rust-toolchain.toml`
+  file the first time if the toolchain is not yet installed
+
+* [#10613] Fixes a lot of `Unresolved Reference` false-positives in `ruffle` project
+
+* [#10593] Take into account lint level by `Unused mut` inspection during highlighting
+
+* [#10619] Fix false positive unused `mut` inspection detection for some macros like `writeln!()`
+
+* [#10590] Move `Unused mut modifier` and `Unnecessary cast` inspections to `Rust/Lint` group in inspection settings
+
+* [#10621] Don't run `cargo clean` on `Build` action
+
+## Performance Improvements
+
+* [#10580] Specifying a display name for project configurables in `.xml`
+
+## Internal Improvements
+
+* [#10623] Next bunch of MIR
+
+* [#10641] Add `Advanced Settings` usages collector statistics
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/107?closed=1)
+
+
+[#10119]: https://github.com/intellij-rust/intellij-rust/pull/10119
+[#10580]: https://github.com/intellij-rust/intellij-rust/pull/10580
+[#10590]: https://github.com/intellij-rust/intellij-rust/pull/10590
+[#10593]: https://github.com/intellij-rust/intellij-rust/pull/10593
+[#10602]: https://github.com/intellij-rust/intellij-rust/pull/10602
+[#10604]: https://github.com/intellij-rust/intellij-rust/pull/10604
+[#10605]: https://github.com/intellij-rust/intellij-rust/pull/10605
+[#10607]: https://github.com/intellij-rust/intellij-rust/pull/10607
+[#10608]: https://github.com/intellij-rust/intellij-rust/pull/10608
+[#10613]: https://github.com/intellij-rust/intellij-rust/pull/10613
+[#10619]: https://github.com/intellij-rust/intellij-rust/pull/10619
+[#10620]: https://github.com/intellij-rust/intellij-rust/pull/10620
+[#10621]: https://github.com/intellij-rust/intellij-rust/pull/10621
+[#10622]: https://github.com/intellij-rust/intellij-rust/pull/10622
+[#10623]: https://github.com/intellij-rust/intellij-rust/pull/10623
+[#10628]: https://github.com/intellij-rust/intellij-rust/pull/10628
+[#10630]: https://github.com/intellij-rust/intellij-rust/pull/10630
+[#10631]: https://github.com/intellij-rust/intellij-rust/pull/10631
+[#10634]: https://github.com/intellij-rust/intellij-rust/pull/10634
+[#10635]: https://github.com/intellij-rust/intellij-rust/pull/10635
+[#10636]: https://github.com/intellij-rust/intellij-rust/pull/10636
+[#10637]: https://github.com/intellij-rust/intellij-rust/pull/10637
+[#10640]: https://github.com/intellij-rust/intellij-rust/pull/10640
+[#10641]: https://github.com/intellij-rust/intellij-rust/pull/10641
+
+[attribute]: https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros
+
+[E0557]: https://doc.rust-lang.org/error_codes/E0557.html
+[E0061]: https://doc.rust-lang.org/error_codes/E0061.html
