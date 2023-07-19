@@ -1,0 +1,110 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #199"
+date: 2023-07-24 13:00:00 +0300
+---
+
+
+## New Features
+
+* [#10692] Complete `fn` in type context
+
+* [#10691] Add completion for `fn main() { ... }`
+
+* [#10689] Complete chained iterator methods
+
+* [#10684] Permissive parsing for prefix/postfix operators
+
+* [#10681] Improve the error message when a user tries to inherit one struct from another (like `struct Foo: Bar {}`) which is not supported in Rust
+
+* [#10679] Show completion auto-popup when literal suffix is typed
+
+* [#10664] Added new inspection for when entry point is async E0752 (by [@ceronman])
+
+* [#10661] Permissive parsing for `impl` and `dyn` in type parameters bounds
+
+* [#10651] Show the value of the constant in the completion list
+
+* [#10650] Add `iter` alias for `for` live template
+
+* [#10648] Show `Unresolved Reference` error for type-independent paths
+
+* [#10647] Complete Cargo [instructions](https://doc.rust-lang.org/cargo/reference/build-scripts.html#outputs-of-the-build-script) in build scripts
+
+* [#10592] Add better support for path statements inspection and enable it by default
+
+* [#10436] - The "trait objects without dyn keyword" inspection raises an error in the 2021 edition, and a warning on 2018 (by [@DeoTimeTheGithubUser])
+
+## Fixes
+
+* [#10688] match negative numeric literals with `$l:literal` macro fragment spec
+
+* [#10686] Fix recently introduced i18n problems
+
+* [#10682] Complete `macro` live template only in item context
+
+* [#10680] COMP: Only complete float suffixes for literals in scientific notation
+
+* [#10678] Increase proc macro expansion timeout to 20 seconds, Improve error message in the case of too large macro expansion
+
+* [#10676] Fix name resolution inside a nested block under cfg attribute
+
+* [#10675] Improve error message for a non-expanded macro inside an impl block
+
+* [#10674] Fix dependency keys completion when another key exists before
+
+* [#10671] Fix bugs related to grammar error detection in Rust code using new API from [Grazie](https://plugins.jetbrains.com/plugin/12175-grazie-lite) plugin. Note, grammar error detection is disabled by default for now. You can enable it for Rust in `Scope` tab of `Preferences | Editor | Natural Languages | Grammar and Style` settings
+
+* [#10669] Normalize parameter values after substitution in struct pattern matching
+
+* [#10663] Don't add new line by smart enter action after `;` completion
+
+* [#10653] Use [E0403](https://doc.rust-lang.org/error_codes/E0403.html) instead of deprecated [E0263](https://doc.rust-lang.org/error_codes/E0263.html)
+
+* [#10645] Fix live templates suggestion in loop labels and other positions
+
+* [#10428] - The `add unsafe to function` quickfix is no longer raised when an unsafe call is made inside a test function, doctest main function, or in a implemented function where the parent trait function is not marked as unsafe. Suggests `Surround with unsafe block` instead.
+ - Fixes #10312
+ - Fixes #10183 (by [@DeoTimeTheGithubUser])
+
+## Internal Improvements
+
+* [#10670] Implement initial support for gdb debugging outside of CLion. Right now it's disabled by default and works only on Linux
+
+* [#10668] Extract hardcoded strings into a message bundle, allowing its future internationalization
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/108?closed=1)
+
+[@DeoTimeTheGithubUser]: https://github.com/DeoTimeTheGithubUser
+[@ceronman]: https://github.com/ceronman
+
+[#10428]: https://github.com/intellij-rust/intellij-rust/pull/10428
+[#10436]: https://github.com/intellij-rust/intellij-rust/pull/10436
+[#10592]: https://github.com/intellij-rust/intellij-rust/pull/10592
+[#10645]: https://github.com/intellij-rust/intellij-rust/pull/10645
+[#10647]: https://github.com/intellij-rust/intellij-rust/pull/10647
+[#10648]: https://github.com/intellij-rust/intellij-rust/pull/10648
+[#10650]: https://github.com/intellij-rust/intellij-rust/pull/10650
+[#10651]: https://github.com/intellij-rust/intellij-rust/pull/10651
+[#10653]: https://github.com/intellij-rust/intellij-rust/pull/10653
+[#10661]: https://github.com/intellij-rust/intellij-rust/pull/10661
+[#10663]: https://github.com/intellij-rust/intellij-rust/pull/10663
+[#10664]: https://github.com/intellij-rust/intellij-rust/pull/10664
+[#10668]: https://github.com/intellij-rust/intellij-rust/pull/10668
+[#10669]: https://github.com/intellij-rust/intellij-rust/pull/10669
+[#10670]: https://github.com/intellij-rust/intellij-rust/pull/10670
+[#10671]: https://github.com/intellij-rust/intellij-rust/pull/10671
+[#10674]: https://github.com/intellij-rust/intellij-rust/pull/10674
+[#10675]: https://github.com/intellij-rust/intellij-rust/pull/10675
+[#10676]: https://github.com/intellij-rust/intellij-rust/pull/10676
+[#10678]: https://github.com/intellij-rust/intellij-rust/pull/10678
+[#10679]: https://github.com/intellij-rust/intellij-rust/pull/10679
+[#10680]: https://github.com/intellij-rust/intellij-rust/pull/10680
+[#10681]: https://github.com/intellij-rust/intellij-rust/pull/10681
+[#10682]: https://github.com/intellij-rust/intellij-rust/pull/10682
+[#10684]: https://github.com/intellij-rust/intellij-rust/pull/10684
+[#10686]: https://github.com/intellij-rust/intellij-rust/pull/10686
+[#10688]: https://github.com/intellij-rust/intellij-rust/pull/10688
+[#10689]: https://github.com/intellij-rust/intellij-rust/pull/10689
+[#10691]: https://github.com/intellij-rust/intellij-rust/pull/10691
+[#10692]: https://github.com/intellij-rust/intellij-rust/pull/10692
