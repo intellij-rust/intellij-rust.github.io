@@ -7,27 +7,30 @@ date: 2023-07-24 13:00:00 +0300
 
 ## New Features
 
-* [#10692] Complete `fn` in type context
+* [#10648] Show `Unresolved Reference` error for type-independent paths
 
-* [#10691] Add completion for `fn main() { ... }`
+  TODO at least a screenshot
+
+* [#10692] Provide `fn` keyword completion in the type context
+
+* [#10691] Provide completion for `fn main() { ... }`
 
 * [#10689] Complete chained iterator methods
 
-* [#10684] Permissive parsing for prefix/postfix operators
+  TODO gif
 
-* [#10681] Improve the error message when a user tries to inherit one struct from another (like `struct Foo: Bar {}`) which is not supported in Rust
+* [#10684] Improve the error message when trying to use a prefix/postfix increment like `i++`
 
-* [#10679] Show completion auto-popup when literal suffix is typed
+* [#10681] Improve the error message when trying to inherit one struct from another -
+  a helpful reminder that Rust doesn't support inheritance like `struct Foo: Bar {}`
 
-* [#10664] Added new inspection for when entry point is async E0752 (by [@ceronman])
+* [#10664] Added new inspection for when entry point is async E0752
 
-* [#10661] Permissive parsing for `impl` and `dyn` in type parameters bounds
+* [#10661] Improve the error message when incorrectly using `impl` or `dyn` in type parameters bounds
 
 * [#10651] Show the value of the constant in the completion list
 
 * [#10650] Add `iter` alias for `for` live template
-
-* [#10648] Show `Unresolved Reference` error for type-independent paths
 
 * [#10647] Complete Cargo [instructions](https://doc.rust-lang.org/cargo/reference/build-scripts.html#outputs-of-the-build-script) in build scripts
 
@@ -37,15 +40,17 @@ date: 2023-07-24 13:00:00 +0300
 
 ## Fixes
 
-* [#10688] match negative numeric literals with `$l:literal` macro fragment spec
+* [#10679] Show completion auto-popup when literal suffix is typed
 
-* [#10686] Fix recently introduced i18n problems
+* [#10688] match negative numeric literals with `$l:literal` macro fragment spec
 
 * [#10682] Complete `macro` live template only in item context
 
 * [#10680] COMP: Only complete float suffixes for literals in scientific notation
 
-* [#10678] Increase proc macro expansion timeout to 20 seconds, Improve error message in the case of too large macro expansion
+* [#10678] Increase proc macro expansion timeout to 20 seconds
+
+* [#10678] Improve error message in the case of too large macro expansion
 
 * [#10676] Fix name resolution inside a nested block under cfg attribute
 
@@ -71,12 +76,11 @@ date: 2023-07-24 13:00:00 +0300
 
 * [#10670] Implement initial support for gdb debugging outside of CLion. Right now it's disabled by default and works only on Linux
 
-* [#10668] Extract hardcoded strings into a message bundle, allowing its future internationalization
+* [#10668], [#10686] Extract hardcoded strings into a message bundle, allowing its future internationalization
 
 Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/108?closed=1)
 
 [@DeoTimeTheGithubUser]: https://github.com/DeoTimeTheGithubUser
-[@ceronman]: https://github.com/ceronman
 
 [#10428]: https://github.com/intellij-rust/intellij-rust/pull/10428
 [#10436]: https://github.com/intellij-rust/intellij-rust/pull/10436
