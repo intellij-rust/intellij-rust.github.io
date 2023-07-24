@@ -7,7 +7,7 @@ date: 2023-07-24 13:00:00 +0300
 
 ## New Features
 
-* [#10648] Show `Unresolved Reference` error for type-independent paths
+* [#10648] Highlight `Unresolved Reference` error for type-independent paths
 
   <img src="/assets/posts/changelog-199/unresolved_reference.png" width="700px"/>
 
@@ -21,21 +21,15 @@ date: 2023-07-24 13:00:00 +0300
 
     {% include gif-img.html path="/assets/posts/changelog-199/cargo_instructions" w="600px" %}
 
-  * [#10651] Show the value of the constant in the completion list
+  * [#10651] Show the value of constants in the completion list
+
+    <img src="/assets/posts/changelog-199/constant-values.png" width="700px"/>
 
   * [#10692] Provide `fn` keyword completion in the type context
 
   * [#10691] Provide completion for `fn main() { ... }`
 
-* Macro expansion improvements:
-
-  * [#10678] Increase proc macro expansion timeout to 20 seconds
-
-  * [#10678] Improve error message in the case of too large macro expansion
-
-  * [#10675] Improve error message for a non-expanded macro inside an impl block
-
-* Improved error messages and new quick fixes:
+* Improved error messages and provide new quick fixes:
 
   * [#10684] When trying to use a prefix/postfix increment like `i++`
 
@@ -63,9 +57,17 @@ date: 2023-07-24 13:00:00 +0300
 
   * [#10682] Complete `macro` live template only in item context
 
-  * [#10680] Only complete float suffixes for literals in scientific notation
+  * [#10680] don't complete integer suffixes for literals in scientific notation
 
   * [#10674] Fix dependency keys completion when another key exists before
+
+* Macro expansion improvements:
+
+  * [#10678] Increase proc macro expansion timeout to 20 seconds
+
+  * [#10678] Improve error message in the case of too large macro expansion
+
+  * [#10675] Improve error message for a non-expanded macro inside an impl block
 
 * [#10653] Use [E0403](https://doc.rust-lang.org/error_codes/E0403.html) instead of deprecated [E0263](https://doc.rust-lang.org/error_codes/E0263.html)
 
@@ -81,7 +83,7 @@ date: 2023-07-24 13:00:00 +0300
 
 ## Internal Improvements
 
-* [#10670] Implement initial support for GDB debugging outside of CLion. Right now it's disabled by default and works only on Linux
+* [#10670] Implement initial support for GDB debugging outside CLion. Right now it's disabled by default and works only on Linux
 
 * [#10668], [#10686] Extract hardcoded strings into a message bundle, allowing its future internationalization
 
