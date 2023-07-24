@@ -9,72 +9,79 @@ date: 2023-07-24 13:00:00 +0300
 
 * [#10648] Show `Unresolved Reference` error for type-independent paths
 
-  TODO at least a screenshot
+  <img src="/assets/posts/changelog-199/unresolved_reference.png" width="700px"/>
 
-* [#10692] Provide `fn` keyword completion in the type context
+* Completion improvements:
 
-* [#10691] Provide completion for `fn main() { ... }`
+  * [#10689] Complete chained iterator methods
 
-* [#10689] Complete chained iterator methods
+    {% include gif-img.html path="/assets/posts/changelog-199/chained_iterators" w="600px" %}
 
-  TODO gif
+  * [#10647] Complete Cargo [instructions](https://doc.rust-lang.org/cargo/reference/build-scripts.html#outputs-of-the-build-script) in build scripts
 
-* [#10684] Improve the error message when trying to use a prefix/postfix increment like `i++`
+    {% include gif-img.html path="/assets/posts/changelog-199/cargo_instructions" w="600px" %}
 
-* [#10681] Improve the error message when trying to inherit one struct from another -
-  a helpful reminder that Rust doesn't support inheritance like `struct Foo: Bar {}`
+  * [#10651] Show the value of the constant in the completion list
 
-* [#10664] Added new inspection for when entry point is async E0752
+  * [#10692] Provide `fn` keyword completion in the type context
 
-* [#10661] Improve the error message when incorrectly using `impl` or `dyn` in type parameters bounds
+  * [#10691] Provide completion for `fn main() { ... }`
 
-* [#10651] Show the value of the constant in the completion list
+* Macro expansion improvements:
 
-* [#10650] Add `iter` alias for `for` live template
+  * [#10678] Increase proc macro expansion timeout to 20 seconds
 
-* [#10647] Complete Cargo [instructions](https://doc.rust-lang.org/cargo/reference/build-scripts.html#outputs-of-the-build-script) in build scripts
+  * [#10678] Improve error message in the case of too large macro expansion
 
-* [#10592] Add better support for path statements inspection and enable it by default
+  * [#10675] Improve error message for a non-expanded macro inside an impl block
 
-* [#10436] - The "trait objects without dyn keyword" inspection raises an error in the 2021 edition, and a warning on 2018 (by [@DeoTimeTheGithubUser])
+* Improved error messages and new quick fixes:
+
+  * [#10684] When trying to use a prefix/postfix increment like `i++`
+
+  * [#10661] When incorrectly using `impl` or `dyn` in type parameters bounds
+
+  * [#10681] When trying to inherit one struct from another - a helpful reminder that Rust doesn't support inheritance like `struct Foo: Bar {}`
+
+* [#10664] Add a new inspection for when the entry point of the program is marked as `async` ([E0752](https://doc.rust-lang.org/error_codes/E0752.html))
+
+* [#10592] Add better support for the [`Path statements`](https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#path-statements) inspection and enable it by default
+
+* [#10650] Add `iter` alias for `for` [live template](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#live-templates)
+
+* [#10436] - Now the `Trait objects must include the dyn keyword` inspection raises an error in the 2021 edition, and a warning on 2018 (by [@DeoTimeTheGithubUser])
 
 ## Fixes
 
-* [#10679] Show completion auto-popup when literal suffix is typed
-
-* [#10688] match negative numeric literals with `$l:literal` macro fragment spec
-
-* [#10682] Complete `macro` live template only in item context
-
-* [#10680] COMP: Only complete float suffixes for literals in scientific notation
-
-* [#10678] Increase proc macro expansion timeout to 20 seconds
-
-* [#10678] Improve error message in the case of too large macro expansion
-
-* [#10676] Fix name resolution inside a nested block under cfg attribute
-
-* [#10675] Improve error message for a non-expanded macro inside an impl block
-
-* [#10674] Fix dependency keys completion when another key exists before
-
 * [#10671] Fix bugs related to grammar error detection in Rust code using new API from [Grazie](https://plugins.jetbrains.com/plugin/12175-grazie-lite) plugin. Note, grammar error detection is disabled by default for now. You can enable it for Rust in `Scope` tab of `Preferences | Editor | Natural Languages | Grammar and Style` settings
 
-* [#10669] Normalize parameter values after substitution in struct pattern matching
+* Completion fixes:
 
-* [#10663] Don't add new line by smart enter action after `;` completion
+  * [#10679] Show completion auto-popup when literal suffix is typed
+
+  * [#10663] Don't add new line by smart enter action after `;` completion
+
+  * [#10682] Complete `macro` live template only in item context
+
+  * [#10680] Only complete float suffixes for literals in scientific notation
+
+  * [#10674] Fix dependency keys completion when another key exists before
 
 * [#10653] Use [E0403](https://doc.rust-lang.org/error_codes/E0403.html) instead of deprecated [E0263](https://doc.rust-lang.org/error_codes/E0263.html)
 
+* [#10676] Fix name resolution inside a nested block under a `cfg` attribute
+
 * [#10645] Fix live templates suggestion in loop labels and other positions
 
-* [#10428] - The `add unsafe to function` quickfix is no longer raised when an unsafe call is made inside a test function, doctest main function, or in a implemented function where the parent trait function is not marked as unsafe. Suggests `Surround with unsafe block` instead.
- - Fixes #10312
- - Fixes #10183 (by [@DeoTimeTheGithubUser])
+* [#10669] Fix type inference in case of struct pattern matching
+
+* [#10688] Match negative numeric literals with `$l:literal` macro fragment spec
+
+* [#10428] Suggest `Surround with unsafe block` quick fix instead of `Add unsafe to function` for an unsafe call in some cases (e.g. inside a test function, main function, etc.) (by [@DeoTimeTheGithubUser])
 
 ## Internal Improvements
 
-* [#10670] Implement initial support for gdb debugging outside of CLion. Right now it's disabled by default and works only on Linux
+* [#10670] Implement initial support for GDB debugging outside of CLion. Right now it's disabled by default and works only on Linux
 
 * [#10668], [#10686] Extract hardcoded strings into a message bundle, allowing its future internationalization
 
