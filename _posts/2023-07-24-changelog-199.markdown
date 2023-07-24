@@ -43,7 +43,7 @@ date: 2023-07-24 13:00:00 +0300
 
 * [#10650] Add `iter` alias for `for` [live template](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-code-generation.html#live-templates)
 
-* [#10436] - Now the `Trait objects must include the dyn keyword` inspection raises an error in the 2021 edition, and a warning on 2018 (by [@DeoTimeTheGithubUser])
+* [#10436] Now the `Trait objects must include the dyn keyword` inspection raises an error in the 2021 edition, and a warning on 2018 (by [@DeoTimeTheGithubUser])
 
 ## Fixes
 
