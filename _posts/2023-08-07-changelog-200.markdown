@@ -1,0 +1,96 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #200"
+date: 2023-08-07 13:00:00 +0300
+---
+
+
+## New Features
+
+* Add [Code Vision hints](https://www.jetbrains.com/help/rider/Code_Vision.html)
+
+  * [#10763] Usages hints for some top-level items
+
+  * [#10756] VCS hints
+
+  * [#9958] Implementations (inheritors) hints. Note, these hints are available starting with 2022.3 and are currently disabled by default. You can turn it on via `Registry... | org.rust.code.vision.implementation` (by [@Kobzol])
+
+  <img src="/assets/posts/changelog-200/code_vision.png" width="700px"/>
+
+* [#10744] Improve completion of `if` and `match` keywords
+
+  {% include gif-img.html path="/assets/posts/changelog-200/match" w="350px" %}
+
+* [#10718] Add macro expansion to quick documentation on hover
+
+* [#10729] Add quick fix for printing struct which doesn't implement `Debug` or `Display`
+
+* [#9424] The intention to convert a match expression to a series of if let statements is now offered in more situations (by [@Kobzol])
+
+* [#10716] Respect `CARGO_HOME` env variable when looking for Rust toolchain
+
+* [#10739] Support inspection "Unused must_use" for `impl Trait`
+
+* [#10714] Support [`c_str_literal` feature](https://rust-lang.github.io/rfcs/3348-c-str-literal.html)
+
+* [#10726] Add inspection to replace `therad_rng().gen()` to `random()` from [`rand`](https://docs.rs/rand/latest/rand/) crate
+
+## Fixes
+
+* [#10760] Adjust intellisense file size limit for Rust files. This fixes expansion of macros from [`swc`](https://github.com/swc-project/swc)
+
+* [#10755] Implement `impl`s search for an alias of alias and for a use alias
+
+* [#10749] Fix expansion of macro in pattern binding position
+
+* [#10748] Fix type inference for macro expanded to closure
+
+* [#10721] Consider trait bounds when performing dereference
+
+* [#10720] Fix resolve of an associated type pointed to an enum variant
+
+* [#10719] Fix Cargo tool window initialization on 2023.3
+
+* [#10706] Fix handling of stdlib dependencies on 1.72.0-beta
+
+* [#10702] Don't show integer literal suffix completion if the literal already contains a suffix
+
+* [#10685] Support multiple `build.target` values in `.cargo/config.toml` (by [@mryall-mawson])
+
+* [#10762] Remove `unused_qualifications` lint from `unused` group, change level to `WEAK WARNING`
+
+## Internal Improvements
+
+* [#10708] Make 2023.2 the default platform for development
+
+* [#10705] Merge `toml` module source into the main module
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/109?closed=1)
+
+[@Kobzol]: https://github.com/Kobzol
+[@mryall-mawson]: https://github.com/mryall-mawson
+
+[#9424]: https://github.com/intellij-rust/intellij-rust/pull/9424
+[#9958]: https://github.com/intellij-rust/intellij-rust/pull/9958
+[#10685]: https://github.com/intellij-rust/intellij-rust/pull/10685
+[#10702]: https://github.com/intellij-rust/intellij-rust/pull/10702
+[#10705]: https://github.com/intellij-rust/intellij-rust/pull/10705
+[#10706]: https://github.com/intellij-rust/intellij-rust/pull/10706
+[#10708]: https://github.com/intellij-rust/intellij-rust/pull/10708
+[#10714]: https://github.com/intellij-rust/intellij-rust/pull/10714
+[#10716]: https://github.com/intellij-rust/intellij-rust/pull/10716
+[#10718]: https://github.com/intellij-rust/intellij-rust/pull/10718
+[#10719]: https://github.com/intellij-rust/intellij-rust/pull/10719
+[#10720]: https://github.com/intellij-rust/intellij-rust/pull/10720
+[#10721]: https://github.com/intellij-rust/intellij-rust/pull/10721
+[#10726]: https://github.com/intellij-rust/intellij-rust/pull/10726
+[#10729]: https://github.com/intellij-rust/intellij-rust/pull/10729
+[#10739]: https://github.com/intellij-rust/intellij-rust/pull/10739
+[#10744]: https://github.com/intellij-rust/intellij-rust/pull/10744
+[#10748]: https://github.com/intellij-rust/intellij-rust/pull/10748
+[#10749]: https://github.com/intellij-rust/intellij-rust/pull/10749
+[#10755]: https://github.com/intellij-rust/intellij-rust/pull/10755
+[#10756]: https://github.com/intellij-rust/intellij-rust/pull/10756
+[#10760]: https://github.com/intellij-rust/intellij-rust/pull/10760
+[#10762]: https://github.com/intellij-rust/intellij-rust/pull/10762
+[#10763]: https://github.com/intellij-rust/intellij-rust/pull/10763
