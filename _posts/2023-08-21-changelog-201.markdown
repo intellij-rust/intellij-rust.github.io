@@ -1,0 +1,16 @@
+---
+layout: post
+title: "IntelliJ Rust Changelog #201"
+date: 2023-08-21 13:00:00 +0300
+---
+
+
+## Fixes
+
+* [#10790] Fix bugs related to quick fixes of printing of structs with neither display nor debug trait implemented (by [@LebedevEA])
+
+Full set of changes can be found [here](https://github.com/intellij-rust/intellij-rust/milestone/110?closed=1)
+
+[@LebedevEA]: https://github.com/LebedevEA
+
+[#10790]: https://github.com/intellij-rust/intellij-rust/pull/10790
